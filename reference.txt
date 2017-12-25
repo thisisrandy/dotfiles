@@ -1,0 +1,98 @@
+## General
+
+C-o - go back to last point. in insert mode, issue command without leaving insert
+C-i - jump forward
+:(v)s(plit) - split window (vertically) :sp and :vs also acceptable
+:only - close all splits but this one
+C-w + direction - navigate between splits
+:tabe - open new tab. NOTE: Use tabs as VIEWPORTS, not in place of buffers
+:tab[np] - next/previous tab
+:tabonly - close all tabs but this one
+:qa - close all tabs at once (or :wqa to write as well)
+a - append after cursor (as opposed to i)
+o - new line under
+O - new line over
+^ - go to start of line
+$ - got to end of line
+:shell - open shell (exit to return to vim)
+@: - repeat previous command (and then @@ for subsequent completions)
+gg - top of file
+G - end of file
+= - indent command. gg=G to indent whole file
+:b[next|previous] - next/previous buffer
+:[ls|buffers|files] - show all buffers/files
+:b(uffer) N - go to buffer N ("uffer" is unnecessary). alternately, tab to cycle through buf names
+:bd N|<file> - delete buffer
+\[cC] - change search/search-replace to case insensitive (c) and sensitive (C).
+	note that ignorecase/smartcase are on
+[uU] - in visual mode, change to lower/upper case
+>> - indent, e.g. 3>>.. to indent 3 lines 3 times (. repeats action)
+<< - unindent
+dd - delete line
+:<num> - go to line <num>
+q: - command history (from normal mode). can use / and ? to search in history 
+C-r" - paste yanked test in command mode, e.g. for search
+C-] - go to label in docs
+
+## Folding
+<space> - za (open/close fold)
+zM - close all folds. zm for reduce folding level
+zR - open all folds. zr for increase folding level
+
+## Search/replace
+
+:%s/foo/bar/ - whole file
+:s/foo/bar/ - current line
+tags:
+   g - global
+   c - confirmation
+   [iI] - case (in)sensitive
+
+## YouCompleteMe
+
+TAB - accept completion. continue pressing or shift-TAB to cycle back and forth
+C-space - trigger completion suggestion from anywhere
+space-g - goto
+space-r - references
+space-d - docs
+
+## syntastic (pylint, flake8, etc.)
+
+runs on file write
+note that for virtualenv to work, pylint must be installed in the virtualenv
+
+:SyntasticCheck [checker+] - run a default check or with specified checkers, e.g. pylint
+:Errors - show errors (in location list)
+:lclose - close locations list
+
+## Pyunit (vim-pyunit) - REMOVED (incompatible?)
+
+F8 - run nose tests
+
+## NERDTree
+
+C-n - open. see internal help for other mappings
+
+## Ctrl-P
+
+C-P - search in current dir
+:CtrlP <dir> - to search in a another dir
+Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
+Press <c-f> and <c-b> to cycle between modes.
+Press <c-d> to switch to filename only search instead of full path.
+Press <c-r> to switch to regexp mode.
+Use <c-j>, <c-k> or the arrow keys to navigate the result list.
+Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
+Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
+Use <c-y> to create a new file and its parent directories.
+Use <c-z> to mark/unmark multiple files and <c-o> to open them.
+
+## vim-fugitive (git)
+
+G<git command> - issue git command from within vim
+
+## Conque Shell (see http://www.vim.org/scripts/script.php?script_id=2771)
+
+:ConqueTerm <command> - to start any command, e.g. bash
+<esc> - send escape to enter normal mode. slight delay
+<esc><esc> - send single <esc> to terminal
