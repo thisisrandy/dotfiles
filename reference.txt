@@ -33,6 +33,10 @@ dd - delete line
 q: - command history (from normal mode). can use / and ? to search in history 
 C-r" - paste yanked test in command mode, e.g. for search
 C-] - go to label in docs
+:! <command> - run shell command. use % as current file placeholder, e.g. :! wc %
+               also works in visual mode
+:r <file> - read file into buffer
+:r ! <command> - read command output into buffer
 
 ## Folding
 <space> - za (open/close fold)
@@ -96,3 +100,19 @@ G<git command> - issue git command from within vim
 :ConqueTerm <command> - to start any command, e.g. bash
 <esc> - send escape to enter normal mode. slight delay
 <esc><esc> - send single <esc> to terminal
+
+## xml-plugin
+
+% -jump between '<' and '>' within the tag your cursor is in.
+> - when finishing a tag, complete it
+>> - when finishing a tag, complete it and place the cursor in the middle
+
+## django.vim
+
+:setfiletype (html)django - for django syntax highlighting in with/without html highlighting
+
+## NERDCommenter
+
+[count]<leader>c<space> - toggle comment state of selected lines
+[count]<leader>cc - comment
+[count]<leader>cu - uncomment
