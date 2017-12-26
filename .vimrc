@@ -12,6 +12,11 @@ syntax on
 colorscheme zenburn 
 set number
 
+" Tabs
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
 " Search
 set ignorecase
 set smartcase
@@ -53,17 +58,46 @@ set rtp+=/home/randy/miniconda3/lib/python3.6/site-packages/powerline/bindings/v
 set laststatus=2
 set t_Co =256
 
-"" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" syntastic
+" note the following conflict with powerline, so disabling for now
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_jump = 3
 let g:syntastic_python_checkers = ["pylint"]
 " let g:syntastic_python_checkers = ["flake8"]
 let g:syntastic_sort_aggregated_errors = 1
 
+" ultisnips
+" Trigger configuration. Do not use <tab> if you use YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetsDir="~/.vim/bundle/vim-snippets/UltiSnips"
+
+" xml-plugin
+let g:xmledit_enable_html=1
+
+" NERDcommenter
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 0 
+
+" " Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code
+" indentation
+let g:NERDDefaultAlign = 'left'
+
+" Allow commenting and inverting empty lines (useful when commenting a
+" region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
