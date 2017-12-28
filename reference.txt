@@ -5,6 +5,7 @@ C-i - jump forward
 :(v)s(plit) - split window (vertically) :sp and :vs also acceptable
 :only - close all splits but this one
 C-w + direction - navigate between splits
+C-w + r - swap splits
 :tabe - open new tab. NOTE: Use tabs as VIEWPORTS, not in place of buffers
 :tab[np] - next/previous tab
 :tabonly - close all tabs but this one
@@ -116,3 +117,7 @@ G<git command> - issue git command from within vim
 [count]<leader>c<space> - toggle comment state of selected lines
 [count]<leader>cc - comment
 [count]<leader>cu - uncomment
+
+## vim-windowswap
+
+<leader>ww in current pane, <leader>ww in swap to pane to swap
