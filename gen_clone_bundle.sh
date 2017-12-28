@@ -14,11 +14,10 @@ fi
 echo "cd $bundle_dir" >> $clone_script
 for dir in $bundle_dir/*; do
     if [ -d $dir/.git ]; then
-        pushd $dir > /dev/null 2>&1
+        cd $dir
         git remote show origin \
             | perl -ne 'print "git clone $1\n" if /Fetch URL: (.*\.git)$/' \
             >> $clone_script
-        popd > /dev/null 2>&1
     else
         echo $dir | sed 's/.*\///' >> $non_git_bundle
     fi
