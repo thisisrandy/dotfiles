@@ -38,6 +38,7 @@ C-] - go to label in docs
                also works in visual mode
 :r <file> - read file into buffer
 :r ! <command> - read command output into buffer
+:[nvi]map - see key mappings
 
 ## Folding
 <space> - za (open/close fold)
@@ -57,9 +58,10 @@ tags:
 
 TAB - accept completion. continue pressing or shift-TAB to cycle back and forth
 C-space - trigger completion suggestion from anywhere
-space-g - goto
-space-r - references
-space-d - docs
+<leader>-g - goto
+<leader>-f - goto declaration
+<leader>-r - references
+<leader>-d - docs
 
 ## syntastic (pylint, flake8, etc.)
 

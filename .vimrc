@@ -37,6 +37,7 @@ nnoremap <space> za
 " YouCompleteMe settings
 " let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoTo<CR>
+map <leader>f  :YcmCompleter GoToDeclaration<CR>
 map <leader>r  :YcmCompleter GoToReferences<CR>
 map <leader>d  :YcmCompleter GetDoc<CR>
 
