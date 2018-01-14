@@ -25,7 +25,7 @@ set smartcase
 " See https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
 
 " set foldmethod=syntax
-set foldlevel=1 " fold below top level on file open
+set foldlevel=99 " don't fold on file open 
 let g:SimpylFold_docstring_preview=1
 
 " Enable folding with the spacebar

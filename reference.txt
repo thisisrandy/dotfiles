@@ -39,6 +39,7 @@ C-] - go to label in docs
 :r <file> - read file into buffer
 :r ! <command> - read command output into buffer
 :[nvi]map - see key mappings
+gx - go to url under cursor (kind of broken, but in a pinch)
 
 ## Folding
 <space> - za (open/close fold)
