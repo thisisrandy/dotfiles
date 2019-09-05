@@ -1,5 +1,11 @@
 ## General
 
+i - insert mode
+v - visual (select text) mode
+ESC - exit i/v mode
+u - undo
+y/d - copy/delete in visual mode
+P/p - paste before/after cursor
 C-o - go back to last point. in insert mode, issue command without leaving insert
 C-i - jump forward
 :(v)s(plit) - split window (vertically) :sp and :vs also acceptable
