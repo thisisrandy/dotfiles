@@ -1,7 +1,9 @@
 ## General
 
+NOTE: <leader> is \ by default, and C- means Ctrl+
+
 i - insert mode
-v - visual (select text) mode
+(C-)v - visual (block) mode
 ESC - exit i/v mode
 u - undo
 y/d - copy/delete in visual mode
