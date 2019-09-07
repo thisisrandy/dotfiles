@@ -63,6 +63,8 @@ tags:
    c - confirmation
    [iI] - case (in)sensitive
 
+Note that + in regex must be escaped, e.g. \d\+, not \d+
+
 ## YouCompleteMe
 
 TAB - accept completion. continue pressing or shift-TAB to cycle back and forth
