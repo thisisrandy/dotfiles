@@ -102,3 +102,6 @@ let g:NERDCommentEmptyLines = 1
 
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
+
+" Allows buffer switching without writing. Also for scratch.vim
+set hidden

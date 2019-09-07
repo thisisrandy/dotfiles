@@ -115,7 +115,7 @@ G<git command> - issue git command from within vim
 
 ## xml-plugin
 
-% -jump between '<' and '>' within the tag your cursor is in.
+% - jump between '<' and '>' within the tag your cursor is in.
 > - when finishing a tag, complete it
 >> - when finishing a tag, complete it and place the cursor in the middle
 
@@ -132,3 +132,9 @@ G<git command> - issue git command from within vim
 ## vim-windowswap
 
 <leader>ww in current pane, <leader>ww in swap to pane to swap
+
+## scratch.vim
+
+:Scratch - open in normal mode
+gs - normal mode: insert in scratch buffer. visual: paste
+gS - same as gs, but clear scratch first

@@ -4,12 +4,16 @@ git clone https://github.com/vim-scripts/django.vim.git
 git clone https://github.com/Konfekt/FastFold.git
 git clone https://github.com/scrooloose/nerdcommenter.git
 git clone https://github.com/scrooloose/nerdtree.git
+git clone https://github.com/mtth/scratch.vim
 git clone https://github.com/tmhedberg/SimpylFold.git
 git clone https://github.com/vim-syntastic/syntastic.git
 git clone https://github.com/SirVer/ultisnips.git
+git clone https://github.com/altercation/vim-colors-solarized
 git clone https://github.com/tpope/vim-fugitive.git
 git clone https://github.com/Vimjas/vim-python-pep8-indent.git
 git clone git://github.com/tpope/vim-sensible.git
 git clone https://github.com/honza/vim-snippets.git
+git clone https://github.com/wesQ3/vim-windowswap
 git clone https://github.com/sukima/xmledit.git
 git clone https://github.com/Valloric/YouCompleteMe.git
+git clone https://github.com/jnurmine/Zenburn

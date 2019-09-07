@@ -16,7 +16,7 @@ for dir in $bundle_dir/*; do
     if [ -d $dir/.git ]; then
         cd $dir
         git remote show origin \
-            | perl -ne 'print "git clone $1\n" if /Fetch URL: (.*\.git)$/' \
+            | perl -ne 'print "git clone $1\n" if /Fetch URL: (.*github.*)$/' \
             >> $clone_script
     else
         echo $dir | sed 's/.*\///' >> $non_git_bundle
