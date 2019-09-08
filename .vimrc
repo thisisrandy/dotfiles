@@ -105,3 +105,7 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " Allows buffer switching without writing. Also for scratch.vim
 set hidden
+
+" Shortcuts for copy/paste to clipboard
+noremap <Leader>y "+y
+noremap <Leader>p "+p
