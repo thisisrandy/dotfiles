@@ -6,7 +6,7 @@ i - insert mode
 (C-)v - visual (block) mode
 ESC - exit i/v mode
 u - undo
-y/d - copy/delete in visual mode
+y/d - copy/delete in visual mode (yy/dd for line in normal mode)
 P/p - paste before/after cursor
 C-o - go back to last point. in insert mode, issue command without leaving insert
 C-i - jump forward
