@@ -1,6 +1,7 @@
 #!/bin/bash
 
 bundle_dir="$HOME/.vim/bundle"
+bundle_dir_generic="~/.vim/bundle"
 clone_script="$PWD/clone_bundle.sh"
 non_git_bundle="$PWD/non_git_bundle.txt"
 
@@ -11,7 +12,7 @@ if [ -e $non_git_bundle ]; then
     rm -f $non_git_bundle
 fi
 
-echo "cd $bundle_dir" >> $clone_script
+echo "cd $bundle_dir_generic" >> $clone_script
 for dir in $bundle_dir/*; do
     if [ -d $dir/.git ]; then
         cd $dir

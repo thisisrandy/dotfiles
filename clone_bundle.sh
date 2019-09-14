@@ -1,4 +1,4 @@
-cd /home/randy/.vim/bundle
+cd ~/.vim/bundle
 git clone https://github.com/ctrlpvim/ctrlp.vim.git
 git clone https://github.com/vim-scripts/django.vim.git
 git clone https://github.com/Konfekt/FastFold.git
