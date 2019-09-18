@@ -3,7 +3,9 @@
 NOTE: <leader> is \ by default, and C- means Ctrl+
 
 i - insert mode
+a - append after cursor (as opposed to i)
 (C-)v - visual (block) mode
+V - select current line
 ESC - exit i/v mode
 u - undo
 C-r - redo
@@ -19,7 +21,6 @@ C-w + r - swap splits
 :tab[np] - next/previous tab
 :tabonly - close all tabs but this one
 :qa - close all tabs at once (or :wqa to write as well)
-a - append after cursor (as opposed to i)
 o - new line under
 O - new line over
 ^ - go to start of line
@@ -49,6 +50,8 @@ C-] - go to label in docs
 :r ! <command> - read command output into buffer
 :[nvi]map - see key mappings
 gx - go to url under cursor (kind of broken, but in a pinch)
+* - search for word under cursor. g* is partial match
+:noh - remove highlighting, e.g. from *
 
 ## Folding
 <space> - za (open/close fold)
@@ -66,7 +69,7 @@ tags:
 
 Note that + in regex must be escaped, e.g. \d\+, not \d+
 
-## YouCompleteMe
+## YouCompleteMe (removed, conflict with coc.vim)
 
 TAB - accept completion. continue pressing or shift-TAB to cycle back and forth
 C-space - trigger completion suggestion from anywhere
@@ -74,6 +77,14 @@ C-space - trigger completion suggestion from anywhere
 <leader>-f - goto declaration
 <leader>-r - references
 <leader>-d - docs
+
+## coc.vim
+
+See init.vim
+
+## denite
+
+See init.vim
 
 ## syntastic (pylint, flake8, etc.)
 
