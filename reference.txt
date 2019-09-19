@@ -80,11 +80,33 @@ C-space - trigger completion suggestion from anywhere
 
 ## coc.vim
 
-See init.vim
+gd - go to definition
+gy - go to type definition
+gi - go to implementation
+gr - look up references
+K - show documentation
+<leader>rn - rename current word
+<leader>f - format selection/file
+<leader>c - show commands
 
 ## denite
 
-See init.vim
+; - Browser currently open buffers
+<leader>t - Browse list of files in current directory
+<leader>g - Search current directory for occurences of given term and close window if no results
+<leader>j - Search current directory for occurences of word under cursor
+
+In filter mode:
+<C-o> - Switch to normal mode inside of search results (fuzzy matching)
+<Esc> - Exit denite window in any mode
+<CR> - Open currently selected file in any mode
+
+<CR> - Opens currently selected file
+q or <Esc>  - Quit Denite window
+d - Delete currenly selected file (just the buffer)
+p - Preview currently selected file
+<C-o> or i  - Switch to insert mode inside of filter prompt
+
 
 ## syntastic (pylint, flake8, etc.)
 
@@ -102,6 +124,7 @@ F8 - run nose tests
 ## NERDTree
 
 C-n - open. see internal help for other mappings
+C-f - find current file in tree
 
 ## Ctrl-P
 
