@@ -90,6 +90,10 @@ K - show documentation
 :Prettier - format buffer
 <leader>c - show commands
 
+<TAB> - snippet completion
+<C-n> - next completion. allows use without snippet, e.g. for refering to functions
+        instead of function calls
+
 ## denite
 
 ; - Browser currently open buffers
@@ -176,3 +180,13 @@ G<git command> - issue git command from within vim
 :Scratch - open in normal mode
 gs - normal mode: insert in scratch buffer. visual: paste
 gS - same as gs, but clear scratch first
+
+## vim-easymotion
+
+s - type 2 chars to find, then label or ESC
+<leader>j - lines below 
+<leader>k - lines above
+
+## lh-brackets
+C-j - jump to mark
+

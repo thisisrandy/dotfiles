@@ -12,6 +12,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'mtth/scratch.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'shougo/denite.nvim'
+Plug 'LucHermitte/lh-vim-lib'
+Plug 'LucHermitte/lh-brackets'
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
@@ -46,41 +49,43 @@ set hidden
 set clipboard=unnamed
 
 " <leader>h - Find and replace
-" <leader>/ - Claer highlighted search terms while preserving history
+" <leader>/ - Clear highlighted search terms while preserving history
 nmap <leader>h :%s///<left><left>
 vmap <leader>h :s///<left><left>
 nmap <silent> <leader>/ :nohlsearch<CR>
 
 " make line wrapping nicer
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
-function ToggleWrap()
-  if &wrap
-    echo "Wrap OFF"
-    setlocal nowrap
-    set virtualedit=all
-    silent! nunmap <buffer> <Up>
-    silent! nunmap <buffer> <Down>
-    silent! nunmap <buffer> <Home>
-    silent! nunmap <buffer> <End>
-    silent! iunmap <buffer> <Up>
-    silent! iunmap <buffer> <Down>
-    silent! iunmap <buffer> <Home>
-    silent! iunmap <buffer> <End>
-  else
-    echo "Wrap ON"
-    setlocal wrap linebreak nolist
-    set virtualedit=
-    setlocal display+=lastline
-    noremap  <buffer> <silent> <Up>   gk
-    noremap  <buffer> <silent> <Down> gj
-    noremap  <buffer> <silent> <Home> g<Home>
-    noremap  <buffer> <silent> <End>  g<End>
-    inoremap <buffer> <silent> <Up>   <C-o>gk
-    inoremap <buffer> <silent> <Down> <C-o>gj
-    inoremap <buffer> <silent> <Home> <C-o>g<Home>
-    inoremap <buffer> <silent> <End>  <C-o>g<End>
-  endif
-endfunction
+if !exists("*ToggleWrap")
+  function ToggleWrap()
+    if &wrap
+      echo "Wrap OFF"
+      setlocal nowrap
+      set virtualedit=all
+      silent! nunmap <buffer> <Up>
+      silent! nunmap <buffer> <Down>
+      silent! nunmap <buffer> <Home>
+      silent! nunmap <buffer> <End>
+      silent! iunmap <buffer> <Up>
+      silent! iunmap <buffer> <Down>
+      silent! iunmap <buffer> <Home>
+      silent! iunmap <buffer> <End>
+    else
+      echo "Wrap ON"
+      setlocal wrap linebreak nolist
+      set virtualedit=
+      setlocal display+=lastline
+      noremap  <buffer> <silent> <Up>   gk
+      noremap  <buffer> <silent> <Down> gj
+      noremap  <buffer> <silent> <Home> g<Home>
+      noremap  <buffer> <silent> <End>  g<End>
+      inoremap <buffer> <silent> <Up>   <C-o>gk
+      inoremap <buffer> <silent> <Down> <C-o>gj
+      inoremap <buffer> <silent> <Home> <C-o>g<Home>
+      inoremap <buffer> <silent> <End>  <C-o>g<End>
+    endif
+  endfunction
+endif
 
 """ NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -115,7 +120,7 @@ let g:NERDTrimTrailingWhitespace = 1
 
 """ coc.nvim
 " :ConInstall to install language extensions
-" Extensions: coc-json, coc-eslint, coc-tsserver
+" Extensions: coc-json, coc-eslint, coc-tsserver, coc-snippets
 " :CocConfig to open config file
 
 " correct comment highlighting for config file
@@ -137,18 +142,20 @@ set shortmess+=c
 " always show signcolumns
 set signcolumn=yes
 
-" Use tab for trigger completion with characters ahead and navigate.
+" Use tab for trigger completion, completion confirm, snippet expand and jump like VSCode.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+let g:coc_snippet_next = '<tab>'
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -175,6 +182,9 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 " Whole buffer
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" Format on save
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
 
 augroup mygroup
   autocmd!
@@ -276,3 +286,26 @@ function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <C-o>
   \ denite#do_map('open_filter_buffer')
 endfunction
+
+""" vim-easymotion
+" Disable default mappings
+let g:EasyMotion_do_mapping = 0 
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+" nmap s <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+""" lh-brackets
+" delete marks on C-j, which itself jumps to the mark
+let g:marker_select_empty_marks = 0
