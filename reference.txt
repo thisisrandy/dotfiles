@@ -86,7 +86,8 @@ gi - go to implementation
 gr - look up references
 K - show documentation
 <leader>rn - rename current word
-<leader>f - format selection/file
+<leader>f - format selection 
+:Prettier - format buffer
 <leader>c - show commands
 
 ## denite

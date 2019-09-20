@@ -142,6 +142,8 @@ nmap <leader>rn <Plug>(coc-rename)
 " Remap for format selected region
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+" Whole buffer
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 augroup mygroup
   autocmd!
