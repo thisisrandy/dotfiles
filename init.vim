@@ -12,8 +12,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'mtth/scratch.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'shougo/denite.nvim'
-Plug 'LucHermitte/lh-vim-lib'
-Plug 'LucHermitte/lh-brackets'
+Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
 
 call plug#end()
@@ -162,6 +161,9 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gn <Plug>(coc-diagnostic-next)
+nmap <silent> gp <Plug>(coc-diagnostic-prev)
+nmap <silent> ge <Plug>(coc-diagnostic-next-error)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -182,6 +184,8 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 " Whole buffer
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" Alternate whole buffer format if prettier not available
+nmap <leader>b  <Plug>(coc-format)
 " Format on save
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
@@ -306,6 +310,3 @@ let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
-""" lh-brackets
-" delete marks on C-j, which itself jumps to the mark
-let g:marker_select_empty_marks = 0

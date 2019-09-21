@@ -1,11 +1,11 @@
 ## General
 
-NOTE: <leader> is \ by default, and C- means Ctrl+
+NOTE: I have <leader> mapped to <space>, and C- means Ctrl+
 
 i - insert mode
 a - append after cursor (as opposed to i)
 (C-)v - visual (block) mode
-V - select current line
+V - visual line mode 
 ESC - exit i/v mode
 u - undo
 C-r - redo
@@ -23,13 +23,14 @@ C-w + r - swap splits
 :qa - close all tabs at once (or :wqa to write as well)
 o - new line under
 O - new line over
-^ - go to start of line
+^ - go to start of line (text)
+0 - go to start of line (absolute)
 $ - got to end of line
-:shell - open shell (exit to return to vim)
+:te[rminal] - open shell/terminal (exit to return to vim)
 @: - repeat previous command (and then @@ for subsequent completions)
 gg - top of file
 G - end of file
-= - indent command. gg=G to indent whole file
+= - indent command. gg=G to indent whole file. NOTE: better to use language server
 :b[next|previous] - next/previous buffer
 :[ls|buffers|files] - show all buffers/files
 :b(uffer) N - go to buffer N ("uffer" is unnecessary). alternately, tab to cycle through buf names
@@ -51,10 +52,10 @@ C-] - go to label in docs
 :[nvi]map - see key mappings
 gx - go to url under cursor (kind of broken, but in a pinch)
 * - search for word under cursor. g* is partial match
-:noh - remove highlighting, e.g. from *
+:noh - remove highlighting, e.g. from *. slightly different version mapped to <leader>/
 
 ## Folding
-<space> - za (open/close fold)
+<space>za (open/close fold)
 zM - close all folds. zm for reduce folding level
 zR - open all folds. zr for increase folding level
 
@@ -69,30 +70,26 @@ tags:
 
 Note that + in regex must be escaped, e.g. \d\+, not \d+
 
-## YouCompleteMe (removed, conflict with coc.vim)
-
-TAB - accept completion. continue pressing or shift-TAB to cycle back and forth
-C-space - trigger completion suggestion from anywhere
-<leader>-g - goto
-<leader>-f - goto declaration
-<leader>-r - references
-<leader>-d - docs
-
 ## coc.vim
 
 gd - go to definition
 gy - go to type definition
 gi - go to implementation
 gr - look up references
+gn - go to next diagnostic message
+gp - go to previous diagnostic message
+ge - go to next error position, i.e. skip warnings, etc.
 K - show documentation
 <leader>rn - rename current word
 <leader>f - format selection 
 :Prettier - format buffer
+<leader>b - alternate format buffer
 <leader>c - show commands
 
 <TAB> - snippet completion
 <C-n> - next completion. allows use without snippet, e.g. for refering to functions
         instead of function calls
+<C-p> - previous completion
 
 ## denite
 
@@ -112,42 +109,47 @@ d - Delete currenly selected file (just the buffer)
 p - Preview currently selected file
 <C-o> or i  - Switch to insert mode inside of filter prompt
 
-
-## syntastic (pylint, flake8, etc.)
-
-runs on file write
-note that for virtualenv to work, pylint must be installed in the virtualenv
-
-:SyntasticCheck [checker+] - run a default check or with specified checkers, e.g. pylint
-:Errors - show errors (in location list)
-:lclose - close locations list
-
-## Pyunit (vim-pyunit) - REMOVED (incompatible?)
-
-F8 - run nose tests
-
 ## NERDTree
 
 C-n - open. see internal help for other mappings
 C-f - find current file in tree
 
-## Ctrl-P
-
-C-P - search in current dir
-:CtrlP <dir> - to search in a another dir
-Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
-Press <c-f> and <c-b> to cycle between modes.
-Press <c-d> to switch to filename only search instead of full path.
-Press <c-r> to switch to regexp mode.
-Use <c-j>, <c-k> or the arrow keys to navigate the result list.
-Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
-Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
-Use <c-y> to create a new file and its parent directories.
-Use <c-z> to mark/unmark multiple files and <c-o> to open them.
-
 ## vim-fugitive (git)
 
 G<git command> - issue git command from within vim
+
+## NERDCommenter
+
+[count]<leader>c<space> - toggle comment state of selected lines
+[count]<leader>cc - comment
+[count]<leader>cu - uncomment
+
+## scratch.vim
+
+:Scratch - open in normal mode
+gs - normal mode: insert in scratch buffer. visual: paste
+gS - same as gs, but clear scratch first
+
+## vim-easymotion
+
+s - type 2 chars to find, then label or ESC
+<leader>j - lines below 
+<leader>k - lines above
+
+### NOT CURRENTLY INSTALLED ###
+
+## YouCompleteMe (removed, conflict with coc.vim)
+
+TAB - accept completion. continue pressing or shift-TAB to cycle back and forth
+C-space - trigger completion suggestion from anywhere
+<leader>-g - goto
+<leader>-f - goto declaration
+<leader>-r - references
+<leader>-d - docs
+
+## vim-windowswap
+
+<leader>ww in current pane, <leader>ww in swap to pane to swap
 
 ## Conque Shell (see http://www.vim.org/scripts/script.php?script_id=2771)
 
@@ -165,28 +167,30 @@ G<git command> - issue git command from within vim
 
 :setfiletype (html)django - for django syntax highlighting in with/without html highlighting
 
-## NERDCommenter
+## Ctrl-P
 
-[count]<leader>c<space> - toggle comment state of selected lines
-[count]<leader>cc - comment
-[count]<leader>cu - uncomment
+C-P - search in current dir
+:CtrlP <dir> - to search in a another dir
+Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
+Press <c-f> and <c-b> to cycle between modes.
+Press <c-d> to switch to filename only search instead of full path.
+Press <c-r> to switch to regexp mode.
+Use <c-j>, <c-k> or the arrow keys to navigate the result list.
+Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
+Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
+Use <c-y> to create a new file and its parent directories.
+Use <c-z> to mark/unmark multiple files and <c-o> to open them.
 
-## vim-windowswap
+## syntastic (pylint, flake8, etc.)
 
-<leader>ww in current pane, <leader>ww in swap to pane to swap
+runs on file write
+note that for virtualenv to work, pylint must be installed in the virtualenv
 
-## scratch.vim
+:SyntasticCheck [checker+] - run a default check or with specified checkers, e.g. pylint
+:Errors - show errors (in location list)
+:lclose - close locations list
 
-:Scratch - open in normal mode
-gs - normal mode: insert in scratch buffer. visual: paste
-gS - same as gs, but clear scratch first
+## Pyunit (vim-pyunit) - REMOVED (incompatible?)
 
-## vim-easymotion
-
-s - type 2 chars to find, then label or ESC
-<leader>j - lines below 
-<leader>k - lines above
-
-## lh-brackets
-C-j - jump to mark
+F8 - run nose tests
 
