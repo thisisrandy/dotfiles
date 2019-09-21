@@ -10,6 +10,8 @@ Plug 'jnurmine/Zenburn'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'mtth/scratch.vim'
+" NOTE: In order for floating messages to work in coc.nvim, neovim must
+"       be built from source
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'shougo/denite.nvim'
 Plug 'jiangmiao/auto-pairs'
