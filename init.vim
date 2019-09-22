@@ -2,6 +2,7 @@
 " remember to install vim-plug and run :PlugInstall
 " this file is broken until plugins installed
 " :so % to source it
+" :checkhealth to insure plugins are working
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree'
