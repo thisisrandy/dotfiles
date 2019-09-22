@@ -55,7 +55,9 @@ gx - go to url under cursor (kind of broken, but in a pinch)
 :noh - remove highlighting, e.g. from *. slightly different version mapped to <leader>/
 
 ## Folding
-<space>za (open/close fold)
+:Fold - fold current buffer using coc.vim. 
+        Could alternatively set foldmethod. See :help folding
+za (open/close fold)
 zM - close all folds. zm for reduce folding level
 zR - open all folds. zr for increase folding level
 
