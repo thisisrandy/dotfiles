@@ -57,7 +57,8 @@ gx - go to url under cursor (kind of broken, but in a pinch)
 ## Folding
 :Fold - fold current buffer using coc.vim. 
         Could alternatively set foldmethod. See :help folding
-za (open/close fold)
+za - open/close fold
+zA - recursively open/close fold
 zM - close all folds. zm for reduce folding level
 zR - open all folds. zr for increase folding level
 
