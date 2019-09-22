@@ -48,7 +48,10 @@ set hidden
 " noremap <Leader>y "+y
 " noremap <Leader>p "+p
 " Yank and paste with the system clipboard
-set clipboard=unnamed
+" NOTE: neovim sometimes can't find a clipboard provider for unknown reasons.
+"       The solution seems to be manually installing one, e.g.
+"       > sudo apt-get install xclip
+set clipboard+=unnamedplus
 
 " <leader>h - Find and replace
 " <leader>/ - Clear highlighted search terms while preserving history
