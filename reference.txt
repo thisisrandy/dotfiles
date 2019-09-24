@@ -1,12 +1,13 @@
 ## General
 
-NOTE: I have <leader> mapped to <space>, and C- means Ctrl+
+NOTE: I have <leader> mapped to <space>, C- means Ctrl+, and M- means Alt+
 
 i - insert mode
 a - append after cursor (as opposed to i)
 (C-)v - visual (block) mode
 V - visual line mode 
-ESC - exit i/v mode
+ESC/C-[ - exit i/v mode
+M-normal mode key - in insert mode, execute a normal mode command, e.g. u
 u - undo
 C-r - redo
 y/d - copy/delete in visual mode (yy/dd for line in normal mode)
@@ -139,6 +140,20 @@ s - type 2 chars to find, then label or ESC
 <leader>j - lines below 
 <leader>k - lines above
 
+## Ctrl-P
+
+C-p - search in current dir = directory of current buffer, NOT cwd
+:CtrlP <dir> - to search in a another dir
+Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
+Press <c-f> and <c-b> to cycle between modes (files, buffers, mru files).
+Press <c-d> to switch to filename only search instead of full path.
+Press <c-r> to switch to regexp mode.
+Use <c-j>, <c-k> or the arrow keys to navigate the result list.
+Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
+Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
+Use <c-y> to create a new file and its parent directories.
+Use <c-z> to mark/unmark multiple files and <c-o> to open them.
+
 ### NOT CURRENTLY INSTALLED ###
 
 ## YouCompleteMe (removed, conflict with coc.vim)
@@ -169,20 +184,6 @@ C-space - trigger completion suggestion from anywhere
 ## django.vim
 
 :setfiletype (html)django - for django syntax highlighting in with/without html highlighting
-
-## Ctrl-P
-
-C-P - search in current dir
-:CtrlP <dir> - to search in a another dir
-Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
-Press <c-f> and <c-b> to cycle between modes.
-Press <c-d> to switch to filename only search instead of full path.
-Press <c-r> to switch to regexp mode.
-Use <c-j>, <c-k> or the arrow keys to navigate the result list.
-Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
-Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
-Use <c-y> to create a new file and its parent directories.
-Use <c-z> to mark/unmark multiple files and <c-o> to open them.
 
 ## syntastic (pylint, flake8, etc.)
 
