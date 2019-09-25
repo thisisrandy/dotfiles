@@ -154,6 +154,9 @@ Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
 Use <c-y> to create a new file and its parent directories.
 Use <c-z> to mark/unmark multiple files and <c-o> to open them.
 
+## auto-pairs 
+M-n - move to closing brace/quote/whatever
+
 ### NOT CURRENTLY INSTALLED ###
 
 ## YouCompleteMe (removed, conflict with coc.vim)
