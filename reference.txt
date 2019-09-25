@@ -65,6 +65,8 @@ zR - open all folds. zr for increase folding level
 
 ## Search/replace
 
+:/foo - search for foo
+* - highlight all occurences of word under cursor (* again for next occurence)
 :%s/foo/bar/ - whole file
 :s/foo/bar/ - current line
 tags:
