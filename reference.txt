@@ -92,9 +92,10 @@ K - show documentation
 <leader>b - alternate format buffer
 <leader>c - show commands
 
-<TAB> - next completion
-<S-TAB> - previous completion
-<C-y> - snippet completion
+<TAB> - snippet completion
+<C-n> - next completion. allows use without snippet, e.g. for refering to functions
+        instead of function calls
+<C-p> - previous completion
 
 ## denite
 
