@@ -1,8 +1,36 @@
-""" Plug
+""" Fresh installation notes
 " remember to install vim-plug and run :PlugInstall
 " this file is broken until plugins installed
 " :so % to source it
 " :checkhealth to insure plugins are working
+"
+" ripgrep (rg) must be installed for denite
+" > sudo apt-get install ripgrep
+"
+" eslint and prettier-eslint must be installed for javascript per project
+" > npm install --save-dev eslint
+" > ./node_modules/.bin/eslint --init
+" > npm install --save-dev prettier-eslint
+"
+" In order for floating messages to work in coc.nvim, neovim must
+" be built from source.
+" > git clone https://github.com/neovim/neovim.git
+" > make CMAKE_BUILD_TYPE=RelWithDebInfo
+" > sudo make install
+"
+" neovim sometimes can't find a clipboard provider for unknown reasons.
+" The solution seems to be manually installing one, e.g.
+" > sudo apt-get install xclip
+" (for sharing the system clipboard)
+"
+" :ConInstall to install language extensions
+" Extensions: coc-json, coc-eslint, coc-tsserver, coc-snippets
+" :CocConfig to open config file, then add
+" {
+"   "prettier.eslintIntegration": true
+" }
+
+""" Plug
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree'
@@ -11,8 +39,6 @@ Plug 'jnurmine/Zenburn'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'mtth/scratch.vim'
-" NOTE: In order for floating messages to work in coc.nvim, neovim must
-"       be built from source
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'shougo/denite.nvim'
 Plug 'jiangmiao/auto-pairs'
@@ -49,9 +75,6 @@ set hidden
 " noremap <Leader>y "+y
 " noremap <Leader>p "+p
 " Yank and paste with the system clipboard
-" NOTE: neovim sometimes can't find a clipboard provider for unknown reasons.
-"       The solution seems to be manually installing one, e.g.
-"       > sudo apt-get install xclip
 set clipboard+=unnamedplus
 
 " <leader>h - Find and replace
@@ -112,7 +135,7 @@ let g:airline_powerline_fonts = 1
 """ NERDcommenter
 
 " Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 0 
+let g:NERDSpaceDelims = 1 
 " " Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
 " Align line-wise comment delimiters flush left instead of following code
@@ -125,9 +148,6 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 
 """ coc.nvim
-" :ConInstall to install language extensions
-" Extensions: coc-json, coc-eslint, coc-tsserver, coc-snippets
-" :CocConfig to open config file
 
 " correct comment highlighting for config file
 autocmd FileType json syntax match Comment +\/\/.\+$+
