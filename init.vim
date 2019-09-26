@@ -44,6 +44,7 @@ Plug 'shougo/denite.nvim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
 Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-dadbod'
 
 call plug#end()
 
@@ -115,6 +116,9 @@ if !exists("*ToggleWrap")
     endif
   endfunction
 endif
+
+" on open terminal (:te), start in terminal mode
+autocmd TermOpen * startinsert
 
 """ NERDTree
 map <C-n> :NERDTreeToggle<CR>
