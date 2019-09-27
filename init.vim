@@ -29,6 +29,11 @@
 " {
 "   "prettier.eslintIntegration": true
 " }
+"
+" coc needs node (v12.x, obviously this will go out of date at some point)
+" > sudo apt-get install curl
+" > curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+" > sudo apt-get install -y nodejs
 
 """ Plug
 call plug#begin('~/.local/share/nvim/plugged')
@@ -89,6 +94,14 @@ set clipboard+=unnamedplus
 nmap <leader>h :%s///<left><left>
 vmap <leader>h :s///<left><left>
 nmap <silent> <leader>/ :nohlsearch<CR>
+
+" move lines up and down with M-k/j
+nnoremap <M-j> :m .+1<CR>==
+nnoremap <M-k> :m .-2<CR>==
+inoremap <M-j> <Esc>:m .+1<CR>==gi
+inoremap <M-k> <Esc>:m .-2<CR>==gi
+vnoremap <M-j> :m '>+1<CR>gv=gv
+vnoremap <M-k> :m '<-2<CR>gv=gv
 
 " make line wrapping nicer
 noremap <silent> <Leader>w :call ToggleWrap()<CR>

@@ -54,6 +54,7 @@ C-] - go to label in docs
 gx - go to url under cursor (kind of broken, but in a pinch)
 * - search for word under cursor. g* is partial match
 :noh - remove highlighting, e.g. from *. slightly different version mapped to <leader>/
+M-[kj] - move current or selected line up and down
 
 ## Folding
 :Fold - fold current buffer using coc.vim. 
