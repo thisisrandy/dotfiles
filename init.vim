@@ -62,8 +62,9 @@ let mapleader=" "
 
 " remap escape and single command
 imap ii <Esc>
-xmap ii <Esc>
-imap ooo <C-o>
+vmap ii <Esc>
+cmap ii <Esc>
+imap uu <C-o>
 
 " Tabs
 set softtabstop=2

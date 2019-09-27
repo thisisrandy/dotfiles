@@ -6,13 +6,13 @@ i - insert mode
 a - append after cursor (as opposed to i)
 (C-)v - visual (block) mode
 V - visual line mode 
-ESC/C-[ - exit i/v mode
+ESC/C-[ - exit i/v/c mode. I also have ii mapped 
 M-normal mode key - in insert mode, execute a normal mode command, e.g. u
 u - undo
 C-r - redo
 y/d - copy/delete in visual mode (yy/dd for line in normal mode)
 P/p - paste before/after cursor
-C-o - go back to last point. in insert mode, issue command without leaving insert
+C-o - go back to last point. in insert mode, issue command without leaving insert. I also have uu mapped
 C-i - jump forward
 :(v)s(plit) - split window (vertically) :sp and :vs also acceptable
 :only - close all splits but this one
