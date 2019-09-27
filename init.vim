@@ -60,6 +60,11 @@ set number
 " remap leader
 let mapleader=" " 
 
+" remap escape and single command
+imap ii <Esc>
+xmap ii <Esc>
+imap oo <C-o>
+
 " Tabs
 set softtabstop=2
 set shiftwidth=2
