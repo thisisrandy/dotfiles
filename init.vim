@@ -34,6 +34,9 @@
 " > sudo apt-get install curl
 " > curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 " > sudo apt-get install -y nodejs
+"
+" tagbar requires universal-ctags
+" > sudo apt-get install universal-ctags
 
 """ Plug
 call plug#begin('~/.local/share/nvim/plugged')
@@ -50,6 +53,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-dadbod'
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 
@@ -149,6 +153,9 @@ nmap <C-f> :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" quit if last window
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 """ vim-airline
 " remember to install powerline fonts
@@ -367,4 +374,8 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+
+""" tagbar
+
+nmap <F8> :TagbarToggle<CR>
 

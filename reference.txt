@@ -165,6 +165,9 @@ M-n - move to closing brace/quote/whatever
 :%DB ... - execute current buffer. Similar for visual mode
 :DB ... < file - run file
 
+## tagbar
+<F8> - toggle tagbar
+
 ### NOT CURRENTLY INSTALLED ###
 
 ## YouCompleteMe (removed, conflict with coc.vim)
