@@ -49,11 +49,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'mtth/scratch.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'shougo/denite.nvim'
-Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-dadbod'
 Plug 'majutsushi/tagbar'
+Plug 'rstacruz/vim-hyperstyle'
+Plug 'cohama/lexima.vim'
 
 call plug#end()
 
@@ -107,7 +108,8 @@ inoremap <M-k> <Esc>:m .-2<CR>==gi
 vnoremap <M-j> :m '>+1<CR>gv=gv
 vnoremap <M-k> :m '<-2<CR>gv=gv
 
-" make line wrapping nicer
+" make line wrapping nicer. off by default
+set nowrap
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
 if !exists("*ToggleWrap")
   function ToggleWrap()

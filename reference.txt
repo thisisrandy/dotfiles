@@ -157,9 +157,6 @@ Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
 Use <c-y> to create a new file and its parent directories.
 Use <c-z> to mark/unmark multiple files and <c-o> to open them.
 
-## auto-pairs 
-M-n - move to closing brace/quote/whatever
-
 ## vim-dadbod
 :DB type:path SQL - e.g. :DB sqlite:db.sqlite select * from my_table
 :%DB ... - execute current buffer. Similar for visual mode
@@ -211,4 +208,7 @@ note that for virtualenv to work, pylint must be installed in the virtualenv
 ## Pyunit (vim-pyunit) - REMOVED (incompatible?)
 
 F8 - run nose tests
+
+## auto-pairs 
+M-n - move to closing brace/quote/whatever
 
