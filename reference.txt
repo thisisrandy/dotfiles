@@ -5,8 +5,8 @@ NOTE: I have <leader> mapped to <space>, C- means Ctrl+, and M- means Alt+
 i - insert mode
 a - append after cursor (as opposed to i)
 (C-)v - visual (block) mode
-V - visual line mode 
-ESC/C-[ - exit i/v/c mode. I also have ii mapped 
+V - visual line mode
+ESC/C-[ - exit i/v/c mode. I also have ii mapped
 M-normal mode key - in insert mode, execute a normal mode command, e.g. u
 u - undo
 C-r - redo
@@ -43,7 +43,7 @@ G - end of file
 << - unindent
 dd - delete line
 :<num> - go to line <num>
-q: - command history (from normal mode). can use / and ? to search in history 
+q: - command history (from normal mode). can use / and ? to search in history
 C-r" - paste yanked test in command mode, e.g. for search
 C-] - go to label in docs
 :! <command> - run shell command. use % as current file placeholder, e.g. :! wc %
@@ -54,10 +54,11 @@ C-] - go to label in docs
 gx - go to url under cursor (kind of broken, but in a pinch)
 * - search for word under cursor. g* is partial match
 :noh - remove highlighting, e.g. from *. slightly different version mapped to <leader>/
-M-[kj] - move current or selected line up and down
+M-[kj] - move current or selected line up and down. Also mapped to M-Up/Down
+<leader>wr - turning line wrapping on/off nicely
 
 ## Folding
-:Fold - fold current buffer using coc.vim. 
+:Fold - fold current buffer using coc.vim.
         Could alternatively set foldmethod. See :help folding
 za - open/close fold
 zA - recursively open/close fold
@@ -68,8 +69,9 @@ zR - open all folds. zr for increase folding level
 
 :/foo - search for foo
 * - highlight all occurences of word under cursor (* again for next occurence)
-:%s/foo/bar/ - whole file
+:%s/foo/bar/ - whole file. also mapping to C-h
 :s/foo/bar/ - current line
+<leader>fr - all files in current dir
 tags:
    g - global
    c - confirmation
@@ -88,7 +90,7 @@ gp - go to previous diagnostic message
 ge - go to next error position, i.e. skip warnings, etc.
 K - show documentation
 <leader>rn - rename current word
-<leader>f - format selection 
+<leader>f - format selection
 :Prettier - format buffer
 <leader>b - alternate format buffer
 <leader>c - show commands
@@ -140,7 +142,7 @@ gS - same as gs, but clear scratch first
 ## vim-easymotion
 
 s - type 2 chars to find, then label or ESC
-<leader>j - lines below 
+<leader>j - lines below
 <leader>k - lines above
 
 ## Ctrl-P
@@ -165,6 +167,10 @@ Use <c-z> to mark/unmark multiple files and <c-o> to open them.
 ## tagbar
 <F8> - toggle tagbar
 
+## vim-windowswap
+
+<leader>ww in current pane, <leader>ww in swap to pane to swap
+
 ### NOT CURRENTLY INSTALLED ###
 
 ## YouCompleteMe (removed, conflict with coc.vim)
@@ -175,10 +181,6 @@ C-space - trigger completion suggestion from anywhere
 <leader>-f - goto declaration
 <leader>-r - references
 <leader>-d - docs
-
-## vim-windowswap
-
-<leader>ww in current pane, <leader>ww in swap to pane to swap
 
 ## Conque Shell (see http://www.vim.org/scripts/script.php?script_id=2771)
 
@@ -209,6 +211,6 @@ note that for virtualenv to work, pylint must be installed in the virtualenv
 
 F8 - run nose tests
 
-## auto-pairs 
+## auto-pairs
 M-n - move to closing brace/quote/whatever
 

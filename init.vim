@@ -13,7 +13,7 @@
 " > npm install --save-dev prettier-eslint
 "
 " In order for floating messages to work in coc.nvim, neovim must
-" be built from source.
+" be built from source (at time of writing, may change).
 " > git clone https://github.com/neovim/neovim.git
 " > make CMAKE_BUILD_TYPE=RelWithDebInfo
 " > sudo make install
@@ -55,6 +55,8 @@ Plug 'tpope/vim-dadbod'
 Plug 'majutsushi/tagbar'
 Plug 'rstacruz/vim-hyperstyle'
 Plug 'cohama/lexima.vim'
+Plug 'wesQ3/vim-windowswap'
+Plug 'jremmen/vim-ripgrep'
 
 call plug#end()
 
@@ -63,18 +65,21 @@ call plug#end()
 " syntax on
 
 " Appearance - dracula and zenburn both nice, at least for python
-" colorscheme dracula 
-colorscheme zenburn 
+" colorscheme dracula
+colorscheme zenburn
 set number
 
 " remap leader
-let mapleader=" " 
+let mapleader=" "
 
 " remap escape and single command
 imap ii <Esc>
 vmap ii <Esc>
 cmap ii <Esc>
 imap uu <C-o>
+
+" turn down timeoutlen (defaults to 1000)
+set timeoutlen=500
 
 " Tabs
 set softtabstop=2
@@ -100,50 +105,58 @@ nmap <leader>h :%s///<left><left>
 vmap <leader>h :s///<left><left>
 nmap <silent> <leader>/ :nohlsearch<CR>
 
-" move lines up and down with M-k/j
+" move lines up and down with M-k/j (or up/down)
 nnoremap <M-j> :m .+1<CR>==
 nnoremap <M-k> :m .-2<CR>==
 inoremap <M-j> <Esc>:m .+1<CR>==gi
 inoremap <M-k> <Esc>:m .-2<CR>==gi
 vnoremap <M-j> :m '>+1<CR>gv=gv
 vnoremap <M-k> :m '<-2<CR>gv=gv
+nmap <M-Down> <M-j>
+nmap <M-Up> <M-k>
+imap <M-Down> <M-j>
+imap <M-Up> <M-k>
+vmap <M-Down> <M-j>
+vmap <M-Up> <M-k>
 
 " make line wrapping nicer. off by default
 set nowrap
-noremap <silent> <Leader>w :call ToggleWrap()<CR>
-if !exists("*ToggleWrap")
-  function ToggleWrap()
-    if &wrap
-      echo "Wrap OFF"
-      setlocal nowrap
-      set virtualedit=all
-      silent! nunmap <buffer> <Up>
-      silent! nunmap <buffer> <Down>
-      silent! nunmap <buffer> <Home>
-      silent! nunmap <buffer> <End>
-      silent! iunmap <buffer> <Up>
-      silent! iunmap <buffer> <Down>
-      silent! iunmap <buffer> <Home>
-      silent! iunmap <buffer> <End>
-    else
-      echo "Wrap ON"
-      setlocal wrap linebreak nolist
-      set virtualedit=
-      setlocal display+=lastline
-      noremap  <buffer> <silent> <Up>   gk
-      noremap  <buffer> <silent> <Down> gj
-      noremap  <buffer> <silent> <Home> g<Home>
-      noremap  <buffer> <silent> <End>  g<End>
-      inoremap <buffer> <silent> <Up>   <C-o>gk
-      inoremap <buffer> <silent> <Down> <C-o>gj
-      inoremap <buffer> <silent> <Home> <C-o>g<Home>
-      inoremap <buffer> <silent> <End>  <C-o>g<End>
-    endif
-  endfunction
-endif
+set virtualedit=block,onemore
+noremap <silent> <Leader>wr :call ToggleWrap()<CR>
+function ToggleWrap()
+  if &wrap
+    echo "Wrap OFF"
+    setlocal nowrap
+    setlocal virtualedit=block,onemore
+    silent! nunmap <buffer> <Up>
+    silent! nunmap <buffer> <Down>
+    silent! nunmap <buffer> <Home>
+    silent! nunmap <buffer> <End>
+    silent! iunmap <buffer> <Up>
+    silent! iunmap <buffer> <Down>
+    silent! iunmap <buffer> <Home>
+    silent! iunmap <buffer> <End>
+  else
+    echo "Wrap ON"
+    setlocal wrap linebreak nolist
+    setlocal virtualedit=onemore
+    setlocal display+=lastline
+    noremap  <buffer> <silent> <Up>   gk
+    noremap  <buffer> <silent> <Down> gj
+    noremap  <buffer> <silent> <Home> g<Home>
+    noremap  <buffer> <silent> <End>  g<End>
+    inoremap <buffer> <silent> <Up>   <C-o>gk
+    inoremap <buffer> <silent> <Down> <C-o>gj
+    inoremap <buffer> <silent> <Home> <C-o>g<Home>
+    inoremap <buffer> <silent> <End>  <C-o>g<End>
+  endif
+endfunction
 
 " on open terminal (:te), start in terminal mode
 autocmd TermOpen * startinsert
+
+" always trim whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
 
 """ NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -167,7 +180,7 @@ let g:airline_powerline_fonts = 1
 """ NERDcommenter
 
 " Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1 
+let g:NERDSpaceDelims = 1
 " " Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
 " Align line-wise comment delimiters flush left instead of following code
@@ -358,9 +371,54 @@ function! s:denite_my_settings() abort
   \ denite#do_map('open_filter_buffer')
 endfunction
 
+" global find/replace inside cwd
+function! FindReplace()
+  " figure out which directory we're in
+  let dir = getcwd()
+  " ask for patterns
+  call inputsave()
+  let find = input('Pattern: ')
+  call inputrestore()
+  if empty(find) | return | endif
+  let replace = input({ 'prompt': 'Replacement: ', 'cancelreturn': '<ESC>' })
+  if replace == '<ESC>' | return | endif
+  call inputrestore()
+  :mode
+  " confirm each change individually
+  let confirmEach = confirm("Do you want to confirm each individual change?", "&Yes\n&No", 2)
+  if confirmEach == 0 | return | endif
+  :mode
+  " are you sure?
+  let confirm = confirm('WARNING: Replacing ' . find . ' with ' . replace . ' in ' . dir . '/**/*. Proceed?', "&Yes\n&No", 2)
+  " clear echoed message
+  :mode
+  if confirm == 1
+    " record the current buffer so we can return to it at the end
+    let currBuff = bufnr("%")
+    " find with rigrep (populate quickfix)
+    :silent exe 'Rg ' . find
+    " use cfdo to substitute on all quickfix files
+    if confirmEach == 1
+      :noautocmd exe 'cfdo %s/' . find . '/' . replace . '/gc | update'
+    else
+      :silent noautocmd exe 'cfdo %s/' . find . '/' . replace . '/g | update'
+    endif
+    " close quickfix window
+    :silent exe 'cclose'
+    " return to start buffer
+    :silent exe 'buffer ' . currBuff
+    :echom('Replaced ' . find . ' with ' . replace . ' in all files in ' . dir )
+  else
+    :echom('Aborted')
+    return
+  endif
+endfunction
+:nnoremap <Leader>fr :call FindReplace()<CR>
+
+
 """ vim-easymotion
 " Disable default mappings
-let g:EasyMotion_do_mapping = 0 
+let g:EasyMotion_do_mapping = 0
 
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
