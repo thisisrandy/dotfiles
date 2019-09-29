@@ -113,7 +113,7 @@ In filter mode:
 <CR> - Open currently selected file in any mode
 
 <CR> - Opens currently selected file
-q or <Esc>  - Quit Denite window
+q or <Esc> or ;  - Quit Denite window
 d - Delete currenly selected file (just the buffer)
 p - Preview currently selected file
 <C-o> or i  - Switch to insert mode inside of filter prompt

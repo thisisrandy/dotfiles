@@ -58,6 +58,15 @@ Plug 'cohama/lexima.vim'
 Plug 'wesQ3/vim-windowswap'
 Plug 'jremmen/vim-ripgrep'
 
+" this is probably useful for some languages, but unclear if it really
+" supports nodejs. turning off for now
+" Plug 'idanarye/vim-vebugger'
+" Plug 'Shougo/vimproc.vim', {'do' : 'make'} " required for vim-debugger
+
+" this doesn't currently work in neovim due to lack of netbeans support
+" Plug 'sidorares/node-vim-debugger'
+" Plug 'lrvick/Conque-Shell' " required for node-vim-debugger
+
 call plug#end()
 
 " call plug#end() executes this already
@@ -349,7 +358,7 @@ endfunction
 
 " Define mappings while in denite window
 "   <CR>        - Opens currently selected file
-"   q or <Esc>  - Quit Denite window
+"   q/<Esc>/;   - Quit Denite window
 "   d           - Delete currenly selected file (just the buffer)
 "   p           - Preview currently selected file
 "   <C-o> or i  - Switch to insert mode inside of filter prompt
@@ -360,6 +369,8 @@ function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> q
   \ denite#do_map('quit')
   nnoremap <silent><buffer><expr> <Esc>
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> ;
   \ denite#do_map('quit')
   nnoremap <silent><buffer><expr> d
   \ denite#do_map('do_action', 'delete')
@@ -383,6 +394,7 @@ function! FindReplace()
   let replace = input({ 'prompt': 'Replacement: ', 'cancelreturn': '<ESC>' })
   if replace == '<ESC>' | return | endif
   call inputrestore()
+  " clear echoed message
   :mode
   " confirm each change individually
   let confirmEach = confirm("Do you want to confirm each individual change?", "&Yes\n&No", 2)
@@ -390,7 +402,6 @@ function! FindReplace()
   :mode
   " are you sure?
   let confirm = confirm('WARNING: Replacing ' . find . ' with ' . replace . ' in ' . dir . '/**/*. Proceed?', "&Yes\n&No", 2)
-  " clear echoed message
   :mode
   if confirm == 1
     " record the current buffer so we can return to it at the end
@@ -436,6 +447,6 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
 """ tagbar
-
 nmap <F8> :TagbarToggle<CR>
+
 
