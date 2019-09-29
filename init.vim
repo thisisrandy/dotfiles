@@ -175,13 +175,13 @@ autocmd BufWritePre * :%s/\s\+$//e
 """ NERDTree
 map <C-n> :NERDTreeToggle<CR>
 nmap <C-f> :NERDTreeFind<CR>
+
 " This opens with file
 " autocmd vimenter * NERDTree
 " This opens without file
-
-let NERDTreeShowHidden=1
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" let NERDTreeShowHidden=1
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " quit if last window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
