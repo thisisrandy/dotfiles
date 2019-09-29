@@ -128,9 +128,9 @@ imap <M-Up> <M-k>
 vmap <M-Down> <M-j>
 vmap <M-Up> <M-k>
 
-" rebind <Home> to ^ (first non-whitespace character)
+" rebind <Home> to ^ (first non-whitespace character). unfortunately, this
+" breaks in insert mode, as ^ counts as an input character
 nmap <Home> ^
-imap <Home> ^
 vmap <Home> ^
 
 " make line wrapping nicer. off by default
@@ -161,7 +161,7 @@ function ToggleWrap()
     noremap  <buffer> <silent> <End>  g<End>
     inoremap <buffer> <silent> <Up>   <C-o>gk
     inoremap <buffer> <silent> <Down> <C-o>gj
-    inoremap <buffer> <silent> <Home> <C-o>g^
+    inoremap <buffer> <silent> <Home> <C-o>g<Home>
     inoremap <buffer> <silent> <End>  <C-o>g<End>
   endif
 endfunction
@@ -401,44 +401,56 @@ endfunction
 function! FindReplace()
   " figure out which directory we're in
   let dir = getcwd()
-  " ask for patterns
+
+  " ask for pattern
   call inputsave()
   let find = input('Pattern: ')
   call inputrestore()
   if empty(find) | return | endif
+
+  " ask for replacement, noting that empty is a valid replacement
+  call inputsave()
   let replace = input({ 'prompt': 'Replacement: ', 'cancelreturn': '<ESC>' })
-  if replace == '<ESC>' | return | endif
   call inputrestore()
-  " clear echoed message
-  :mode
+  if replace == '<ESC>' | return | endif
+  :mode " clear echoed message
+
   " confirm each change individually
   let confirmEach = confirm("Do you want to confirm each individual change?", "&Yes\n&No", 2)
   if confirmEach == 0 | return | endif
   :mode
+
   " are you sure?
   let confirm = confirm('WARNING: Replacing ' . find . ' with ' . replace . ' in ' . dir . '/**/*. Proceed?', "&Yes\n&No", 2)
   :mode
+
   if confirm == 1
     " record the current buffer so we can return to it at the end
     let currBuff = bufnr("%")
+
     " find with rigrep (populate quickfix)
     :silent exe 'Rg ' . find
+
     " use cfdo to substitute on all quickfix files
     if confirmEach == 1
       :noautocmd exe 'cfdo %s/' . find . '/' . replace . '/gc | update'
     else
       :silent noautocmd exe 'cfdo %s/' . find . '/' . replace . '/g | update'
     endif
+
     " close quickfix window
     :silent exe 'cclose'
+
     " return to start buffer
     :silent exe 'buffer ' . currBuff
+
     :echom('Replaced ' . find . ' with ' . replace . ' in all files in ' . dir )
   else
     :echom('Aborted')
-    return
   endif
 endfunction
+
+" and map it
 :nnoremap <Leader>fr :call FindReplace()<CR>
 
 
