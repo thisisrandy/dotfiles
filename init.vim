@@ -293,6 +293,7 @@ nmap <leader>b  <Plug>(coc-format)
 " Format on save
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
+autocmd BufWritePre *.py :call CocAction('format')
 
 augroup mygroup
   autocmd!
