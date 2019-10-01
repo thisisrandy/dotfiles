@@ -80,10 +80,6 @@ tags:
 
 Note that + in regex must be escaped, e.g. \d\+, not \d+
 
-## HTML auto-complete
-
-C-x C-o - triggers auto-complete
-
 ## coc.vim
 
 gd - go to definition

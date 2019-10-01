@@ -24,7 +24,8 @@
 " (for sharing the system clipboard)
 "
 " :ConInstall to install language extensions
-" Extensions: coc-json, coc-eslint, coc-tsserver, coc-snippets, coc-html
+" Extensions: coc-json, coc-eslint, coc-tsserver, coc-snippets, coc-html,
+"             coc-css
 " :CocConfig to open config file, then add
 " {
 "   "prettier.eslintIntegration": true
@@ -53,7 +54,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-dadbod'
 Plug 'majutsushi/tagbar'
-Plug 'rstacruz/vim-hyperstyle'
 Plug 'cohama/lexima.vim'
 Plug 'wesQ3/vim-windowswap'
 Plug 'jremmen/vim-ripgrep'
@@ -183,12 +183,6 @@ autocmd TermOpen * startinsert
 
 " always trim whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
-
-" auto-complete for HTML. coc gets us most of the way there,
-" but it doesn't trigger until you start typing. this can be
-" triggered at any time to show all valid attributes of a tag.
-" C-x C-o to trigger
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
 """ NERDTree
 map <C-n> :NERDTreeToggle<CR>
