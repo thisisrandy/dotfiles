@@ -57,6 +57,7 @@ Plug 'rstacruz/vim-hyperstyle'
 Plug 'cohama/lexima.vim'
 Plug 'wesQ3/vim-windowswap'
 Plug 'jremmen/vim-ripgrep'
+Plug 'alvan/vim-closetag'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
