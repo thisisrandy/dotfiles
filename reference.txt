@@ -58,6 +58,7 @@ M-[kj] - move current or selected line up and down. Also mapped to M-Up/Down
 <leader>wr - turning line wrapping on/off nicely
 
 ## Folding
+
 :Fold - fold current buffer using coc.vim.
         Could alternatively set foldmethod. See :help folding
 za - open/close fold
@@ -78,6 +79,10 @@ tags:
    [iI] - case (in)sensitive
 
 Note that + in regex must be escaped, e.g. \d\+, not \d+
+
+## HTML auto-complete
+
+C-x C-o - triggers auto-complete
 
 ## coc.vim
 
@@ -160,11 +165,13 @@ Use <c-y> to create a new file and its parent directories.
 Use <c-z> to mark/unmark multiple files and <c-o> to open them.
 
 ## vim-dadbod
+
 :DB type:path SQL - e.g. :DB sqlite:db.sqlite select * from my_table
 :%DB ... - execute current buffer. Similar for visual mode
 :DB ... < file - run file
 
 ## tagbar
+
 <F8> - toggle tagbar
 
 ## vim-windowswap
@@ -172,27 +179,6 @@ Use <c-z> to mark/unmark multiple files and <c-o> to open them.
 <leader>ww in current pane, <leader>ww in swap to pane to swap
 
 ### NOT CURRENTLY INSTALLED ###
-
-## YouCompleteMe (removed, conflict with coc.vim)
-
-TAB - accept completion. continue pressing or shift-TAB to cycle back and forth
-C-space - trigger completion suggestion from anywhere
-<leader>-g - goto
-<leader>-f - goto declaration
-<leader>-r - references
-<leader>-d - docs
-
-## Conque Shell (see http://www.vim.org/scripts/script.php?script_id=2771)
-
-:ConqueTerm <command> - to start any command, e.g. bash
-<esc> - send escape to enter normal mode. slight delay
-<esc><esc> - send single <esc> to terminal
-
-## xml-plugin
-
-% - jump between '<' and '>' within the tag your cursor is in.
-> - when finishing a tag, complete it
->> - when finishing a tag, complete it and place the cursor in the middle
 
 ## django.vim
 
@@ -210,7 +196,4 @@ note that for virtualenv to work, pylint must be installed in the virtualenv
 ## Pyunit (vim-pyunit) - REMOVED (incompatible?)
 
 F8 - run nose tests
-
-## auto-pairs
-M-n - move to closing brace/quote/whatever
 

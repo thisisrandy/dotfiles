@@ -24,7 +24,7 @@
 " (for sharing the system clipboard)
 "
 " :ConInstall to install language extensions
-" Extensions: coc-json, coc-eslint, coc-tsserver, coc-snippets
+" Extensions: coc-json, coc-eslint, coc-tsserver, coc-snippets, coc-html
 " :CocConfig to open config file, then add
 " {
 "   "prettier.eslintIntegration": true
@@ -58,6 +58,7 @@ Plug 'cohama/lexima.vim'
 Plug 'wesQ3/vim-windowswap'
 Plug 'jremmen/vim-ripgrep'
 Plug 'alvan/vim-closetag'
+Plug 'mattn/emmet-vim'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -182,6 +183,12 @@ autocmd TermOpen * startinsert
 
 " always trim whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+" auto-complete for HTML. coc gets us most of the way there,
+" but it doesn't trigger until you start typing. this can be
+" triggered at any time to show all valid attributes of a tag.
+" C-x C-o to trigger
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
 """ NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -478,4 +485,13 @@ map <Leader>k <Plug>(easymotion-k)
 """ tagbar
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :TagbarOpenAutoClose<CR>
+
+""" emmet-vim
+" remap leader (type, then ,, to expand)
+let g:user_emmet_leader_key=','
+
+" restrict to html and css files
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
 
