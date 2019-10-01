@@ -25,7 +25,7 @@
 "
 " :ConInstall to install language extensions
 " Extensions: coc-json, coc-eslint, coc-tsserver, coc-snippets, coc-html,
-"             coc-css
+"             coc-css, coc-python, coc-java...
 " :CocConfig to open config file, then add
 " {
 "   "prettier.eslintIntegration": true
