@@ -186,7 +186,10 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " save in insert mode
 inoremap <C-s> <C-o>:w<CR>
-nnoremap <C-s> <C-o>:w<CR>
+
+" create (horizontal) split in normal mode. :vs is few enough keystrokes for
+" vertical split creation
+nnoremap <C-s> :split<CR>
 
 """ NERDTree
 map <C-n> :NERDTreeToggle<CR>
