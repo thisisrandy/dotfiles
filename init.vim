@@ -184,6 +184,10 @@ autocmd TermOpen * startinsert
 " always trim whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
+" save in insert mode
+inoremap <C-s> <C-o>:w<CR>
+nnoremap <C-s> <C-o>:w<CR>
+
 """ NERDTree
 map <C-n> :NERDTreeToggle<CR>
 nmap <C-f> :NERDTreeFind<CR>
