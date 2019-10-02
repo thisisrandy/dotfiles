@@ -191,6 +191,11 @@ inoremap <C-s> <C-o>:w<CR>
 " vertical split creation
 nnoremap <C-s> :split<CR>
 
+" mappings to cut and paste into the "black hole register"
+nnoremap <leader>d "_d
+xnoremap <leader>d "_d
+xnoremap <leader>p "_dP
+
 """ NERDTree
 map <C-n> :NERDTreeToggle<CR>
 nmap <C-f> :NERDTreeFind<CR>
