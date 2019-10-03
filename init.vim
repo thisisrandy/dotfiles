@@ -295,18 +295,39 @@ function! s:show_documentation()
 endfunction
 
 " Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>r <Plug>(coc-rename)
 
 " Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" I never use these, and considering that I'd need to set them up with the
+" html hack below, just leaving them out for now.
+" xmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
+
 " Whole buffer
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-" Alternate whole buffer format if prettier not available
-nmap <leader>b  <Plug>(coc-format)
+" Prettier breaks up tags onto new lines in a way I don't like in html. This
+" seems to be a functioning hack around that behavior.
+function PrettierHtmlHack()
+  if &ft =~ 'html'
+    " for some reason Prettier ignores the s/r operation if I don't write the
+    " buffer out first. super-annoying, especially since BufWritePre (below)
+    " behaves differently. I'm tired of trying to figure out why, though, so
+    " I guess this is what we're doing
+    :%s/></>\r</ge | update | Prettier
+  else
+    :call CocAction('format')
+  endif
+endfunction
+" Whole buffer map
+" nmap <leader>b <Plug>(coc-format)
+nmap <leader>b :call PrettierHtmlHack()<CR>
+
 " Format on save
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml Prettier
+" same as PrettierHtmlHack above, but for some reason don't need to write out
+" for Prettier to respect the s/r changes
+autocmd BufWritePre *.html %s/></>\r</ge | Prettier
 autocmd BufWritePre *.py :call CocAction('format')
 
 augroup mygroup

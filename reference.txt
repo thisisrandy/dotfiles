@@ -90,10 +90,8 @@ gn - go to next diagnostic message
 gp - go to previous diagnostic message
 ge - go to next error position, i.e. skip warnings, etc.
 K - show documentation
-<leader>rn - rename current word
-<leader>f - format selection
-:Prettier - format buffer
-<leader>b - alternate format buffer
+<leader>r - rename current word
+<leader>b - format buffer
 <leader>c - show commands
 
 <TAB> - snippet completion
