@@ -66,6 +66,7 @@ zR - open all folds. zr for increase folding level
 
 :/foo - search for foo
 * - search for word under cursor. g* is partial match
+# - * in reverse. g# also valid
 :noh - remove highlighting, e.g. from *. slightly different version mapped to <leader>/
 :%s/foo/bar/ - whole file. also mapped to C-h
 :s/foo/bar/ - current line
