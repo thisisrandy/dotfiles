@@ -190,10 +190,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 " save in insert mode
 inoremap <C-s> <C-o>:w<CR>
 
-" create horizontal split in normal mode. :vs is few enough keystrokes for
-" vertical split creation
-nnoremap <C-h> :split<CR>
-
 " mappings to cut and paste into the "black hole register"
 nnoremap <leader>d "_d
 xnoremap <leader>d "_d
