@@ -110,8 +110,8 @@ K - show documentation
 
 <TAB> - snippet completion
 <C-n> - next completion. allows use without snippet, e.g. for refering to functions
-        instead of function calls
-<C-p> - previous completion
+        instead of function calls. <Down> mapped to the same.
+<C-p> - previous completion. <Up> mapped to the same.
 
 ## denite
 
@@ -121,15 +121,24 @@ K - show documentation
 <leader>u - Search current directory for occurences of word under cursor
 
 In filter mode:
-<C-o> - Switch to normal mode inside of search results (fuzzy matching)
-<Esc> - Exit denite window in any mode
-<CR> - Open currently selected file in any mode
+<C-o>/<Esc> - Switch to normal mode inside of search results
+<CR>        - Open currently selected filter
+<C-v>       - "" in vsplit
+<C-h>       - "" in split
+<C-t>       - "" in new tab
+<C-a>       - Toggle select all
 
-<CR> - Opens currently selected file
-q or <Esc> or ;  - Quit Denite window
-d - Delete currenly selected file (just the buffer)
-p - Preview currently selected file
+In normal mode:
+<CR>        - Opens currently selected file
+<C-v>       - "" in vsplit
+<C-h>       - "" in split
+<C-t>       - "" in new tab
+q/<Esc>/;   - Quit Denite window
+d           - Delete currenly selected file (just the buffer)
+p           - Preview currently selected file
 <C-o> or i  - Switch to insert mode inside of filter prompt
+<C-Space>   - Toggle select
+<C-a>       - Toggle select all
 
 ## NERDTree
 
@@ -157,20 +166,6 @@ gS - same as gs, but clear scratch first
 s - type 2 chars to find, then label or ESC
 <leader>j - lines below
 <leader>k - lines above
-
-## Ctrl-P
-
-C-p - search in current dir = directory of current buffer, NOT cwd
-:CtrlP <dir> - to search in a another dir
-Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
-Press <c-f> and <c-b> to cycle between modes (files, buffers, mru files).
-Press <c-d> to switch to filename only search instead of full path.
-Press <c-r> to switch to regexp mode.
-Use <c-j>, <c-k> or the arrow keys to navigate the result list.
-Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
-Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
-Use <c-y> to create a new file and its parent directories.
-Use <c-z> to mark/unmark multiple files and <c-o> to open them.
 
 ## vim-dadbod
 
