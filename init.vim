@@ -219,6 +219,9 @@ nmap <C-f> :NERDTreeFind<CR>
 " quit if last window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" show hidden files by default
+let g:NERDTreeShowHidden = 1
+
 """ vim-airline
 let g:airline_powerline_fonts = 1
 
@@ -361,7 +364,7 @@ nnoremap <silent> <leader>c  :<C-u>CocList commands<cr>
 "   --glob:  Include or exclues files for searching that match the given glob
 "            (aka ignore .git files)
 "
-call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
+call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git', '--hidden'])
 
 " Use ripgrep in place of "grep"
 call denite#custom#var('grep', 'command', ['rg'])
@@ -379,8 +382,8 @@ call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 
-" Remove date from buffer list
-call denite#custom#var('buffer', 'date_format', '')
+" Remove date from buffer list - I actually don't hate this. Leave it in.
+" call denite#custom#var('buffer', 'date_format', '')
 
 " ;         - Browser currently open buffers
 " <leader>t - Browse list of files in current directory
