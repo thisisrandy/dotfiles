@@ -125,6 +125,9 @@ set clipboard+=unnamedplus
 " <leader>h - Find and replace
 " <leader>/ - Clear highlighted search terms while preserving history
 nmap / /\v
+vmap / /\v
+nmap ? ?\v
+vmap ? ?\v
 nmap <leader>h :%s/\v//<left><left>
 vmap <leader>h :s/\v//<left><left>
 nmap <silent> <leader>/ :nohlsearch<CR>
