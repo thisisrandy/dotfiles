@@ -1,6 +1,7 @@
 ## General
 
-NOTE: I have <leader> mapped to <space>, C- means Ctrl+, and M- means Alt+
+NOTE: I have <leader> mapped to <space>, C- means Ctrl+, M- means Alt+,
+      and S- means Shift+
 
 i - insert mode (I to insert at beginning of line)
 a - append after cursor (as opposed to i) (A to append at end of line)
