@@ -366,7 +366,7 @@ command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Show commands
-nnoremap <silent> <leader>c  :<C-u>CocList commands<cr>
+nnoremap <silent> <leader>co  :<C-u>CocList commands<cr>
 
 """ Denite setup
 " Use ripgrep for searching current directory for files

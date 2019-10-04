@@ -114,7 +114,7 @@ ge - go to next error position, i.e. skip warnings, etc.
 K - show documentation
 <leader>r - rename current word
 <leader>b - format buffer
-<leader>c - show commands
+<leader>co - show commands
 
 <TAB> - snippet completion
 <C-n> - next completion. allows use without snippet, e.g. for refering to functions
