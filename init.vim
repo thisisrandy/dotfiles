@@ -101,6 +101,13 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
+" highlight cursor line in the active window only
+augroup CursorLineOnlyInActiveWindow
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+augroup END
+
 " Remap window resizing. This is a little weird, since it isn't window
 " placement-aware, but it'll do
 nnoremap <C-S-Left> :vertical resize -10<CR>
@@ -130,7 +137,7 @@ nmap ? ?\v
 vmap ? ?\v
 nmap <leader>h :%s/\v//<left><left>
 vmap <leader>h :s/\v//<left><left>
-nmap <silent> <leader>/ :set invhlsearch<CR>
+nmap <silent> <leader>/ :nohlsearch<CR>
 
 " move lines up and down with M-k/j (or up/down)
 nnoremap <M-j> :m .+1<CR>==
