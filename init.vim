@@ -63,6 +63,7 @@ Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim'
 " Plug 'semanser/vim-outdated-plugins'
 Plug 'thisisrandy/vim-outdated-plugins'
+Plug 'ggVGc/vim-fuzzysearch'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -502,12 +503,13 @@ function! FindReplace()
     let currBuff = bufnr("%")
 
     " find with rigrep (populate quickfix)
-    " note the need to escape special chars to align with v-mode.
+    " note the need to escape special chars to align with very magic mode.
     " this is probably not an exhaustive list
     let rgFind = substitute(find, '\\', '\\\\', 'g')
     let rgFind = substitute(rgFind, '*', '\\*', 'g')
     let rgFind = substitute(rgFind, '[', '\\[', 'g')
     let rgFind = substitute(rgFind, ']', '\\]', 'g')
+    let rgFind = substitute(rgFind, '<\|>', '\\\\b', 'g')
     :silent exe 'Rg ' . rgFind
 
     " use cfdo to substitute on all quickfix files
@@ -564,4 +566,6 @@ let g:user_emmet_leader_key=','
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
+""" vim-fuzzysearch
+nnoremap <leader>ff :FuzzySearch<CR>
 

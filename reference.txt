@@ -77,6 +77,7 @@ zR - open all folds. zr for increase folding level
 :%s/foo/bar/ - whole file. also mapped to C-h
 :s/foo/bar/ - current line
 <leader>fr - all files in current dir (cwd, not buffer dir)
+<leader>ff - fuzzy find in current buffer. note only " " matches spaces
 tags:
    g - global
    c - confirmation
