@@ -2,7 +2,7 @@
 " remember to install vim-plug and run :PlugInstall
 " this file is broken until plugins installed
 " :so % to source it
-" :checkhealth to insure plugins are working
+" :checkhealth to ensure plugins are working
 "
 " ripgrep (rg) must be installed for denite
 " > sudo apt-get install ripgrep
@@ -103,10 +103,10 @@ set expandtab
 
 " Remap window resizing. This is a little weird, since it isn't window
 " placement-aware, but it'll do
-nnoremap <C-S-Left> :vertical resize -1<CR>
-nnoremap <C-S-Right> :vertical resize +1<CR>
-nnoremap <C-S-Down> :resize -1<CR>
-nnoremap <C-S-Up> :resize +1<CR>
+nnoremap <C-S-Left> :vertical resize -10<CR>
+nnoremap <C-S-Right> :vertical resize +10<CR>
+nnoremap <C-S-Down> :resize -5<CR>
+nnoremap <C-S-Up> :resize +5<CR>
 
 " Search
 set ignorecase
