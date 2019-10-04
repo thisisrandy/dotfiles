@@ -2,13 +2,14 @@
 
 NOTE: I have <leader> mapped to <space>, C- means Ctrl+, and M- means Alt+
 
-i - insert mode
-a - append after cursor (as opposed to i)
+i - insert mode (I to insert at beginning of line)
+a - append after cursor (as opposed to i) (A to append at end of line)
 (C-)v - visual (block) mode
 V - visual line mode
+c[number]{motion} - change mode, e.g. c2e to change until end of next word
 ESC/C-[ - exit i/v/c mode. I also have ii mapped
 M-normal mode key - in insert mode, execute a normal mode command, e.g. u
-u - undo
+u - undo (U to undo all changes to a line)
 C-r - redo
 y/d - copy/delete in visual mode (yy/dd for line in normal mode)
 P/p - paste before/after cursor
@@ -16,7 +17,7 @@ C-o - go back to last point. in insert mode, issue command without leaving inser
 C-i - jump forward
 :(v)s(plit) - split window (vertically) :sp and :vs also acceptable
 :only - close all splits but this one
-C-w + direction - navigate between splits
+C-w + direction - navigate between splits (also mapped to C-direction)
 C-w + r - swap splits
 :tabe - open new tab. NOTE: Use tabs as VIEWPORTS, not in place of buffers
 :tab[np] - next/previous tab
@@ -26,9 +27,10 @@ o - new line under
 O - new line over
 ^ - go to start of line (text)
 0 - go to start of line (absolute)
-$ - got to end of line
+$ - go to end of line
 :te[rminal] - open shell/terminal (exit to return to vim)
-@: - repeat previous command (and then @@ for subsequent completions)
+[count]@: - repeat last command (and then @@ for subsequent repetitions)
+[count]. - repeat last change
 gg - top of file
 G - end of file
 = - indent command. gg=G to indent whole file. NOTE: better to use language server
@@ -52,6 +54,8 @@ C-] - go to label in docs
 gx - go to url under cursor (kind of broken, but in a pinch)
 M-[kj] - move current or selected line up and down. Also mapped to M-Up/Down
 <leader>wr - turning line wrapping on/off nicely
+C-S-arrow - resize window. not this is not placement aware, so up = +,
+            down = -, right = +, left = - regardless of window position
 
 ## Folding
 

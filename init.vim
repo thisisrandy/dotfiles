@@ -38,6 +38,9 @@
 "
 " tagbar requires universal-ctags
 " > sudo apt-get install universal-ctags
+"
+" vim-airline needs powerline fonts
+" https://powerline.readthedocs.io/en/latest/installation/linux.html#fonts-installation
 
 """ Plug
 call plug#begin('~/.local/share/nvim/plugged')
@@ -58,6 +61,8 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'jremmen/vim-ripgrep'
 Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim'
+" Plug 'semanser/vim-outdated-plugins'
+Plug 'thisisrandy/vim-outdated-plugins'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -96,9 +101,12 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
-" Remap tab navigation
-nnoremap <C-S-Left> :tabprev<CR>
-nnoremap <C-S-Right> :tabnext<CR>
+" Remap window resizing. This is a little weird, since it isn't window
+" placement-aware, but it'll do
+nnoremap <C-S-Left> :vertical resize -1<CR>
+nnoremap <C-S-Right> :vertical resize +1<CR>
+nnoremap <C-S-Down> :resize -1<CR>
+nnoremap <C-S-Up> :resize +1<CR>
 
 " Search
 set ignorecase
@@ -113,10 +121,12 @@ set hidden
 " Yank and paste with the system clipboard
 set clipboard+=unnamedplus
 
+" / - search in very magic mode
 " <leader>h - Find and replace
 " <leader>/ - Clear highlighted search terms while preserving history
-nmap <leader>h :%s///<left><left>
-vmap <leader>h :s///<left><left>
+nmap / /\v
+nmap <leader>h :%s/\v//<left><left>
+vmap <leader>h :s/\v//<left><left>
 nmap <silent> <leader>/ :nohlsearch<CR>
 
 " move lines up and down with M-k/j (or up/down)
@@ -210,8 +220,6 @@ nmap <C-f> :NERDTreeFind<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 """ vim-airline
-" remember to install powerline fonts
-" https://powerline.readthedocs.io/en/latest/installation/linux.html#fonts-installation
 let g:airline_powerline_fonts = 1
 
 """ NERDcommenter
@@ -456,7 +464,7 @@ function! FindReplace()
 
   " ask for pattern
   call inputsave()
-  let find = input('Pattern: ')
+  let find = input('Pattern (very magic mode): ')
   call inputrestore()
   if empty(find) | return | endif
 
@@ -481,13 +489,19 @@ function! FindReplace()
     let currBuff = bufnr("%")
 
     " find with rigrep (populate quickfix)
-    :silent exe 'Rg ' . find
+    " note the need to escape special chars to align with v-mode.
+    " this is probably not an exhaustive list
+    let rgFind = substitute(find, '\\', '\\\\', 'g')
+    let rgFind = substitute(rgFind, '*', '\\*', 'g')
+    let rgFind = substitute(rgFind, '[', '\\[', 'g')
+    let rgFind = substitute(rgFind, ']', '\\]', 'g')
+    :silent exe 'Rg ' . rgFind
 
     " use cfdo to substitute on all quickfix files
     if confirmEach == 1
-      :noautocmd exe 'cfdo %s/' . find . '/' . replace . '/gc | update'
+      :noautocmd exe 'cfdo %s/\v' . find . '/' . replace . '/gc | update'
     else
-      :silent noautocmd exe 'cfdo %s/' . find . '/' . replace . '/g | update'
+      :silent noautocmd exe 'cfdo %s/\v' . find . '/' . replace . '/g | update'
     endif
 
     " close quickfix window
