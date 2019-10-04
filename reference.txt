@@ -4,9 +4,10 @@ NOTE: I have <leader> mapped to <space>, C- means Ctrl+, and M- means Alt+
 
 i - insert mode (I to insert at beginning of line)
 a - append after cursor (as opposed to i) (A to append at end of line)
+[number]r - replace character (R for replace mode)
+c[number]{motion} - change mode, e.g. c2e to change until end of next word
 (C-)v - visual (block) mode
 V - visual line mode
-c[number]{motion} - change mode, e.g. c2e to change until end of next word
 ESC/C-[ - exit i/v/c mode. I also have ii mapped
 M-normal mode key - in insert mode, execute a normal mode command, e.g. u
 u - undo (U to undo all changes to a line)
@@ -34,7 +35,7 @@ $ - go to end of line
 gg - top of file
 G - end of file
 = - indent command. gg=G to indent whole file. NOTE: better to use language server
-:b[next|previous] - next/previous buffer
+:b[next|previous] - next/previous buffer NOTE: better to use denite for buf switching
 :[ls|buffers|files] - show all buffers/files
 :b(uffer) N - go to buffer N ("uffer" is unnecessary). alternately, tab to cycle through buf names
 :bd N|<file> - delete buffer
@@ -71,7 +72,8 @@ zR - open all folds. zr for increase folding level
 :/foo - search for foo
 * - search for word under cursor. g* is partial match
 # - * in reverse. g# also valid
-:noh - remove highlighting, e.g. from *. slightly different version mapped to <leader>/
+:noh - remove highlighting, e.g. from *. toggle mapped to <leader>/
+% - find matching paren/brace
 :%s/foo/bar/ - whole file. also mapped to C-h
 :s/foo/bar/ - current line
 <leader>fr - all files in current dir (cwd, not buffer dir)

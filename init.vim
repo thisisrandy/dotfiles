@@ -130,7 +130,7 @@ nmap ? ?\v
 vmap ? ?\v
 nmap <leader>h :%s/\v//<left><left>
 vmap <leader>h :s/\v//<left><left>
-nmap <silent> <leader>/ :nohlsearch<CR>
+nmap <silent> <leader>/ :set invhlsearch<CR>
 
 " move lines up and down with M-k/j (or up/down)
 nnoremap <M-j> :m .+1<CR>==
