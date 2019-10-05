@@ -41,6 +41,16 @@
 "
 " vim-airline needs powerline fonts
 " https://powerline.readthedocs.io/en/latest/installation/linux.html#fonts-installation
+"
+" vim-glaive needs to be installed. there is logic in this script to do that,
+" but it needs to be run after :PlugInstall has been run. re-source this file
+" or restart vim to install properly.
+"
+" vim-codefmt requires that formatters be installed elsewhere and in the path.
+" currently, I'm only using it for html since prettier is broken and codefmt
+" uses js-beautify, so js-beautify would need to be installed for html
+" formatting. Also note that .jsbeautifyrc (must be soft linked in ~) for
+" config to take effect
 
 """ Plug
 call plug#begin('~/.local/share/nvim/plugged')
@@ -64,6 +74,9 @@ Plug 'mattn/emmet-vim'
 " Plug 'semanser/vim-outdated-plugins'
 Plug 'thisisrandy/vim-outdated-plugins'
 Plug 'ggVGc/vim-fuzzysearch'
+Plug 'google/vim-maktaba' " vim-codefmt requirement
+Plug 'google/vim-glaive' " vim-codefmt requirement
+Plug 'google/vim-codefmt'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -75,6 +88,11 @@ Plug 'ggVGc/vim-fuzzysearch'
 " Plug 'lrvick/Conque-Shell' " required for node-vim-debugger
 
 call plug#end()
+
+" install glaive if it has been loaded. if not, re-source this file
+if has_key(g:plugs, "vim-glaive") && isdirectory(g:plugs["vim-glaive"].dir)
+  call glaive#Install()
+endif
 
 " call plug#end() executes this already
 " filetype plugin indent on
@@ -326,30 +344,26 @@ nmap <leader>r <Plug>(coc-rename)
 
 " Whole buffer
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-" Prettier breaks up tags onto new lines in a way I don't like in html. This
-" seems to be a functioning hack around that behavior.
-function PrettierHtmlHack()
+
+" Prettier breaks up tags onto new lines in a way I don't like in html.
+" There may be other reasons to choose a different formatter per file type, so
+" encode that here. There are some plugins to organize maps by file type which
+" may be better if I want to do more with this, but a simple hack should
+" suffice for now.
+function RunFormatter()
   if &ft =~ 'html'
-    " for some reason Prettier ignores the s/r operation if I don't write the
-    " buffer out first. super-annoying, especially since BufWritePre (below)
-    " behaves differently. I'm tired of trying to figure out why, though, so
-    " I guess this is what we're doing
-    :%s/></>\r</ge | update | Prettier
+    " vim-codefmt
+    :FormatCode
   else
     :call CocAction('format')
   endif
 endfunction
 " Whole buffer map
-" nmap <leader>b <Plug>(coc-format)
-nmap <leader>b :call PrettierHtmlHack()<CR>
+nmap <leader>b :call RunFormatter()<CR>
 
 " Format on save
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml Prettier
-" same as PrettierHtmlHack above, but for some reason don't need to write out
-" for Prettier to respect the s/r changes
-autocmd BufWritePre *.html %s/></>\r</ge | Prettier
-autocmd BufWritePre *.py :call CocAction('format')
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.py :call RunFormatter()
 
 augroup mygroup
   autocmd!
