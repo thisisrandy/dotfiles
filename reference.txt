@@ -43,7 +43,6 @@ G - end of file
 [uU] - in visual mode, change to lower/upper case
 >> - indent, e.g. 3>>.. to indent 3 lines 3 times (. repeats action)
 << - unindent
-dd - delete line
 :<num> - go to line <num>
 q: - command history (from normal mode). can use / and ? to search in history
 C-r" - paste yanked test in command mode, e.g. for search
