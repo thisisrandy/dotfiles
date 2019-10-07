@@ -234,6 +234,9 @@ nnoremap <leader>d "_d
 xnoremap <leader>d "_d
 xnoremap <leader>p "_dP
 
+" remap * to not jump on first match
+nnoremap * *``
+
 """ NERDTree
 map <C-n> :NERDTreeToggle<CR>
 nmap <C-f> :NERDTreeFind<CR>
