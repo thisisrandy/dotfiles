@@ -1,7 +1,7 @@
 """ Fresh installation notes
-" remember to install vim-plug and run :PlugInstall
-" this file is broken until plugins installed
-" :so % to source it
+" PlugInstall is run if needed when this file is sourced on startup. Run it
+" manually otherwise. This file is probably broken until plugins are installed
+" :so % to source it manually
 " :checkhealth to ensure plugins are working
 "
 " ripgrep (rg) must be installed for denite
@@ -53,6 +53,22 @@
 " config to take effect
 
 """ Plug
+
+" check whether vim-plug is installed and install it if necessary
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+    if executable('curl')
+        let plugurl = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+        call system('curl -fLo ' . shellescape(plugpath) . ' --create-dirs ' . plugurl)
+        if v:shell_error
+            echom "Error downloading vim-plug. Please install it manually.\n"
+            exit
+        endif
+    else
+        echom "vim-plug not installed. Please install it manually or install curl.\n"
+        exit
+    endif
+endif
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree'
@@ -77,6 +93,7 @@ Plug 'ggVGc/vim-fuzzysearch'
 Plug 'google/vim-maktaba' " vim-codefmt requirement
 Plug 'google/vim-glaive' " vim-codefmt requirement
 Plug 'google/vim-codefmt'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -89,7 +106,15 @@ Plug 'google/vim-codefmt'
 
 call plug#end()
 
-" install glaive if it has been loaded. if not, re-source this file
+" if any plugins aren't installed, trigger PlugInstall (before VimEnter only)
+for key in keys(g:plugs)
+  if ! isdirectory(g:plugs[key].dir)
+    autocmd VimEnter * PlugInstall
+    break
+  endif
+endfor
+
+" install glaive if it has been loaded
 if has_key(g:plugs, "vim-glaive") && isdirectory(g:plugs["vim-glaive"].dir)
   call glaive#Install()
 endif
@@ -106,11 +131,10 @@ set number
 " remap leader
 let mapleader=" "
 
-" remap escape and single command
+" remap escape
 imap ii <Esc>
 vmap ii <Esc>
 cmap ii <Esc>
-imap uu <C-o>
 
 " turn down timeoutlen (defaults to 1000)
 set timeoutlen=500
@@ -119,6 +143,11 @@ set timeoutlen=500
 set softtabstop=2
 set shiftwidth=2
 set expandtab
+
+" Open hsplit below current window
+set splitbelow
+" Open vsplit right of current window
+set splitright
 
 " highlight cursor line in the active window only
 augroup CursorLineOnlyInActiveWindow
@@ -585,4 +614,19 @@ autocmd FileType html,css EmmetInstall
 
 """ vim-fuzzysearch
 nnoremap <leader>ff :FuzzySearch<CR>
+
+""" nerdtree-git-plugin
+
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 
