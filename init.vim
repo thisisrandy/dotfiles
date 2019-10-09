@@ -8,8 +8,8 @@
 " > sudo apt-get install ripgrep
 "
 " eslint and prettier-eslint must be installed for javascript per project
-" > npm install --save-dev eslint
-" > ./node_modules/.bin/eslint --init
+" <leader>co (list coc.nvim commands)
+" eslint.createConfig
 " > npm install --save-dev prettier-eslint
 "
 " In order for floating messages to work in coc.nvim, neovim must
@@ -28,7 +28,8 @@
 "             coc-css, coc-python, coc-java...
 " :CocConfig to open config file, then add
 " {
-"   "prettier.eslintIntegration": true
+"   "prettier.eslintIntegration": true,
+"   "html.suggest.html5": true
 " }
 "
 " coc needs node (v12.x, obviously this will go out of date at some point)
@@ -169,6 +170,9 @@ set smartcase
 
 " Allows buffer switching without writing. Also for scratch.vim
 set hidden
+
+" autoread changed files
+set autoread
 
 " Shortcuts for copy/paste to clipboard
 " noremap <Leader>y "+y
