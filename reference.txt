@@ -128,7 +128,8 @@ K - show documentation
 <leader>u - Search current directory for occurences of word under cursor
 
 In filter mode:
-<C-o> - Switch to normal mode inside of search results
+<C-o> - Quit filter mode
+<Esc> - Switch to normal mode inside of filter bar (rarely useful)
 <CR>  - Open currently selected filter
 <C-v> - "" in vsplit
 <C-h> - "" in split

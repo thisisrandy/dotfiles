@@ -452,7 +452,8 @@ nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
 nnoremap <leader>u :<C-u>DeniteCursorWord grep:.<CR>
 
 " Define mappings while in 'filter' mode
-"   <C-o> - Switch to normal mode inside of search results
+"   <C-o> - Quit filter mode
+"   <Esc> - Switch to normal mode inside of filter bar (rarely useful)
 "   <CR>  - Open currently selected filter
 "   <C-v> - "" in vsplit
 "   <C-h> - "" in split
