@@ -95,6 +95,8 @@ Plug 'google/vim-maktaba' " vim-codefmt requirement
 Plug 'google/vim-glaive' " vim-codefmt requirement
 Plug 'google/vim-codefmt'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -619,7 +621,6 @@ autocmd FileType html,css EmmetInstall
 nnoremap <leader>ff :FuzzySearch<CR>
 
 """ nerdtree-git-plugin
-
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
@@ -632,4 +633,7 @@ let g:NERDTreeIndicatorMapCustom = {
     \ 'Ignored'   : '☒',
     \ "Unknown"   : "?"
     \ }
+
+""" vim-javascript
+let g:javascript_plugin_jsdoc = 1
 
