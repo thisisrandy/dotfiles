@@ -1,5 +1,4 @@
 ## General
-# Dummy change for test
 
 NOTE: I have <leader> mapped to <space>, C- means Ctrl+, M- means Alt+,
       and S- means Shift+
