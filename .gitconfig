@@ -3,5 +3,7 @@
 	name = Randy West
 [core]
 	editor = vim
+[mergetool "nvimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [merge]
-	tool = 
+	tool = nvimdiff
