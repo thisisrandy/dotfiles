@@ -117,7 +117,7 @@ K - show documentation
 <leader>b - format buffer
 <leader>co - show commands
 
-<TAB> - snippet completion
+<TAB> - snippet completion. also next snippet placeholder (from normal mode)
 <C-n> - next completion. allows use without snippet, e.g. for refering to functions
         instead of function calls. <Down> mapped to the same.
 <C-p> - previous completion. <Up> mapped to the same.
