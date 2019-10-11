@@ -8,3 +8,5 @@
 	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [merge]
 	tool = nvimdiff
+[credential]
+	helper = store
