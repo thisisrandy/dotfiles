@@ -2,7 +2,10 @@
 " PlugInstall is run if needed when this file is sourced on startup. Run it
 " manually otherwise. This file is probably broken until plugins are installed
 " :so % to source it manually
-" :checkhealth to ensure plugins are working
+" :checkhealth to ensure plugins are working (only a few are hooked into this
+" feature)
+"
+" Run create_softlinks.sh to install this and other dot files
 "
 " ripgrep (rg) and pynvim must be installed for denite
 " > sudo apt-get install ripgrep
@@ -42,8 +45,7 @@
 " vim-codefmt requires that formatters be installed elsewhere and in the path.
 " currently, I'm only using it for html since prettier is broken and codefmt
 " uses js-beautify, so js-beautify would need to be installed for html
-" formatting. Also note that .jsbeautifyrc (must be soft linked in ~) for
-" config to take effect
+" formatting
 
 """ Plug
 
