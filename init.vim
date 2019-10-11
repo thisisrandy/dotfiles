@@ -4,8 +4,9 @@
 " :so % to source it manually
 " :checkhealth to ensure plugins are working
 "
-" ripgrep (rg) must be installed for denite
+" ripgrep (rg) and pynvim must be installed for denite
 " > sudo apt-get install ripgrep
+" > pip3 install --user pynvim
 "
 " eslint and prettier-eslint must be installed for javascript per project
 " <leader>co (list coc.nvim commands)
