@@ -57,6 +57,8 @@ M-[kj] - move current or selected line up and down. Also mapped to M-Up/Down
 <leader>wr - turning line wrapping on/off nicely
 C-S-arrow - resize window. not this is not placement aware, so up = +,
             down = -, right = +, left = - regardless of window position
+:copen - open the quickfix window
+:cclose - close the quickfix window
 
 ## Folding
 
@@ -153,9 +155,15 @@ p          - Preview currently selected file
 C-n - open. see internal help for other mappings
 C-f - find current file in tree
 
-## vim-fugitive (git)
+## vim-fugitive/rhubarb (git)
 
 G<git command> - issue git command from within vim
+G[v]diffsplit! - three way [vertical] merge on file with conflicts
+dp - when resolving conflicts, put the side under the cursor in the merged buffer
+Gwrite - write and stage current buffer
+Gbrowse - browse at the upstream provider, e.g. github
+Glog - browse the commit log
+... and many others. See the docs
 
 ## NERDCommenter
 
