@@ -122,6 +122,9 @@ K - show documentation
         instead of function calls. <Down> mapped to the same.
 <C-p> - previous completion. <Up> mapped to the same.
 
+<leader>y - yank list. i to fuzzy search, <space> to select multiple. note that system
+            clipboard copies aren't included
+
 ## denite
 
 ; - Browser currently open buffers (starts in filter mode)

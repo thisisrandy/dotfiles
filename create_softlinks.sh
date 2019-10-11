@@ -9,4 +9,6 @@ rm $HOME/.gitconfig
 ln -s $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
 rm $HOME/.config/nvim/init.vim
 ln -s $PATH_TO_DOT_FILES/init.vim $HOME/.config/nvim/init.vim
+rm $HOME/.config/nvim/coc-settings.json
+ln -s $PATH_TO_DOT_FILES/coc-settings.json $HOME/.config/nvim/coc-settings.json
 

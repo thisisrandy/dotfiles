@@ -24,15 +24,6 @@
 " > sudo apt-get install xclip
 " (for sharing the system clipboard)
 "
-" :ConInstall to install language extensions
-" Extensions: coc-json, coc-eslint, coc-tsserver, coc-snippets, coc-html,
-"             coc-css, coc-python, coc-java...
-" :CocConfig to open config file, then add
-" {
-"   "prettier.eslintIntegration": true,
-"   "html.suggest.html5": true
-" }
-"
 " coc needs node (v12.x, obviously this will go out of date at some point)
 " > sudo apt-get install curl
 " > curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
@@ -311,6 +302,11 @@ let g:NERDTrimTrailingWhitespace = 1
 
 """ coc.nvim
 
+" extensions
+let g:coc_global_extensions=["coc-json", "coc-eslint", "coc-tsserver",
+  \ "coc-snippets", "coc-html", "coc-css", "coc-python", "coc-java",
+  \ "coc-highlight", "coc-tabnine", "coc-yank", "coc-omnisharp"]
+
 " correct comment highlighting for config file
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
@@ -421,6 +417,12 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Show commands
 nnoremap <silent> <leader>co  :<C-u>CocList commands<cr>
+
+" Highlight word under cursor
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Yank list
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
 """ Denite setup
 " Use ripgrep for searching current directory for files
