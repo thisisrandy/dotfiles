@@ -2,8 +2,9 @@
 	email = randywest55@gmail.com
 	name = Randy West
 [core]
-	editor = vim
+  editor = vim
+  conflictstyle = diff3
 [mergetool "nvimdiff"]
-	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [merge]
 	tool = nvimdiff
