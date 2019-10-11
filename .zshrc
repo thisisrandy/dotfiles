@@ -93,8 +93,16 @@ prompt_context(){}
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# Custom path locations
 export PATH=$PATH:~/git/scripts/
+
+# fzf
 export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git'
+
+# pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
