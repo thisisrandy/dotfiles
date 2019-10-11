@@ -639,3 +639,6 @@ let g:NERDTreeIndicatorMapCustom = {
 """ vim-javascript
 let g:javascript_plugin_jsdoc = 1
 
+""" vim-outdated-plugins
+let g:outdated_plugins_trigger_mode = 1
+
