@@ -165,6 +165,10 @@ Gbrowse - browse at the upstream provider, e.g. github
 Glog - browse the commit log
 ... and many others. See the docs
 
+NOTE: In order for push to upstream to work, credentials must be stored. Run
+> git config --global credential.helper store
+if not already configured, and then do an operation that requires entering credentials
+
 ## NERDCommenter
 
 [count]<leader>c<space> - toggle comment state of selected lines
