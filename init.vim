@@ -90,8 +90,6 @@ Plug 'google/vim-maktaba' " vim-codefmt requirement
 Plug 'google/vim-glaive' " vim-codefmt requirement
 Plug 'google/vim-codefmt'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
 Plug 'sheerun/vim-polyglot'
 
 " this is probably useful for some languages, but unclear if it really
@@ -641,9 +639,6 @@ let g:NERDTreeIndicatorMapCustom = {
     \ 'Ignored'   : '☒',
     \ "Unknown"   : "?"
     \ }
-
-""" vim-javascript
-let g:javascript_plugin_jsdoc = 1
 
 """ vim-outdated-plugins
 let g:outdated_plugins_silent_mode = 1
