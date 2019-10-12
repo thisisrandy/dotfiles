@@ -188,7 +188,7 @@ gS - same as gs, but clear scratch first
 
 ## vim-easymotion
 
-s - type 2 chars to find, then label or ESC
+s - type a single to find, then type the appropriate label or ESC
 <leader>j - lines below
 <leader>k - lines above
 
@@ -201,6 +201,8 @@ s - type 2 chars to find, then label or ESC
 ## tagbar
 
 <F8> - toggle tagbar
+<F9> - open and focus on tagbar, then auto close after tag selected
+<C-t> - same as <F9>, but start a fuzzy search. useful for quickly jumping to functions
 
 ## vim-windowswap
 

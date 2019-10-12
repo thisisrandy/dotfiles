@@ -619,6 +619,7 @@ map <Leader>k <Plug>(easymotion-k)
 """ tagbar
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :TagbarOpenAutoClose<CR>
+nmap <C-t> :TagbarOpenAutoClose<CR>/
 
 """ emmet-vim
 " remap leader (type, then ,, to expand)
