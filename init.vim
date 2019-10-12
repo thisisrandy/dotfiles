@@ -49,7 +49,10 @@
 " uses js-beautify, so js-beautify would need to be installed for html
 " formatting
 "
-" the coc ccls server needs ccls installed. see https://github.com/MaskRay/ccls/wiki/Build
+" the coc c-lang server needs clangd installed.
+" see https://clang.llvm.org/extra/clangd/Installation.html
+" honestly, it seems quite broken. can't find random files in the path, etc.,
+" but leaving in for now
 
 """ Plug
 
