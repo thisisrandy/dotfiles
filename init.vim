@@ -48,6 +48,8 @@
 " currently, I'm only using it for html since prettier is broken and codefmt
 " uses js-beautify, so js-beautify would need to be installed for html
 " formatting
+"
+" the coc ccls server needs ccls installed. see https://github.com/MaskRay/ccls/wiki/Build
 
 """ Plug
 
