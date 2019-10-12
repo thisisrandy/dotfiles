@@ -625,10 +625,6 @@ nmap <F9> :TagbarOpenAutoClose<CR>
 " remap leader (type, then ,, to expand)
 let g:user_emmet_leader_key=','
 
-" restrict to html and css files
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
-
 """ vim-fuzzysearch
 nnoremap <leader>ff :FuzzySearch<CR>
 
