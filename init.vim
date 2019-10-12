@@ -315,8 +315,8 @@ let g:coc_global_extensions=["coc-json", "coc-eslint", "coc-tsserver",
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " make sure jsx files are correctly mapped
-autocmd BufNewFile,BufRead *.jsx ft=javascriptreact
-autocmd BufNewFile,BufRead *.tsx ft=typescriptreact
+autocmd BufNewFile,BufRead *.jsx set ft=javascript.jsx
+autocmd BufNewFile,BufRead *.tsx set ft=typescript.jsx
 
 " Some servers have issues with backup files, see #649
 set nobackup
