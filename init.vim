@@ -96,6 +96,8 @@ Plug 'google/vim-codefmt'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sheerun/vim-polyglot'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -316,8 +318,7 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:coc_global_extensions=["coc-json", "coc-eslint", "coc-tsserver",
   \ "coc-snippets", "coc-html", "coc-css", "coc-python", "coc-java",
   \ "coc-highlight", "coc-tabnine", "coc-yank", "coc-omnisharp",
-  \ "coc-emmet", "coc-lists", "coc-marketplace", "coc-ultisnips",
-  \ "coc-neosnippet" ]
+  \ "coc-emmet", "coc-lists", "coc-marketplace", "coc-neosnippet" ]
 
 " correct comment highlighting for config file
 autocmd FileType json syntax match Comment +\/\/.\+$+
