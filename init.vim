@@ -19,7 +19,8 @@
 " In order for floating messages to work in coc.nvim, neovim must
 " be built from source (at time of writing, may change).
 " > git clone https://github.com/neovim/neovim.git
-" > make CMAKE_BUILD_TYPE=RelWithDebInfo
+" > git checkout stable
+" > make CMAKE_BUILD_TYPE=Release
 " > sudo make install
 "
 " neovim sometimes can't find a clipboard provider for unknown reasons.
