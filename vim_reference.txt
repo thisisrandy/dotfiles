@@ -205,22 +205,3 @@ s - type 2 chars to find, then label or ESC
 
 <leader>ww in current pane, <leader>ww in swap to pane to swap
 
-### NOT CURRENTLY INSTALLED ###
-
-## django.vim
-
-:setfiletype (html)django - for django syntax highlighting in with/without html highlighting
-
-## syntastic (pylint, flake8, etc.)
-
-runs on file write
-note that for virtualenv to work, pylint must be installed in the virtualenv
-
-:SyntasticCheck [checker+] - run a default check or with specified checkers, e.g. pylint
-:Errors - show errors (in location list)
-:lclose - close locations list
-
-## Pyunit (vim-pyunit) - REMOVED (incompatible?)
-
-F8 - run nose tests
-
