@@ -128,6 +128,8 @@ K - show documentation
 <leader>y - yank list. i to fuzzy search, <space> to select multiple. note that system
             clipboard copies aren't included
 
+:CocList marketplace - see which extensions are installed and search for new ones
+
 ## denite
 
 ; - Browser currently open buffers (starts in filter mode)
