@@ -72,7 +72,8 @@ zR - open all folds. zr for increase folding level
 ## Search/replace
 
 :/foo - search for foo (? is reverse)
-* - search for word under cursor. g* is partial match. mapped to start under cursor
+* - search for word under cursor. g* is partial match. mapped to highlight only.
+    use n/N to navigate between matches
 # - * in reverse. g# also valid
 :noh - remove highlighting, e.g. from *. mapped to <leader>/
 % - find matching paren/brace
