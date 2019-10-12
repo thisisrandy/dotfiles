@@ -176,16 +176,17 @@ set autoread
 " Yank and paste with the system clipboard
 set clipboard+=unnamedplus
 
-" / - search in very magic mode
+" / - use vim-fuzzysearch in normal mode, very magic mode in visual mode
+" ? - reverse in very magic mode
 " <leader>h - Find and replace
 " <leader>/ - Clear highlighted search terms while preserving history
-nmap / /\v
-vmap / /\v
-nmap ? ?\v
-vmap ? ?\v
-nmap <leader>h :%s/\v//<left><left>
-vmap <leader>h :s/\v//<left><left>
-nmap <silent> <leader>/ :nohlsearch<CR>
+nnoremap / :FuzzySearch<CR>
+vnoremap / /\v
+nnoremap ? ?\v
+vnoremap ? ?\v
+nnoremap <leader>h :%s/\v//<left><left>
+vnoremap <leader>h :s/\v//<left><left>
+nnoremap <silent> <leader>/ :nohlsearch<CR>
 
 " move lines up and down with M-k/j (or up/down)
 nnoremap <M-j> :m .+1<CR>==
@@ -622,9 +623,6 @@ nmap <F9> :TagbarOpenAutoClose<CR>
 """ emmet-vim
 " remap leader (type, then ,, to expand)
 let g:user_emmet_leader_key=','
-
-""" vim-fuzzysearch
-nnoremap <leader>ff :FuzzySearch<CR>
 
 """ nerdtree-git-plugin
 let g:NERDTreeIndicatorMapCustom = {

@@ -71,7 +71,9 @@ zR - open all folds. zr for increase folding level
 
 ## Search/replace
 
-:/foo - search for foo (? is reverse)
+/ - use vim-fuzzysearch in normal mode, very magic mode in visual mode
+? - reverse in very magic mode
+<leader>h - Find and replace in very magic mode
 * - search for word under cursor. g* is partial match. mapped to highlight only.
     use n/N to navigate between matches
 # - * in reverse. g# also valid
@@ -80,7 +82,6 @@ zR - open all folds. zr for increase folding level
 :%s/foo/bar/ - whole file. also mapped to C-h
 :s/foo/bar/ - current line
 <leader>fr - search/replace all files in current dir (cwd, not buffer dir)
-<leader>ff - fuzzy find in current buffer. note only " " matches spaces
 tags:
    g - global
    c - confirmation
