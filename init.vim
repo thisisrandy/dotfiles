@@ -95,6 +95,7 @@ Plug 'google/vim-glaive' " vim-codefmt requirement
 Plug 'google/vim-codefmt'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sheerun/vim-polyglot'
+Plug 'jackguo380/vim-lsp-cxx-highlight'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
