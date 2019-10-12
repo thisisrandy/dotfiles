@@ -176,11 +176,13 @@ set autoread
 " Yank and paste with the system clipboard
 set clipboard+=unnamedplus
 
-" / - use vim-fuzzysearch in normal mode, very magic mode in visual mode
+" \ - use vim-fuzzysearch in normal mode
+" / - very magic mode
 " ? - reverse in very magic mode
 " <leader>h - Find and replace
 " <leader>/ - Clear highlighted search terms while preserving history
-nnoremap / :FuzzySearch<CR>
+nnoremap \ :FuzzySearch<CR>
+nnoremap / /\v
 vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
@@ -619,7 +621,7 @@ map <Leader>k <Plug>(easymotion-k)
 """ tagbar
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :TagbarOpenAutoClose<CR>
-nmap <C-t> :TagbarOpenAutoClose<CR>/
+nmap <C-t> :TagbarOpenAutoClose<CR>\
 
 """ emmet-vim
 " remap leader (type, then ,, to expand)
