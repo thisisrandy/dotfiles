@@ -2,22 +2,17 @@
   "prettier.eslintIntegration": true,
   "html.suggest.html5": true,
   "languageserver": {
-    "ccls": {
-      "command": "ccls",
-      "filetypes": ["c", "cpp", "objc", "objcpp"],
+    "clangd": {
+      "command": "clangd",
+      "args": ["--background-index"],
       "rootPatterns": [
-        ".ccls",
+        "compile_flags.txt",
         "compile_commands.json",
         ".vim/",
         ".git/",
         ".hg/"
       ],
-      "initializationOptions": {
-        "cache": {
-          "directory": "/tmp/ccls"
-        },
-        "highlight": { "lsRanges": true }
-      }
+      "filetypes": ["c", "cpp", "objc", "objcpp"]
     }
   }
 }
