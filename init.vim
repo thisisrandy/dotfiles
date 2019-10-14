@@ -60,7 +60,7 @@
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
     if executable('curl')
         let plugurl = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-        call system('curl -fLo ' . shellescape(plugpath) . ' --create-dirs ' . plugurl)
+        call system('curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs ' . plugurl)
         if v:shell_error
             echom "Error downloading vim-plug. Please install it manually.\n"
             exit
