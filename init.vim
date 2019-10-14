@@ -331,8 +331,8 @@ let g:NERDTrimTrailingWhitespace = 1
 " extensions
 let g:coc_global_extensions=["coc-json", "coc-eslint", "coc-tsserver",
   \ "coc-snippets", "coc-html", "coc-css", "coc-python", "coc-java",
-  \ "coc-highlight", "coc-tabnine", "coc-yank", "coc-omnisharp",
-  \ "coc-emmet", "coc-lists", "coc-marketplace", "coc-neosnippet" ]
+  \ "coc-highlight", "coc-yank", "coc-omnisharp", "coc-emmet",
+  \ "coc-lists", "coc-marketplace", "coc-neosnippet" ]
 
 " correct comment highlighting for config file
 autocmd FileType json syntax match Comment +\/\/.\+$+
