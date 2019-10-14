@@ -94,7 +94,6 @@ prompt_context(){}
 # export ARCHFLAGS="-arch x86_64"
 
 # Custom path locations
-export PATH=$PATH:~/git/scripts/
 export PATH=$PATH:~/bin/
 
 # fzf
