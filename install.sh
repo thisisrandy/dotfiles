@@ -27,6 +27,7 @@ ln -sf $PATH_TO_DOT_FILES/.zshrc $HOME/.zshrc
 # install node
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
+sudo apt-get install yarn
 
 # install js-beautify
 sudo npm -g install js-beautify
