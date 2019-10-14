@@ -96,3 +96,7 @@ ln -sf $PATH_TO_DOT_FILES/init.vim $HOME/.config/nvim/init.vim
 ln -sf $PATH_TO_DOT_FILES/coc-settings.json $HOME/.config/nvim/coc-settings.json
 sudo npm install -g neovim
 
+# install VS code settings
+mkdir -p $HOME/.config/Code/User
+ln -sf $PATH_TO_DOT_FILES/vscode-settings.json $HOME/.config/Code/User/settings.json
+
