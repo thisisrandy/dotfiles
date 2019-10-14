@@ -59,8 +59,23 @@ pip install jedi
 # install universal-ctags - this snap is broken as of writing. apparently it doesn't
 # have access to any files outside of the home directly, including hidden files within
 # the home dir, so it's pretty useless and breaks tagbar, which uses tmp files
+# build from source instead
 # sudo snap install universal-ctags
-sudo apt-get install exuberant-ctags
+sudo apt install \
+    gcc make \
+    pkg-config autoconf automake \
+    python3-docutils \
+    libseccomp-dev \
+    libjansson-dev \
+    libyaml-dev \
+    libxml2-dev
+git clone https://github.com/universal-ctags/ctags.git ~/.ctags
+pushd ~/.ctags
+./autogen.sh
+./configure
+make
+sudo make install
+popd
 
 # install ripgrep
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
