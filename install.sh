@@ -70,7 +70,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 # install nvim
 rm -f $HOME/bin/nvim
 curl -fLo ~/bin/nvim --create-dirs https://github.com/neovim/neovim/releases/download/v0.4.2/nvim.appimage
-chmod +x ~/bin/nvim
+chmod a+x ~/bin/nvim
 ln -sf $HOME/bin/nvim $HOME/bin/vim
 mkdir -p $HOME/.config/nvim
 ln -sf $PATH_TO_DOT_FILES/init.vim $HOME/.config/nvim/init.vim
