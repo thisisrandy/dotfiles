@@ -53,6 +53,10 @@
 " see https://clang.llvm.org/extra/clangd/Installation.html
 " honestly, it seems quite broken. can't find random files in the path, etc.,
 " but leaving in for now
+"
+" vim-fugitive needs credentials stored
+" > git config --global credential.helper store
+" > (any operation that asks for credentials)
 
 """ Plug
 
