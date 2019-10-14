@@ -55,8 +55,11 @@ curl https://pyenv.run | bash
 # install jedi
 pip install jedi
 
-# install universal-ctags
-sudo snap install universal-ctags
+# install universal-ctags - this snap is broken as of writing. apparently it doesn't
+# have access to any files outside of the home directly, including hidden files within
+# the home dir, so it's pretty useless and breaks tagbar, which uses tmp files
+# sudo snap install universal-ctags
+sudo apt-get install exuberant-ctags
 
 # install ripgrep
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
