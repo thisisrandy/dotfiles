@@ -1,15 +1,28 @@
 #!/bin/bash
+# USAGE: ./install.sh
+# NOTES:
+# - All prompts should be answered "y"
+# - When zsh is installed, type exit to continue the script
+# - nvim will take a couple of start/exit cycles to run correctly, and may dump core
+#   the first time. after it seems to be working, denite will be off, so run
+#   :checkhealth and follow instructions
+# - If its been a while since this file was updated, versions of any manually
+#   downloaded programs should be checked and updated as needed (node, rg, and nvim)
+#
+# Tested on ubuntu 18.04. For 19.04:
+# - ripgrep and fzf should be installed by apt-get instead of manually
+# - s/\/bin\/bash/\/usr\/bin\/bash/
 
 # create softlinks to all of the dot files in script directory
 PATH_TO_DOT_FILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # install curl, git, zsh...
-sudo apt-get install curl git zsh python3-pip python-pip xclip fzf ripgrep
-ln -sf $PATH_TO_DOT_FILES/.zshrc $HOME/.zshrc
+sudo apt-get install curl git zsh python3-pip python-pip xclip
 ln -sf $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
 
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+ln -sf $PATH_TO_DOT_FILES/.zshrc $HOME/.zshrc
 
 # install node
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
@@ -36,11 +49,23 @@ mv -f 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 pip3 install --user pynvim
 pip install --user pynvim
 
+# install pyenv
+curl https://pyenv.run | bash
+
 # install jedi
 pip install jedi
 
 # install universal-ctags
 sudo snap install universal-ctags
+
+# install ripgrep
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
+sudo dpkg -i ripgrep_11.0.2_amd64.deb
+rm ripgrep_11.0.2_amd64.deb
+
+# install fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 
 # install nvim
 rm -f $HOME/bin/nvim
