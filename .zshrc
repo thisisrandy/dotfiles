@@ -118,3 +118,5 @@ alias open='xdg-open'
 alias start='nautilus --browser'
 alias f="fzf --preview 'head -100 {}'"
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
