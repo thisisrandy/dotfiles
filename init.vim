@@ -5,7 +5,10 @@
 " :checkhealth to ensure plugins are working (only a few are hooked into this
 " feature)
 "
-" Run create_softlinks.sh to install this and other dot files
+" Run install.sh to attempt to set everything up automatically
+"
+" Curl is required to automatically install Plug
+" > sudo apt-get install curl
 "
 " ripgrep (rg) and pynvim must be installed for denite
 " > sudo apt-get install ripgrep
@@ -23,6 +26,7 @@
 " > git checkout stable
 " > make CMAKE_BUILD_TYPE=Release
 " > sudo make install
+" Alternately, download a prebuilt version. install.sh attempts to do this
 "
 " neovim sometimes can't find a clipboard provider for unknown reasons.
 " The solution seems to be manually installing one, e.g.
@@ -30,7 +34,6 @@
 " (for sharing the system clipboard)
 "
 " coc needs node (v12.x, obviously this will go out of date at some point)
-" > sudo apt-get install curl
 " > curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 " > sudo apt-get install -y nodejs
 "
@@ -48,15 +51,19 @@
 " currently, I'm only using it for html since prettier is broken and codefmt
 " uses js-beautify, so js-beautify would need to be installed for html
 " formatting
+" > sudo npm -g install js-beautify
 "
 " the coc c-lang server needs clangd installed.
 " see https://clang.llvm.org/extra/clangd/Installation.html
 " honestly, it seems quite broken. can't find random files in the path, etc.,
 " but leaving in for now
+" > sudo apt-get install clang-tools-8
+" > sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-8 100
 "
 " vim-fugitive needs credentials stored
 " > git config --global credential.helper store
 " > (any operation that asks for credentials)
+" note that my .gitconfig is already set up to do this
 
 """ Plug
 
