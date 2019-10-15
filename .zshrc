@@ -97,7 +97,7 @@ prompt_context(){}
 export PATH=$PATH:~/bin/
 
 # fzf
-export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='rg --files --glob !.git --hidden --follow'
 
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -120,3 +120,4 @@ alias f="fzf --preview 'head -100 {}'"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
