@@ -88,6 +88,11 @@ rm ripgrep_11.0.2_amd64.deb
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
+# install bat
+curl -LO https://github.com/sharkdp/bat/releases/download/v0.12.1/bat-musl_0.12.1_amd64.deb
+sudo dpkg -i bat-musl_0.12.1_amd64.deb
+rm bat-musl_0.12.1_amd64.deb
+
 # install nvim
 rm -f $HOME/bin/nvim
 curl -fLo ~/bin/nvim --create-dirs https://github.com/neovim/neovim/releases/download/v0.4.2/nvim.appimage

@@ -116,8 +116,10 @@ alias p=pushd
 alias po=popd
 alias open='xdg-open'
 alias start='nautilus --browser'
-alias f="fzf --preview 'head -100 {}'"
-
+alias f="fzf --preview '[[ \$(file --mime {}) =~ binary ]] && \
+                 echo {} is a binary file || \
+                 bat --style=numbers --color=always {} | \
+                 head -100'"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
