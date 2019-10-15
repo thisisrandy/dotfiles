@@ -9,7 +9,9 @@ a - append after cursor (as opposed to i) (A to append at end of line)
 c[number]{motion} - change mode, e.g. c2e to change until end of next word
 (C-)v - visual (block) mode
 V - visual line mode
-ESC/C-[ - exit i/v/c mode. I also have ii mapped
+hjkl - left/down/up/left
+C-[ud] - half page up/down
+ESC/C-[ - exit i/v/c mode. I also have M-i mapped
 M-normal mode key - in insert mode, execute a normal mode command, e.g. u
 u - undo (U to undo all changes to a line)
 C-r - redo
