@@ -115,7 +115,7 @@ unzip master.zip
 pushd bat-extras-master
 sudo env "PATH=$PATH" ./build.sh --install
 popd
-rm -rf master.zip bat-extras-master
+sudo rm -rf master.zip bat-extras-master # build creates some protected files
 popd
 
 # install nvim
