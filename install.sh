@@ -90,11 +90,32 @@ popd
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
+# install go
+pushd $(mktemp -d)
+curl -LO https://dl.google.com/go/go1.13.1.linux-amd64.tar.gz
+tar xfz go1.13.1.linux-amd64.tar.gz
+sudo mv go /usr/local
+rm go1.13.1.linux-amd64.tar.gz
+popd
+
+# install shfmt (to ~/go/bin)
+pushd $(mktemp -d)
+go mod init tmp
+go get mvdan.cc/sh/cmd/shfmt
+popd
+
 # install bat
 pushd $(mktemp -d)
 curl -LO https://github.com/sharkdp/bat/releases/download/v0.12.1/bat-musl_0.12.1_amd64.deb
 sudo dpkg -i bat-musl_0.12.1_amd64.deb
 rm bat-musl_0.12.1_amd64.deb
+# and extras
+curl -LO https://github.com/eth-p/bat-extras/archive/master.zip
+unzip master.zip
+pushd bat-extras-master
+sudo env "PATH=$PATH" ./build.sh --install
+popd
+rm -rf master.zip bat-extras-master
 popd
 
 # install nvim

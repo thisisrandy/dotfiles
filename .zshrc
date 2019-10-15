@@ -95,6 +95,8 @@ prompt_context(){}
 
 # Custom path locations
 export PATH=$PATH:~/bin/
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:~/go/bin
 
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files --glob !.git --hidden --follow'
