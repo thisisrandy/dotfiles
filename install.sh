@@ -12,6 +12,7 @@
 # Tested on ubuntu 18.04. For 19.04:
 # - ripgrep and fzf should be installed by apt-get instead of manually
 # - s/\/bin\/bash/\/usr\/bin\/bash/
+set +x
 
 # create softlinks to all of the dot files in script directory
 PATH_TO_DOT_FILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
