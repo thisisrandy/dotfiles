@@ -153,9 +153,9 @@ set number
 let mapleader=" "
 
 " remap escape
-imap ii <Esc>
-vmap ii <Esc>
-cmap ii <Esc>
+imap ij <Esc>
+vmap ij <Esc>
+cmap ij <Esc>
 
 " turn down timeoutlen (defaults to 1000)
 set timeoutlen=500

@@ -1,6 +1,7 @@
 {
   "window.zoomLevel": 0,
-  "vim.easymotion": false,
+  "editor.lineNumbers": "relative",
+  "vim.easymotion": true,
   "vim.sneak": false,
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
@@ -13,6 +14,14 @@
       ],
       "commands": [
         ":nohl"
+      ]
+    },
+    {
+      "before": [
+        "s"
+      ],
+      "after": [
+        "<leader><leader>s"
       ]
     },
     {
@@ -69,7 +78,7 @@
     {
       "before": [
         "i",
-        "i"
+        "j"
       ],
       "after": [
         "<Esc>"
