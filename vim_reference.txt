@@ -211,3 +211,14 @@ s - type a single to find, then type the appropriate label or ESC
 
 <leader>ww in current pane, <leader>ww in swap to pane to swap
 
+## vim-gitgutter
+
+]c - next hunk (change)
+[c - previous hunk
+<leader>hs - hunk stage. can be used to partially stage an additions only hunk
+             in visual mode
+<leader>hu - hunk undo (undo change, *not* unstage)
+<leader>hp - previous the hunk. can stage part of any hunk by previewing, moving
+             to the preview window, and then :w
+GitGutterFold - fold all unchanged lines. zr to unfold 3 lines of context around
+                changes. Again to restore previous view
