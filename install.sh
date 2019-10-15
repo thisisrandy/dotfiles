@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # USAGE: ./install.sh
 # NOTES:
 # - All prompts should be answered "y"
@@ -7,7 +7,7 @@
 #   the first time. after it seems to be working, denite will be off, so run
 #   :checkhealth and follow instructions
 # - If its been a while since this file was updated, versions of any manually
-#   downloaded programs should be checked and updated as needed (node, rg, and nvim)
+#   downloaded programs should be checked and updated as needed (node, rg, etc.)
 #
 # Tested on ubuntu 18.04. For 19.04:
 # - ripgrep and fzf should be installed by apt-get instead of manually
