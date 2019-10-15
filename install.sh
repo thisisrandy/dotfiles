@@ -11,7 +11,6 @@
 #
 # Tested on ubuntu 18.04. For 19.04:
 # - ripgrep and fzf should be installed by apt-get instead of manually
-# - s/\/bin\/bash/\/usr\/bin\/bash/
 set +x
 
 # create softlinks to all of the dot files in script directory
@@ -81,18 +80,22 @@ sudo make install
 popd
 
 # install ripgrep
+pushd $(mktemp -d)
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
 sudo dpkg -i ripgrep_11.0.2_amd64.deb
 rm ripgrep_11.0.2_amd64.deb
+popd
 
 # install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 # install bat
+pushd $(mktemp -d)
 curl -LO https://github.com/sharkdp/bat/releases/download/v0.12.1/bat-musl_0.12.1_amd64.deb
 sudo dpkg -i bat-musl_0.12.1_amd64.deb
 rm bat-musl_0.12.1_amd64.deb
+popd
 
 # install nvim
 rm -f $HOME/bin/nvim
