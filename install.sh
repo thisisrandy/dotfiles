@@ -24,10 +24,12 @@ ln -sf $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ln -sf $PATH_TO_DOT_FILES/.zshrc $HOME/.zshrc
 
-# install node
+# install node/yarn
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
-sudo apt-get install yarn
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update && sudo apt-get install yarn
 
 # install js-beautify
 sudo npm -g install js-beautify
