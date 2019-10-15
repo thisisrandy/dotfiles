@@ -145,6 +145,7 @@ endif
 " Appearance - dracula and zenburn both nice, at least for python
 " colorscheme dracula
 colorscheme zenburn
+set termguicolors
 set number
 
 " remap leader
