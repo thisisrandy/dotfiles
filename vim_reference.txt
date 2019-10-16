@@ -61,6 +61,7 @@ C-S-arrow - resize window. not this is not placement aware, so up = +,
             down = -, right = +, left = - regardless of window position
 :copen - open the quickfix window
 :cclose - close the quickfix window
+gq - rebalance text to textwidth
 
 ## Folding
 
