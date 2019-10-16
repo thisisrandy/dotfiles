@@ -10,6 +10,7 @@ C-` - open a terminal
 C-S-m - open the problems list. S-Esc to exit this and other bottom panels,
         except for terminal
 C-b - close the sidebar
+C-0 - open the sidebar to wherever it last was
 C-l - toggle relative line numbers
 
 ## Searching
