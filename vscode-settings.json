@@ -40,7 +40,8 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": [
-        "<C-n>"
+        "<leader>",
+        "/"
       ],
       "commands": [
         ":nohl"
