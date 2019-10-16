@@ -112,7 +112,7 @@ differences become too frustrating.
 ## coc.vim
 
 gd - go to definition
-gy - go to type definition
+gt - go to type definition
 gi - go to implementation
 gr - look up references
 gn - go to next diagnostic message
