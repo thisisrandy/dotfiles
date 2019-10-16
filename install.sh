@@ -131,4 +131,5 @@ sudo npm install -g neovim
 # install VS code settings
 mkdir -p $HOME/.config/Code/User
 ln -sf $PATH_TO_DOT_FILES/vscode-settings.json $HOME/.config/Code/User/settings.json
+ln -sf $PATH_TO_DOT_FILES/vscode-keybindings.json $HOME/.config/Code/User/keybindings.json
 
