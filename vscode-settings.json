@@ -110,6 +110,77 @@
         "<left>",
         "<left>"
       ]
+    },
+    {
+      "before": [
+        "g",
+        "r"
+      ],
+      "commands": [
+        "editor.action.referenceSearch.trigger"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "b"
+      ],
+      "commands": [
+        "editor.action.formatDocument"
+      ]
+    },
+    {
+      "before": [
+        "K"
+      ],
+      "commands": [
+        "editor.action.showHover"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "p"
+      ],
+      "commands": [
+        "editor.action.marker.prevInFiles"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "n"
+      ],
+      "commands": [
+        "editor.action.marker.nextInFiles"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "i"
+      ],
+      "commands": [
+        "editor.action.peekImplementation"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "t"
+      ],
+      "commands": [
+        "editor.action.peekTypeDefinition"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "r"
+      ],
+      "commands": [
+        "editor.action.rename"
+      ]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -171,12 +242,13 @@
     "<C-a>": false,
     "<C-b>": false,
     "<C-f>": false,
+    "<C-q>": false,
     "<C-h>": false
   },
   "workbench.colorCustomizations": {
-    "statusBar.background": "#d4c528",
-    "statusBar.noFolderBackground": "#d4c528",
-    "statusBar.debuggingBackground": "#d4c528",
-    "statusBar.foreground": "#303030"
+    "statusBar.background": "#3fb5d9",
+    "statusBar.noFolderBackground": "#3fb5d9",
+    "statusBar.debuggingBackground": "#3fb5d9",
+    "statusBar.foreground": "#001761"
   }
 }
