@@ -33,6 +33,22 @@
     "#31de3c",
     "#0039c9"
   ],
+  "vim.statusBarColors.searchinprogressmode": [
+    "#31de3c",
+    "#0039c9"
+  ],
+  "vim.statusBarColors.easymotionmode": [
+    "#31de3c",
+    "#0039c9"
+  ],
+  "vim.statusBarColors.easymotioninputmode": [
+    "#31de3c",
+    "#0039c9"
+  ],
+  "vim.statusBarColors.surroundinputmode": [
+    "#31de3c",
+    "#0039c9"
+  ],
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
@@ -156,5 +172,11 @@
     "<C-b>": false,
     "<C-f>": false,
     "<C-h>": false
+  },
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#d4c528",
+    "statusBar.noFolderBackground": "#d4c528",
+    "statusBar.debuggingBackground": "#d4c528",
+    "statusBar.foreground": "#303030"
   }
 }
