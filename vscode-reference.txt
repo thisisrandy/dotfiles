@@ -1,0 +1,18 @@
+## General
+
+As much as possible, my vim maps have been maintained
+C = Ctrl, A = Alt, S = Shift
+
+C-q - quit VSCode
+C-p - all (most) purpose search. Covers everything put file contents searching
+C-` - open a terminal
+C-S-m - open the problems list. S-Esc to exit this and other bottom panels,
+        except for terminal
+C-b - close the sidebar
+C-l - toggle relative line numbers
+
+## Searching
+
+C-S-f - search all files. in v-mode, seed with selected text
+C-S-h - replace in all files. in v-mode, seed with selected text
+(S-)F4 - go forwards (backwards) through search results
