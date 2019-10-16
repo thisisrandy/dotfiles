@@ -14,5 +14,9 @@
         }
       ]
     }
+  },
+  {
+    "key": "shift-escape",
+    "command": "workbench.action.closePanel"
   }
 ]
