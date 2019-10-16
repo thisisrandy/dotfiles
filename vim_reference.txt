@@ -224,3 +224,14 @@ s - type a single to find, then type the appropriate label or ESC
              to the preview window, and then :w
 GitGutterFold - fold all unchanged lines. zr to unfold 3 lines of context around
                 changes. Again to restore previous view
+
+## vim-surround
+
+Define [old] as a character or t for "tag"
+
+ds[old] - delete surround
+cs[old][surround] - change surround
+ys[motion][surround] - "you surround," e.g. ysiw[surround] for current word
+yss[surround] - current line, ignoring leading whitespace
+vS[surround] - surround in visual mode, where v denotes entering visual mode
+
