@@ -29,6 +29,10 @@
     "#bf0000",
     "#ffffff"
   ],
+  "vim.statusBarColors.commandlineinprogress": [
+    "#31de3c",
+    "#0039c9"
+  ],
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
