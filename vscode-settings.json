@@ -244,11 +244,5 @@
     "<C-f>": false,
     "<C-q>": false,
     "<C-h>": false
-  },
-  "workbench.colorCustomizations": {
-    "statusBar.background": "#3fb5d9",
-    "statusBar.noFolderBackground": "#3fb5d9",
-    "statusBar.debuggingBackground": "#3fb5d9",
-    "statusBar.foreground": "#001761"
   }
 }
