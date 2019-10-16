@@ -5,6 +5,7 @@ C = Ctrl, A = Alt, S = Shift
 
 C-q - quit VSCode
 C-p - all (most) purpose search. Covers everything put file contents searching
+C-S-p - open command palette (equiv to C-p>)
 C-` - open a terminal
 C-S-m - open the problems list. S-Esc to exit this and other bottom panels,
         except for terminal
