@@ -4,6 +4,35 @@
   "vim.easymotion": true,
   "vim.sneak": false,
   "vim.surround": true,
+  "vim.statusBarColorControl": true,
+  "vim.statusBarColors.normal": [
+    "#d4c528",
+    "#303030"
+  ],
+  "vim.statusBarColors.insert": [
+    "#3fb5d9",
+    "#001761"
+  ],
+  "vim.statusBarColors.visual": [
+    "#cc6402",
+    "#301800"
+  ],
+  "vim.statusBarColors.visualline": [
+    "#cc6402",
+    "#301800"
+  ],
+  "vim.statusBarColors.visualblock": [
+    "#cc6402",
+    "#301800"
+  ],
+  "vim.statusBarColors.replace": [
+    "#bf0000",
+    "#ffffff"
+  ],
+  "vim.statusBarColors.commandlineinprogress": [
+    "#31de3c",
+    "#0039c9"
+  ],
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
@@ -67,6 +96,15 @@
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "i",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    },
     {
       "before": [
         ">"
