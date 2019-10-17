@@ -248,5 +248,8 @@
     "<C-s>": false,
     "<C-h>": false
   },
-  "editor.acceptSuggestionOnEnter": "smart"
+  "editor.acceptSuggestionOnEnter": "smart",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  }
 }
