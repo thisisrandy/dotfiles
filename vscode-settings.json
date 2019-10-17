@@ -244,5 +244,6 @@
     "<C-f>": false,
     "<C-q>": false,
     "<C-h>": false
-  }
+  },
+  "editor.acceptSuggestionOnEnter": "off"
 }
