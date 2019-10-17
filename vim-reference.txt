@@ -63,6 +63,18 @@ C-S-arrow - resize window. not this is not placement aware, so up = +,
 :cclose - close the quickfix window
 gq - rebalance text to textwidth
 
+## Text objects
+
+[op]i[object] - perform op, e.g. d, on inner object, where object can be:
+  w - word
+  s - sentence
+  p - paragraph
+  [](){}"' - text surrounded by any of these characters
+  t - tag
+[op]a[object] - same as above, but includes whitespace, or in the case of
+                surrounding quotes, etc., the surrounding chars
+[op]% - equiv. to [op]a[paren/bracket]
+
 ## Folding
 
 :Fold - fold current buffer using coc.vim.
