@@ -246,5 +246,5 @@
     "<C-k>": false,
     "<C-h>": false
   },
-  "editor.acceptSuggestionOnEnter": "off"
+  "editor.acceptSuggestionOnEnter": "smart"
 }
