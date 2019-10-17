@@ -20,3 +20,18 @@ C-Enter - open file (from explorer or CtrlP) in vertical split
 C-S-f - search all files. in v-mode, seed with selected text
 C-S-h - replace in all files. in v-mode, seed with selected text
 (S-)F4 - go forwards (backwards) through search results
+
+# Folding
+
+NOTE: spending a short amount of time with the curson inside a fold
+      will automatically open it in VSCode. Also, these are all vim
+      mappings, but they are also the only functioning mappings in
+      VSCodeVim
+
+zM - close all folds
+zR - open all folds
+zo - open under cursor
+zO - open all under cursor (recursively)
+zc - close under cursor
+zC - close all under cursor (recursively)
+
