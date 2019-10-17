@@ -4,4 +4,3 @@
 
 code --install-extension hoovercj.vscode-settings-cycler
 code --install-extension tabnine.tabnine-vscode
-code --install-extension cmstead.jsrefactor
