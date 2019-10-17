@@ -130,12 +130,12 @@ bindkey -v
 
 bindkey ij vi-cmd-mode
 
-vim_ins_mode="%{$fg_bold[cyan]%}[INS]%{$reset_color%}"
-vim_cmd_mode="%{$fg_bold[green]%}[CMD]%{$reset_color%}"
+vim_ins_mode="%{$fg_bold[cyan]%}[INSERT]%{$reset_color%}"
+vim_norm_mode="%{$fg_bold[yellow]%}[NORMAL]%{$reset_color%}"
 vim_mode=$vim_ins_mode
 
 function zle-keymap-select {
-  vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
+  vim_mode="${${KEYMAP/vicmd/${vim_norm_mode}}/(main|viins)/${vim_ins_mode}}"
   zle reset-prompt
 }
 zle -N zle-keymap-select
