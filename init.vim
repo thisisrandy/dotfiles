@@ -159,6 +159,9 @@ imap ij <Esc>
 vmap ij <Esc>
 cmap ij <Esc>
 
+" map to execute the current line
+nmap <F6> :exec '!'.getline('.')
+
 " turn down timeoutlen (defaults to 1000)
 set timeoutlen=500
 
