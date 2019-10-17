@@ -270,5 +270,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "eslint.packageManager": "yarn",
-  "workbench.iconTheme": "vscode-icons"
+  "workbench.iconTheme": "vscode-icons",
+  "vim.easymotionMarkerFontFamily": "'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "vim.easymotionMarkerFontWeight": "bold"
 }
