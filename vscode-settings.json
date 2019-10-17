@@ -56,22 +56,6 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": [
-        "<A-k>"
-      ],
-      "commands": [
-        "editor.action.moveLinesUpAction"
-      ]
-    },
-    {
-      "before": [
-        "<A-j>"
-      ],
-      "commands": [
-        "editor.action.moveLinesDownAction"
-      ]
-    },
-    {
-      "before": [
         "<leader>",
         "/"
       ],

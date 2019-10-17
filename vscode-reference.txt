@@ -14,6 +14,9 @@ C-0 - open the sidebar to wherever it last was
 C-l - toggle relative line numbers
 C-/ - toggle line comment (C-S-a for block comment)
 C-Enter - open file (from explorer or CtrlP) in vertical split
+Alt-up/down - move selected lines or current line up and down. I'm
+              specifically noting this here because Alt-j/k cannot
+              be bound and therefore do not work :(
 
 ## Searching
 
