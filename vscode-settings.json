@@ -56,6 +56,22 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": [
+        "<A-k>"
+      ],
+      "commands": [
+        "editor.action.moveLinesUpAction"
+      ]
+    },
+    {
+      "before": [
+        "<A-j>"
+      ],
+      "commands": [
+        "editor.action.moveLinesDownAction"
+      ]
+    },
+    {
+      "before": [
         "<leader>",
         "/"
       ],
@@ -241,12 +257,10 @@
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-b>": false,
-    "<C-f>": false,
     "<C-q>": false,
     "<C-k>": false,
     "<C-n>": false,
-    "<C-s>": false,
-    "<C-h>": false
+    "<C-s>": false
   },
   "editor.acceptSuggestionOnEnter": "smart",
   "emmet.includeLanguages": {
