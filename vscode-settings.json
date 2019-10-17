@@ -243,6 +243,7 @@
     "<C-b>": false,
     "<C-f>": false,
     "<C-q>": false,
+    "<C-k>": false,
     "<C-h>": false
   },
   "editor.acceptSuggestionOnEnter": "off"
