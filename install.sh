@@ -35,6 +35,9 @@ sudo apt-get update && sudo apt-get install yarn
 sudo npm -g install js-beautify
 ln -sf $PATH_TO_DOT_FILES/.jsbeautifyrc $HOME/.jsbeautifyrc
 
+# install flow-bin (for tabnine)
+sudo npm -g install flow-bin
+
 # install clangd
 sudo apt-get install clang-tools-8
 sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-8 100
