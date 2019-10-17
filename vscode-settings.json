@@ -265,5 +265,10 @@
   "editor.acceptSuggestionOnEnter": "smart",
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
-  }
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "eslint.packageManager": "yarn",
+  "workbench.iconTheme": "vscode-icons"
 }
