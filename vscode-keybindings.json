@@ -16,10 +16,6 @@
     }
   },
   {
-    "key": "shift-escape",
-    "command": "workbench.action.closePanel"
-  },
-  {
     "key": "ctrl+alt+n",
     "command": "workbench.action.files.newUntitledFile"
   },
