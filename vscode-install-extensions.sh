@@ -3,4 +3,4 @@
 # forget about (not automatically recommended)
 
 code --install-extension hoovercj.vscode-settings-cycler
-
+code --install-extension tabnine.tabnine-vscode
