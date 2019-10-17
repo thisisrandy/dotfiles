@@ -62,6 +62,7 @@ C-S-arrow - resize window. not this is not placement aware, so up = +,
 :copen - open the quickfix window
 :cclose - close the quickfix window
 gq - rebalance text to textwidth
+F6 - execute current line in the shell
 
 ## Text objects
 
