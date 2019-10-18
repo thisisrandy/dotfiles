@@ -116,7 +116,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-surround'
 Plug 'jmcantrell/vim-virtualenv'
-Plug 'bkad/CamelCaseMotion'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -676,5 +675,3 @@ let g:NERDTreeIndicatorMapCustom = {
 let g:outdated_plugins_silent_mode = 1
 let g:outdated_plugins_trigger_mode = 1
 
-""" CamelCaseMotion
-let g:camelcasemotion_key = "<leader>"
