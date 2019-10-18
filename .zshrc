@@ -97,6 +97,7 @@ prompt_context(){}
 export PATH=$PATH:~/bin/
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/go/bin
+export PATH=$PATH:~/.yarn/bin
 
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files --glob !.git --hidden --follow'
