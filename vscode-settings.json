@@ -246,7 +246,7 @@
     "<C-k>": false,
     "<C-s>": false
   },
-  "editor.acceptSuggestionOnEnter": "smart",
+  "editor.acceptSuggestionOnEnter": "off",
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
