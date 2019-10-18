@@ -98,7 +98,7 @@ zR - open all folds. zr for increase folding level
 % - find matching paren/brace
 :%s/foo/bar/ - whole file. also mapped to C-h
 :s/foo/bar/ - current line
-C-S-h - search/replace all files in current dir (cwd, not buffer dir)
+<leader>fr - search/replace all files in current dir (cwd, not buffer dir)
 tags:
    g - global
    c - confirmation
@@ -133,7 +133,7 @@ gp - go to previous diagnostic message
 ge - go to next error position, i.e. skip warnings, etc.
 K - show documentation
 <leader>r - rename current word
-<leader>f - format buffer
+<leader>b - format buffer
 <leader>co - show commands
 
 <TAB> - snippet completion. also next snippet placeholder (when not in completion mode)

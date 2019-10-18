@@ -435,7 +435,7 @@ function RunFormatter()
   endif
 endfunction
 " Whole buffer map
-nmap <leader>f :call RunFormatter()<CR>
+nmap <leader>b :call RunFormatter()<CR>
 
 " Format on save
 let g:prettier#autoformat = 0
@@ -627,7 +627,7 @@ function! FindReplace()
 endfunction
 
 " and map it
-:nnoremap <C-S-h> :call FindReplace()<CR>
+:nnoremap <leader>fr :call FindReplace()<CR>
 
 
 """ vim-easymotion
