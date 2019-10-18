@@ -17,7 +17,7 @@
 " eslint and prettier-eslint must be installed for javascript per project
 " <leader>co (list coc.nvim commands)
 " eslint.createConfig
-" > npm install --save-dev prettier-eslint
+" > yarn add --dev prettier-eslint
 "
 " In order for floating messages to work in coc.nvim, neovim must
 " be built from source (at time of writing, may change).
@@ -51,7 +51,7 @@
 " currently, I'm only using it for html since prettier is broken and codefmt
 " uses js-beautify, so js-beautify would need to be installed for html
 " formatting
-" > sudo npm -g install js-beautify
+" > yarn global add js-beautify
 "
 " the coc c-lang server needs clangd installed.
 " see https://clang.llvm.org/extra/clangd/Installation.html
