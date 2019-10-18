@@ -170,7 +170,7 @@ In normal mode:
 q/<Esc>/;  - Quit Denite window
 d          - Delete currenly selected file (just the buffer)
 p          - Preview currently selected file
-<C-o> or i - Switch to insert mode inside of filter prompt
+<C-o> or h - Switch to insert mode inside of filter prompt
 <C-Space>  - Toggle select
 <C-a>      - Toggle select all
 
@@ -234,7 +234,7 @@ s - type a single to find, then type the appropriate label or ESC
 <leader>hs - hunk stage. can be used to partially stage an additions only hunk
              in visual mode
 <leader>hu - hunk undo (undo change, *not* unstage)
-<leader>hp - previous the hunk. can stage part of any hunk by previewing, moving
+<leader>hp - preview the hunk. can stage part of any hunk by previewing, moving
              to the preview window, and then :w
 GitGutterFold - fold all unchanged lines. zr to unfold 3 lines of context around
                 changes. Again to restore previous view
