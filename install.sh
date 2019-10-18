@@ -32,11 +32,11 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 sudo apt-get update && sudo apt-get install yarn
 
 # install js-beautify
-sudo npm -g install js-beautify
+yarn global add js-beautify
 ln -sf $PATH_TO_DOT_FILES/.jsbeautifyrc $HOME/.jsbeautifyrc
 
 # install flow-bin (for tabnine)
-sudo npm -g install flow-bin
+yarn global add flow-bin
 
 # install clangd
 sudo apt-get install clang-tools-8
@@ -129,7 +129,7 @@ ln -sf $HOME/bin/nvim $HOME/bin/vim
 mkdir -p $HOME/.config/nvim
 ln -sf $PATH_TO_DOT_FILES/init.vim $HOME/.config/nvim/init.vim
 ln -sf $PATH_TO_DOT_FILES/coc-settings.json $HOME/.config/nvim/coc-settings.json
-sudo npm install -g neovim
+yarn global add neovim
 
 # install VS code settings
 mkdir -p $HOME/.config/Code/User
