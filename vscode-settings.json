@@ -56,6 +56,38 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": [
+        "j"
+      ],
+      "after": [
+        "h"
+      ]
+    },
+    {
+      "before": [
+        "k"
+      ],
+      "after": [
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "i"
+      ],
+      "after": [
+        "k"
+      ]
+    },
+    {
+      "before": [
+        "h"
+      ],
+      "after": [
+        "i"
+      ]
+    },
+    {
+      "before": [
         "<leader>",
         "/"
       ],
@@ -76,7 +108,7 @@
     {
       "before": [
         "<leader>",
-        "j"
+        "k"
       ],
       "after": [
         "<leader>",
@@ -87,7 +119,7 @@
     {
       "before": [
         "<leader>",
-        "k"
+        "i"
       ],
       "after": [
         "<leader>",
@@ -186,8 +218,32 @@
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": [
-        "i",
         "j"
+      ],
+      "after": [
+        "h"
+      ]
+    },
+    {
+      "before": [
+        "k"
+      ],
+      "after": [
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "i"
+      ],
+      "after": [
+        "k"
+      ]
+    },
+    {
+      "before": [
+        "h",
+        "h"
       ],
       "after": [
         "<Esc>"
@@ -229,8 +285,8 @@
   "vim.insertModeKeyBindings": [
     {
       "before": [
-        "i",
-        "j"
+        "h",
+        "h"
       ],
       "after": [
         "<Esc>"

@@ -154,10 +154,20 @@ set number
 " remap leader
 let mapleader=" "
 
+" remap nav
+nnoremap i k
+nnoremap j h
+nnoremap k j
+xnoremap i k
+xnoremap j h
+xnoremap k j
+nnoremap h i
+
+
 " remap escape
-imap ij <Esc>
-vmap ij <Esc>
-cmap ij <Esc>
+imap hh <Esc>
+xmap hh <Esc>
+cmap hh <Esc>
 
 " map to execute the current line
 nmap <F6> :exec '!'.getline('.')
@@ -219,19 +229,19 @@ nnoremap <leader>h :%s/\v//<left><left>
 vnoremap <leader>h :s/\v//<left><left>
 nnoremap <silent> <leader>/ :nohlsearch<CR>
 
-" move lines up and down with M-k/j (or up/down)
-nnoremap <M-j> :m .+1<CR>==
-nnoremap <M-k> :m .-2<CR>==
-inoremap <M-j> <Esc>:m .+1<CR>==gi
-inoremap <M-k> <Esc>:m .-2<CR>==gi
-vnoremap <M-j> :m '>+1<CR>gv=gv
-vnoremap <M-k> :m '<-2<CR>gv=gv
-nmap <M-Down> <M-j>
-nmap <M-Up> <M-k>
-imap <M-Down> <M-j>
-imap <M-Up> <M-k>
-vmap <M-Down> <M-j>
-vmap <M-Up> <M-k>
+" move lines up and down with M-i/k (or up/down)
+nnoremap <M-k> :m .+1<CR>==
+nnoremap <M-i> :m .-2<CR>==
+inoremap <M-k> <Esc>:m .+1<CR>==gi
+inoremap <M-i> <Esc>:m .-2<CR>==gi
+vnoremap <M-k> :m '>+1<CR>gv=gv
+vnoremap <M-i> :m '<-2<CR>gv=gv
+nmap <M-Down> <M-k>
+nmap <M-Up> <M-i>
+imap <M-Down> <M-k>
+imap <M-Up> <M-i>
+vmap <M-Down> <M-k>
+vmap <M-Up> <M-i>
 
 " rebind <Home> to ^ (first non-whitespace character). unfortunately, this
 " breaks in insert mode, as ^ counts as an input character
@@ -272,9 +282,9 @@ function ToggleWrap()
 endfunction
 
 " made window navigation simpler
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>h
+nnoremap <C-k> <C-w>j
+nnoremap <C-i> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-Left> <C-w>h
 nnoremap <C-Down> <C-w>j
@@ -495,8 +505,8 @@ call denite#custom#var('grep', 'final_opts', [])
 " <leader>t - Browse list of files in current directory (starts in filter mode)
 " <leader>g - Search current directory for occurences of given term and close window if no results
 " <leader>u - Search current directory for occurences of word under cursor
-nmap ; :Denite buffer<CR>i
-nmap <leader>t :DeniteProjectDir file/rec<CR>i
+nmap ; :Denite buffer<CR>h
+nmap <leader>t :DeniteProjectDir file/rec<CR>h
 nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
 nnoremap <leader>u :<C-u>DeniteCursorWord grep:.<CR>
 
@@ -532,7 +542,7 @@ endfunction
 "   q/<Esc>/;   - Quit Denite window
 "   d           - Delete currenly selected file (just the buffer)
 "   p           - Preview currently selected file
-"   <C-o> or i  - Switch to insert mode inside of filter prompt
+"   <C-o> or h  - Switch to insert mode inside of filter prompt
 "   <C-Space>   - Toggle select
 "   <C-a>       - Toggle select all
 autocmd FileType denite call s:denite_my_settings()
@@ -549,7 +559,7 @@ function! s:denite_my_settings() abort
   \ denite#do_map('do_action', 'delete')
   nnoremap <silent><buffer><expr> p
   \ denite#do_map('do_action', 'preview')
-  nnoremap <silent><buffer><expr> i
+  nnoremap <silent><buffer><expr> h
   \ denite#do_map('open_filter_buffer')
   nnoremap <silent><buffer><expr> <C-o>
   \ denite#do_map('open_filter_buffer')
@@ -645,8 +655,8 @@ nmap s <Plug>(easymotion-overwin-f)
 let g:EasyMotion_smartcase = 1
 
 " JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
+map <Leader>k <Plug>(easymotion-j)
+map <Leader>i <Plug>(easymotion-k)
 
 """ tagbar
 nmap <F8> :TagbarToggle<CR>
