@@ -56,6 +56,15 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": [
+        ",",
+        ","
+      ],
+      "commands": [
+        "editor.emmet.action.expandAbbreviation"
+      ]
+    },
+    {
+      "before": [
         "<C-w>",
         "j"
       ],
@@ -313,6 +322,15 @@
   ],
   "editor.lineNumbers": "relative",
   "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        ",",
+        ","
+      ],
+      "commands": [
+        "editor.emmet.action.expandAbbreviation"
+      ]
+    },
     {
       "before": [
         "h",
