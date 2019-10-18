@@ -123,7 +123,7 @@
     {
       "before": [
         "<leader>",
-        "f"
+        "b"
       ],
       "commands": [
         "editor.action.formatDocument"
@@ -256,6 +256,5 @@
   "eslint.packageManager": "yarn",
   "workbench.iconTheme": "vscode-icons",
   "vim.easymotionMarkerFontFamily": "'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-  "vim.easymotionMarkerFontWeight": "bold",
-  "vim.camelCaseMotion.enable": true
+  "vim.easymotionMarkerFontWeight": "bold"
 }
