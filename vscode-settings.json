@@ -342,5 +342,6 @@
   "eslint.packageManager": "yarn",
   "workbench.iconTheme": "vscode-icons",
   "vim.easymotionMarkerFontFamily": "'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-  "vim.easymotionMarkerFontWeight": "bold"
+  "vim.easymotionMarkerFontWeight": "bold",
+  "explorer.confirmDelete": false
 }
