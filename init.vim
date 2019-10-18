@@ -282,6 +282,9 @@ function ToggleWrap()
 endfunction
 
 " made window navigation simpler
+nnoremap <C-w>j <C-w>h
+nnoremap <C-w>k <C-w>j
+nnoremap <C-w>i <C-w>k
 nnoremap <C-j> <C-w>h
 nnoremap <C-k> <C-w>j
 nnoremap <C-i> <C-w>k
