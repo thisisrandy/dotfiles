@@ -16,6 +16,11 @@
     }
   },
   {
+    "key": ", ,",
+    "command": "editor.emmet.action.expandAbbreviation",
+    "when": "editorTextFocus && !editorHasMultipleSelections && !editorHasSelection && !editorReadonly"
+  },
+  {
     "key": "ctrl+alt+n",
     "command": "workbench.action.files.newUntitledFile"
   },
