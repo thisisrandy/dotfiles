@@ -285,10 +285,6 @@ endfunction
 nnoremap <C-w>j <C-w>h
 nnoremap <C-w>k <C-w>j
 nnoremap <C-w>i <C-w>k
-nnoremap <C-j> <C-w>h
-nnoremap <C-k> <C-w>j
-nnoremap <C-i> <C-w>k
-nnoremap <C-l> <C-w>l
 nnoremap <C-Left> <C-w>h
 nnoremap <C-Down> <C-w>j
 nnoremap <C-Up> <C-w>k
