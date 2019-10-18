@@ -343,5 +343,6 @@
   "workbench.iconTheme": "vscode-icons",
   "vim.easymotionMarkerFontFamily": "'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "vim.easymotionMarkerFontWeight": "bold",
-  "explorer.confirmDelete": false
+  "explorer.confirmDelete": false,
+  "files.trimTrailingWhitespace": true
 }
