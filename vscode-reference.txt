@@ -17,6 +17,7 @@ C-Enter - open file (from explorer or CtrlP) in vertical split
 Alt-up/down - move selected lines or current line up and down. I'm
               specifically noting this here because Alt-j/k cannot
               be bound and therefore do not work :(
+gh - hover, synonym for S-k
 
 ## Searching
 
