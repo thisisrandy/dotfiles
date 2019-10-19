@@ -162,7 +162,7 @@ xnoremap i k
 xnoremap j h
 xnoremap k j
 nnoremap h i
-
+nnoremap H I
 
 " remap escape
 imap hh <Esc>
