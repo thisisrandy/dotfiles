@@ -213,8 +213,8 @@ gS - same as gs, but clear scratch first
 ## vim-easymotion
 
 s - type a single to find, then type the appropriate label or ESC
-<leader>j - lines below
-<leader>k - lines above
+<leader>k - lines below
+<leader>i - lines above
 
 ## vim-dadbod
 
