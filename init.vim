@@ -218,15 +218,15 @@ set clipboard+=unnamedplus
 " \ - use vim-fuzzysearch in normal mode
 " / - very magic mode
 " ? - reverse in very magic mode
-" <leader>h - Find and replace
+" C-h - Find and replace
 " <leader>/ - Clear highlighted search terms while preserving history
 nnoremap \ :FuzzySearch<CR>
 nnoremap / /\v
 vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
-nnoremap <leader>h :%s/\v//<left><left>
-vnoremap <leader>h :s/\v//<left><left>
+nnoremap <C-h> :%s/\v//<left><left>
+vnoremap <C-h> :s/\v//<left><left>
 nnoremap <silent> <leader>/ :nohlsearch<CR>
 
 " move lines up and down with M-i/k (or up/down)

@@ -95,7 +95,7 @@ zR - open all folds. zr for increase folding level
 \ - use vim-fuzzysearch in normal mode
 / - very magic mode
 ? - reverse in very magic mode
-<leader>h - Find and replace in very magic mode
+<C-h> - Find and replace in very magic mode
 * - search for word under cursor. g* is partial match. mapped to highlight only.
     use n/N to navigate between matches
 # - * in reverse. g# also valid
