@@ -15,9 +15,8 @@ a - append after cursor (as opposed to h) (A to append at end of line)
 c[number]{motion} - change mode, e.g. c2e to change until end of next word
 (C-)v - visual (block) mode
 V - visual line mode
-hjkl - left/down/up/left
 C-[ud] - half page up/down
-ESC/C-[ - exit i/v/c mode. I also have ii mapped
+ESC/C-[ - exit i/v/c mode. I also have hh mapped
 M-normal mode key - in insert mode, execute a normal mode command, e.g. u
 u - undo (U to undo all changes to a line)
 C-r - redo
@@ -61,7 +60,7 @@ C-] - go to label in docs
 :r ! <command> - read command output into buffer
 :[nvi]map - see key mappings
 gx - go to url under cursor (kind of broken, but in a pinch)
-M-[kj] - move current or selected line up and down. Also mapped to M-Up/Down
+M-[ik] - move current or selected line up and down. Also mapped to M-Up/Down
 <leader>wr - turning line wrapping on/off nicely
 C-S-arrow - resize window. not this is not placement aware, so up = +,
             down = -, right = +, left = - regardless of window position
