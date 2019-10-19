@@ -4,7 +4,7 @@ NOTE: I have <leader> mapped to <space>, C- means Ctrl+, M- means Alt+,
       and S- means Shift+
 
 h - insert mode (H to insert at beginning of line)
-a - append after cursor (as opposed to i) (A to append at end of line)
+a - append after cursor (as opposed to h) (A to append at end of line)
 [number]r - replace character (R for replace mode)
 c[number]{motion} - change mode, e.g. c2e to change until end of next word
 (C-)v - visual (block) mode
