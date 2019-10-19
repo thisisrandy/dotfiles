@@ -7,4 +7,5 @@ code --install-extension tabnine.tabnine-vscode
 code --install-extension esbenp.prettier-vscode
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension zignd.html-css-class-completion
-code --install-extension donjayamanne.githistory
+code --install-extension eamodio.gitlens
+code --install-extension github.vscode-pull-request-github
