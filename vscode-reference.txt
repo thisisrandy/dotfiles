@@ -40,3 +40,18 @@ zO - open all under cursor (recursively)
 zc - close under cursor
 zC - close all under cursor (recursively)
 
+## Git
+
+Most of these are obvious, so no need to write them down. Record any
+non-obvious commands or shortcuts here.
+
+C-S-g g - open the SCM pane. Note that GitLens turns this into a chord
+          to add other functionality. It's just C-S-g by default.
+Git:Open changes - bring up diff view
+<leader>hs - stage selected change (line or selection). this is slightly
+             different than gitgutter, which stages the contiguous change.
+             this shortcut is only available in the changes view
+<leader>hu - undo change. works the same way as staging
+[c - move to previous change. only works in editor view, NOT diff view
+]c - move to next change. same note as above
+
