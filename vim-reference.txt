@@ -127,6 +127,11 @@ Other useful characters (that are different from perl syntax. Assuming \v below)
 Finally, note that othree/eregex.vim exists to translate from perl-style if the
 differences become too frustrating.
 
+## Spelling
+
+:set[local] spell
+z= - get suggestions for word under cursor
+
 ## coc.vim
 
 gd - go to definition
