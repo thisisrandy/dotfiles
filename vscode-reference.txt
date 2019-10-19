@@ -9,9 +9,8 @@ C-S-p - open command palette (equiv to C-p>)
 C-` - toggle the terminal (C-S-` for a new terminal)
 C-S-[ik] - shift to previous/next terminal when term in focus
 C-S-m - open the problems list
-C-b - close the sidebar
+C-b - toggle the sidebar open/closed
 C-j - close the bottom panel
-C-0 - open the sidebar to wherever it last was
 C-l - toggle relative line numbers
 C-/ - toggle line comment (C-S-a for block comment)
 C-Enter - open file (from explorer or CtrlP) in vertical split
