@@ -28,7 +28,7 @@ C-S-h - replace in all files. in v-mode, seed with selected text
 
 # Folding
 
-NOTE: spending a short amount of time with the curson inside a fold
+NOTE: spending a short amount of time with the cursor inside a fold
       will automatically open it in VSCode. Also, these are all vim
       mappings, but they are also the only functioning mappings in
       VSCodeVim
