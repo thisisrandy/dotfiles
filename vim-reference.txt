@@ -200,7 +200,7 @@ if not already configured, and then do an operation that requires entering crede
 
 ## NERDCommenter
 
-[count]<leader>c<space> - toggle comment state of selected lines
+[count]<leader>c<space> - toggle comment state of selected lines. Also C-/ in any mode
 [count]<leader>cc - comment
 [count]<leader>cu - uncomment
 
