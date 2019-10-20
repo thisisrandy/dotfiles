@@ -419,5 +419,6 @@
   "vim.easymotionMarkerFontWeight": "bold",
   "explorer.confirmDelete": false,
   "files.trimTrailingWhitespace": true,
-  "editor.autoClosingQuotes": "always"
+  "editor.autoClosingQuotes": "always",
+  "editor.autoClosingBrackets": "always"
 }
