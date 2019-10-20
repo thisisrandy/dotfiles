@@ -418,5 +418,6 @@
   "vim.easymotionMarkerFontFamily": "'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "vim.easymotionMarkerFontWeight": "bold",
   "explorer.confirmDelete": false,
-  "files.trimTrailingWhitespace": true
+  "files.trimTrailingWhitespace": true,
+  "editor.autoClosingQuotes": "always"
 }
