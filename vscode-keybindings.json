@@ -16,6 +16,10 @@
     }
   },
   {
+    "key": "ctrl+alt+o",
+    "command": "workbench.action.files.openFile"
+  },
+  {
     "key": "ctrl+alt+n",
     "command": "workbench.action.files.newUntitledFile"
   },
