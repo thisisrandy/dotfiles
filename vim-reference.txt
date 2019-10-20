@@ -142,7 +142,7 @@ gn - go to next diagnostic message
 gp - go to previous diagnostic message
 ge - go to next error position, i.e. skip warnings, etc.
 K - show documentation
-<leader>r - rename current word
+F2 - rename current word
 <leader>b - format buffer
 <leader>co - show commands
 

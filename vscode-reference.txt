@@ -19,6 +19,8 @@ Alt-up/down - move selected lines or current line up and down. I'm
               be bound and therefore do not work :(
 gh - hover, synonym for S-k
 C-. - quick fix (under cursor, so use gn/gp, then C-.)
+F2 - rename var under cursor. VSCodeVim complains about not handling r when
+     we use our normal <leader>r map, so just get used to using the VSCode way
 
 ## Searching
 

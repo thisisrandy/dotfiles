@@ -288,15 +288,6 @@
       "commands": [
         "editor.action.peekTypeDefinition"
       ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "r"
-      ],
-      "commands": [
-        "editor.action.rename"
-      ]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
