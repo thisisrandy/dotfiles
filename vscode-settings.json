@@ -420,5 +420,6 @@
   "explorer.confirmDelete": false,
   "files.trimTrailingWhitespace": true,
   "editor.autoClosingQuotes": "always",
-  "editor.autoClosingBrackets": "always"
+  "editor.autoClosingBrackets": "always",
+  "workbench.editor.showTabs": false
 }
