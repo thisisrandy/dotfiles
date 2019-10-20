@@ -291,8 +291,7 @@
     },
     {
       "before": [
-        "<leader>",
-        "r"
+        "<C-A-r>"
       ],
       "commands": [
         "editor.action.rename"
