@@ -258,4 +258,5 @@ cs[old][surround] - change surround
 ys[motion][surround] - "you surround," e.g. ysiw[surround] for current word
 yss[surround] - current line, ignoring leading whitespace
 vS[surround] - surround in visual mode, where v denotes entering visual mode
-
+cst<[tag] - special case to preserve tag attributes, as opposed to cst<[tag]>,
+            which wipes attributes out
