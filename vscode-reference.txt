@@ -47,6 +47,8 @@ zC - close all under cursor (recursively)
 Most of these are obvious, so no need to write them down. Record any
 non-obvious commands or shortcuts here.
 
+NOTE: For multiline commit messages, use the sidebar, *not* the command palette
+
 C-S-g g - open the SCM pane. Note that GitLens turns this into a chord
           to add other functionality. It's just C-S-g by default.
 Git:Open changes - bring up diff view
