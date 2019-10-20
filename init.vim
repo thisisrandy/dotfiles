@@ -325,6 +325,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " show hidden files by default
 let g:NERDTreeShowHidden = 1
 
+" remap a few keys to agree with my ijkl movement setup
+let NERDTreeMapOpenSplit="h"
+let NERDTreeMapPreviewSplit="gh"
+let NERDTreeMapToggleHidden="H"
+
 """ vim-airline
 let g:airline_powerline_fonts = 1
 
