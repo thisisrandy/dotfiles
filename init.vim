@@ -166,7 +166,7 @@ nnoremap H I
 
 " remap escape
 imap hh <Esc>
-xmap hh <Esc>
+xmap h <Esc>
 cmap hh <Esc>
 
 " map to execute the current line
