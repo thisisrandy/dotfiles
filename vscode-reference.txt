@@ -27,6 +27,13 @@ C-k w - Close all editors in a group. This is useful to emulate vim behavior
         enablePreview setting is configured to false)
 C-k z - Enter zen mode
 
+## Marks
+
+Work a little differently than in vim. I have m/' a-j bound, but the actual
+bookmarks are numbered. The prefix Numbered Bookmarks: from the command palette
+provides the listing and clearing operations. Operations on going to bookmarks
+(e.g. d'a) obviously will not work
+
 ## Searching
 
 C-S-f - search all files. in v-mode, seed with selected text

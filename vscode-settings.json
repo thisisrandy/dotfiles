@@ -56,6 +56,96 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": [
+        "m",
+        "a"
+      ],
+      "commands": [
+        "numberedBookmarks.toggleBookmark1"
+      ]
+    },
+    {
+      "before": [
+        "m",
+        "b"
+      ],
+      "commands": [
+        "numberedBookmarks.toggleBookmark2"
+      ]
+    },
+    {
+      "before": [
+        "m",
+        "c"
+      ],
+      "commands": [
+        "numberedBookmarks.toggleBookmark3"
+      ]
+    },
+    {
+      "before": [
+        "m",
+        "d"
+      ],
+      "commands": [
+        "numberedBookmarks.toggleBookmark4"
+      ]
+    },
+    {
+      "before": [
+        "m",
+        "e"
+      ],
+      "commands": [
+        "numberedBookmarks.toggleBookmark5"
+      ]
+    },
+    {
+      "before": [
+        "m",
+        "f"
+      ],
+      "commands": [
+        "numberedBookmarks.toggleBookmark6"
+      ]
+    },
+    {
+      "before": [
+        "m",
+        "g"
+      ],
+      "commands": [
+        "numberedBookmarks.toggleBookmark7"
+      ]
+    },
+    {
+      "before": [
+        "m",
+        "h"
+      ],
+      "commands": [
+        "numberedBookmarks.toggleBookmark8"
+      ]
+    },
+    {
+      "before": [
+        "m",
+        "i"
+      ],
+      "commands": [
+        "numberedBookmarks.toggleBookmark9"
+      ]
+    },
+    {
+      "before": [
+        "m",
+        "j"
+      ],
+      "commands": [
+        "numberedBookmarks.toggleBookmark0"
+      ]
+    },
+    {
+      "before": [
         "]",
         "c"
       ],

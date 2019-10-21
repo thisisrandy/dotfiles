@@ -36,5 +36,55 @@
     "key": "ctrl+shift+i",
     "command": "workbench.action.terminal.focusPrevious",
     "when": "terminalFocus"
+  },
+  {
+    "key": "' a",
+    "command": "numberedBookmarks.jumpToBookmark1",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "' b",
+    "command": "numberedBookmarks.jumpToBookmark2",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "' c",
+    "command": "numberedBookmarks.jumpToBookmark3",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "' d",
+    "command": "numberedBookmarks.jumpToBookmark4",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "' e",
+    "command": "numberedBookmarks.jumpToBookmark5",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "' f",
+    "command": "numberedBookmarks.jumpToBookmark6",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "' g",
+    "command": "numberedBookmarks.jumpToBookmark7",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "' h",
+    "command": "numberedBookmarks.jumpToBookmark8",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "' i",
+    "command": "numberedBookmarks.jumpToBookmark9",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "' j",
+    "command": "numberedBookmarks.jumpToBookmark0",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
   }
 ]
