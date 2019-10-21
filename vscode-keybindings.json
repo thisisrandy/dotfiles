@@ -86,5 +86,15 @@
     "key": "' j",
     "command": "numberedBookmarks.jumpToBookmark0",
     "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "alt+i",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly && vim.active && vim.mode != 'Insert'"
+  },
+  {
+    "key": "alt+k",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly && vim.active && vim.mode != 'Insert'"
   }
 ]
