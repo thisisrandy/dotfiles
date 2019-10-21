@@ -489,7 +489,6 @@
   ],
   "vim.leader": " ",
   "vim.handleKeys": {
-    "<C-a>": false,
     "<C-b>": false,
     "<C-j>": false,
     "<C-q>": false,
