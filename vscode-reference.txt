@@ -25,6 +25,7 @@ C-k w - Close all editors in a group. This is useful to emulate vim behavior
         of closing a split completely on :q. VSCode likes to open new tabs
         for each file in a split (but not for the main group, unless an
         enablePreview setting is configured to false)
+C-k z - Enter zen mode
 
 ## Searching
 

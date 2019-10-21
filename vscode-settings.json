@@ -421,5 +421,6 @@
   "files.trimTrailingWhitespace": true,
   "editor.autoClosingQuotes": "always",
   "editor.autoClosingBrackets": "always",
-  "workbench.editor.showTabs": false
+  "workbench.editor.showTabs": false,
+  "zenMode.hideStatusBar": false
 }
