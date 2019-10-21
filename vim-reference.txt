@@ -69,6 +69,18 @@ C-S-arrow - resize window. not this is not placement aware, so up = +,
 gq - rebalance text to textwidth
 F6 - execute current line in the shell
 
+## Marks
+
+m[key] - set mark. note that lowercase marks are buffer local, whereas
+          uppercase marks are global
+'[key] - go to mark line. can be prefixed with an action, e.g. d'a = delete until
+         mark a
+`[key] - go to mark line and column
+:marks [keys] - list all marks if called without keys, otherwise those matching
+                keys
+:delmarks [keys] - delete matching marks. accepts ranges
+:delmarks! - delete all marks in current buffer
+
 ## Text objects
 
 [op]i[object] - perform op, e.g. d, on inner object, where object can be:
