@@ -150,7 +150,8 @@
         "c"
       ],
       "commands": [
-        "workbench.action.editor.nextChange"
+        "workbench.action.editor.nextChange",
+        "workbench.action.compareEditor.nextChange"
       ]
     },
     {
@@ -159,7 +160,8 @@
         "c"
       ],
       "commands": [
-        "workbench.action.editor.previousChange"
+        "workbench.action.editor.previousChange",
+        "workbench.action.compareEditor.previousChange"
       ]
     },
     {

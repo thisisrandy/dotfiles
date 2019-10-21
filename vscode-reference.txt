@@ -68,6 +68,6 @@ Git:Open changes - bring up diff view
              different than gitgutter, which stages the contiguous change.
              this shortcut is only available in the changes view
 <leader>hu - undo change. works the same way as staging
-[c - move to previous change. only works in editor view, NOT diff view
+[c - move to previous change. works in both editor and compare editor
 ]c - move to next change. same note as above
 
