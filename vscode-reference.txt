@@ -21,6 +21,10 @@ gh - hover, synonym for S-k
 C-. - quick fix (under cursor, so use gn/gp, then C-.)
 F2 - rename var under cursor. VSCodeVim complains about not handling r when
      we use our normal <leader>r map, so just get used to using the VSCode way
+C-k w - Close all editors in a group. This is useful to emulate vim behavior
+        of closing a split completely on :q. VSCode likes to open new tabs
+        for each file in a split (but not for the main group, unless an
+        enablePreview setting is configured to false)
 
 ## Searching
 
