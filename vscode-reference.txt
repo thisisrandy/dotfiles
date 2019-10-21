@@ -1,3 +1,11 @@
+## Setup
+
+1) run install.sh
+2) run vscode-install-extensions.sh
+3) install recommended extensions as desired (should be obvious)
+4) TabNine::config and enter API key (check email)
+5) Enable Deep TabNine Cloud (in config)
+
 ## General
 
 As much as possible, my vim maps have been maintained
