@@ -514,5 +514,6 @@
   "editor.autoClosingQuotes": "always",
   "editor.autoClosingBrackets": "always",
   "workbench.editor.showTabs": false,
-  "zenMode.hideStatusBar": false
+  "zenMode.hideStatusBar": false,
+  "files.hotExit": "off"
 }
