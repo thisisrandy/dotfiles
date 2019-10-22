@@ -149,6 +149,10 @@ z= - get suggestions for word under cursor
 
 ## coc.vim
 
+NOTE: lists can be fuzzy searched, but there is no way currently to remap the
+key that changes modes. I have i remapped as a movement key, so use any other
+standard insert key, i.e. I, a, A, o, O
+
 gd - go to definition
 gt - go to type definition
 gi - go to implementation

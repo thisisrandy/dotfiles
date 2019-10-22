@@ -14,5 +14,8 @@
       ],
       "filetypes": ["c", "cpp", "objc", "objcpp"]
     }
+  },
+  "list.normalMappings": {
+    "i": "normal:i"
   }
 }
