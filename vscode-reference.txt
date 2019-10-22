@@ -32,6 +32,16 @@ C-k w - Close all editors in a group. This is useful to emulate vim behavior
         enablePreview setting is configured to false)
 C-k z - Enter zen mode
 
+## Explorer
+
+Note that my vim movement keys are bound here
+
+C-n - open the explorer panel (also C-S-e)
+C-f - find current file in explorer. technically C-n does this too, but
+      trying to make this as close as possible to my vim setup with NERDTree
+C-n - in the panel, create a new file
+C-f - in the panel, create a new folder
+
 ## Marks
 
 Work a little differently than in vim. I have m/' a-j bound, but the actual

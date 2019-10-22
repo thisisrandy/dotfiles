@@ -96,5 +96,40 @@
     "key": "alt+k",
     "command": "editor.action.moveLinesDownAction",
     "when": "editorTextFocus && !editorReadonly && vim.active && vim.mode != 'Insert'"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "explorer.newFile",
+    "when": "explorerViewletVisible && filesExplorerFocus"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "explorer.newFolder",
+    "when": "explorerViewletVisible && filesExplorerFocus"
+  },
+  {
+    "key": "i",
+    "command": "list.focusUp",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "k",
+    "command": "list.focusDown",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "k",
+    "command": "-list.focusUp",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "workbench.files.action.showActiveFileInExplorer",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.view.explorer",
+    "when": "editorTextFocus"
   }
 ]
