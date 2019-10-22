@@ -622,7 +622,7 @@ function! FindReplace()
     let rgFind = substitute(rgFind, '[', '\\[', 'g')
     let rgFind = substitute(rgFind, ']', '\\]', 'g')
     let rgFind = substitute(rgFind, '<\|>', '\\\\b', 'g')
-    :silent exe 'Rg ' . rgFind
+    :silent exe 'Rg --hidden --glob !.git ' . rgFind
 
     " use cfdo to substitute on all quickfix files
     if confirmEach == 1
