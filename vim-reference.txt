@@ -174,7 +174,7 @@ F2 - rename current word
 ## denite
 
 ; - Browser currently open buffers (starts in filter mode)
-<leader>t - Browse list of files in current directory (starts in filter mode)
+<C-p> - Browse list of files in current directory (starts in filter mode)
 <leader>g - Search current directory for occurences of given term and close window if no results
 <leader>u - Search current directory for occurences of word under cursor
 
