@@ -165,9 +165,9 @@ nnoremap h i
 nnoremap H I
 
 " remap escape
-imap hj <Esc>
+imap jk <Esc>
 xmap h <Esc>
-cmap hj <Esc>
+cmap jk <Esc>
 
 " map to execute the current line
 nmap <F6> :exec '!'.getline('.')
