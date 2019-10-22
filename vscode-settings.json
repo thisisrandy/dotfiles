@@ -56,6 +56,22 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": [
+        ">"
+      ],
+      "commands": [
+        "editor.action.indentLines"
+      ]
+    },
+    {
+      "before": [
+        "<"
+      ],
+      "commands": [
+        "editor.action.outdentLines"
+      ]
+    },
+    {
+      "before": [
         "<C-t>"
       ],
       "commands": [
