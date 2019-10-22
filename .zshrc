@@ -94,7 +94,7 @@ prompt_context(){}
 # export ARCHFLAGS="-arch x86_64"
 
 # Custom path locations
-export PATH=$PATH:~/bin/
+export PATH=$PATH:~/.local/bin/
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/go/bin
 export PATH=$PATH:~/.yarn/bin

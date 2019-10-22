@@ -122,10 +122,10 @@ sudo rm -rf master.zip bat-extras-master # build creates some protected files
 popd
 
 # install nvim
-rm -f $HOME/bin/nvim
-curl -fLo ~/bin/nvim --create-dirs https://github.com/neovim/neovim/releases/download/v0.4.2/nvim.appimage
-chmod a+x ~/bin/nvim
-ln -sf $HOME/bin/nvim $HOME/bin/vim
+rm -f $HOME/.local/bin/nvim
+curl -fLo ~/.local/bin/nvim --create-dirs https://github.com/neovim/neovim/releases/download/v0.4.2/nvim.appimage
+chmod a+x ~/.local/bin/nvim
+ln -sf $HOME/.local/bin/nvim $HOME/.local/bin/vim
 mkdir -p $HOME/.config/nvim
 ln -sf $PATH_TO_DOT_FILES/init.vim $HOME/.config/nvim/init.vim
 ln -sf $PATH_TO_DOT_FILES/coc-settings.json $HOME/.config/nvim/coc-settings.json
