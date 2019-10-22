@@ -513,5 +513,9 @@
   "editor.autoClosingBrackets": "always",
   "workbench.editor.showTabs": false,
   "zenMode.hideStatusBar": false,
-  "files.hotExit": "off"
+  "files.hotExit": "off",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "explorer.confirmDragAndDrop": false
 }
