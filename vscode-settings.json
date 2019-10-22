@@ -534,5 +534,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "explorer.confirmDragAndDrop": false,
-  "workbench.editor.enablePreview": false
+  "workbench.editor.enablePreview": false,
+  "editor.tabSize": 2
 }
