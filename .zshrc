@@ -94,10 +94,10 @@ prompt_context(){}
 # export ARCHFLAGS="-arch x86_64"
 
 # Custom path locations
-export PATH=$PATH:~/.local/bin/
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:~/go/bin
-export PATH=$PATH:~/.yarn/bin
+export PATH=~/.local/bin/:$PATH
+export PATH=~/.yarn/bin:$PATH
+export PATH=~/go/bin:$PATH
+export PATH=/usr/local/go/bin:$PATH
 
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files --glob !.git --hidden --follow'
