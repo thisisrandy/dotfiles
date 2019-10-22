@@ -56,6 +56,22 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": [
+        "<C-t>"
+      ],
+      "commands": [
+        "workbench.action.gotoSymbol"
+      ]
+    },
+    {
+      "before": [
+        ";"
+      ],
+      "commands": [
+        "workbench.action.showAllEditors"
+      ]
+    },
+    {
+      "before": [
         "m",
         "a"
       ],
