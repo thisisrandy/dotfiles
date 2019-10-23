@@ -225,8 +225,8 @@ nnoremap / /\v
 vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
-nnoremap <C-h> :%s/\v//<left><left>
-vnoremap <C-h> :s/\v//<left><left>
+nnoremap <C-h> :%s/\v//g<left><left><left>
+vnoremap <C-h> :s/\v//g<left><left><left>
 nnoremap <silent> <leader>/ :nohlsearch<CR>
 
 " move lines up and down with M-i/k (or up/down)
