@@ -129,7 +129,7 @@ alias f="fzf --preview '[[ \$(file --mime {}) =~ binary ]] && \
 
 bindkey -v
 
-bindkey jk vi-cmd-mode
+bindkey hh vi-cmd-mode
 bindkey -rM vicmd h
 bindkey -rM vicmd i
 bindkey -rM vicmd j
