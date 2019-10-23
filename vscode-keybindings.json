@@ -131,5 +131,10 @@
     "key": "ctrl+n",
     "command": "workbench.view.explorer",
     "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "j",
+    "command": "list.collapse",
+    "when": "listFocus && !inputFocus"
   }
 ]
