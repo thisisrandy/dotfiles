@@ -98,12 +98,12 @@
     "when": "editorTextFocus && !editorReadonly && vim.active && vim.mode != 'Insert'"
   },
   {
-    "key": "ctrl+n",
+    "key": "a",
     "command": "explorer.newFile",
     "when": "explorerViewletVisible && filesExplorerFocus"
   },
   {
-    "key": "ctrl+f",
+    "key": "f",
     "command": "explorer.newFolder",
     "when": "explorerViewletVisible && filesExplorerFocus"
   },
@@ -136,5 +136,10 @@
     "key": "j",
     "command": "list.collapse",
     "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "d",
+    "command": "moveFileToTrash",
+    "when": "explorerResourceMoveableToTrash && explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   }
 ]
