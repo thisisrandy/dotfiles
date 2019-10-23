@@ -210,6 +210,10 @@ C-f - find current file in tree
 
 ## vim-fugitive/rhubarb (git)
 
+NOTE: my ijkl movement mappings are overridden in some modes, e.g. the
+status mode, where i means jump to next diff. just use the arrow keys in
+these views instead to avoid confusion
+
 G<git command> - issue git command from within vim
 G[v]diffsplit! - three way [vertical] merge on file with conflicts
 dp - when resolving conflicts, put the side under the cursor in the merged buffer
