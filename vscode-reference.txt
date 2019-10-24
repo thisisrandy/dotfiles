@@ -80,6 +80,7 @@ NOTE: For multiline commit messages, use the sidebar, *not* the command palette
 C-S-g g - open the SCM pane. Note that GitLens turns this into a chord
           to add other functionality. It's just C-S-g by default.
 Git:Open changes - bring up diff view
+Git:Discard (all) changes - checkout HEAD / reset --hard
 <leader>hs - stage selected change (line or selection). this is slightly
              different than gitgutter, which stages the contiguous change.
              this shortcut is only available in the changes view
