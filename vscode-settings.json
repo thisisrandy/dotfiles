@@ -556,5 +556,8 @@
   "explorer.confirmDragAndDrop": false,
   "workbench.editor.enablePreview": false,
   "editor.tabSize": 2,
-  "vsicons.dontShowNewVersionMessage": true
+  "vsicons.dontShowNewVersionMessage": true,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
