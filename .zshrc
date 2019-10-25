@@ -126,6 +126,7 @@ alias f="fzf --preview '[[ \$(file --mime {}) =~ binary ]] && \
                  bat --style=numbers --color=always {} | \
                  head -100'"
 alias python=python3
+alias venv="source bin/activate"
 
 
 # vi mode
