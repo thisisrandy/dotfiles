@@ -24,6 +24,9 @@ ln -sf $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ln -sf $PATH_TO_DOT_FILES/.zshrc $HOME/.zshrc
 
+# install custom zsh theme
+ln -s $HOME/.oh-my-zsh/custom/themes/avit.zsh-theme $HOME/git/dotfiles/avit.zsh-theme
+
 # install node/yarn
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
