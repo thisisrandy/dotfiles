@@ -101,6 +101,10 @@ export PATH=~/.yarn/bin:$PATH
 export PATH=~/go/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
 
+# for TensorFlow. moot if TensorFlow not installed. see
+# https://www.tensorflow.org/install/gpu
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64
+
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files --glob !.git --hidden --follow'
 
@@ -126,8 +130,7 @@ alias f="fzf --preview '[[ \$(file --mime {}) =~ binary ]] && \
                  bat --style=numbers --color=always {} | \
                  head -100'"
 alias python=python3
-alias venv="source bin/activate"
-
+alias venv="source .venv/bin/activate"
 
 # vi mode
 
