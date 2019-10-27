@@ -564,5 +564,11 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.minimap.enabled": false,
-  "terminal.integrated.fontFamily": "monospace"
+  "terminal.integrated.fontFamily": "monospace",
+  "python.dataScience.sendSelectionToInteractiveWindow": true,
+  "python.dataScience.askForKernelRestart": false,
+  "[python]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4
+  }
 }
