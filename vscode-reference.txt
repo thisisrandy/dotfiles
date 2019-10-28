@@ -31,6 +31,14 @@ C-k w - Close all editors in a group. This is useful to emulate vim behavior
         for each file in a split (but not for the main group, unless an
         enablePreview setting is configured to false)
 C-k z - Enter zen mode
+; - filter opened editors. this is different from denite in some important
+    ways:
+    1) in opens in the group the editor is opened in, not in the active
+       group
+    2) because of (1), it isn't possible to open files selected this way in
+       a new group
+    given these issues, C-p is generally more intuitive if multiple groups
+    are open
 
 ## Explorer
 
