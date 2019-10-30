@@ -54,6 +54,18 @@
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
   "vim.normalModeKeyBindingsNonRecursive": [
+    // Workaround: Visual Mode chord bug
+    // https://github.com/VSCodeVim/Vim/issues/2842
+    {
+      "before": [
+        "v"
+      ],
+      "after": [
+        "v",
+        "l",
+        "h"
+      ]
+    },
     {
       "before": [
         "Y"
