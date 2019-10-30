@@ -34,8 +34,8 @@ C-w + r - swap splits
 :tab[np] - next/previous tab
 :tabonly - close all tabs but this one
 :qa - close all tabs at once (or :wqa to write as well)
-o - new line under
-O - new line over
+o - new line under. in v-mode, go to beginning/end of selection
+O - new line over. in v-mode, go to beginning/end of selection
 ^ - go to start of line (text)
 0 - go to start of line (absolute)
 $ - go to end of line
