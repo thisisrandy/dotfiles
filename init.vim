@@ -169,6 +169,9 @@ imap hh <Esc>
 xmap h <Esc>
 cmap hh <Esc>
 
+" remap Y
+map Y y$
+
 " map to execute the current line
 nmap <F6> :exec '!'.getline('.')
 

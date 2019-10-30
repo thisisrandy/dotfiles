@@ -23,6 +23,7 @@ M-normal mode key - in insert mode, execute a normal mode command, e.g. u
 u - undo (U to undo all changes to a line)
 C-r - redo
 y/d - copy/delete in visual mode (yy/dd for line in normal mode)
+Y/D - copy/delete from cursor to end of line
 P/p - paste before/after cursor
 C-o - go back to last point. in insert mode, issue command without leaving insert
 C-i - jump forward

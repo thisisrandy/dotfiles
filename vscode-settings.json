@@ -56,6 +56,15 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": [
+        "Y"
+      ],
+      "after": [
+        "y",
+        "$"
+      ]
+    },
+    {
+      "before": [
         ">"
       ],
       "commands": [
