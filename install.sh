@@ -69,7 +69,10 @@ pip install --user pynvim
 curl https://pyenv.run | bash
 
 # install jedi
-pip install jedi
+pip install jedi --user
+
+# install black
+pip install black --user
 
 # install universal-ctags - this snap is broken as of writing. apparently it doesn't
 # have access to any files outside of the home directly, including hidden files within
