@@ -581,5 +581,6 @@
     "editor.tabSize": 4
   },
   "python.jediEnabled": false,
-  "python.formatting.provider": "black"
+  "python.formatting.provider": "black",
+  "vim.timeout": 500
 }
