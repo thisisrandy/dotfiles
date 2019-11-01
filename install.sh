@@ -74,6 +74,9 @@ pip install jedi --user
 # install black
 pip install black --user
 
+# install tqdm
+pip install tqdm --user
+
 # install universal-ctags - this snap is broken as of writing. apparently it doesn't
 # have access to any files outside of the home directly, including hidden files within
 # the home dir, so it's pretty useless and breaks tagbar, which uses tmp files
