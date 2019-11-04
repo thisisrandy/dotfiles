@@ -115,7 +115,6 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'airblade/vim-gitgutter'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-surround'
-Plug 'jmcantrell/vim-virtualenv'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
