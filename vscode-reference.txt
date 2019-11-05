@@ -15,7 +15,7 @@ C-q - quit VSCode
 C-p - all (most) purpose search. Covers everything put file contents searching
 C-S-p - open command palette (equiv to C-p>)
 C-` - toggle the terminal (C-S-` for a new terminal)
-C-S-[ik] - shift to previous/next terminal when term in focus
+C-S-[kj] - shift to previous/next terminal when term in focus
 C-S-m - open the problems list
 C-b - toggle the sidebar open/closed
 C-j - close the bottom panel

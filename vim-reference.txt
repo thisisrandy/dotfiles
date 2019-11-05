@@ -3,14 +3,14 @@
 NOTE: I have <leader> mapped to <space>, C- means Ctrl+, M- means Alt+,
       and S- means Shift+
 
-ijkl - movement, like arrow keys
+hjkl - movement. can also use arrow keys, including in insert mode
 [count]w - move by word. all word movements can be capitalized, e.g. W, to move
            by WORD, which means all non-whitespace chars
 [count]b - move by word backwards (or to beginning)
 [count]e - move by end of word
 [count]ge - move by backwards by end of word
-h - insert mode (H to insert at beginning of line)
-a - append after cursor (as opposed to h) (A to append at end of line)
+i - insert mode (I to insert at beginning of line)
+a - append after cursor (as opposed to i) (A to append at end of line)
 [number]r - replace character (R for replace mode)
 c[number]{motion} - change mode, e.g. c2e to change until end of next word
 (C-)v - visual (block) mode
@@ -63,7 +63,7 @@ C-] - go to label in docs
 :r ! <command> - read command output into buffer
 :[nvi]map - see key mappings
 gx - go to url under cursor (kind of broken, but in a pinch)
-M-[ik] - move current or selected line up and down. Also mapped to M-Up/Down
+M-[kj] - move current or selected line up and down. Also mapped to M-Up/Down
 <leader>wr - turning line wrapping on/off nicely
 C-S-arrow - resize window. not this is not placement aware, so up = +,
             down = -, right = +, left = - regardless of window position
@@ -150,10 +150,6 @@ z= - get suggestions for word under cursor
 
 ## coc.vim
 
-NOTE: lists can be fuzzy searched, but there is no way currently to remap the
-key that changes modes. I have i remapped as a movement key, so use any other
-standard insert key, i.e. I, a, A, o, O
-
 gd - go to definition
 gt - go to type definition
 gi - go to implementation
@@ -211,10 +207,6 @@ C-f - find current file in tree
 
 ## vim-fugitive/rhubarb (git)
 
-NOTE: my ijkl movement mappings are overridden in some modes, e.g. the
-status mode, where i means jump to next diff. just use the arrow keys in
-these views instead to avoid confusion
-
 G<git command> - issue git command from within vim
 G[v]diffsplit! - three way [vertical] merge on file with conflicts
 dp - when resolving conflicts, put the side under the cursor in the merged buffer
@@ -242,8 +234,8 @@ gS - same as gs, but clear scratch first
 ## vim-easymotion
 
 s - type a single to find, then type the appropriate label or ESC
-<leader>k - lines below
-<leader>i - lines above
+<leader>j - lines below
+<leader>k - lines above
 
 ## vim-dadbod
 

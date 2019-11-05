@@ -136,15 +136,7 @@ alias venv="source .venv/bin/activate"
 
 bindkey -v
 
-bindkey hh vi-cmd-mode
-bindkey -rM vicmd h
-bindkey -rM vicmd i
-bindkey -rM vicmd j
-bindkey -rM vicmd k
-bindkey -M vicmd h vi-insert
-bindkey -M vicmd j vi-backward-char
-bindkey -M vicmd i up-line-or-history
-bindkey -M vicmd k down-line-or-history
+bindkey ij vi-cmd-mode
 
 vim_ins_mode="%{$fg_bold[cyan]%}[INSERT]%{$reset_color%}"
 vim_norm_mode="%{$fg_bold[yellow]%}[NORMAL]%{$reset_color%}"

@@ -4,7 +4,9 @@
   "languageserver": {
     "clangd": {
       "command": "clangd",
-      "args": ["--background-index"],
+      "args": [
+        "--background-index"
+      ],
       "rootPatterns": [
         "compile_flags.txt",
         "compile_commands.json",
@@ -12,10 +14,12 @@
         ".git/",
         ".hg/"
       ],
-      "filetypes": ["c", "cpp", "objc", "objcpp"]
+      "filetypes": [
+        "c",
+        "cpp",
+        "objc",
+        "objcpp"
+      ]
     }
-  },
-  "list.normalMappings": {
-    "i": "normal:i"
   }
 }

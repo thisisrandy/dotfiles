@@ -236,76 +236,6 @@
     },
     {
       "before": [
-        "<C-w>",
-        "j"
-      ],
-      "after": [
-        "<C-w>",
-        "h"
-      ]
-    },
-    {
-      "before": [
-        "<C-w>",
-        "i"
-      ],
-      "after": [
-        "<C-w>",
-        "k"
-      ]
-    },
-    {
-      "before": [
-        "<C-w>",
-        "k"
-      ],
-      "after": [
-        "<C-w>",
-        "j"
-      ]
-    },
-    {
-      "before": [
-        "j"
-      ],
-      "after": [
-        "h"
-      ]
-    },
-    {
-      "before": [
-        "k"
-      ],
-      "after": [
-        "j"
-      ]
-    },
-    {
-      "before": [
-        "i"
-      ],
-      "after": [
-        "k"
-      ]
-    },
-    {
-      "before": [
-        "h"
-      ],
-      "after": [
-        "i"
-      ]
-    },
-    {
-      "before": [
-        "H"
-      ],
-      "after": [
-        "I"
-      ]
-    },
-    {
-      "before": [
         "<leader>",
         "/"
       ],
@@ -326,7 +256,7 @@
     {
       "before": [
         "<leader>",
-        "k"
+        "j"
       ],
       "after": [
         "<leader>",
@@ -337,7 +267,7 @@
     {
       "before": [
         "<leader>",
-        "i"
+        "k"
       ],
       "after": [
         "<leader>",
@@ -448,38 +378,6 @@
     },
     {
       "before": [
-        "j"
-      ],
-      "after": [
-        "h"
-      ]
-    },
-    {
-      "before": [
-        "k"
-      ],
-      "after": [
-        "j"
-      ]
-    },
-    {
-      "before": [
-        "i"
-      ],
-      "after": [
-        "k"
-      ]
-    },
-    {
-      "before": [
-        "h"
-      ],
-      "after": [
-        "<Esc>"
-      ]
-    },
-    {
-      "before": [
         ">"
       ],
       "commands": [
@@ -524,8 +422,8 @@
     },
     {
       "before": [
-        "h",
-        "h"
+        "i",
+        "j"
       ],
       "after": [
         "<Esc>"

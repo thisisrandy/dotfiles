@@ -153,20 +153,9 @@ set number
 " remap leader
 let mapleader=" "
 
-" remap nav
-nnoremap i k
-nnoremap j h
-nnoremap k j
-xnoremap i k
-xnoremap j h
-xnoremap k j
-nnoremap h i
-nnoremap H I
-
 " remap escape
-imap hh <Esc>
-xmap h <Esc>
-cmap hh <Esc>
+imap ij <Esc>
+cmap ij <Esc>
 
 " remap Y
 map Y y$
@@ -231,19 +220,19 @@ nnoremap <C-h> :%s/\v//g<left><left><left>
 vnoremap <C-h> :s/\v//g<left><left><left>
 nnoremap <silent> <leader>/ :nohlsearch<CR>
 
-" move lines up and down with M-i/k (or up/down)
-nnoremap <M-k> :m .+1<CR>==
-nnoremap <M-i> :m .-2<CR>==
-inoremap <M-k> <Esc>:m .+1<CR>==gi
-inoremap <M-i> <Esc>:m .-2<CR>==gi
-vnoremap <M-k> :m '>+1<CR>gv=gv
-vnoremap <M-i> :m '<-2<CR>gv=gv
-nmap <M-Down> <M-k>
-nmap <M-Up> <M-i>
-imap <M-Down> <M-k>
-imap <M-Up> <M-i>
-vmap <M-Down> <M-k>
-vmap <M-Up> <M-i>
+" move lines up and down with M-k/j (or up/down)
+nnoremap <M-j> :m .+1<CR>==
+nnoremap <M-k> :m .-2<CR>==
+inoremap <M-j> <Esc>:m .+1<CR>==gi
+inoremap <M-k> <Esc>:m .-2<CR>==gi
+vnoremap <M-j> :m '>+1<CR>gv=gv
+vnoremap <M-k> :m '<-2<CR>gv=gv
+nmap <M-Down> <M-j>
+nmap <M-Up> <M-k>
+imap <M-Down> <M-j>
+imap <M-Up> <M-k>
+vmap <M-Down> <M-j>
+vmap <M-Up> <M-k>
 
 " rebind <Home> to ^ (first non-whitespace character). unfortunately, this
 " breaks in insert mode, as ^ counts as an input character
@@ -284,9 +273,6 @@ function ToggleWrap()
 endfunction
 
 " made window navigation simpler
-nnoremap <C-w>j <C-w>h
-nnoremap <C-w>k <C-w>j
-nnoremap <C-w>i <C-w>k
 nnoremap <C-Left> <C-w>h
 nnoremap <C-Down> <C-w>j
 nnoremap <C-Up> <C-w>k
@@ -326,11 +312,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " show hidden files by default
 let g:NERDTreeShowHidden = 1
-
-" remap a few keys to agree with my ijkl movement setup
-let NERDTreeMapOpenSplit="h"
-let NERDTreeMapPreviewSplit="gh"
-let NERDTreeMapToggleHidden="H"
 
 """ vim-airline
 let g:airline_powerline_fonts = 1
@@ -417,8 +398,9 @@ nmap <silent> gn <Plug>(coc-diagnostic-next)
 nmap <silent> gp <Plug>(coc-diagnostic-prev)
 nmap <silent> ge <Plug>(coc-diagnostic-next-error)
 
-" Use K to show documentation in preview window
+" Use K to show documentation in preview window. also gh to match VSCode
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> gh :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -665,8 +647,8 @@ nmap s <Plug>(easymotion-overwin-f)
 let g:EasyMotion_smartcase = 1
 
 " JK motions: Line motions
-map <Leader>k <Plug>(easymotion-j)
-map <Leader>i <Plug>(easymotion-k)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
 """ tagbar
 nmap <F8> :TagbarToggle<CR>

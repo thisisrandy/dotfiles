@@ -28,12 +28,12 @@
     "command": "-workbench.action.files.newUntitledFile"
   },
   {
-    "key": "ctrl+shift+k",
+    "key": "ctrl+shift+j",
     "command": "workbench.action.terminal.focusNext",
     "when": "terminalFocus"
   },
   {
-    "key": "ctrl+shift+i",
+    "key": "ctrl+shift+k",
     "command": "workbench.action.terminal.focusPrevious",
     "when": "terminalFocus"
   },
@@ -88,12 +88,12 @@
     "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
   },
   {
-    "key": "alt+i",
+    "key": "alt+k",
     "command": "editor.action.moveLinesUpAction",
     "when": "editorTextFocus && !editorReadonly && vim.active && vim.mode != 'Insert'"
   },
   {
-    "key": "alt+k",
+    "key": "alt+j",
     "command": "editor.action.moveLinesDownAction",
     "when": "editorTextFocus && !editorReadonly && vim.active && vim.mode != 'Insert'"
   },
@@ -123,18 +123,13 @@
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
   },
   {
-    "key": "i",
+    "key": "k",
     "command": "list.focusUp",
     "when": "listFocus && !inputFocus"
   },
   {
-    "key": "k",
+    "key": "j",
     "command": "list.focusDown",
-    "when": "listFocus && !inputFocus"
-  },
-  {
-    "key": "k",
-    "command": "-list.focusUp",
     "when": "listFocus && !inputFocus"
   },
   {
@@ -148,7 +143,7 @@
     "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
   },
   {
-    "key": "j",
+    "key": "h",
     "command": "list.collapse",
     "when": "listFocus && !inputFocus"
   },
