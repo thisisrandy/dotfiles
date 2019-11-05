@@ -154,8 +154,8 @@ set number
 let mapleader=" "
 
 " remap escape
-imap ij <Esc>
-cmap ij <Esc>
+imap jk <Esc>
+cmap jk <Esc>
 
 " remap Y
 map Y y$
