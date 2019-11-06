@@ -6,8 +6,6 @@
 # - nvim will take a couple of start/exit cycles to run correctly, and may dump core
 #   the first time. after it seems to be working, denite will be off, so run
 #   :checkhealth and follow instructions
-# - Adding the deadsnakes ppa (for python3.8) requires answering a prompt
-#   (press enter)
 # - If its been a while since this file was updated, versions of any manually
 #   downloaded programs should be checked and updated as needed (node, rg, etc.)
 #
@@ -21,10 +19,6 @@ PATH_TO_DOT_FILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && p
 # install curl, git, zsh...
 sudo apt-get install curl git zsh python3-pip python-pip xclip htop
 ln -sf $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
-
-# install python 3.8
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt-get install python3.8
 
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
