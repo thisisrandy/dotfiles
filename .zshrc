@@ -136,33 +136,39 @@ alias venv="source .venv/bin/activate"
 
 bindkey -v
 
-bindkey jk vi-cmd-mode
-bindkey hj vi-cmd-mode
-
-vim_ins_mode="%{$fg_bold[cyan]%}[INSERT]%{$reset_color%}"
-vim_norm_mode="%{$fg_bold[yellow]%}[NORMAL]%{$reset_color%}"
-vim_mode=$vim_ins_mode
-
-function zle-keymap-select {
-  vim_mode="${${KEYMAP/vicmd/${vim_norm_mode}}/(main|viins)/${vim_ins_mode}}"
-  zle reset-prompt
-}
-zle -N zle-keymap-select
-
-function zle-line-finish {
-  vim_mode=$vim_ins_mode
-}
-zle -N zle-line-finish
-
-# Fix a bug when you C-c in CMD mode and you'd be prompted with CMD mode
-# indicator, while in fact you would be in INS mode Fixed by catching SIGINT
-# (C-c), set vim_mode to INS and then repropagate the SIGINT, so if anything
-# else depends on it, we will not break it
-function TRAPINT() {
-  vim_mode=$vim_ins_mode
-  return $(( 128 + $1 ))
-}
-RPROMPT='${vim_mode}'
+# All of this wipes out the rhs of the status line, which actually contains
+# useful information. It also changes text to bold on exit to normal mode,
+# weirdly even when the fonts are set to normal weight. Keeping commented here
+# in case I want to revisit it at some point, but for now, I think it's easy
+# enough to remember which mode I'm in
+#
+# bindkey jk vi-cmd-mode
+# bindkey hj vi-cmd-mode
+#
+# vim_ins_mode="%{$fg_bold[cyan]%}[INSERT]%{$reset_color%}"
+# vim_norm_mode="%{$fg_bold[yellow]%}[NORMAL]%{$reset_color%}"
+# vim_mode=$vim_ins_mode
+#
+# function zle-keymap-select {
+#   vim_mode="${${KEYMAP/vicmd/${vim_norm_mode}}/(main|viins)/${vim_ins_mode}}"
+#   zle reset-prompt
+# }
+# zle -N zle-keymap-select
+#
+# function zle-line-finish {
+#   vim_mode=$vim_ins_mode
+# }
+# zle -N zle-line-finish
+#
+# # Fix a bug when you C-c in CMD mode and you'd be prompted with CMD mode
+# # indicator, while in fact you would be in INS mode Fixed by catching SIGINT
+# # (C-c), set vim_mode to INS and then repropagate the SIGINT, so if anything
+# # else depends on it, we will not break it
+# function TRAPINT() {
+#   vim_mode=$vim_ins_mode
+#   return $(( 128 + $1 ))
+# }
+# RPROMPT='${vim_mode}'
 
 # fzf setup. vi mode wipes out the fzf bindings, so make sure to put this
 # after vi mode setup. note that fzf bindings only work in insert mode
