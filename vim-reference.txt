@@ -16,7 +16,7 @@ c[number]{motion} - change mode, e.g. c2e to change until end of next word
 (C-)v - visual (block) mode
 V - visual line mode
 C-[ud] - half page up/down
-ESC/C-[ - exit i/v/c mode. I also have jk mapped, except in v-mode
+ESC/C-[ - exit i/v/c mode. I also have jk and hj mapped, except in v-mode
 M-normal mode key - in insert mode, execute a normal mode command, e.g. u
 u - undo (U to undo all changes to a line)
 C-r - redo
