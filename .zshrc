@@ -137,14 +137,14 @@ alias clip="xclip -selection clipboard"
 
 bindkey -v
 
+bindkey jk vi-cmd-mode
+bindkey hj vi-cmd-mode
+
 # All of this wipes out the rhs of the status line, which actually contains
 # useful information. It also changes text to bold on exit to normal mode,
 # weirdly even when the fonts are set to normal weight. Keeping commented here
 # in case I want to revisit it at some point, but for now, I think it's easy
 # enough to remember which mode I'm in
-#
-# bindkey jk vi-cmd-mode
-# bindkey hj vi-cmd-mode
 #
 # vim_ins_mode="%{$fg_bold[cyan]%}[INSERT]%{$reset_color%}"
 # vim_norm_mode="%{$fg_bold[yellow]%}[NORMAL]%{$reset_color%}"
