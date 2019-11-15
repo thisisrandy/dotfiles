@@ -147,7 +147,6 @@ ln -sf $PATH_TO_DOT_FILES/vscode-settings.json $HOME/.config/Code/User/settings.
 ln -sf $PATH_TO_DOT_FILES/vscode-keybindings.json $HOME/.config/Code/User/keybindings.json
 
 # install docker
-
 sudo apt-get install \
     apt-transport-https \
     ca-certificates \
@@ -160,3 +159,6 @@ sudo add-apt-repository \
    $(lsb_release -cs) \
    stable"
 sudo apt-get install docker-ce docker-ce-cli containerd.io
+# give current user permission to run docker (requires restart)
+sudo usermod -aG docker $USER
+
