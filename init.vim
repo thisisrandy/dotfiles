@@ -294,10 +294,6 @@ nnoremap <leader>d "_d
 xnoremap <leader>d "_d
 xnoremap <leader>p "_dP
 
-" remap * to highlight only, not jump. use n/N to navigate instead
-nnoremap * *``
-nnoremap g* g*``
-
 """ NERDTree
 map <C-n> :NERDTreeToggle<CR>
 nmap <C-f> :NERDTreeFind<CR>
