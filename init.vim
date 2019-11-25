@@ -339,7 +339,7 @@ inoremap <C-_> <C-o>:call NERDComment(0,"toggle")<CR>
 let g:coc_global_extensions=["coc-json", "coc-eslint", "coc-tsserver",
   \ "coc-snippets", "coc-html", "coc-css", "coc-python", "coc-java",
   \ "coc-highlight", "coc-yank", "coc-omnisharp", "coc-emmet",
-  \ "coc-lists", "coc-marketplace", "coc-neosnippet" ]
+  \ "coc-lists", "coc-marketplace", "coc-neosnippet", "coc-prettier" ]
 
 " correct comment highlighting for config file
 autocmd FileType json syntax match Comment +\/\/.\+$+
