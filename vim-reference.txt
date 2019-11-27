@@ -231,7 +231,7 @@ gS - same as gs, but clear scratch first
 
 ## vim-easymotion
 
-s - type a single to find, then type the appropriate label or ESC
+f - type a single to find, then type the appropriate label or ESC
 <leader>j - lines below
 <leader>k - lines above
 

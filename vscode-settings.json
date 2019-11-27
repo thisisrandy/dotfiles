@@ -5,438 +5,192 @@
   "vim.sneak": false,
   "vim.surround": true,
   "vim.statusBarColorControl": true,
-  "vim.statusBarColors.normal": [
-    "#d4c528",
-    "#303030"
-  ],
-  "vim.statusBarColors.insert": [
-    "#3fb5d9",
-    "#001761"
-  ],
-  "vim.statusBarColors.visual": [
-    "#cc6402",
-    "#301800"
-  ],
-  "vim.statusBarColors.visualline": [
-    "#cc6402",
-    "#301800"
-  ],
-  "vim.statusBarColors.visualblock": [
-    "#cc6402",
-    "#301800"
-  ],
-  "vim.statusBarColors.replace": [
-    "#bf0000",
-    "#ffffff"
-  ],
-  "vim.statusBarColors.commandlineinprogress": [
-    "#31de3c",
-    "#0039c9"
-  ],
-  "vim.statusBarColors.searchinprogressmode": [
-    "#31de3c",
-    "#0039c9"
-  ],
-  "vim.statusBarColors.easymotionmode": [
-    "#31de3c",
-    "#0039c9"
-  ],
-  "vim.statusBarColors.easymotioninputmode": [
-    "#31de3c",
-    "#0039c9"
-  ],
-  "vim.statusBarColors.surroundinputmode": [
-    "#31de3c",
-    "#0039c9"
-  ],
+  "vim.statusBarColors.normal": ["#d4c528", "#303030"],
+  "vim.statusBarColors.insert": ["#3fb5d9", "#001761"],
+  "vim.statusBarColors.visual": ["#cc6402", "#301800"],
+  "vim.statusBarColors.visualline": ["#cc6402", "#301800"],
+  "vim.statusBarColors.visualblock": ["#cc6402", "#301800"],
+  "vim.statusBarColors.replace": ["#bf0000", "#ffffff"],
+  "vim.statusBarColors.commandlineinprogress": ["#31de3c", "#0039c9"],
+  "vim.statusBarColors.searchinprogressmode": ["#31de3c", "#0039c9"],
+  "vim.statusBarColors.easymotionmode": ["#31de3c", "#0039c9"],
+  "vim.statusBarColors.easymotioninputmode": ["#31de3c", "#0039c9"],
+  "vim.statusBarColors.surroundinputmode": ["#31de3c", "#0039c9"],
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "Y"
-      ],
-      "after": [
-        "y",
-        "$"
-      ]
+      "before": ["Y"],
+      "after": ["y", "$"]
     },
     {
-      "before": [
-        ">"
-      ],
-      "commands": [
-        "editor.action.indentLines"
-      ]
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
     },
     {
-      "before": [
-        "<"
-      ],
-      "commands": [
-        "editor.action.outdentLines"
-      ]
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
     },
     {
-      "before": [
-        "<C-t>"
-      ],
-      "commands": [
-        "workbench.action.gotoSymbol"
-      ]
+      "before": ["<C-t>"],
+      "commands": ["workbench.action.gotoSymbol"]
     },
     {
-      "before": [
-        ";"
-      ],
-      "commands": [
-        "workbench.action.showAllEditors"
-      ]
+      "before": [";"],
+      "commands": ["workbench.action.showAllEditors"]
     },
     {
-      "before": [
-        "m",
-        "a"
-      ],
-      "commands": [
-        "numberedBookmarks.toggleBookmark1"
-      ]
+      "before": ["m", "a"],
+      "commands": ["numberedBookmarks.toggleBookmark1"]
     },
     {
-      "before": [
-        "m",
-        "b"
-      ],
-      "commands": [
-        "numberedBookmarks.toggleBookmark2"
-      ]
+      "before": ["m", "b"],
+      "commands": ["numberedBookmarks.toggleBookmark2"]
     },
     {
-      "before": [
-        "m",
-        "c"
-      ],
-      "commands": [
-        "numberedBookmarks.toggleBookmark3"
-      ]
+      "before": ["m", "c"],
+      "commands": ["numberedBookmarks.toggleBookmark3"]
     },
     {
-      "before": [
-        "m",
-        "d"
-      ],
-      "commands": [
-        "numberedBookmarks.toggleBookmark4"
-      ]
+      "before": ["m", "d"],
+      "commands": ["numberedBookmarks.toggleBookmark4"]
     },
     {
-      "before": [
-        "m",
-        "e"
-      ],
-      "commands": [
-        "numberedBookmarks.toggleBookmark5"
-      ]
+      "before": ["m", "e"],
+      "commands": ["numberedBookmarks.toggleBookmark5"]
     },
     {
-      "before": [
-        "m",
-        "f"
-      ],
-      "commands": [
-        "numberedBookmarks.toggleBookmark6"
-      ]
+      "before": ["m", "f"],
+      "commands": ["numberedBookmarks.toggleBookmark6"]
     },
     {
-      "before": [
-        "m",
-        "g"
-      ],
-      "commands": [
-        "numberedBookmarks.toggleBookmark7"
-      ]
+      "before": ["m", "g"],
+      "commands": ["numberedBookmarks.toggleBookmark7"]
     },
     {
-      "before": [
-        "m",
-        "h"
-      ],
-      "commands": [
-        "numberedBookmarks.toggleBookmark8"
-      ]
+      "before": ["m", "h"],
+      "commands": ["numberedBookmarks.toggleBookmark8"]
     },
     {
-      "before": [
-        "m",
-        "i"
-      ],
-      "commands": [
-        "numberedBookmarks.toggleBookmark9"
-      ]
+      "before": ["m", "i"],
+      "commands": ["numberedBookmarks.toggleBookmark9"]
     },
     {
-      "before": [
-        "m",
-        "j"
-      ],
-      "commands": [
-        "numberedBookmarks.toggleBookmark0"
-      ]
+      "before": ["m", "j"],
+      "commands": ["numberedBookmarks.toggleBookmark0"]
     },
     {
-      "before": [
-        "]",
-        "c"
-      ],
+      "before": ["]", "c"],
       "commands": [
         "workbench.action.editor.nextChange",
         "workbench.action.compareEditor.nextChange"
       ]
     },
     {
-      "before": [
-        "[",
-        "c"
-      ],
+      "before": ["[", "c"],
       "commands": [
         "workbench.action.editor.previousChange",
         "workbench.action.compareEditor.previousChange"
       ]
     },
     {
-      "before": [
-        "<leader>",
-        "h",
-        "u"
-      ],
-      "commands": [
-        "git.revertSelectedRanges"
-      ]
+      "before": ["<leader>", "h", "u"],
+      "commands": ["git.revertSelectedRanges"]
     },
     {
-      "before": [
-        "<leader>",
-        "h",
-        "s"
-      ],
-      "commands": [
-        "git.stageSelectedRanges"
-      ]
+      "before": ["<leader>", "h", "s"],
+      "commands": ["git.stageSelectedRanges"]
     },
     {
-      "before": [
-        ",",
-        ","
-      ],
-      "commands": [
-        "editor.emmet.action.expandAbbreviation"
-      ]
+      "before": [",", ","],
+      "commands": ["editor.emmet.action.expandAbbreviation"]
     },
     {
-      "before": [
-        "<leader>",
-        "/"
-      ],
-      "commands": [
-        ":nohl"
-      ]
+      "before": ["<leader>", "/"],
+      "commands": [":nohl"]
     },
     {
-      "before": [
-        "s"
-      ],
-      "after": [
-        "<leader>",
-        "<leader>",
-        "s"
-      ]
+      "before": ["f"],
+      "after": ["<leader>", "<leader>", "s"]
     },
     {
-      "before": [
-        "<leader>",
-        "j"
-      ],
-      "after": [
-        "<leader>",
-        "<leader>",
-        "j"
-      ]
+      "before": ["<leader>", "j"],
+      "after": ["<leader>", "<leader>", "j"]
     },
     {
-      "before": [
-        "<leader>",
-        "k"
-      ],
-      "after": [
-        "<leader>",
-        "<leader>",
-        "k"
-      ]
+      "before": ["<leader>", "k"],
+      "after": ["<leader>", "<leader>", "k"]
     },
     {
-      "before": [
-        "<C-h>"
-      ],
-      "after": [
-        ":",
-        "%",
-        "s",
-        "/",
-        "/",
-        "/",
-        "g",
-        "<left>",
-        "<left>",
-        "<left>"
-      ]
+      "before": ["<C-h>"],
+      "after": [":", "%", "s", "/", "/", "/", "g", "<left>", "<left>", "<left>"]
     },
     {
-      "before": [
-        "g",
-        "r"
-      ],
-      "commands": [
-        "editor.action.referenceSearch.trigger"
-      ]
+      "before": ["g", "r"],
+      "commands": ["editor.action.referenceSearch.trigger"]
     },
     {
-      "before": [
-        "<leader>",
-        "b"
-      ],
-      "commands": [
-        "editor.action.formatDocument"
-      ]
+      "before": ["<leader>", "b"],
+      "commands": ["editor.action.formatDocument"]
     },
     {
-      "before": [
-        "K"
-      ],
-      "commands": [
-        "editor.action.showHover"
-      ]
+      "before": ["K"],
+      "commands": ["editor.action.showHover"]
     },
     {
-      "before": [
-        "g",
-        "p"
-      ],
-      "commands": [
-        "editor.action.marker.prevInFiles"
-      ]
+      "before": ["g", "p"],
+      "commands": ["editor.action.marker.prevInFiles"]
     },
     {
-      "before": [
-        "g",
-        "n"
-      ],
-      "commands": [
-        "editor.action.marker.nextInFiles"
-      ]
+      "before": ["g", "n"],
+      "commands": ["editor.action.marker.nextInFiles"]
     },
     {
-      "before": [
-        "g",
-        "i"
-      ],
-      "commands": [
-        "editor.action.peekImplementation"
-      ]
+      "before": ["g", "i"],
+      "commands": ["editor.action.peekImplementation"]
     },
     {
-      "before": [
-        "g",
-        "t"
-      ],
-      "commands": [
-        "editor.action.peekTypeDefinition"
-      ]
+      "before": ["g", "t"],
+      "commands": ["editor.action.peekTypeDefinition"]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "<leader>",
-        "h",
-        "u"
-      ],
-      "commands": [
-        "git.revertSelectedRanges"
-      ]
+      "before": ["<leader>", "h", "u"],
+      "commands": ["git.revertSelectedRanges"]
     },
     {
-      "before": [
-        "<leader>",
-        "h",
-        "s"
-      ],
-      "commands": [
-        "git.stageSelectedRanges"
-      ]
+      "before": ["<leader>", "h", "s"],
+      "commands": ["git.stageSelectedRanges"]
     },
     {
-      "before": [
-        ">"
-      ],
-      "commands": [
-        "editor.action.indentLines"
-      ]
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
     },
     {
-      "before": [
-        "<"
-      ],
-      "commands": [
-        "editor.action.outdentLines"
-      ]
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
     },
     {
-      "before": [
-        "<C-h>"
-      ],
-      "after": [
-        ":",
-        "s",
-        "/",
-        "/",
-        "/",
-        "g",
-        "<left>",
-        "<left>",
-        "<left>"
-      ]
+      "before": ["<C-h>"],
+      "after": [":", "s", "/", "/", "/", "g", "<left>", "<left>", "<left>"]
     }
   ],
   "editor.lineNumbers": "relative",
   "vim.insertModeKeyBindings": [
     {
-      "before": [
-        ",",
-        ","
-      ],
-      "commands": [
-        "editor.emmet.action.expandAbbreviation"
-      ]
+      "before": [",", ","],
+      "commands": ["editor.emmet.action.expandAbbreviation"]
     },
     {
-      "before": [
-        "j",
-        "k"
-      ],
-      "after": [
-        "<Esc>"
-      ]
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
     },
     {
-      "before": [
-        "h",
-        "j"
-      ],
-      "after": [
-        "<Esc>"
-      ]
+      "before": ["h", "j"],
+      "after": ["<Esc>"]
     }
   ],
   "vim.leader": " ",
