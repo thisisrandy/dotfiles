@@ -209,15 +209,9 @@ set autoread
 set clipboard+=unnamedplus
 
 " \ - use vim-fuzzysearch in normal mode
-" / - very magic mode
-" ? - reverse in very magic mode
 " C-h - Find and replace
 " <leader>/ - Clear highlighted search terms while preserving history
 nnoremap \ :FuzzySearch<CR>
-nnoremap / /\v
-vnoremap / /\v
-nnoremap ? ?\v
-vnoremap ? ?\v
 nnoremap <C-h> :%s/\v//g<left><left><left>
 vnoremap <C-h> :s/\v//g<left><left><left>
 nnoremap <silent> <leader>/ :nohlsearch<CR>
@@ -647,6 +641,16 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+
+" Gif config
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
 
 """ tagbar
 nmap <F8> :TagbarToggle<CR>

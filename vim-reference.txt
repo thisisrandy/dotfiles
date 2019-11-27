@@ -107,8 +107,6 @@ zR - open all folds. zr for increase folding level
 ## Search/replace
 
 \ - use vim-fuzzysearch in normal mode
-/ - very magic mode
-? - reverse in very magic mode
 <C-h> - Find and replace in very magic mode
 * - search for word under cursor. g* is partial match.
     press again or use n/N to navigate between matches
@@ -232,6 +230,7 @@ gS - same as gs, but clear scratch first
 ## vim-easymotion
 
 f - type a single to find, then type the appropriate label or ESC
+/ - type n characters, <CR>, then label button(s)
 <leader>j - lines below
 <leader>k - lines above
 
