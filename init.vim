@@ -409,7 +409,7 @@ function! s:show_documentation()
 endfunction
 
 " Remap for rename current word
-nnoremap <F2> <Plug>(coc-rename)
+nmap <F2> <Plug>(coc-rename)
 
 " Remap for format selected region
 " I never use these, and considering that I'd need to set them up with the
