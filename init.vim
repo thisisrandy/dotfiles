@@ -115,6 +115,8 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'airblade/vim-gitgutter'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-surround'
+" NOTE: requires nodejs and yarn to be installed
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
