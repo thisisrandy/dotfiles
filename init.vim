@@ -685,3 +685,7 @@ let g:NERDTreeIndicatorMapCustom = {
 let g:outdated_plugins_silent_mode = 1
 let g:outdated_plugins_trigger_mode = 1
 
+""" vim-gitgutter
+" work-around to make gitgutter play more nicely with fugitive
+autocmd WinEnter * :GitGutterAll
+
