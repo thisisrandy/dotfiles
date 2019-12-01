@@ -1,4 +1,4 @@
-""" Fresh installation notes
+""" aresh installation notes
 " PlugInstall is run if needed when this file is sourced on startup. Run it
 " manually otherwise. This file is probably broken until plugins are installed
 " :so % to source it manually
@@ -246,6 +246,8 @@ function ToggleWrap()
     echo "Wrap OFF"
     setlocal nowrap
     setlocal virtualedit=block,onemore
+    silent! nunmap <buffer> k
+    silent! nunmap <buffer> j
     silent! nunmap <buffer> <Up>
     silent! nunmap <buffer> <Down>
     silent! nunmap <buffer> <Home>
@@ -259,6 +261,8 @@ function ToggleWrap()
     setlocal wrap linebreak nolist
     setlocal virtualedit=onemore
     setlocal display+=lastline
+    noremap  <buffer> <silent> k gk
+    noremap  <buffer> <silent> j gj
     noremap  <buffer> <silent> <Up>   gk
     noremap  <buffer> <silent> <Down> gj
     noremap  <buffer> <silent> <Home> g^
