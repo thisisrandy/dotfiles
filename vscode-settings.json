@@ -204,6 +204,7 @@
     "<C-q>": false,
     "<C-k>": false,
     "<C-s>": false,
+    "<C-f>": false,
     "<C-.>": false
   },
   "editor.acceptSuggestionOnEnter": "off",

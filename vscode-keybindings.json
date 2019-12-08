@@ -133,11 +133,6 @@
     "when": "listFocus && !inputFocus"
   },
   {
-    "key": "ctrl+f",
-    "command": "workbench.files.action.showActiveFileInExplorer",
-    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
-  },
-  {
     "key": "ctrl+n",
     "command": "workbench.view.explorer",
     "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
