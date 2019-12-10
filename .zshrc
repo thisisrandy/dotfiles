@@ -132,6 +132,7 @@ alias f="fzf --preview '[[ \$(file --mime {}) =~ binary ]] && \
 alias python=python3
 alias venv="source .venv/bin/activate"
 alias clip="xclip -selection clipboard"
+alias mr="pip freeze | grep -v pkg-resources > requirements.txt"
 
 # vi mode
 
