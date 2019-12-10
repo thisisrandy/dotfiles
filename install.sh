@@ -71,26 +71,12 @@ pip install black --user
 # install tqdm
 pip install tqdm --user
 
-# install universal-ctags - this snap is broken as of writing. apparently it doesn't
-# have access to any files outside of the home directly, including hidden files within
-# the home dir, so it's pretty useless and breaks tagbar, which uses tmp files
-# build from source instead
-# sudo snap install universal-ctags
-sudo apt install \
-    gcc make \
-    pkg-config autoconf automake \
-    python3-docutils \
-    libseccomp-dev \
-    libjansson-dev \
-    libyaml-dev \
-    libxml2-dev
-git clone https://github.com/universal-ctags/ctags.git ~/.ctags
-pushd ~/.ctags
-./autogen.sh
-./configure
-make
-sudo make install
-popd
+# install universal-ctags (for tagbar)
+sudo snap install universal-ctags
+# this line is necessary because of
+# https://github.com/universal-ctags/ctags-snap/issues/4
+# may not be in the future
+sudo snap connect universal-ctags:dot-ctags
 
 # install ripgrep
 pushd $(mktemp -d)
