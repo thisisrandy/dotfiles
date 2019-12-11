@@ -38,7 +38,11 @@
 " > sudo apt-get install -y nodejs
 "
 " tagbar requires universal-ctags
-" > sudo apt-get install universal-ctags
+" > sudo snap install universal-ctags
+" the following is additionally necessary because of
+" https://github.com/universal-ctags/ctags-snap/issues/4
+" (shouldn't be in the future)
+" > sudo snap connect universal-ctags:dot-ctags
 "
 " vim-airline needs powerline fonts
 " https://powerline.readthedocs.io/en/latest/installation/linux.html#fonts-installation

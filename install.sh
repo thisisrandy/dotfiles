@@ -75,7 +75,7 @@ pip install tqdm --user
 sudo snap install universal-ctags
 # this line is necessary because of
 # https://github.com/universal-ctags/ctags-snap/issues/4
-# may not be in the future
+# (shouldn't be in the future)
 sudo snap connect universal-ctags:dot-ctags
 
 # install ripgrep
