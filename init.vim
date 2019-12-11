@@ -278,7 +278,7 @@ function ToggleWrap()
   endif
 endfunction
 
-" made window navigation simpler
+" make window navigation simpler
 nnoremap <C-Left> <C-w>h
 nnoremap <C-Down> <C-w>j
 nnoremap <C-Up> <C-w>k
@@ -299,6 +299,7 @@ xnoremap <leader>d "_d
 xnoremap <leader>p "_dP
 
 """ NERDTree
+
 map <C-n> :NERDTreeToggle<CR>
 nmap <C-f> :NERDTreeFind<CR>
 
@@ -467,7 +468,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Yank list
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
-""" Denite setup
+""" denite
+
 " Use ripgrep for searching current directory for files
 " By default, ripgrep will respect rules in .gitignore
 "   --files: Print each file that would be searched (but don't search)
@@ -632,8 +634,8 @@ endfunction
 " and map it
 :nnoremap <leader>fr :call FindReplace()<CR>
 
-
 """ vim-easymotion
+
 " Disable default mappings
 let g:EasyMotion_do_mapping = 0
 
@@ -663,15 +665,18 @@ map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
 """ tagbar
+
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :TagbarOpenAutoClose<CR>
 nmap <C-t> :TagbarOpenAutoClose<CR>\
 
 """ emmet-vim
+
 " remap leader (type, then ,, to expand)
 let g:user_emmet_leader_key=','
 
 """ nerdtree-git-plugin
+
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
@@ -686,6 +691,7 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 
 """ vim-outdated-plugins
+
 let g:outdated_plugins_silent_mode = 1
 let g:outdated_plugins_trigger_mode = 1
 
