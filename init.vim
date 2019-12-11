@@ -1,4 +1,4 @@
-""" aresh installation notes
+""" Fresh installation notes
 " PlugInstall is run if needed when this file is sourced on startup. Run it
 " manually otherwise. This file is probably broken until plugins are installed
 " :so % to source it manually
