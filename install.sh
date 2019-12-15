@@ -71,7 +71,7 @@ pip install black --user
 pip install tqdm --user
 
 # install jupytext for jupytext.vim
-pip install jupytext
+pip install jupytext --user
 
 # install universal-ctags (for tagbar)
 sudo snap install universal-ctags
