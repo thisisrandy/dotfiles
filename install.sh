@@ -56,7 +56,6 @@ mkdir -p ~/.config/fontconfig/conf.d
 mv -f 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 
 # install pynvim
-pip3 install --user pynvim
 pip install --user pynvim
 
 # install pyenv
