@@ -139,7 +139,6 @@ alias mr="pip freeze | grep -v pkg-resources > requirements.txt"
 bindkey -v
 
 bindkey jk vi-cmd-mode
-bindkey hj vi-cmd-mode
 
 # All of this wipes out the rhs of the status line, which actually contains
 # useful information. It also changes text to bold on exit to normal mode,

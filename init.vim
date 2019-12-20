@@ -165,9 +165,7 @@ let mapleader=" "
 
 " remap escape
 imap jk <Esc>
-imap hj <Esc>
 cmap jk <Esc>
-cmap hj <Esc>
 
 " remap Y
 map Y y$

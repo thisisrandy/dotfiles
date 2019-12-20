@@ -191,10 +191,6 @@
     {
       "before": ["j", "k"],
       "after": ["<Esc>"]
-    },
-    {
-      "before": ["h", "j"],
-      "after": ["<Esc>"]
     }
   ],
   "vim.leader": " ",
