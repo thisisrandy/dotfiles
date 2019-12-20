@@ -17,8 +17,10 @@ set -x
 PATH_TO_DOT_FILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # install curl, git, zsh...
-sudo apt-get install curl git zsh python3-pip python-pip xclip htop
+sudo apt-get install curl git zsh python3-pip xclip htop
 ln -sf $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
+# make sure pip points to pip3. possibly unnecessary
+sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
 
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
