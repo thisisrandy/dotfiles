@@ -58,7 +58,7 @@ C-] - go to label in docs
 :! <command> - run shell command. use % as current file placeholder, e.g. :! wc %
                also works in visual mode
 :r <file> - read file into buffer
-:r ! <command> - read command output into buffer
+:r ! <command> - read shell command output into buffer
 :[nvi]map - see key mappings
 gx - go to url under cursor (kind of broken, but in a pinch)
 M-[kj] - move current or selected line up and down. Also mapped to M-Up/Down
