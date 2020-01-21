@@ -59,6 +59,9 @@ C-] - go to label in docs
                also works in visual mode
 :r <file> - read file into buffer
 :r ! <command> - read shell command output into buffer
+:! <command> | clip - copy command output to clipboard. note this relies on the
+                      alias clip being defined as `xclip --selection clipboard`
+                      for non-interactive shells, e.g. via ~/.zshenv
 :[nvi]map - see key mappings
 gx - go to url under cursor (kind of broken, but in a pinch)
 M-[kj] - move current or selected line up and down. Also mapped to M-Up/Down
