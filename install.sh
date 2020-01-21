@@ -25,6 +25,7 @@ sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ln -sf $PATH_TO_DOT_FILES/.zshrc $HOME/.zshrc
+ln -sf $PATH_TO_DOT_FILES/.zshenv $HOME/.zshenv
 
 # install custom zsh theme
 ln -s $PATH_TO_DOT_FILES/avit.zsh-theme $HOME/.oh-my-zsh/custom/themes/avit.zsh-theme
