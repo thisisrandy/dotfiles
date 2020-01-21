@@ -5,5 +5,6 @@
 # - Open tweaks and set theme to Adwaita-dark
 # - Install Clock Override extension and set format string to %A %B %e %l:%M:%S
 # - Connect google account for calendar (online accounts)
+# - Turn off terminal bell in term preferences
 
 sudo apt-get install gnome-weather gnome-tweaks
