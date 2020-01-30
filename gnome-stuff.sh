@@ -6,5 +6,6 @@
 # - Install Clock Override extension and set format string to %A %B %e %l:%M:%S
 # - Connect google account for calendar (online accounts)
 # - Turn off terminal bell in term preferences
+# - Change alt/super-tab behavior. Settings->Devices->Keyboard->Switch windows/applications
 
 sudo apt-get install gnome-weather gnome-tweaks
