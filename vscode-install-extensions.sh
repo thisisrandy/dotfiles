@@ -11,3 +11,5 @@ code --install-extension eamodio.gitlens
 code --install-extension github.vscode-pull-request-github
 code --install-extension alefragnani.numbered-bookmarks
 code --install-extension mhutchie.git-graph
+code --install-extension vscodevim.vim
+
