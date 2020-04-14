@@ -222,7 +222,9 @@ set clipboard+=unnamedplus
 nnoremap \ :FuzzySearch<CR>
 nnoremap <C-h> :%s/\v//g<left><left><left>
 vnoremap <C-h> :s/\v//g<left><left><left>
-nnoremap <silent> <leader>/ :nohlsearch<CR>
+" nnoremap <silent> <leader>/ :nohlsearch<CR>
+" actually, highlighting is never useful. just turn it off altogether
+set hls!
 
 " move lines up and down with M-k/j (or up/down)
 nnoremap <M-j> :m .+1<CR>==

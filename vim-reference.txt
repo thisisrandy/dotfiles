@@ -115,7 +115,8 @@ zR - open all folds. zr for increase folding level
 * - search for word under cursor. g* is partial match.
     press again or use n/N to navigate between matches
 # - * in reverse. g# also valid
-:noh - remove highlighting, e.g. from *. mapped to <leader>/
+:noh - remove highlighting, e.g. from *. mapped to <leader>/ (NOTE:
+       highlighting currently turned off, so this is moot)
 % - find matching paren/brace
 :%s/foo/bar/ - whole file. also mapped to C-h
 :s/foo/bar/ - current line
