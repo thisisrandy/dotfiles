@@ -286,4 +286,4 @@ cst<[tag] - special case to preserve tag attributes, as opposed to cst<[tag]>,
 
 ## emmet-vim
 
-/, - type after abbreviations to expand (i-mode only)
+\, - type after abbreviations to expand (i-mode only)

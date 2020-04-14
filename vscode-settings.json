@@ -181,7 +181,7 @@
   "editor.lineNumbers": "relative",
   "vim.insertModeKeyBindings": [
     {
-      "before": ["/", ","],
+      "before": ["\\", ","],
       "commands": ["editor.emmet.action.expandAbbreviation"]
     },
     {
