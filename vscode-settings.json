@@ -104,10 +104,6 @@
       "commands": ["git.stageSelectedRanges"]
     },
     {
-      "before": [",", ","],
-      "commands": ["editor.emmet.action.expandAbbreviation"]
-    },
-    {
       "before": ["<leader>", "/"],
       "commands": [":nohl"]
     },
@@ -185,7 +181,7 @@
   "editor.lineNumbers": "relative",
   "vim.insertModeKeyBindings": [
     {
-      "before": [",", ","],
+      "before": ["/", ","],
       "commands": ["editor.emmet.action.expandAbbreviation"]
     },
     {

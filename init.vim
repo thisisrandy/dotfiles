@@ -674,8 +674,9 @@ nmap <C-t> :TagbarOpenAutoClose<CR>\
 
 """ emmet-vim
 
-" remap leader (type, then ,, to expand)
-let g:user_emmet_leader_key=','
+" remap leader (type, then /, to expand)
+let g:user_emmet_leader_key='/'
+let g:user_emmet_mode='i'
 
 """ nerdtree-git-plugin
 
