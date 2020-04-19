@@ -191,16 +191,16 @@ In filter mode:
 <C-a> - Toggle select all
 
 In normal mode:
-<CR>       - Opens currently selected file
-<C-v>      - "" in vsplit
-<C-h>      - "" in split
-<C-t>      - "" in new tab
-q/<Esc>/;  - Quit Denite window
-d          - Delete currenly selected file (just the buffer)
-p          - Preview currently selected file
-<C-o> or i - Switch to insert mode inside of filter prompt
-<C-Space>  - Toggle select
-<C-a>      - Toggle select all
+<CR>            - Opens currently selected file
+<C-v>           - "" in vsplit
+<C-h>           - "" in split
+<C-t>           - "" in new tab
+q/<Esc>/;/<C-q> - Quit Denite window
+d               - Delete currenly selected file (just the buffer)
+p               - Preview currently selected file
+<C-o> or i      - Switch to insert mode inside of filter prompt
+<C-Space>       - Toggle select
+<C-a>           - Toggle select all
 
 ## NERDTree
 

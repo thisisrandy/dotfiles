@@ -555,6 +555,8 @@ function! s:denite_my_settings() abort
   \ denite#do_map('do_action')
   nnoremap <silent><buffer><expr> q
   \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> <C-q>
+  \ denite#do_map('quit')
   nnoremap <silent><buffer><expr> <Esc>
   \ denite#do_map('quit')
   nnoremap <silent><buffer><expr> ;
