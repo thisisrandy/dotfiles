@@ -505,7 +505,7 @@ call denite#custom#var('grep', 'final_opts', [])
 " <C-p> - Browse list of files in current directory (starts in filter mode)
 " <leader>g - Search current directory for occurences of given term and close window if no results
 " <leader>u - Search current directory for occurences of word under cursor
-nmap ; :Denite buffer<CR>h
+nmap ; :Denite buffer<CR>i
 nmap <C-p> :DeniteProjectDir file/rec<CR>h
 nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
 nnoremap <leader>u :<C-u>DeniteCursorWord grep:.<CR>
