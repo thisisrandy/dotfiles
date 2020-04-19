@@ -197,7 +197,7 @@ In normal mode:
 q/<Esc>/;  - Quit Denite window
 d          - Delete currenly selected file (just the buffer)
 p          - Preview currently selected file
-<C-o> or h - Switch to insert mode inside of filter prompt
+<C-o> or i - Switch to insert mode inside of filter prompt
 <C-Space>  - Toggle select
 <C-a>      - Toggle select all
 
