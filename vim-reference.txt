@@ -182,6 +182,7 @@ F2 - rename current word
 
 In filter mode:
 <C-o> - Quit filter mode
+<C-q> - Quit denite
 <Esc> - Switch to normal mode inside of filter bar (rarely useful)
 <CR>  - Open currently selected filter
 <C-v> - "" in vsplit

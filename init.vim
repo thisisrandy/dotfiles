@@ -532,6 +532,8 @@ function! s:denite_filter_my_settings() abort
   \ denite#do_map('do_action', 'tabopen')
   inoremap <silent><buffer><expr> <C-a>
   \ denite#do_map('toggle_select_all')
+  inoremap <silent><buffer><expr> <C-q>
+  \ denite#do_map('quit')
 endfunction
 
 " Define mappings while in denite window
