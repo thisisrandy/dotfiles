@@ -706,3 +706,8 @@ let g:NERDTreeIndicatorMapCustom = {
 let g:outdated_plugins_silent_mode = 1
 let g:outdated_plugins_trigger_mode = 1
 
+""" vim-fugitive
+
+command! -bang -nargs=* Gcommit tab Git<bang> commit <args>
+command! -bang -nargs=* Gstatus tab Git<bang> <args>
+
