@@ -542,7 +542,7 @@ endfunction
 "   q/<Esc>/;   - Quit Denite window
 "   d           - Delete currenly selected file (just the buffer)
 "   p           - Preview currently selected file
-"   <C-o> or h  - Switch to insert mode inside of filter prompt
+"   <C-o> or i  - Switch to insert mode inside of filter prompt
 "   <C-Space>   - Toggle select
 "   <C-a>       - Toggle select all
 autocmd FileType denite call s:denite_my_settings()
@@ -559,7 +559,7 @@ function! s:denite_my_settings() abort
   \ denite#do_map('do_action', 'delete')
   nnoremap <silent><buffer><expr> p
   \ denite#do_map('do_action', 'preview')
-  nnoremap <silent><buffer><expr> h
+  nnoremap <silent><buffer><expr> i
   \ denite#do_map('open_filter_buffer')
   nnoremap <silent><buffer><expr> <C-o>
   \ denite#do_map('open_filter_buffer')
