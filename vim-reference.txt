@@ -55,7 +55,7 @@ G - end of file
 :<num> - go to line <num>
 q: - command history (from normal mode). can use / and ? to search in history
 C-r" - paste yanked test in command mode, e.g. for search
-C-] - go to label in docs
+C-] - go to label in help docs
 :! <command> - run shell command. use % as current file placeholder, e.g. :! wc %
                also works in visual mode
 :r <file> - read file into buffer
