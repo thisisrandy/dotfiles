@@ -710,4 +710,5 @@ let g:outdated_plugins_trigger_mode = 1
 
 command! -bang -nargs=* Gcommit tab Git<bang> commit <args>
 command! -bang -nargs=* Gstatus tab Git<bang> <args>
+command! -bang -nargs=* Glog tab Gclog!<bang> <args>
 
