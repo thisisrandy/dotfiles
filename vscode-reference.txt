@@ -77,6 +77,7 @@ zo - open under cursor
 zO - open all under cursor (recursively)
 zc - close under cursor
 zC - close all under cursor (recursively)
+za - toggle under cursor
 
 ## Git
 
