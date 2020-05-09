@@ -156,5 +156,13 @@
     "key": "alt+c",
     "command": "-workbench.action.terminal.toggleFindCaseSensitive",
     "when": "terminalFindWidgetFocused"
+  },
+  {
+    "key": "ctrl+shift+t",
+    "command": "-workbench.action.reopenClosedEditor"
+  },
+  {
+    "key": "ctrl+shift+t",
+    "command": "workbench.view.extension.test"
   }
 ]
