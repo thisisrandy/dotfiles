@@ -45,8 +45,6 @@ C-k z - Enter zen mode
 Note that my vim movement keys are bound here
 
 C-n - open the explorer panel (also C-S-e)
-C-f - find current file in explorer. technically C-n does this too, but
-      trying to make this as close as possible to my vim setup with NERDTree
 a - in the panel, create a new file
 f - in the panel, create a new folder
 d - in the panel, delete the selected node
