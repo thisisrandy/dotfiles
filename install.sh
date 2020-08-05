@@ -124,7 +124,7 @@ popd
 
 # install nvim
 rm -f $HOME/.local/bin/nvim
-curl -fLo ~/.local/bin/nvim --create-dirs https://github.com/neovim/neovim/releases/download/v0.4.2/nvim.appimage
+curl -fLo ~/.local/bin/nvim --create-dirs https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod a+x ~/.local/bin/nvim
 ln -sf $HOME/.local/bin/nvim $HOME/.local/bin/vim
 mkdir -p $HOME/.config/nvim
