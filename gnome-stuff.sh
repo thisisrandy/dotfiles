@@ -9,3 +9,9 @@
 # - Change alt/super-tab behavior. Settings->Devices->Keyboard->Switch windows/applications
 
 sudo apt-get install gnome-weather gnome-tweaks
+# if the system is dual boot with windows, run this (from
+# https://www.howtogeek.com/323390/how-to-fix-windows-and-linux-showing-different-times-when-dual-booting/
+# ) to fix windows time going awry everytime linux is booted
+# timedatectl set-local-rtc 1 --adjust-system-clock
+# in reverse:
+# timedatectl set-local-rtc 0 --adjust-system-clock
