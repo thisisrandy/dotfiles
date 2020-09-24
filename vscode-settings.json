@@ -240,5 +240,10 @@
   },
   "python.jediEnabled": false,
   "python.formatting.provider": "black",
-  "vim.timeout": 500
+  "vim.timeout": 500,
+  "java.configuration.checkProjectSettingsExclusions": false,
+  "java.semanticHighlighting.enabled": true,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "python.languageServer": "Microsoft"
 }
