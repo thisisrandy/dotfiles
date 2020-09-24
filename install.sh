@@ -122,6 +122,9 @@ popd
 sudo rm -rf master.zip bat-extras-master # build creates some protected files
 popd
 
+# install daml
+curl -sSL https://get.daml.com/ | sh
+
 # install nvim
 rm -f $HOME/.local/bin/nvim
 curl -fLo ~/.local/bin/nvim --create-dirs https://github.com/neovim/neovim/releases/latest/download/nvim.appimage

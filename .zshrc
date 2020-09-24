@@ -100,6 +100,11 @@ export PATH=~/.local/bin/:$PATH
 export PATH=~/.yarn/bin:$PATH
 export PATH=~/go/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
+export PATH=/usr/local/go/bin:$PATH
+
+# DAML
+export PATH=~/.daml/bin:$PATH
+fpath=(~/.daml/zsh $fpath)
 
 # for TensorFlow. moot if TensorFlow not installed. see
 # https://www.tensorflow.org/install/gpu
