@@ -245,5 +245,8 @@
   "java.semanticHighlighting.enabled": true,
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "python.languageServer": "Microsoft"
+  "python.languageServer": "Microsoft",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
