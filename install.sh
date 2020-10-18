@@ -134,6 +134,7 @@ mkdir -p $HOME/.config/nvim
 ln -sf $PATH_TO_DOT_FILES/init.vim $HOME/.config/nvim/init.vim
 ln -sf $PATH_TO_DOT_FILES/coc-settings.json $HOME/.config/nvim/coc-settings.json
 yarn global add neovim
+pip3 install neovim
 
 # install VS code settings
 mkdir -p $HOME/.config/Code/User
