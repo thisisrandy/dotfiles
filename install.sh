@@ -31,7 +31,7 @@ ln -sf $PATH_TO_DOT_FILES/.zshenv $HOME/.zshenv
 ln -s $PATH_TO_DOT_FILES/avit.zsh-theme $HOME/.oh-my-zsh/custom/themes/avit.zsh-theme
 
 # install node/yarn
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install -y nodejs
 npm config set prefix ~/.local # prevents need to sudo for -g
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
