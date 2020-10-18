@@ -135,6 +135,7 @@ alias f="fzf --preview '[[ \$(file --mime {}) =~ binary ]] && \
                  bat --style=numbers --color=always {} | \
                  head -100'"
 alias python=python3
+alias pip=pip3
 alias venv="source .venv/bin/activate"
 alias mr="pip freeze | grep -v pkg-resources > requirements.txt"
 
