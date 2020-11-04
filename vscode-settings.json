@@ -248,5 +248,6 @@
   "python.languageServer": "Microsoft",
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "workbench.list.automaticKeyboardNavigation": false
 }
