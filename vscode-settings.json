@@ -250,12 +250,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "workbench.list.automaticKeyboardNavigation": false,
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter.notebook.ipynb",
-      "filenamePattern": "*.ipynb"
-    }
-  ],
+  "workbench.editorAssociations": [],
   "git.autofetch": true,
   "python.showStartPage": false
 }
