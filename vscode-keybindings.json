@@ -166,21 +166,21 @@
     "command": "workbench.view.extension.test"
   },
   {
-    "key": "ctrl+shift+left",
+    "key": "ctrl+shift+down",
     "command": "workbench.action.decreaseViewSize"
   },
   {
-    "key": "ctrl+shift+left",
-    "command": "-cursorWordLeftSelect",
-    "when": "textInputFocus"
+    "key": "ctrl+shift+down",
+    "command": "-editor.action.insertCursorBelow",
+    "when": "editorTextFocus"
   },
   {
-    "key": "ctrl+shift+right",
+    "key": "ctrl+shift+up",
     "command": "workbench.action.increaseViewSize"
   },
   {
-    "key": "ctrl+shift+right",
-    "command": "-cursorWordEndRightSelect",
-    "when": "textInputFocus"
+    "key": "ctrl+shift+up",
+    "command": "-editor.action.insertCursorAbove",
+    "when": "editorTextFocus"
   }
 ]
