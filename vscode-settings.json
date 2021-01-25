@@ -255,5 +255,7 @@
       "viewType": "jupyter.notebook.ipynb",
       "filenamePattern": "*.ipynb"
     }
-  ]
+  ],
+  "git.autofetch": true,
+  "python.showStartPage": false
 }
