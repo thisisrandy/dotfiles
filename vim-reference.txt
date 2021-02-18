@@ -149,6 +149,11 @@ differences become too frustrating.
 :set[local] spell
 z= - get suggestions for word under cursor
 
+## Macros
+
+q{0-9a-zA-Z"} - record a macro into the specified register, pressing q again to cease recording
+@{0-9a-zA-Z"} - play back the macro recording into the specified register
+
 ## coc.vim
 
 gd - go to definition
