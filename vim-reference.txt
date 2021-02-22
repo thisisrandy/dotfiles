@@ -186,14 +186,14 @@ F2 - rename current word
 <leader>u - Search current directory for occurences of word under cursor
 
 In filter mode:
-<C-o> - Quit filter mode
-<C-q> - Quit denite
-<Esc> - Switch to normal mode inside of filter bar (rarely useful)
-<CR>  - Open currently selected filter
-<C-v> - "" in vsplit
-<C-h> - "" in split
-<C-t> - "" in new tab
-<C-a> - Toggle select all
+<C-o>/jk - Quit filter mode
+<C-c>    - Close denite buffer
+<Esc>    - Switch to normal mode inside of filter bar (rarely useful)
+<CR>     - Open currently selected filter
+<C-v>    - "" in vsplit
+<C-h>    - "" in split
+<C-t>    - "" in new tab
+<C-a>    - Toggle select all
 
 In normal mode:
 <CR>            - Opens currently selected file

@@ -516,16 +516,21 @@ nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
 nnoremap <leader>u :<C-u>DeniteCursorWord grep:.<CR>
 
 " Define mappings while in 'filter' mode
-"   <C-o> - Quit filter mode
-"   <Esc> - Switch to normal mode inside of filter bar (rarely useful)
-"   <CR>  - Open currently selected filter
-"   <C-v> - "" in vsplit
-"   <C-h> - "" in split
-"   <C-t> - "" in new tab
-"   <C-a> - Toggle select all
+"   <C-o>/jk - Quit filter mode
+"   <C-c>    - Close denite buffer
+"   <Esc>    - Switch to normal mode inside of filter bar (rarely useful)
+"   <CR>     - Open currently selected filter
+"   <C-v>    - "" in vsplit
+"   <C-h>    - "" in split
+"   <C-t>    - "" in new tab
+"   <C-a>    - Toggle select all
 autocmd FileType denite-filter call s:denite_filter_my_settings()
 function! s:denite_filter_my_settings() abort
   imap <silent><buffer> <C-o>
+  \ <Plug>(denite_filter_update)
+  imap <silent><buffer> jk
+  \ <Plug>(denite_filter_update)
+  imap <silent><buffer> <C-c>
   \ <Plug>(denite_filter_quit)
   inoremap <silent><buffer><expr> <CR>
   \ denite#do_map('do_action')
