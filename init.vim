@@ -475,7 +475,7 @@ nnoremap <silent> <leader>co  :<C-u>CocList commands<cr>
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Yank list
-nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+nnoremap <silent> <space>y  :<C-u>CocList --normal yank<cr>
 
 """ denite
 
