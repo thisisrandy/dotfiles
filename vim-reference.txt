@@ -200,7 +200,7 @@ In normal mode:
 <C-v>           - "" in vsplit
 <C-h>           - "" in split
 <C-t>           - "" in new tab
-q/<Esc>/;/<C-q> - Quit Denite window
+q/<Esc>/;/<C-c> - Quit Denite window
 d               - Delete currenly selected file (just the buffer)
 p               - Preview currently selected file
 <C-o> or i      - Switch to insert mode inside of filter prompt

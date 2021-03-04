@@ -547,23 +547,23 @@ function! s:denite_filter_my_settings() abort
 endfunction
 
 " Define mappings while in denite window
-"   <CR>        - Opens currently selected file
-"   <C-v>       - "" in vsplit
-"   <C-h>       - "" in split
-"   <C-t>       - "" in new tab
-"   q/<Esc>/;   - Quit Denite window
-"   d           - Delete currenly selected file (just the buffer)
-"   p           - Preview currently selected file
-"   <C-o> or i  - Switch to insert mode inside of filter prompt
-"   <C-Space>   - Toggle select
-"   <C-a>       - Toggle select all
+"   <CR>            - Opens currently selected file
+"   <C-v>           - "" in vsplit
+"   <C-h>           - "" in split
+"   <C-t>           - "" in new tab
+"   q/<Esc>/;/<C-c> - Quit Denite window
+"   d               - Delete currenly selected file (just the buffer)
+"   p               - Preview currently selected file
+"   <C-o> or i      - Switch to insert mode inside of filter prompt
+"   <C-Space>       - Toggle select
+"   <C-a>           - Toggle select all
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <CR>
   \ denite#do_map('do_action')
   nnoremap <silent><buffer><expr> q
   \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> <C-q>
+  nnoremap <silent><buffer><expr> <C-c>
   \ denite#do_map('quit')
   nnoremap <silent><buffer><expr> <Esc>
   \ denite#do_map('quit')
