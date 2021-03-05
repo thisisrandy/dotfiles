@@ -242,10 +242,10 @@ imap <M-Up> <M-k>
 vmap <M-Down> <M-j>
 vmap <M-Up> <M-k>
 
-" rebind <Home> to ^ (first non-whitespace character). unfortunately, this
-" breaks in insert mode, as ^ counts as an input character
+" rebind <Home> to ^ (first non-whitespace character)
 nmap <Home> ^
 vmap <Home> ^
+imap <Home> <C-o>^
 
 " make line wrapping nicer. off by default
 set nowrap
