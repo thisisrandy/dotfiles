@@ -40,6 +40,7 @@ O - new line over. in v-mode, go to beginning/end of selection
 0 - go to start of line (absolute)
 $ - go to end of line
 :te[rminal] - open shell/terminal (exit to return to vim)
+C-\ C-n - return to normal mode from terminal insert mode (i to reenter insert)
 [count]@: - repeat last command (and then @@ for subsequent repetitions)
 [count]. - repeat last change
 gg - top of file
