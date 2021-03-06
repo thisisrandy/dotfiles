@@ -99,6 +99,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'mtth/scratch.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'jackguo380/vim-lsp-cxx-highlight' " depends on coc
 Plug 'shougo/denite.nvim'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-dadbod'
@@ -116,7 +117,6 @@ Plug 'google/vim-glaive' " vim-codefmt requirement
 Plug 'google/vim-codefmt'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sheerun/vim-polyglot'
-Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'airblade/vim-gitgutter'
