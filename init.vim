@@ -229,6 +229,10 @@ nnoremap <silent> <leader>/ :nohlsearch<CR>
 set hls!
 
 " move lines up and down with M-k/j (or up/down)
+" TODO: these bindings do not play nicely with vim-airline because they
+" quickly switch back and forth between modes (to and from command mode, and
+" through normal and then command modes for the insert mode version). need to
+" figure some workaround...
 nnoremap <M-j> :m .+1<CR>==
 nnoremap <M-k> :m .-2<CR>==
 inoremap <M-j> <Esc>:m .+1<CR>==gi
