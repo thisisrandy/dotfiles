@@ -21,6 +21,7 @@ ESC/C-[ - exit i/v/c mode. I also have jk mapped, except in v-mode
 M-normal mode key - in insert mode, execute a normal mode command, e.g. u
 u - undo (U to undo all changes to a line)
 C-r - redo
+:earlier/later Nf: go back/forwards to N file writes from current state
 y/d - copy/delete in visual mode (yy/dd for line in normal mode)
 Y/D - copy/delete from cursor to end of line
 P/p - paste before/after cursor
