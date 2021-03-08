@@ -134,8 +134,8 @@ alias f="fzf --preview '[[ \$(file --mime {}) =~ binary ]] && \
                  echo {} is a binary file || \
                  bat --style=numbers --color=always {} | \
                  head -100'"
-alias vf='vim "\$(f)"'
-alias lf='less "\$(f)"'
+alias vf='vim "$(f)"'
+alias lf='less "$(f)"'
 alias python=python3
 alias pip=pip3
 alias venv="source .venv/bin/activate"
