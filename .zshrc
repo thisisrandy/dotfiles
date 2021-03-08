@@ -130,6 +130,7 @@ alias p=pushd
 alias po=popd
 alias open='xdg-open'
 alias start='nautilus --browser'
+alias vnp='vim -u $(dirname $MYVIMRC)/noplug.init.vim'
 alias f="fzf --preview '[[ \$(file --mime {}) =~ binary ]] && \
                  echo {} is a binary file || \
                  bat --style=numbers --color=always {} | \
