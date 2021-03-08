@@ -1,5 +1,4 @@
 {
-  "window.zoomLevel": 1,
   "editor.formatOnSave": true,
   "vim.easymotion": true,
   "vim.sneak": false,
@@ -252,5 +251,6 @@
   "workbench.list.automaticKeyboardNavigation": false,
   "workbench.editorAssociations": [],
   "git.autofetch": true,
-  "python.showStartPage": false
+  "python.showStartPage": false,
+  "diffEditor.ignoreTrimWhitespace": false
 }
