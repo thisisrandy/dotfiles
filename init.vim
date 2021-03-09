@@ -61,8 +61,8 @@
 " see https://clang.llvm.org/extra/clangd/Installation.html
 " honestly, it seems quite broken. can't find random files in the path, etc.,
 " but leaving in for now
-" > sudo apt-get install clang-tools-8
-" > sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-8 100
+" > sudo apt-get install clangd-9
+" > sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-9 100
 "
 " vim-fugitive needs credentials stored
 " > git config --global credential.helper store

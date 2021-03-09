@@ -46,8 +46,8 @@ ln -sf $PATH_TO_DOT_FILES/.jsbeautifyrc $HOME/.jsbeautifyrc
 yarn global add flow-bin
 
 # install clangd
-sudo apt-get install clang-tools-8
-sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-8 100
+sudo apt-get install clangd-9
+sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-9 100
 
 # install powerline fonts. will need to restart X for this to work
 wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
