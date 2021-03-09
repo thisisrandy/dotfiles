@@ -3,7 +3,7 @@
 " init.vim
 
 " call plug#end() also executes the following lines, but since we might only
-" be sourcing this file, execute them explicitly here 
+" be sourcing this file, execute them explicitly here
 filetype plugin indent on
 syntax on
 
