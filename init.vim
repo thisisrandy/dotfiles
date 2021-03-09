@@ -184,6 +184,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:NERDTreeShowHidden = 1
 
 """ vim-airline
+
 let g:airline_powerline_fonts = 1
 
 """ NERDcommenter
