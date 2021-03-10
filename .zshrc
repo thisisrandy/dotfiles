@@ -126,6 +126,7 @@ eval "$(pyenv virtualenv-init -)"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias sudo='sudo env "PATH=$PATH" "HOME=$HOME"'
 alias p=pushd
 alias po=popd
 alias open='xdg-open'
