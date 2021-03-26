@@ -508,8 +508,8 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 
 """ vim-outdated-plugins
 
-let g:outdated_plugins_silent_mode = 1
-let g:outdated_plugins_trigger_mode = 1
+let g:outdated_plugins_silent_mode = 0
+let g:outdated_plugins_trigger_mode = 0
 
 """ vim-fugitive
 
