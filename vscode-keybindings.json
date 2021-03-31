@@ -134,7 +134,7 @@
   },
   {
     "key": "ctrl+n",
-    "command": "workbench.view.explorer",
+    "command": "workbench.explorer.fileView.focus",
     "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
   },
   {
