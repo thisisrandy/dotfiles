@@ -196,8 +196,7 @@
     "<C-k>": false,
     "<C-s>": false,
     "<C-f>": false,
-    "<C-.>": false,
-    "<C-n>": false
+    "<C-.>": false
   },
   "editor.acceptSuggestionOnEnter": "off",
   "emmet.includeLanguages": {
