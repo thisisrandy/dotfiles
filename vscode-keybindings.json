@@ -135,7 +135,12 @@
   {
     "key": "ctrl+n",
     "command": "workbench.explorer.fileView.focus",
-    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+    "when": "!editorTextFocus || editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+o",
+    "command": "outline.focus",
+    "when": "!editorTextFocus || editorTextFocus && vim.active && vim.mode == 'Normal'"
   },
   {
     "key": "h",
