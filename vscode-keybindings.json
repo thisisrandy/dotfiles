@@ -138,7 +138,7 @@
     "when": "!editorTextFocus || editorTextFocus && vim.active && vim.mode == 'Normal'"
   },
   {
-    "key": "ctrl+o",
+    "key": "ctrl+shift+o",
     "command": "outline.focus",
     "when": "!editorTextFocus || editorTextFocus && vim.active && vim.mode == 'Normal'"
   },
