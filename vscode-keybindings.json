@@ -17,7 +17,8 @@
   },
   {
     "key": "ctrl+t",
-    "command": "workbench.action.gotoSymbol"
+    "command": "workbench.action.gotoSymbol",
+    "when": "!editorTextFocus || editorTextFocus && vim.active && vim.mode == 'Normal'"
   },
   {
     "key": "ctrl+alt+o",
