@@ -33,10 +33,6 @@
       "commands": ["editor.action.outdentLines"]
     },
     {
-      "before": ["<C-t>"],
-      "commands": ["workbench.action.gotoSymbol"]
-    },
-    {
       "before": [";"],
       "commands": ["workbench.action.showAllEditors"]
     },

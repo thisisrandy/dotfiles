@@ -16,6 +16,10 @@
     }
   },
   {
+    "key": "ctrl+t",
+    "command": "workbench.action.gotoSymbol"
+  },
+  {
     "key": "ctrl+alt+o",
     "command": "workbench.action.files.openFile"
   },
