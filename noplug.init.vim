@@ -36,6 +36,9 @@ set splitbelow
 " Open vsplit right of current window
 set splitright
 
+" Don't use two spaces after a period when joining lines or formatting
+set nojoinspaces
+
 " highlight cursor line in the active window only
 augroup CursorLineOnlyInActiveWindow
   autocmd!
