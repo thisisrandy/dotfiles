@@ -19,6 +19,7 @@
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
+  "vim.joinspaces": false,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["Y"],
