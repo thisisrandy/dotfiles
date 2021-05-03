@@ -8,7 +8,7 @@ hjkl - movement. can also use arrow keys, including in insert mode
            by WORD, which means all non-whitespace chars
 [count]b - move by word backwards (or to beginning)
 [count]e - move by end of word
-[count]ge - move by backwards by end of word
+[count]ge - move backwards by end of word
 [count]| - go to column [count] or EOL if longer than current line
 i - insert mode (I to insert at beginning of line)
 a - append after cursor (as opposed to i) (A to append at end of line)
