@@ -243,7 +243,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "eslint.packageManager": "yarn",
-  "workbench.iconTheme": "vscode-icons",
+  "workbench.iconTheme": "material-icon-theme",
   "vim.easymotionMarkerFontFamily": "'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "vim.easymotionMarkerFontWeight": "bold",
   "explorer.confirmDelete": false,
