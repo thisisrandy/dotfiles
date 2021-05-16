@@ -289,5 +289,6 @@
   "workbench.editorAssociations": [],
   "git.autofetch": true,
   "python.showStartPage": false,
-  "diffEditor.ignoreTrimWhitespace": false
+  "emmet.showAbbreviationSuggestions": false,
+  "emmet.showExpandedAbbreviation": "never"
 }
