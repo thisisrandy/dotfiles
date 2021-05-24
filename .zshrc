@@ -130,7 +130,7 @@ setopt HIST_IGNORE_ALL_DUPS
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias sudo='sudo env "PATH=$PATH" "HOME=$HOME"'
+alias sudoenv='sudo env "PATH=$PATH" "HOME=$HOME"'
 alias p=pushd
 alias po=popd
 alias open='xdg-open'
