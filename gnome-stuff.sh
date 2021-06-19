@@ -7,6 +7,7 @@
 # - Connect google account for calendar (online accounts)
 # - Turn off terminal bell in term preferences
 # - Change alt/super-tab behavior. Settings->Devices->Keyboard->Switch windows/applications
+# - If running with multiple monitors, set tweaks->Workspaces->Workspaces Span Displays
 
 sudo apt-get install gnome-weather gnome-tweaks
 # if the system is dual boot with windows, run this (from
