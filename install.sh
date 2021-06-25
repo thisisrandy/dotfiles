@@ -161,7 +161,16 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 # give current user permission to run docker (requires restart)
 sudo usermod -aG docker $USER
 
+# install pipx
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+
+# install poetry
+pipx install poetry
+
 # increase default number of file watchers (for webpack, see
 # https://github.com/webpack/docs/wiki/troubleshooting#not-enough-watchers)
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
+# finish up by running a few commands in zsh
+./zsh-install.sh
