@@ -290,5 +290,8 @@
   "git.autofetch": true,
   "python.showStartPage": false,
   "emmet.showAbbreviationSuggestions": false,
-  "emmet.showExpandedAbbreviation": "never"
+  "emmet.showExpandedAbbreviation": "never",
+  "search.exclude": {
+    ".venv/*": true
+  }
 }
