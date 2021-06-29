@@ -22,6 +22,10 @@
   "vim.joinspaces": false,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
+      "before": ["<leader>", "w", "r"],
+      "commands": ["editor.action.toggleWordWrap"]
+    },
+    {
       "before": ["Y"],
       "after": ["y", "$"]
     },
