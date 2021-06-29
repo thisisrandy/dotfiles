@@ -1,4 +1,5 @@
 {
+  "terminal.integrated.showExitAlert": false,
   "editor.formatOnSave": true,
   "vim.easymotion": true,
   "vim.sneak": false,
