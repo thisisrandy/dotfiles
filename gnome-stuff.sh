@@ -8,6 +8,7 @@
 # - Turn off terminal bell in term preferences
 # - Change alt/super-tab behavior. Settings->Devices->Keyboard->Switch windows/applications
 # - If running with multiple monitors, set tweaks->Workspaces->Workspaces Span Displays
+# - To enhance window tiling, follow https://askubuntu.com/a/1089033/1014459
 
 sudo apt-get install gnome-weather gnome-tweaks
 # if the system is dual boot with windows, run this (from
