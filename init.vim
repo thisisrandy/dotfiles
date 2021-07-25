@@ -114,9 +114,7 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim'
 " Plug 'semanser/vim-outdated-plugins'
-" this just has too much of an impact on startup time to feel useful. turning
-" off for the time being
-" Plug 'thisisrandy/vim-outdated-plugins'
+Plug 'thisisrandy/vim-outdated-plugins'
 Plug 'ggVGc/vim-fuzzysearch'
 Plug 'google/vim-maktaba' " vim-codefmt requirement
 Plug 'google/vim-glaive' " vim-codefmt requirement
@@ -512,6 +510,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 
 let g:outdated_plugins_silent_mode = 0
 let g:outdated_plugins_trigger_mode = 0
+autocmd VimEnter * call CheckOutdatedPlugins()
 
 """ vim-fugitive
 
