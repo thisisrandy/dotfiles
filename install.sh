@@ -17,7 +17,7 @@ set -x
 PATH_TO_DOT_FILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # install curl, git, zsh...
-sudo apt-get install curl git zsh python3-pip python3-venv xclip htop iftop multitime jq
+sudo apt-get install curl git zsh python3-pip python3-venv xclip htop iftop multitime jq tmux
 ln -sf $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
 # make sure pip points to pip3. possibly unnecessary
 sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
