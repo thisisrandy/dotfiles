@@ -172,5 +172,19 @@ pipx install poetry
 # https://github.com/webpack/docs/wiki/troubleshooting#not-enough-watchers)
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
+# install git credential manager (see
+# https://github.com/microsoft/Git-Credential-Manager-Core) and use the Secret
+# Service API for github auth (see https://tinyurl.com/hrwh2nsn)
+# IMPORTANT: as of this writing, the GCM is in preview status for linux, and
+# not all ubuntu releases have apt-get repos. the method below downloads a
+# specific .deb package, which will inevitably go out of date. check the GCM
+# installation instructions for updates before installing
+pushd $(mktemp -d)
+curl -fLo gcm.deb https://github.com/microsoft/Git-Credential-Manager-Core/releases/download/v2.0.498/gcmcore-linux_amd64.2.0.498.54650.deb
+sudo dpkg -i gcm.deb
+popd
+bash -c 'git-credential-manager-core configure'
+git config --global credential.credentialStore secretservice
+
 # finish up by running a few commands in zsh
 ./zsh-install.sh
