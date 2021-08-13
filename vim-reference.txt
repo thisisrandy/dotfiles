@@ -77,6 +77,11 @@ C-S-arrow - resize window. not this is not placement aware, so up = +,
 gq - rebalance text to textwidth
 F6 - execute current line in the shell
 C-a - increment the number under the cursor
+zz - move current line to the middle of the screen
+zt - "                      " top    "           "
+zb - "                      " bottom "           "
+C-y - move screen up one line
+C-e - move screen down one line
 
 ## Marks
 
