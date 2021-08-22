@@ -10,3 +10,8 @@
 	tool = nvimdiff
 [credential]
 	helper = store
+	helper =
+	helper = /usr/bin/git-credential-manager-core
+	credentialStore = secretservice
+[credential "https://dev.azure.com"]
+	useHttpPath = true
