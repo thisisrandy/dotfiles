@@ -121,6 +121,8 @@ eval "$(pyenv virtualenv-init -)"
 # history
 export HISTSIZE=1000000
 setopt HIST_IGNORE_ALL_DUPS
+# all commands prefixed with a space will not be saved in history
+setopt HIST_IGNORE_SPACE
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
