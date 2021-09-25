@@ -186,5 +186,28 @@ popd
 bash -c 'git-credential-manager-core configure'
 git config --global credential.credentialStore secretservice
 
+# install btop
+# NOTE: while btop will be in the path after installation, it won't be
+# searchable from the gnome activities menu. per
+# https://superuser.com/a/1285686/1264067, adding an app is a bit more
+# involved, but since the extra step of starting a terminal isn't a particular
+# burden, we'll just stick with that
+pushd $(mktemp -d)
+# gcc-11 not available as of writing on focal. from
+# https://stackoverflow.com/a/67453352/12162258, this is how to get it
+sudo apt install build-essential manpages-dev software-properties-common
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt update
+# the rest from https://github.com/aristocratos/btop#installation
+# obviously there is some repetition, but apt will correctly ignore it
+sudo apt install coreutils sed git build-essential gcc-11 g++-11
+git clone https://github.com/aristocratos/btop.git
+pushd btop
+make
+sudo make install
+sudo make setuid
+popd
+popd
+
 # finish up by running a few commands in zsh
 ./zsh-install.sh
