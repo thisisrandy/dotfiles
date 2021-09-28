@@ -33,6 +33,15 @@ ln -s $PATH_TO_DOT_FILES/avit.zsh-theme $HOME/.oh-my-zsh/custom/themes/avit.zsh-
 # install zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
+# install .tmux
+# NOTES: in the newly-created ~/.tmux.conf.local, uncomment the powerline fonts
+# and set tmux_conf_copy_to_os_clipboard=true
+pushd ~
+git clone https://github.com/gpakosz/.tmux.git
+ln -s -f .tmux/.tmux.conf
+cp .tmux/.tmux.conf.local .
+popd
+
 # install node/yarn
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install -y nodejs
