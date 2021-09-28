@@ -202,9 +202,9 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 " Remap toggle comment. Note that _ is actually /. No idea why, but it is
-nnoremap <C-_> :call NERDComment(0,"toggle")<CR>
-vnoremap <C-_> :call NERDComment(0,"toggle")<CR>
-inoremap <C-_> <C-o>:call NERDComment(0,"toggle")<CR>
+nnoremap <C-_> :call nerdcommenter#Comment(0,"toggle")<CR>
+vnoremap <C-_> :call nerdcommenter#Comment(0,"toggle")<CR>
+inoremap <C-_> <C-o>:call nerdcommenter#Comment(0,"toggle")<CR>
 
 """ coc.nvim
 
