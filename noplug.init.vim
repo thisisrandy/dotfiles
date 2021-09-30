@@ -79,23 +79,76 @@ nnoremap <silent> <leader>/ :nohlsearch<CR>
 " <leader>/ binding in place just in case
 set hls!
 
-" move lines up and down with M-k/j (or up/down)
-" TODO: these bindings do not play nicely with vim-airline because they
-" quickly switch back and forth between modes (to and from command mode, and
-" through normal and then command modes for the insert mode version). need to
-" figure some workaround...
-nnoremap <M-j> :m .+1<CR>==
-nnoremap <M-k> :m .-2<CR>==
-inoremap <M-j> <Esc>:m .+1<CR>==gi
-inoremap <M-k> <Esc>:m .-2<CR>==gi
-vnoremap <M-j> :m '>+1<CR>gv=gv
-vnoremap <M-k> :m '<-2<CR>gv=gv
+" move lines up and down with M-k/j (or up/down) from
+" https://vim.fandom.com/wiki/Moving_lines_up_or_down#Mappings_to_move_lines,
+" modified to use map-cmds and thus not change modes, which plays nicely with
+" plugins like vim-airline that want to execute expensive autocmds on mode
+" changes
+nnoremap <M-j> <Cmd>m .+1<CR>==
+nnoremap <M-k> <Cmd>m .-2<CR>==
+inoremap <M-k> <Cmd>m .-2<CR><Cmd>norm ==<CR>
+inoremap <M-j> <Cmd>m .+1<CR><Cmd>norm ==<CR>
+vnoremap <M-j> <Cmd>call V_Move(0)<CR>
+vnoremap <M-k> <Cmd>call V_Move(1)<CR>
 nmap <M-Down> <M-j>
 nmap <M-Up> <M-k>
 imap <M-Down> <M-j>
 imap <M-Up> <M-k>
 vmap <M-Down> <M-j>
 vmap <M-Up> <M-k>
+
+" the following is a rather over-complicating-seeming way of replicating the
+" following mappings without changing modes:
+"
+" vnoremap <A-j> :m '>+1<CR>gv=gv
+" vnoremap <A-k> :m '<-2<CR>gv=gv
+function! V_Move(up)
+  let list  = [ line('.'), line('v') ]
+  let upper = min(list)
+  let lower = max(list)
+  let cursor_above = line('.') < line('v')
+  let took_action = 0
+
+  " movement and reselection
+  if a:up
+    " don't attempt if we're already at the top
+    if upper > 1
+      let took_action = 1
+      exe upper .. ',' .. lower .. 'm ' .. (upper-2)
+      if cursor_above
+        exe "norm! " .. (lower-upper) .. "kok"
+      else
+        exe "norm! ok"
+      endif
+    endif
+  else
+    " don't attempt if we're already at the bottom
+    if lower < line('$')
+      let took_action = 1
+      exe upper .. ',' .. lower .. 'm ' .. (lower+1)
+      if cursor_above
+        " 0 means move beginning of line, not repeat 0 times, so we need a
+        " guard here
+        if lower-upper > 1
+          exe "norm! o" .. (lower-upper-1) .. "k"
+        endif
+      else
+        exe "norm! oj"
+      endif
+    endif
+  endif
+
+  " formatting and reselection
+  if took_action
+    exe "norm! =V"
+    " after formatting, we always end up at the top of the selection. it only
+    " remains to select the rest of it, if any. as above, guard against 0, which
+    " has a different meaning
+    if lower-upper
+      exe "norm! " .. (lower-upper) .. "j"
+    endif
+  endif
+endfu
 
 " rebind <Home> to ^ (first non-whitespace character)
 nmap <Home> ^
