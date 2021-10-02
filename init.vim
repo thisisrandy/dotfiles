@@ -346,7 +346,7 @@ nnoremap <silent> <space>y  :<C-u>CocList --normal yank<cr>
 " Use ripgrep for searching current directory for files
 " By default, ripgrep will respect rules in .gitignore
 "   --files: Print each file that would be searched (but don't search)
-"   --glob:  Include or exclues files for searching that match the given glob
+"   --glob:  Include or excludes files for searching that match the given glob
 "            (aka ignore .git files)
 "
 call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git', '--hidden'])
