@@ -186,6 +186,9 @@ F2 - rename current word
 
 :CocList marketplace - see which extensions are installed and search for new ones
 
+<leader>' - close the last window. useful for closing popups which don't go
+            away on their own
+
 ## denite
 
 ; - Browser currently open buffers (starts in filter mode)

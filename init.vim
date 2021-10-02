@@ -341,6 +341,16 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Yank list
 nnoremap <silent> <space>y  :<C-u>CocList --normal yank<cr>
 
+" coc leaves popups open on a fairly regular basis, sometimes obstructing
+" large portions of the window and necessitating a restart. the following is a
+" partial solution that closes the last window, which seems to always be a
+" popup, assuming one is open. this solution isn't ideal, given that it will
+" also close the last window if there *isn't* a popup displayed, and the
+" assumption that the last window is a popup may be flawed. there is more
+" discussion at https://vi.stackexchange.com/q/34654/25078, which will
+" hopefully yield a better solution at some point
+nnoremap <silent> <leader>' :exec winnr('$').'wincmd c'<cr>
+
 """ denite
 
 " Use ripgrep for searching current directory for files
