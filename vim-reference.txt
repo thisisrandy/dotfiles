@@ -303,6 +303,3 @@ cst<[tag] - special case to preserve tag attributes, as opposed to cst<[tag]>,
 :MarkDownStopPreview - stop previewing (stops automatically when the buffer
                        loses focus or is closed)
 
-## emmet-vim
-
-\, - type after abbreviations to expand (i-mode only)

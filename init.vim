@@ -112,7 +112,6 @@ Plug 'cohama/lexima.vim'
 Plug 'wesQ3/vim-windowswap'
 Plug 'jremmen/vim-ripgrep'
 Plug 'alvan/vim-closetag'
-Plug 'mattn/emmet-vim'
 " Plug 'semanser/vim-outdated-plugins'
 Plug 'thisisrandy/vim-outdated-plugins'
 Plug 'ggVGc/vim-fuzzysearch'
@@ -498,12 +497,6 @@ map  N <Plug>(easymotion-prev)
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :TagbarOpenAutoClose<CR>
 nmap <C-t> :TagbarOpenAutoClose<CR>\
-
-""" emmet-vim
-
-" remap leader (type, then \, to expand)
-let g:user_emmet_leader_key='\'
-let g:user_emmet_mode='i'
 
 """ nerdtree-git-plugin
 
