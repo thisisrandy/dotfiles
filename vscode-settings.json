@@ -222,10 +222,6 @@
   "editor.lineNumbers": "relative",
   "vim.insertModeKeyBindings": [
     {
-      "before": ["\\", ","],
-      "commands": ["editor.emmet.action.expandAbbreviation"]
-    },
-    {
       "before": ["j", "k"],
       "after": ["<Esc>"]
     }
@@ -296,8 +292,6 @@
   "python.showStartPage": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "emmet.showAbbreviationSuggestions": false,
-  "emmet.showExpandedAbbreviation": "never",
   "jest.autoRun": "off",
   "search.exclude": {
     ".venv/*": true
