@@ -152,5 +152,15 @@
     "key": "ctrl+shift+up",
     "command": "-editor.action.insertCursorAbove",
     "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+down",
+    "command": "workbench.action.terminal.resizePaneDown",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "ctrl+shift+up",
+    "command": "workbench.action.terminal.resizePaneUp",
+    "when": "terminalFocus && terminalProcessSupported"
   }
 ]
