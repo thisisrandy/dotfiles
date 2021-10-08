@@ -295,5 +295,6 @@
   "jest.autoRun": "off",
   "search.exclude": {
     ".venv/*": true
-  }
+  },
+  "window.menuBarVisibility": "toggle"
 }
