@@ -34,8 +34,15 @@ ln -s $PATH_TO_DOT_FILES/avit.zsh-theme $HOME/.oh-my-zsh/custom/themes/avit.zsh-
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # install .tmux
-# NOTES: in the newly-created ~/.tmux.conf.local, uncomment the powerline fonts
-# and set tmux_conf_copy_to_os_clipboard=true
+# NOTES: in the newly-created ~/.tmux.conf.local:
+#   - uncomment the powerline fonts,
+#   - uncomment set history-limit to 10000
+#   - uncomment set mouse on
+#   - set tmux_conf_copy_to_os_clipboard=true
+#   - set tmux_conf_new_session_prompt=true
+#   - set tmux_conf_24b_colour=true
+#   - set tmux_conf_theme_highlight_focused_pane=true
+#   - add set repeat-time to 250
 pushd ~
 git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
