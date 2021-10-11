@@ -83,7 +83,8 @@ set hls!
 " https://vim.fandom.com/wiki/Moving_lines_up_or_down#Mappings_to_move_lines,
 " modified to use map-cmds and thus not change modes, which plays nicely with
 " plugins like vim-airline that want to execute expensive autocmds on mode
-" changes
+" changes. see the discussion at
+" https://github.com/vim-airline/vim-airline/issues/2440
 nnoremap <M-j> <Cmd>m .+1<CR>==
 nnoremap <M-k> <Cmd>m .-2<CR>==
 inoremap <M-k> <Cmd>m .-2<CR><Cmd>norm ==<CR>
