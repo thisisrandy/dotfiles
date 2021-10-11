@@ -48,10 +48,10 @@ augroup END
 
 " Remap window resizing. This is a little weird, since it isn't window
 " placement-aware, but it'll do
-nnoremap <C-S-Left> :vertical resize -10<CR>
-nnoremap <C-S-Right> :vertical resize +10<CR>
-nnoremap <C-S-Down> :resize -5<CR>
-nnoremap <C-S-Up> :resize +5<CR>
+nnoremap <C-S-Left> <Cmd>vertical resize -10<CR>
+nnoremap <C-S-Right> <Cmd>vertical resize +10<CR>
+nnoremap <C-S-Down> <Cmd>resize -5<CR>
+nnoremap <C-S-Up> <Cmd>resize +5<CR>
 
 " Search
 set ignorecase
