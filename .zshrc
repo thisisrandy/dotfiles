@@ -245,5 +245,9 @@ if command -v tmux &> /dev/null \
    && [[ ! "$TERM" =~ tmux ]] \
    && [ -z "$TMUX" ] \
    && ! pstree -s $$ | grep -wq code; then
-  exec tmux
+    if tmux ls 2>&1 | grep -q "no server running"; then
+        exec tmux
+    else
+        exec tmux attach
+    fi
 fi
