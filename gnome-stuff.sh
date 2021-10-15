@@ -10,6 +10,9 @@
 # - Change alt/super-tab behavior. Settings->Devices->Keyboard->Switch windows/applications
 # - If running with multiple monitors, set tweaks->Workspaces->Workspaces Span Displays
 # - To enhance window tiling, follow https://askubuntu.com/a/1089033/1014459
+# - Turn repeat keys delay down to at least tmux repeat-time. See
+#   https://help.ubuntu.com/stable/ubuntu-help/keyboard-repeat-keys.html.en for
+#   details
 
 sudo apt-get install gnome-weather gnome-tweaks
 # if the system is dual boot with windows, run this (from
