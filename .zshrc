@@ -247,5 +247,7 @@ if command -v tmux &> /dev/null \
    && ! pstree -s $$ | grep -wq code; then
     if [[ -n $(pgrep tmux) ]]; then
         exec tmux attach
+    else
+        exec tmux new -s default
     fi
 fi
