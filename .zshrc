@@ -237,13 +237,15 @@ x11-clip-wrap-widgets paste  $paste_widgets
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # start tmux if conditions met. see
-# https://unix.stackexchange.com/a/113768/460319 and
-# https://askubuntu.com/a/1134191/1014459
+# https://unix.stackexchange.com/a/113768/460319,
+# https://askubuntu.com/a/1134191/1014459 and
+# https://stackoverflow.com/q/69578546/12162258
 if command -v tmux &> /dev/null \
    && [ -n "$PS1" ] \
    && [[ ! "$TERM" =~ screen ]] \
    && [[ ! "$TERM" =~ tmux ]] \
    && [ -z "$TMUX" ] \
-   && [[ "$TERM_PROGRAM" != "vscode" ]]; then
+   && [[ "$TERM_PROGRAM" != "vscode" ]] \
+   && [ -z "$VSCODE_PID" ]; then
   exec tmux
 fi
