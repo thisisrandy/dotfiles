@@ -244,7 +244,7 @@ if command -v tmux &> /dev/null \
    && [[ ! "$TERM" =~ screen ]] \
    && [[ ! "$TERM" =~ tmux ]] \
    && [ -z "$TMUX" ] \
-   && ! pstree -s $$ | grep -wq code; then
+   && ! pstree -s $$ | grep -Ewq "code|n?vim"; then
     if [[ -n $(pgrep tmux) ]]; then
         exec tmux attach
     else
