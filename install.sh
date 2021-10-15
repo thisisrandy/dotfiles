@@ -6,7 +6,7 @@
 # - nvim will take a couple of start/exit cycles to run correctly, and may dump core
 #   the first time. after it seems to be working, denite will be off, so run
 #   :checkhealth and follow instructions
-# - If its been a while since this file was updated, versions of any manually
+# - If it's been a while since this file was updated, versions of any manually
 #   downloaded programs should be checked and updated as needed (node, rg, etc.)
 #
 # Tested on ubuntu 18.04. For 19.04:
