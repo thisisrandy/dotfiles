@@ -5,7 +5,8 @@
 # - Open tweaks and set theme to Adwaita-dark
 # - Install Clock Override extension and set format string to %A %B %e %l:%M:%S
 # - Connect google account for calendar (online accounts)
-# - Turn off terminal bell in term preferences
+# - Turn off terminal bell in term preferences, and set font to Menlo for
+#   Powerline, size 11
 # - Change alt/super-tab behavior. Settings->Devices->Keyboard->Switch windows/applications
 # - If running with multiple monitors, set tweaks->Workspaces->Workspaces Span Displays
 # - To enhance window tiling, follow https://askubuntu.com/a/1089033/1014459

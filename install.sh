@@ -68,14 +68,13 @@ yarn global add flow-bin
 sudo apt-get install clangd-9
 sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-9 100
 
-# install powerline fonts. will need to restart X for this to work
-wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
-wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+# install powerline fonts that work with vscode. see
+# https://dev.to/mattstratton/making-powerline-work-in-visual-studio-code-terminal-1m7.
+# will need to restart X for this to work
+wget https://github.com/abertsch/Menlo-for-Powerline/raw/master/Menlo%20for%20Powerline.ttf
 mkdir -p ~/.local/share/fonts
-mv -f PowerlineSymbols.otf ~/.local/share/fonts/
+mv -f 'Menlo for Powerline.ttf' ~/.local/share/fonts/
 sudo fc-cache -vf ~/.local/share/fonts/
-mkdir -p ~/.config/fontconfig/conf.d
-mv -f 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 
 # install pynvim
 pip install --user pynvim
