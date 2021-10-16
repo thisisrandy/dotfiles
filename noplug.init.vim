@@ -20,6 +20,9 @@ cmap jk <Esc>
 " remap Y
 map Y y$
 
+" paste in insert mode
+inoremap <C-v> <C-o>P
+
 " map to execute the current line
 nmap <F6> :exec '!'.getline('.')
 
