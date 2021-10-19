@@ -93,3 +93,11 @@ Git:Discard (all) changes - checkout HEAD / reset --hard
 [c - move to previous change. works in both editor and compare editor
 ]c - move to next change. same note as above
 
+# Terminals
+
+C-` - toggle the terminal (C-S-` for a new terminal group)
+C-S-[kj] - shift to previous/next terminal group when term in focus
+A-left/right/up/down/h/l/k/j - switch between terminals within group
+C-a t - select terminal (also C-p, then "term ")
+C-a s - split active terminal
+C-a r - rename active terminal (also F2 when terminals tabs focused)

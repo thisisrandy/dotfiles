@@ -162,5 +162,59 @@
     "key": "ctrl+shift+up",
     "command": "workbench.action.terminal.resizePaneUp",
     "when": "terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "ctrl+a t",
+    "command": "workbench.action.quickOpenTerm"
+  },
+  {
+    "key": "ctrl+a s",
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "ctrl+shift+5",
+    "command": "-workbench.action.terminal.split",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "ctrl+a s",
+    "command": "workbench.action.terminal.splitInstance",
+    "when": "terminalProcessSupported && terminalTabsFocus"
+  },
+  {
+    "key": "ctrl+shift+5",
+    "command": "-workbench.action.terminal.splitInstance",
+    "when": "terminalProcessSupported && terminalTabsFocus"
+  },
+  {
+    "key": "ctrl+a r",
+    "command": "workbench.action.terminal.rename",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "ctrl+a r",
+    "command": "workbench.action.terminal.renameInstance",
+    "when": "terminalProcessSupported && terminalTabsFocus && terminalTabsSingularSelection"
+  },
+  {
+    "key": "alt+j",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "alt+l",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "alt+k",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "alt+h",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus && terminalProcessSupported"
   }
 ]
