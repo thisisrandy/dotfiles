@@ -296,6 +296,8 @@
   "search.exclude": {
     ".venv/*": true
   },
+  "workbench.startupEditor": "none",
+  "explorer.openEditors.visible": 0,
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   }
