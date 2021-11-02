@@ -213,7 +213,7 @@ inoremap <C-_> <C-o>:call nerdcommenter#Comment(0,"toggle")<CR>
 
 " extensions
 let g:coc_global_extensions=["coc-json", "coc-eslint", "coc-tsserver",
-  \ "coc-snippets", "coc-html", "coc-css", "coc-python", "coc-java",
+  \ "coc-snippets", "coc-html", "coc-css", "coc-pyright", "coc-java",
   \ "coc-highlight", "coc-yank", "coc-omnisharp", "coc-emmet",
   \ "coc-lists", "coc-marketplace", "coc-neosnippet", "coc-prettier",
   \ "coc-clangd", "coc-cmake", "coc-xml", "coc-rls" ]
