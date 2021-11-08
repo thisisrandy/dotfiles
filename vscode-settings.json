@@ -296,6 +296,7 @@
   "search.exclude": {
     ".venv/*": true
   },
+  "python.analysis.typeCheckingMode": "strict",
   "workbench.startupEditor": "none",
   "explorer.openEditors.visible": 0,
   "workbench.editorAssociations": {
