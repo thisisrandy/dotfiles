@@ -231,6 +231,11 @@ local paste_widgets=(
 x11-clip-wrap-widgets copy $copy_widgets
 x11-clip-wrap-widgets paste  $paste_widgets
 
+# jog
+function zshaddhistory() {
+	echo "${1%%$'\n'}|${PWD}   " >> ~/.zsh_history_ext
+}
+
 # fzf setup. vi mode wipes out the fzf bindings, so make sure to put this
 # after vi mode setup. note that fzf bindings only work in insert mode
 

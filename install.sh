@@ -50,6 +50,12 @@ ln -s -f .tmux/.tmux.conf
 cp .tmux/.tmux.conf.local .
 popd
 
+# install jog
+pushd ~/.local/bin
+wget https://github.com/natethinks/jog/blob/cf580bc9387bac17c5cfb0d22bfe75fad72e59fd/jog
+chmod u+x jog
+popd
+
 # install node/yarn
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install -y nodejs
