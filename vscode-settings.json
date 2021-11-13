@@ -287,6 +287,8 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "debug.allowBreakpointsEverywhere": true,
+  "update.mode": "none",
   "workbench.list.automaticKeyboardNavigation": false,
   "git.autofetch": true,
   "python.showStartPage": false,
