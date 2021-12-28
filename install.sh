@@ -42,6 +42,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 #   - set tmux_conf_new_session_prompt=true
 #   - set tmux_conf_24b_colour=true
 #   - set tmux_conf_theme_highlight_focused_pane=true
+#   - set tmux_conf_new_window_retain_current_path=true
 #   - add set repeat-time to 250
 #   - add useful plugins
 pushd ~
