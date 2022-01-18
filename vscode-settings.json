@@ -303,5 +303,9 @@
   "explorer.openEditors.visible": 0,
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
-  }
+  },
+  "python.formatting.blackArgs": [
+    "--target-version",
+    "py310"
+  ]
 }
