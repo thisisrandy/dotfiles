@@ -307,5 +307,6 @@
   "python.formatting.blackArgs": [
     "--target-version",
     "py310"
-  ]
+  ],
+  "rust.clippy_preference": "on"
 }
