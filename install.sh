@@ -102,6 +102,9 @@ pip install tqdm --user
 # install jupytext for jupytext.vim
 pip install jupytext --user
 
+# install csvkit
+pip install csvkit --user
+
 # install universal-ctags (for tagbar)
 sudo snap install universal-ctags
 # this line is necessary because of
