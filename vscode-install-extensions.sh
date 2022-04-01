@@ -11,6 +11,5 @@ code --install-extension github.vscode-pull-request-github
 code --install-extension alefragnani.numbered-bookmarks
 code --install-extension mhutchie.git-graph
 code --install-extension vscodevim.vim
-code --install-extension visualstudioexptteam.intellicode-api-usage-examples
 code --install-extension rioj7.command-variable
 code --install-extension tamasfe.even-better-toml
