@@ -151,7 +151,7 @@ alias python=python3
 alias pip=pip3
 alias venv="source .venv/bin/activate"
 alias mr="pip freeze | grep -v pkg-resources > requirements.txt"
-alias ip=ip -c
+alias ip='ip -c'
 
 # vi mode
 
