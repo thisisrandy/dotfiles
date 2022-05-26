@@ -1,0 +1,36 @@
+{
+	"name": "Vimium C",
+	"@time": "5/26/2022, 4:19:25 PM",
+	"time": 1653607165988,
+	"environment": {
+		"extension": "1.98.0",
+		"platform": "linux",
+		"chrome": "101"
+	},
+	"exclusionRules": [
+		{
+			"passKeys": "",
+			"pattern": ":https://mail.google.com/"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://onthegomap.com/"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://colab.research.google.com/"
+		}
+	],
+	"grabBackFocus": true,
+	"hideHud": true,
+	"keyMappings": [
+		"#!no-check",
+		"map F LinkHints.activateModeToOpenInNewForegroundTab",
+		"map X closeOtherTabs",
+		"map < moveTabLeft",
+		"map > moveTabRight",
+		"map R restoreTab",
+		""
+	],
+	"vimSync": true
+}
