@@ -217,5 +217,13 @@
     "key": "alt+h",
     "command": "workbench.action.terminal.focusPreviousPane",
     "when": "terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "ctrl+shift+b",
+    "command": "-workbench.action.tasks.build"
+  },
+  {
+    "key": "ctrl+shift+b",
+    "command": "workbench.action.toggleAuxiliaryBar"
   }
 ]
