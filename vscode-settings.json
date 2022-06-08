@@ -295,6 +295,14 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "jest.autoRun": "off",
+  "python.formatting.blackArgs": ["--target-version", "py310"],
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "rust.clippy_preference": "on",
   "search.exclude": {
     ".venv/*": true
   },
