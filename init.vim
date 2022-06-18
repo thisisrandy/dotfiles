@@ -107,7 +107,9 @@ Plug 'jackguo380/vim-lsp-cxx-highlight' " depends on coc
 Plug 'shougo/denite.nvim'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-dadbod'
-Plug 'majutsushi/tagbar'
+" tagbar seems to be useless for most languages. replaced with :CocOutline for
+" now
+" Plug 'majutsushi/tagbar'
 Plug 'cohama/lexima.vim'
 Plug 'wesQ3/vim-windowswap'
 Plug 'jremmen/vim-ripgrep'
@@ -287,6 +289,14 @@ endfunction
 
 " Remap for rename current word
 nmap <F2> <Plug>(coc-rename)
+
+" Map for outline. Note that this is different from my VSCode mapping (C-O)
+" since vim can't detect C-S-most keys, but the same as my VSCode mapping for
+" fuzzy searching tags. Initiating a fuzzy search after this command
+" (currently bound to \) results in the outline window not appearing until
+" after the search is performed, so we'll have to be satisfied with just
+" opening the outline for now
+nmap <C-t> :CocOutline<CR>
 
 " Remap for format selected region
 " I never use these, and considering that I'd need to set them up with the
@@ -492,11 +502,11 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
-""" tagbar
+""" tagbar (currently unused)
 
-nmap <F8> :TagbarToggle<CR>
-nmap <F9> :TagbarOpenAutoClose<CR>
-nmap <C-t> :TagbarOpenAutoClose<CR>\
+" nmap <F8> :TagbarToggle<CR>
+" nmap <F9> :TagbarOpenAutoClose<CR>
+" nmap <C-t> :TagbarOpenAutoClose<CR>\
 
 """ nerdtree-git-plugin
 

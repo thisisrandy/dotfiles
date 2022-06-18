@@ -189,6 +189,8 @@ F2 - rename current word
 <leader>' - close the last window. useful for closing popups which don't go
             away on their own
 
+<C-t> - open :CocOutline
+
 ## denite
 
 ; - Browser currently open buffers (starts in filter mode)
@@ -263,7 +265,7 @@ f - type a single to find, then type the appropriate label or ESC
 :%DB ... - execute current buffer. Similar for visual mode
 :DB ... < file - run file
 
-## tagbar
+## tagbar (currently unused)
 
 <F8> - toggle tagbar
 <F9> - open and focus on tagbar, then auto close after tag selected
