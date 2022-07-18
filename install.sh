@@ -17,11 +17,13 @@ set -x
 PATH_TO_DOT_FILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # install curl, git, zsh...
-sudo apt-get install curl git zsh python3-pip python3-venv xclip htop iftop \
-    multitime jq tmux peek datamash nmap bvi httpie
+sudo apt-get install curl git zsh xclip htop iftop \
+    multitime jq tmux peek datamash nmap bvi httpie ripgrep fzf
 ln -sf $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
-# make sure pip points to pip3. possibly unnecessary
-sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
+
+# install python3.10
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get install python3.10 python3.10-venv
 
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -50,19 +52,11 @@ chmod og-rw ~/.zsh_history_ext
 popd
 
 # install node/yarn
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-sudo apt-get install -y nodejs
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 npm config set prefix ~/.local # prevents need to sudo for -g
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update && sudo apt-get install yarn
-
-# install js-beautify
-yarn global add js-beautify
-ln -sf $PATH_TO_DOT_FILES/.jsbeautifyrc $HOME/.jsbeautifyrc
-
-# install flow-bin (for tabnine)
-yarn global add flow-bin
 
 # install clangd
 sudo apt-get install clangd-9
@@ -81,9 +75,6 @@ pip install --user pynvim
 
 # install pyenv
 curl https://pyenv.run | bash
-
-# install jedi
-pip install jedi --user
 
 # install black
 pip install black --user
@@ -104,23 +95,12 @@ sudo snap install universal-ctags
 # (shouldn't be in the future)
 sudo snap connect universal-ctags:dot-ctags
 
-# install ripgrep
-pushd $(mktemp -d)
-curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
-sudo dpkg -i ripgrep_11.0.2_amd64.deb
-rm ripgrep_11.0.2_amd64.deb
-popd
-
-# install fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
-
 # install go
 pushd $(mktemp -d)
-curl -LO https://dl.google.com/go/go1.13.1.linux-amd64.tar.gz
-tar xfz go1.13.1.linux-amd64.tar.gz
+curl -LO https://go.dev/dl/go1.18.4.linux-amd64.tar.gz
+tar xfz go1.18.4.linux-amd64.tar.gz
 sudo mv go /usr/local
-rm go1.13.1.linux-amd64.tar.gz
+rm go1.18.4.linux-amd64.tar.gz
 popd
 
 # install shfmt (to ~/go/bin)
@@ -130,11 +110,9 @@ go get mvdan.cc/sh/cmd/shfmt
 popd
 
 # install bat
-pushd $(mktemp -d)
-curl -LO https://github.com/sharkdp/bat/releases/download/v0.12.1/bat-musl_0.12.1_amd64.deb
-sudo dpkg -i bat-musl_0.12.1_amd64.deb
-rm bat-musl_0.12.1_amd64.deb
+sudo apt-get install bat
 # and extras
+pushd $(mktemp -d)
 curl -LO https://github.com/eth-p/bat-extras/archive/master.zip
 unzip master.zip
 pushd bat-extras-master
@@ -198,7 +176,7 @@ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo s
 # specific .deb package, which will inevitably go out of date. check the GCM
 # installation instructions for updates before installing
 pushd $(mktemp -d)
-curl -fLo gcm.deb https://github.com/microsoft/Git-Credential-Manager-Core/releases/download/v2.0.498/gcmcore-linux_amd64.2.0.498.54650.deb
+curl -fLo gcm.deb https://github.com/GitCredentialManager/git-credential-manager/releases/download/v2.0.785/gcm-linux_amd64.2.0.785.deb
 sudo dpkg -i gcm.deb
 popd
 bash -c 'git-credential-manager-core configure'
