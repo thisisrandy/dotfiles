@@ -8,9 +8,6 @@
 #   :checkhealth and follow instructions
 # - If it's been a while since this file was updated, versions of any manually
 #   downloaded programs should be checked and updated as needed (node, rg, etc.)
-#
-# Tested on ubuntu 18.04. For 19.04:
-# - ripgrep and fzf should be installed by apt-get instead of manually
 set -x
 
 # create softlinks to all of the dot files in script directory
