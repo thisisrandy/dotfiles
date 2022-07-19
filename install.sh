@@ -194,7 +194,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 sudo usermod -aG docker $USER
 
 # install poetry
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+curl -sSL https://install.python-poetry.org/ | python -
 
 # increase default number of file watchers (for webpack, see
 # https://github.com/webpack/docs/wiki/troubleshooting#not-enough-watchers)
