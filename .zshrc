@@ -264,3 +264,5 @@ if command -v tmux &> /dev/null \
         exec tmux new -s default
     fi
 fi
+
+export PATH="$HOME/.poetry/bin:$PATH"
