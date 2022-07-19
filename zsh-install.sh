@@ -9,6 +9,6 @@
 
 # poetry tab completion. see
 # https://python-poetry.org/docs/#enable-tab-completion-for-bash-fish-or-zsh
-mkdir $ZSH_CUSTOM/plugins/poetry
+mkdir -p $ZSH_CUSTOM/plugins/poetry
 poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
 
