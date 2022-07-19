@@ -180,11 +180,6 @@ bash -c 'git-credential-manager-core configure'
 git config --global credential.credentialStore secretservice
 
 # install btop
-# NOTE: while btop will be in the path after installation, it won't be
-# searchable from the gnome activities menu. per
-# https://superuser.com/a/1285686/1264067, adding an app is a bit more
-# involved, but since the extra step of starting a terminal isn't a particular
-# burden, we'll just stick with that
 pushd $(mktemp -d)
 # gcc-11 not available as of writing on focal. from
 # https://stackoverflow.com/a/67453352/12162258, this is how to get it
@@ -201,6 +196,13 @@ sudo make install
 sudo make setuid
 popd
 popd
+# finally, create an application so we can launch from the activities menu
+echo \[Desktop Entry\] > ~/.local/share/applications/Btop.desktop
+echo Name=Btop >> ~/.local/share/applications/Btop.desktop
+echo Exec=/usr/local/bin/btop >> ~/.local/share/applications/Btop.desktop
+echo StartupNotify=true >> ~/.local/share/applications/Btop.desktop
+echo Terminal=true >> ~/.local/share/applications/Btop.desktop
+echo Type=Application >> ~/.local/share/applications/Btop.desktop
 
 # finish up by running a few commands in zsh
 ./zsh-install.sh
