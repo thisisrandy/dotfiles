@@ -14,7 +14,7 @@ set -x
 PATH_TO_DOT_FILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # install curl, git, zsh...
-sudo apt-get install curl git zsh xclip htop iftop \
+sudo apt-get install curl git zsh xclip htop iftop gcc make \
     multitime jq tmux peek datamash nmap bvi httpie ripgrep fzf
 ln -sf $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
 
