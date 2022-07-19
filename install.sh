@@ -10,6 +10,10 @@
 #   downloaded programs should be checked and updated as needed (node, rg, etc.)
 set -x
 
+# install/use display drivers (restart needed)
+sudo ubuntu-drivers autoinstall
+sudo prime-select nvidia
+
 # create softlinks to all of the dot files in script directory
 PATH_TO_DOT_FILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
