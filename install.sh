@@ -232,12 +232,12 @@ sudo make setuid
 popd
 popd
 # finally, create an application so we can launch from the activities menu
-echo \[Desktop Entry\] > ~/.local/share/applications/Btop.desktop
-echo Name=Btop >> ~/.local/share/applications/Btop.desktop
-echo Exec=/usr/local/bin/btop >> ~/.local/share/applications/Btop.desktop
-echo StartupNotify=true >> ~/.local/share/applications/Btop.desktop
-echo Terminal=true >> ~/.local/share/applications/Btop.desktop
-echo Type=Application >> ~/.local/share/applications/Btop.desktop
+# UPDATE: btop appears to do this on its own these days. we'll leave this
+# commented for reference
+# echo \[Desktop Entry\] > ~/.local/share/applications/Btop.desktop
+# echo Name=Btop >> ~/.local/share/applications/Btop.desktop
+# echo Exec=/usr/local/bin/btop >> ~/.local/share/applications/Btop.desktop
+# echo StartupNotify=true >> ~/.local/share/applications/Btop.desktop
+# echo Terminal=true >> ~/.local/share/applications/Btop.desktop
+# echo Type=Application >> ~/.local/share/applications/Btop.desktop
 
-# finish up by running a few commands in zsh
-./zsh-install.sh
