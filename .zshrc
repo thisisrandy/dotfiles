@@ -100,7 +100,7 @@ export PATH=~/.local/bin/:$PATH
 export PATH=~/.yarn/bin:$PATH
 export PATH=~/go/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
-export PATH=/usr/local/go/bin:$PATH
+export PATH="$HOME/.poetry/bin:$PATH"
 
 # DAML
 export PATH=~/.daml/bin:$PATH
@@ -265,4 +265,3 @@ if command -v tmux &> /dev/null \
     fi
 fi
 
-export PATH="$HOME/.poetry/bin:$PATH"
