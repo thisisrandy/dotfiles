@@ -83,6 +83,16 @@ wget https://github.com/abertsch/Menlo-for-Powerline/raw/master/Menlo%20for%20Po
 mkdir -p ~/.local/share/fonts
 mv -f 'Menlo for Powerline.ttf' ~/.local/share/fonts/
 sudo fc-cache -vf ~/.local/share/fonts/
+# then, the terminal needs to be set to use it. per
+# https://ncona.com/2019/11/configuring-gnome-terminal-programmatically/, we
+# can do this programmatically
+GNOME_TERMINAL_PROFILE=`gsettings get org.gnome.Terminal.ProfilesList default | \
+    awk -F \' '{print $2}'`
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ font 'Menlo for Powerline Regular 11'
+# we can also take the opportunity to set a few other settings
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ scrollbar-policy never
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ audible-bell false
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ use-theme-colors false
 
 # install pynvim
 pip install --user pynvim
