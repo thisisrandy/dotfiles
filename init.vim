@@ -93,6 +93,18 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
     endif
 endif
 
+" when remote plugins are first installed (or updated), UpdateRemotePlugins
+" needs to be run. there's a way to trigger this via plugged, but there's also
+" some sort of bug with doing it directly. according to
+" https://github.com/gelguy/wilder.nvim/issues/109#issuecomment-1007682696,
+" this is a workaround
+function! UpdateRemotePlugins(...)
+  " Needed to refresh runtime files
+  let &rtp=&rtp
+  UpdateRemotePlugins
+endfunction
+
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree'
@@ -104,7 +116,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'mtth/scratch.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jackguo380/vim-lsp-cxx-highlight' " depends on coc
-Plug 'shougo/denite.nvim'
+Plug 'shougo/denite.nvim', { 'do': function('UpdateRemotePlugins') }
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-dadbod'
 " tagbar seems to be useless for most languages. replaced with :CocOutline for
@@ -115,7 +127,7 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'jremmen/vim-ripgrep'
 Plug 'alvan/vim-closetag'
 " Plug 'semanser/vim-outdated-plugins'
-Plug 'thisisrandy/vim-outdated-plugins'
+Plug 'thisisrandy/vim-outdated-plugins', { 'do': function('UpdateRemotePlugins') }
 Plug 'ggVGc/vim-fuzzysearch'
 Plug 'google/vim-maktaba' " vim-codefmt requirement
 Plug 'google/vim-glaive' " vim-codefmt requirement
