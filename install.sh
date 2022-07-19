@@ -8,6 +8,7 @@
 #   :checkhealth and follow instructions
 # - If it's been a while since this file was updated, versions of any manually
 #   downloaded programs should be checked and updated as needed (node, rg, etc.)
+# TESTED ON: Ubuntu 20.04
 set -x
 
 # this will be used in several places
