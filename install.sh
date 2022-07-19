@@ -56,6 +56,9 @@ git clone https://github.com/thisisrandy/.tmux.git
 ln -s -f .tmux/.tmux.conf
 cp .tmux/.tmux.conf.local .
 popd
+# we also need to turn down the key repeat delay to enable interactive split
+# resizing
+xset r rate 200 40
 
 # install jog
 pushd ~/.local/bin
