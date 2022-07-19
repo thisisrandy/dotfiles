@@ -18,9 +18,26 @@ sudo apt-get install curl git zsh xclip htop iftop \
     multitime jq tmux peek datamash nmap bvi httpie ripgrep fzf
 ln -sf $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
 
-# install python3.10
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt-get install python3.10 python3.10-venv
+# install pyenv
+curl https://pyenv.run | bash
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+# per https://github.com/pyenv/pyenv/wiki#suggested-build-environment,
+# we'll want to get an appropriate build environment set up for python
+# installations
+sudo apt-get install make build-essential libssl-dev zlib1g-dev \
+libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
+libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+# now install python. the version will need to be updated in the future
+PYTHON_LATEST=3.10.5
+pyenv install PYTHON_LATEST
+# and make it the global version
+pyenv global PYTHON_LATEST
+# for the rest of the script, it will be convenient to refer to pip concisely
+alias pip='python -m pip'
+# make sure that pip is up-to-date
+pip install --upgrade pip
 
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -69,9 +86,6 @@ sudo fc-cache -vf ~/.local/share/fonts/
 
 # install pynvim
 pip install --user pynvim
-
-# install pyenv
-curl https://pyenv.run | bash
 
 # install black
 pip install black --user
@@ -131,7 +145,7 @@ ln -sf $PATH_TO_DOT_FILES/init.vim $HOME/.config/nvim/init.vim
 ln -sf $PATH_TO_DOT_FILES/noplug.init.vim $HOME/.config/nvim/noplug.init.vim
 ln -sf $PATH_TO_DOT_FILES/coc-settings.json $HOME/.config/nvim/coc-settings.json
 yarn global add neovim
-pip3 install neovim
+pip install neovim
 
 # install VS code settings
 mkdir -p $HOME/.config/Code/User
@@ -154,12 +168,8 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 # give current user permission to run docker (requires restart)
 sudo usermod -aG docker $USER
 
-# install pipx
-python3 -m pip install --user pipx
-python3 -m pipx ensurepath
-
 # install poetry
-pipx install poetry
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 
 # increase default number of file watchers (for webpack, see
 # https://github.com/webpack/docs/wiki/troubleshooting#not-enough-watchers)
