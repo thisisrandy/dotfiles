@@ -10,6 +10,9 @@
 #   downloaded programs should be checked and updated as needed (node, rg, etc.)
 set -x
 
+# this will be used in several places
+mkdir -p ~/.local/bin
+
 # install/use display drivers (restart needed)
 sudo ubuntu-drivers autoinstall
 sudo prime-select nvidia
