@@ -239,7 +239,15 @@ function zshaddhistory() {
 # fzf setup. vi mode wipes out the fzf bindings, so make sure to put this
 # after vi mode setup. note that fzf bindings only work in insert mode
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# per https://github.com/junegunn/fzf#using-linux-package-managers, the
+# bindings might not just work (we don't seem to always have the below file)
+if [ -f ~/.fzf.zsh ]; then
+    source ~/.fzf.zsh
+else
+    source /usr/share/doc/fzf/examples/key-bindings.zsh
+    source /usr/share/doc/fzf/examples/completion.zsh
+fi
+
 
 # start tmux if conditions met. see
 # https://unix.stackexchange.com/a/113768/460319 and
