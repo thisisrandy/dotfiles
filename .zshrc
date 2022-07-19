@@ -147,8 +147,7 @@ alias f="fzf --preview '[[ \$(file --mime {}) =~ binary ]] && \
                  head -100'"
 alias vf='vim "$(f)"'
 alias lf='less "$(f)"'
-alias python=python3
-alias pip=pip3
+alias pip='python -m pip'
 alias venv="source .venv/bin/activate"
 alias mr="pip freeze | grep -v pkg-resources > requirements.txt"
 alias ip='ip -c'
