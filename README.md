@@ -13,11 +13,6 @@ Various dotfiles, associated scripts and cheatsheets
 
 ### Manual Steps
 
-#### Startup
-
-1. Hold shift during startup to start GRUB
-2. Replace `quiet splash` with `nomodeset`
-
 #### Display
 
 After setting up displays, if the login dialog is still on the wrong monitor, run

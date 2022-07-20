@@ -242,3 +242,6 @@ popd
 # echo Terminal=true >> ~/.local/share/applications/Btop.desktop
 # echo Type=Application >> ~/.local/share/applications/Btop.desktop
 
+# make sure grub shows the full startup sequence
+sudo sed -i 's/quiet splash/nomodeset/' /etc/default/grub
+sudo update-grub
