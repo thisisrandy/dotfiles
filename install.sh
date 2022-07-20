@@ -22,7 +22,7 @@ sudo prime-select nvidia
 PATH_TO_DOT_FILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # install curl, git, zsh...
-sudo apt-get install curl git zsh xclip htop iftop gcc make \
+sudo apt-get -y install curl git zsh xclip htop iftop gcc make \
     multitime jq tmux peek datamash nmap bvi httpie ripgrep fzf
 ln -sf $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
 
@@ -34,7 +34,7 @@ eval "$(pyenv init -)"
 # per https://github.com/pyenv/pyenv/wiki#suggested-build-environment,
 # we'll want to get an appropriate build environment set up for python
 # installations
-sudo apt-get install make build-essential libssl-dev zlib1g-dev \
+sudo apt-get -y install make build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
 libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 # now install python. the version will need to be updated in the future
@@ -75,14 +75,14 @@ popd
 
 # install node/yarn
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y nodejs
+sudo apt-get -y install -y nodejs
 npm config set prefix ~/.local # prevents need to sudo for -g
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update && sudo apt-get install yarn
+sudo apt-get -y update && sudo apt-get -y install yarn
 
 # install clangd
-sudo apt-get install clangd-9
+sudo apt-get -y install clangd-9
 sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-9 100
 
 # install powerline fonts that work with vscode. see
@@ -141,7 +141,7 @@ popd
 
 # install bat. per https://askubuntu.com/a/1300824/1014459, on 20.04 this needs
 # some special magic
-sudo apt-get install -o Dpkg::Options::="--force-overwrite" bat
+sudo apt-get -y install -o Dpkg::Options::="--force-overwrite" bat
 # per https://github.com/sharkdp/bat#on-ubuntu-using-apt, bat might be installed
 # as batcat. set up a symlink so fzf can use it as bat
 ln -s /usr/bin/batcat ~/.local/bin/bat
@@ -176,18 +176,18 @@ ln -sf $PATH_TO_DOT_FILES/vscode-settings.json $HOME/.config/Code/User/settings.
 ln -sf $PATH_TO_DOT_FILES/vscode-keybindings.json $HOME/.config/Code/User/keybindings.json
 
 # install docker
-sudo apt-get install \
+sudo apt-get -y install \
     apt-transport-https \
     ca-certificates \
     curl \
     gnupg-agent \
     software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository \
+sudo add-apt-repository -y \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 # give current user permission to run docker (requires restart)
 sudo usermod -aG docker $USER
 
@@ -216,12 +216,12 @@ git config --global credential.credentialStore secretservice
 pushd $(mktemp -d)
 # gcc-11 not available as of writing on focal. from
 # https://stackoverflow.com/a/67453352/12162258, this is how to get it
-sudo apt install build-essential manpages-dev software-properties-common
-sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-sudo apt update
+sudo apt -y install build-essential manpages-dev software-properties-common
+sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+sudo apt -y update
 # the rest from https://github.com/aristocratos/btop#installation
 # obviously there is some repetition, but apt will correctly ignore it
-sudo apt install coreutils sed git build-essential gcc-11 g++-11
+sudo apt -y install coreutils sed git build-essential gcc-11 g++-11
 git clone https://github.com/aristocratos/btop.git
 pushd btop
 make
