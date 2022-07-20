@@ -126,6 +126,10 @@ setopt HIST_IGNORE_SPACE
 
 # enable and customize vi-style key bindings in .tmux
 export EDITOR=vim
+# we also need to turn down the key repeat delay to enable interactive split
+# resizing
+xset r rate 200 40
+
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
