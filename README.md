@@ -1,6 +1,6 @@
 # dotfiles
 
-Various dotfiles, associated scripts and cheatsheets
+Various dotfiles, associated scripts and cheatsheets as well as installation scripts and notes
 
 ## Ubuntu installation
 
