@@ -35,6 +35,15 @@ sudo systemctl disable cups-browsed
 
 This isn't included in [install.sh](install.sh) in case it's desirable behavior.
 
+#### Backup via Timeshift
+
+```
+sudo apt-get install timeshift
+```
+
+Open the Timeshift application and set up as appropriate. Boot + daily
+snapshots seem appropriate.
+
 ## Mounting external RAID member HDDs
 
 The wisdom found collectively in [Ubuntu doesn't "see" external USB Hard
