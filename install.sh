@@ -2,11 +2,15 @@
 # USAGE: ./install.sh
 # NOTES:
 # - The script will prompt for root priviledges once at the beginning and
-#   thenceforth operate unattended
+#   thenceforth operate unattended. DO NOT RUN AS ROOT
 # - After installation, nvim will need to be restarted to run correctly with
 #   all plugins. use :checkhealth after restart to verify everything is happy
-# - If it's been a while since this file was updated, versions of any manually
-#   downloaded programs should be checked and updated as needed (node, rg, etc.)
+# - If it's been a while since this file was updated, any explicitly-specified
+#   program versions should be checked and updated as needed (python, node, rg,
+#   etc.)
+# - For unknown reasons, after the github credential manager is installed, it
+#   sometimes takes two tries to get it to ask for authentication. If auth
+#   fails, just try again and it should work
 # TESTED ON: Ubuntu 20.04
 set -x
 
