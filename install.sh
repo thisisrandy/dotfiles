@@ -39,9 +39,9 @@ libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
 libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 # now install python. the version will need to be updated in the future
 PYTHON_LATEST=3.10.5
-pyenv install PYTHON_LATEST
+pyenv install $PYTHON_LATEST
 # and make it the global version
-pyenv global PYTHON_LATEST
+pyenv global $PYTHON_LATEST
 # for the rest of the script, it will be convenient to refer to pip concisely
 alias pip='python -m pip'
 # make sure that pip is up-to-date
