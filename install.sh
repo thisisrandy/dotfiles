@@ -246,3 +246,18 @@ popd
 # make sure grub shows the full startup sequence
 sudo sed -i 's/quiet splash/nomodeset/' /etc/default/grub
 sudo update-grub
+
+# install zotero
+pushd $(mktemp -d)
+wget https://download.zotero.org/client/release/6.0.10/Zotero-6.0.10_linux-x86_64.tar.bz2
+tar xf Zotero-6.0.10_linux-x86_64.tar.bz2
+wget https://www.zotero.org/support/_media/logo/zotero_128x128x32.png
+mv zotero_128x128x32.png Zotero_linux-x86_64/
+sed -i 's@zotero\.ico@'"$HOME"'/.local/standalone/Zotero_linux-x86_64/zotero_128x128x32.png@' \
+    Zotero_linux-x86_64/zotero.desktop
+mkdir -p ~/.local/standalone
+mv Zotero_linux-x86_64 ~/.local/standalone/
+ln -s ~/.local/standalone/Zotero_linux-x86_64/zotero ~/.local/bin/
+ln -s ~/.local/standalone/Zotero_linux-x86_64/zotero.desktop ~/.local/share/applications/
+popd
+
