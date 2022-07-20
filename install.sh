@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 # USAGE: ./install.sh
 # NOTES:
-# - All prompts should be answered "y"
-# - When zsh is installed, type exit to continue the script
-# - nvim will take a couple of start/exit cycles to run correctly, and may dump core
-#   the first time. after it seems to be working, denite will be off, so run
-#   :checkhealth and follow instructions
+# - The script will prompt for root priviledges once at the beginning and
+#   thenceforth operate unattended
+# - After installation, nvim will need to be restarted to run correctly with
+#   all plugins. use :checkhealth after restart to verify everything is happy
 # - If it's been a while since this file was updated, versions of any manually
 #   downloaded programs should be checked and updated as needed (node, rg, etc.)
 # TESTED ON: Ubuntu 20.04
@@ -48,9 +47,13 @@ alias pip='python -m pip'
 pip install --upgrade pip
 
 # install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh) --unattended"
+# copy config files
 ln -sf $PATH_TO_DOT_FILES/.zshrc $HOME/.zshrc
 ln -sf $PATH_TO_DOT_FILES/.zshenv $HOME/.zshenv
+# and change zsh to default. the install script can do this too, but only
+# interactively
+type zsh | awk '{print $3}' | xargs -I{} sudo chsh -s {} $USER
 
 # install custom zsh theme
 ln -s $PATH_TO_DOT_FILES/avit.zsh-theme $HOME/.oh-my-zsh/custom/themes/avit.zsh-theme
