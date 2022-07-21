@@ -147,6 +147,9 @@ go mod init tmp
 go get mvdan.cc/sh/cmd/shfmt
 popd
 
+# install rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
 # install bat. per https://askubuntu.com/a/1300824/1014459, on 20.04 this needs
 # some special magic
 sudo apt-get -y install -o Dpkg::Options::="--force-overwrite" bat
