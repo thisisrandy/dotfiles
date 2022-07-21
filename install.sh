@@ -12,6 +12,13 @@
 #   sometimes takes two tries to get it to ask for authentication. If auth
 #   fails, just try again and it should work
 # TESTED ON: Ubuntu 20.04
+
+if [ $USER = root ]; then
+    echo This script should not be run as root.
+    echo Please run it normally and priviledges will be escalated as needed
+    exit 1
+fi
+
 set -x
 
 # this will be used in several places
