@@ -3,3 +3,4 @@
 # non-interactive shell e.g. inside vim
 
 alias clip="xclip -selection clipboard"
+. "$HOME/.cargo/env"
