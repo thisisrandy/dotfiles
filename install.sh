@@ -237,6 +237,8 @@ sudo make install
 sudo make setuid
 popd
 popd
+# configuration
+perl -pi -e 's/(update_ms = )\d+/${1}1000/' ~/.config/btop/btop.conf
 # finally, create an application so we can launch from the activities menu
 # UPDATE: btop appears to do this on its own these days. we'll leave this
 # commented for reference
