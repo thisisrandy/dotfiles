@@ -37,12 +37,9 @@ This isn't included in [install.sh](install.sh) in case it's desirable behavior.
 
 #### Backup via Timeshift
 
-```
-sudo apt-get install timeshift
-```
-
-Open the Timeshift application and set up as appropriate. Boot + daily
-snapshots seem appropriate.
+Timeshift is automatically installed but needs to be configured. Open the
+Timeshift application and set up as appropriate. Boot + daily snapshots seem
+appropriate.
 
 ## Mounting external RAID member HDDs
 
