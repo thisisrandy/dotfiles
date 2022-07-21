@@ -289,3 +289,12 @@ sudo snap install spotify gimp
 
 # vs code extensions
 ./vscode-install-extensions.sh
+
+# install veracrypt
+pushd $(mktemp -d)
+sudo apt-get install libwxgtk3.0-gtk3-0v5 libayatana-appindicator3-1
+sudo apt -y --fix-broken install
+wget https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-Debian-11-amd64.deb
+sudo dpkg -i veracrypt-1.25.9-Debian-11-amd64.deb
+popd
+
