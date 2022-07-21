@@ -285,3 +285,5 @@ sudo apt-get install timeshift
 sudo snap install code --classic
 sudo snap install spotify gimp
 
+# vs code extensions
+./vscode-install-extensions.sh

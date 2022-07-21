@@ -7,7 +7,9 @@ Various dotfiles, associated scripts and cheatsheets as well as installation scr
 1. Run [install.sh](install.sh) after updating any explicitly-specified
    versions
 2. Run [zsh-install.sh](zsh-install.sh) as specified in its USAGE.
-3. Run [vscode-install-extensions.sh](vscode-install-extensions.sh)
+
+Note that [vscode-install-extensions.sh](vscode-install-extensions.sh) is run
+automatically after VS Code is installed.
 
 ### Manual Steps
 
