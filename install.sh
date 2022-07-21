@@ -63,9 +63,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 # copy config files
 ln -sf $PATH_TO_DOT_FILES/.zshrc $HOME/.zshrc
 ln -sf $PATH_TO_DOT_FILES/.zshenv $HOME/.zshenv
-# and change zsh to default. the install script can do this too, but only
+# change zsh to default. the install script can do this too, but only
 # interactively
 type zsh | awk '{print $3}' | xargs -I{} sudo chsh -s {} $USER
+# and then run zsh-install for any additional steps in the oh-my-zsh context
+./zsh-install.sh
 
 # install custom zsh theme
 ln -s $PATH_TO_DOT_FILES/avit.zsh-theme $HOME/.oh-my-zsh/custom/themes/avit.zsh-theme
