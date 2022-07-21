@@ -281,7 +281,7 @@ ln -s ~/.local/standalone/Zotero_linux-x86_64/zotero.desktop ~/.local/share/appl
 popd
 
 # install timeshift
-sudo apt-get install timeshift
+sudo apt-get -y install timeshift
 
 # snaps
 sudo snap install code --classic
@@ -292,7 +292,7 @@ sudo snap install spotify gimp vlc
 
 # install veracrypt
 pushd $(mktemp -d)
-sudo apt-get install libwxgtk3.0-gtk3-0v5 libayatana-appindicator3-1
+sudo apt-get -y install libwxgtk3.0-gtk3-0v5 libayatana-appindicator3-1
 sudo apt -y --fix-broken install
 wget https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-Debian-11-amd64.deb
 sudo dpkg -i veracrypt-1.25.9-Debian-11-amd64.deb
