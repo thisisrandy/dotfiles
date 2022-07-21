@@ -6,10 +6,8 @@ Various dotfiles, associated scripts and cheatsheets as well as installation scr
 
 1. Run [install.sh](install.sh) after updating any explicitly-specified
    versions
-2. Run [gnome-stuff.sh](gnome-stuff.sh) and read notes for additional manual
-   steps
-3. Run [zsh-install.sh](zsh-install.sh) as specified in its USAGE.
-4. Run [vscode-install-extensions.sh](vscode-install-extensions.sh)
+2. Run [zsh-install.sh](zsh-install.sh) as specified in its USAGE.
+3. Run [vscode-install-extensions.sh](vscode-install-extensions.sh)
 
 ### Manual Steps
 
@@ -40,6 +38,31 @@ This isn't included in [install.sh](install.sh) in case it's desirable behavior.
 Timeshift is automatically installed but needs to be configured. Open the
 Timeshift application and set up as appropriate. Boot + daily snapshots seem
 appropriate.
+
+#### Gnome
+
+Peruse Tweaks and make changes as desired. In particular:
+
+- Extensions -> Desktop icons -> Settings: All off
+- Keyboard & Mouse -> Mouse -> Pointer Location: On
+- Top Bar -> Clock/Calendar: All on
+- Workspaces -> Display Handing: Workspaces span displays
+
+#### Windows dual-boot
+
+If the system is dual boot with windows, run this
+[source](https://www.howtogeek.com/323390/how-to-fix-windows-and-linux-showing-different-times-when-dual-booting/)
+to fix windows time going awry everytime linux is booted:
+
+```
+timedatectl set-local-rtc 1 --adjust-system-clock
+```
+
+In reverse:
+
+```
+timedatectl set-local-rtc 0 --adjust-system-clock
+```
 
 ## Mounting external RAID member HDDs
 
