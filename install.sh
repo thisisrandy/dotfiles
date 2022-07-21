@@ -265,3 +265,7 @@ ln -s ~/.local/standalone/Zotero_linux-x86_64/zotero ~/.local/bin/
 ln -s ~/.local/standalone/Zotero_linux-x86_64/zotero.desktop ~/.local/share/applications/
 popd
 
+# snaps
+sudo snap install code --classic
+sudo snap install spotify gimp
+

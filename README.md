@@ -9,7 +9,7 @@ Various dotfiles, associated scripts and cheatsheets as well as installation scr
 2. Run [gnome-stuff.sh](gnome-stuff.sh) and read notes for additional manual
    steps
 3. Run [zsh-install.sh](zsh-install.sh) as specified in its USAGE.
-4. Once VSCode is installed, run [vscode-install-extensions.sh](vscode-install-extensions.sh)
+4. Run [vscode-install-extensions.sh](vscode-install-extensions.sh)
 
 ### Manual Steps
 
