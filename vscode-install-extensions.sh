@@ -1,4 +1,4 @@
-#/usr/bin/env bash
+#!/usr/bin/env bash
 # Programmatically install VSCode extensions that I might otherwise
 # forget about (not automatically recommended)
 
