@@ -165,7 +165,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 sudo apt-get -y install -o Dpkg::Options::="--force-overwrite" bat
 # per https://github.com/sharkdp/bat#on-ubuntu-using-apt, bat might be installed
 # as batcat. set up a symlink so fzf can use it as bat
-ln -s /usr/bin/batcat ~/.local/bin/bat
+command -v bat || ln -s /usr/bin/batcat ~/.local/bin/bat
 # and extras
 pushd $(mktemp -d)
 curl -LO https://github.com/eth-p/bat-extras/archive/master.zip
