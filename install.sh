@@ -57,6 +57,8 @@ pyenv global $PYTHON_LATEST
 alias pip='python -m pip'
 # make sure that pip is up-to-date
 pip install --upgrade pip
+# then install some useful packages
+pip install --user pynvim black tqdm jupytext csvkit ipython numpy matplotlib
 
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh) --unattended"
@@ -120,21 +122,6 @@ gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profi
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ scrollbar-policy never
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ audible-bell false
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ use-theme-colors false
-
-# install pynvim
-pip install --user pynvim
-
-# install black
-pip install black --user
-
-# install tqdm
-pip install tqdm --user
-
-# install jupytext for jupytext.vim
-pip install jupytext --user
-
-# install csvkit
-pip install csvkit --user
 
 # install universal-ctags (for tagbar)
 sudo snap install universal-ctags
