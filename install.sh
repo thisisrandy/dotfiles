@@ -11,6 +11,7 @@
 # - For unknown reasons, after the github credential manager is installed, it
 #   sometimes takes two tries to get it to ask for authentication. If auth
 #   fails, just try again and it should work
+# - Handbrake is not available until after a system restart
 # TESTED ON: Ubuntu 20.04
 
 if [ $USER = root ]; then
@@ -283,5 +284,13 @@ sudo apt-get -y install libwxgtk3.0-gtk3-0v5 libayatana-appindicator3-1
 sudo apt -y --fix-broken install
 wget https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-Debian-11-amd64.deb
 sudo dpkg -i veracrypt-1.25.9-Debian-11-amd64.deb
+popd
+
+# install handbrake
+push $(mktemp -d)
+sudo apt -y install flatpak
+sudo apt -y install gnome-software-plugin-flatpak
+wget https://dl.flathub.org/repo/appstream/fr.handbrake.ghb.flatpakref
+sudo flatpak install -y fr.handbrake.ghb.flatpakref
 popd
 
