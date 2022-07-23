@@ -41,14 +41,19 @@ Timeshift is automatically installed but needs to be configured. Open the
 Timeshift application and set up as appropriate. Boot + daily snapshots seem
 appropriate.
 
-#### Gnome
+#### Gnome Tweaks
 
-Peruse Tweaks and make changes as desired. In particular:
+All tweaks are automatically set via `gsettings` during installation. If
+desired, additional customization can be performed via the Tweaks interface or
+`gsettings`. Here is a convenient one-liner for listing available settings into
+a searchable file:
 
-- Extensions -> Desktop icons -> Settings: All off
-- Keyboard & Mouse -> Mouse -> Pointer Location: On
-- Top Bar -> Clock/Calendar: All on
-- Workspaces -> Display Handing: Workspaces span displays
+```
+gsettings list-schemas | \
+   perl -ne 'print; chomp; $schema = $_; for my $key (`gsettings list-keys $schema`) { \
+   print "  $key"; for my $rangeItem (`gsettings range $schema $key`) { \
+   print "    $rangeItem" } }' > all-gsettings.txt
+```
 
 #### Windows dual-boot
 
