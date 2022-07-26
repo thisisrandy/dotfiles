@@ -203,6 +203,14 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 """ vim-airline
 
 let g:airline_powerline_fonts = 1
+" this is set to : by default. e0a3 is a codepoint in the block "Private Use
+" Area," which is for custom codepoints. possibly it's defined in one version
+" of the powerline fonts but not the one I'm using or something. whatever the
+" case, the easiest fix is to just remove it
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.colnr = ':'
 
 """ NERDcommenter
 
