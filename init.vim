@@ -285,7 +285,9 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gn <Plug>(coc-diagnostic-next)
 nmap <silent> gp <Plug>(coc-diagnostic-prev)
-nmap <silent> ge <Plug>(coc-diagnostic-next-error)
+" I never use this (gn & gp are sufficient), and it shadows a mapping that I
+" care about (end of previous word), so remove it for now
+" nmap <silent> ge <Plug>(coc-diagnostic-next-error)
 
 " Use K to show documentation in preview window. also gh to match VSCode
 nnoremap <silent> K :call <SID>show_documentation()<CR>
