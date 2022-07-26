@@ -100,6 +100,11 @@ gets us through to the win. In particular:
 
 1. Launch the client, then go to Properties -> Devices & Shares -> Folder Shares and add a folder
 2. On the client, install `spice-webdavd`, then run `sudo spice-webdavd -p 10000`. "Spice client folder" should now be available from the "Other Locations" menu in Files
+3. Sometimes when attempting to open the Spice client folder, it will error
+   with "HTTP error: Could not connect: Connection refused". Per [this
+   discussion](https://github.com/utmapp/UTM/discussions/3917), installing the
+   rest of the spice packages via `sudo apt-get install spice-*` fixes the
+   issue, though it's unclear precisely why
 
 ### Migrating a VM to another host
 
