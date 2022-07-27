@@ -105,19 +105,18 @@ sudo apt-get -y update && sudo apt-get -y install yarn
 sudo apt-get -y install clangd-9
 sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-9 100
 
-# install powerline fonts that work with vscode. see
-# https://dev.to/mattstratton/making-powerline-work-in-visual-studio-code-terminal-1m7.
-# will need to restart X for this to work
-wget https://github.com/abertsch/Menlo-for-Powerline/raw/master/Menlo%20for%20Powerline.ttf
+# install powerline fonts that work with vscode. chosen from the selection at
+# https://github.com/ryanoasis/nerd-fonts
+wget https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/UbuntuMono/Regular/complete/Ubuntu%20Mono%20Nerd%20Font%20Complete%20Mono.ttf
 mkdir -p ~/.local/share/fonts
-mv -f 'Menlo for Powerline.ttf' ~/.local/share/fonts/
+mv -f 'Ubuntu Mono Nerd Font Complete Mono.ttf' ~/.local/share/fonts/
 sudo fc-cache -vf ~/.local/share/fonts/
 # then, the terminal needs to be set to use it. per
 # https://ncona.com/2019/11/configuring-gnome-terminal-programmatically/, we
 # can do this programmatically
 GNOME_TERMINAL_PROFILE=`gsettings get org.gnome.Terminal.ProfilesList default | \
     awk -F \' '{print $2}'`
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ font 'Menlo for Powerline Regular 11'
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ font 'UbuntuMono Nerd Font Mono Regular 12'
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ use-system-font false
 
 # we can also take the opportunity to set a few other settings

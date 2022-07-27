@@ -269,7 +269,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.minimap.enabled": false,
-  "terminal.integrated.fontFamily": "Menlo for Powerline",
+  "terminal.integrated.fontFamily": "UbuntuMono Nerd Font Mono",
+  "terminal.integrated.fontSize": 16,
   "python.dataScience.sendSelectionToInteractiveWindow": true,
   "python.dataScience.askForKernelRestart": false,
   "[python]": {
