@@ -131,6 +131,9 @@ gsettings set org.gnome.desktop.interface clock-show-seconds true
 gsettings set org.gnome.mutter workspaces-only-on-primary false
 gsettings set org.gnome.shell.extensions.desktop-icons show-trash false
 gsettings set org.gnome.shell.extensions.desktop-icons show-home false
+gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
+gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic true
+gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature 4700 # the least warm possible
 
 # install universal-ctags (for tagbar)
 sudo snap install universal-ctags
