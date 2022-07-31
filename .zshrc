@@ -252,6 +252,7 @@ else
     source /usr/share/doc/fzf/examples/completion.zsh
 fi
 
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
 # start tmux if conditions met. see
 # https://unix.stackexchange.com/a/113768/460319 and

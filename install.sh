@@ -296,6 +296,14 @@ wget https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-Deb
 sudo dpkg -i veracrypt-1.25.9-Debian-11-amd64.deb
 popd
 
+# install haskell
+export BOOTSTRAP_HASKELL_NONINTERACTIVE=1;
+export BOOTSTRAP_HASKELL_INSTALL_STACK=1;
+export BOOTSTRAP_HASKELL_INSTALL_HLS=1;
+# .zshrc already contains the relevant line
+# export BOOTSTRAP_HASKELL_ADJUST_BASHRC=1;
+curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+
 # install handbrake
 push $(mktemp -d)
 sudo apt -y install flatpak
