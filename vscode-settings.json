@@ -319,5 +319,6 @@
     "statusBar.debuggingBackground": "#d4c528",
     "statusBar.foreground": "#303030",
     "statusBar.debuggingForeground": "#303030"
-  }
+  },
+  "haskell.manageHLS": "GHCup"
 }
