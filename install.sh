@@ -59,6 +59,7 @@ alias pip='python -m pip'
 # make sure that pip is up-to-date
 pip install --upgrade pip
 # then install some useful packages
+pip install --user wheel
 pip install --user black tqdm jupytext csvkit ipython numpy matplotlib
 
 # install oh-my-zsh
