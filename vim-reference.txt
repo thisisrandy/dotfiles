@@ -160,7 +160,8 @@ z= - get suggestions for word under cursor
 ## Macros
 
 q{0-9a-zA-Z"} - record a macro into the specified register, pressing q again to cease recording
-@{0-9a-zA-Z"} - play back the macro recording into the specified register
+@{0-9a-zA-Z"} - play back the macro recording in the specified register
+@@ - play back the last executed macro
 
 ## coc.vim
 
