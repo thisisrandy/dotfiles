@@ -19,7 +19,7 @@ if [ $USER = root ]; then
     echo Please run it normally and priviledges will be escalated as needed
     exit 1
 fi
-
+insta
 set -x
 
 # this will be used in several places
@@ -126,13 +126,6 @@ gsettings set org.gnome.shell.extensions.desktop-icons show-home false
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
 gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic true
 gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature 4700 # the least warm possible
-
-# install universal-ctags (for tagbar)
-sudo snap install universal-ctags
-# this line is necessary because of
-# https://github.com/universal-ctags/ctags-snap/issues/4
-# (shouldn't be in the future)
-sudo snap connect universal-ctags:dot-ctags
 
 # install go
 pushd $(mktemp -d)

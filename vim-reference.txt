@@ -269,12 +269,6 @@ f - type a single to find, then type the appropriate label or ESC
 :%DB ... - execute current buffer. Similar for visual mode
 :DB ... < file - run file
 
-## tagbar (currently unused)
-
-<F8> - toggle tagbar
-<F9> - open and focus on tagbar, then auto close after tag selected
-<C-t> - same as <F9>, but start a fuzzy search. useful for quickly jumping to functions
-
 ## vim-windowswap
 
 <leader>ww in current pane, <leader>ww in swap to pane to swap

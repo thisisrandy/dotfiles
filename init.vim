@@ -123,14 +123,10 @@ Plug 'jackguo380/vim-lsp-cxx-highlight' " depends on coc
 Plug 'shougo/denite.nvim', { 'do': function('UpdateRemotePlugins') }
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-dadbod'
-" tagbar seems to be useless for most languages. replaced with :CocOutline for
-" now
-" Plug 'majutsushi/tagbar'
 Plug 'cohama/lexima.vim'
 Plug 'wesQ3/vim-windowswap'
 Plug 'jremmen/vim-ripgrep'
 Plug 'alvan/vim-closetag'
-" Plug 'semanser/vim-outdated-plugins'
 Plug 'thisisrandy/vim-outdated-plugins', { 'do': function('UpdateRemotePlugins') }
 Plug 'ggVGc/vim-fuzzysearch'
 Plug 'google/vim-maktaba' " vim-codefmt requirement
