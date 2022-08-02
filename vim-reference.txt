@@ -309,3 +309,7 @@ cst<[tag] - special case to preserve tag attributes, as opposed to cst<[tag]>,
 :MarkDownStopPreview - stop previewing (stops automatically when the buffer
                        loses focus or is closed)
 
+## vim-numbertoggle
+
+Holding Ctrl in normal mode shows absolute line numbers
+
