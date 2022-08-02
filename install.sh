@@ -59,7 +59,7 @@ alias pip='python -m pip'
 # make sure that pip is up-to-date
 pip install --upgrade pip
 # then install some useful packages
-pip install --user pynvim black tqdm jupytext csvkit ipython numpy matplotlib
+pip install --user black tqdm jupytext csvkit ipython numpy matplotlib
 
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh) --unattended"
@@ -187,7 +187,14 @@ ln -sf $PATH_TO_DOT_FILES/init.vim $HOME/.config/nvim/init.vim
 ln -sf $PATH_TO_DOT_FILES/noplug.init.vim $HOME/.config/nvim/noplug.init.vim
 ln -sf $PATH_TO_DOT_FILES/coc-settings.json $HOME/.config/nvim/coc-settings.json
 yarn global add neovim
+# create a virtual env specifically for nvim and install the relevant packages
+# in it. init.vim must specify g:python3_host_prog pointing to bin/python in
+# the vevn
+pyenv virtualenv $PYTHON_LATEST neovim
+pyenv activate neovim
+pip install wheel
 pip install neovim
+pyenv deactivate
 
 # install VS code settings
 mkdir -p $HOME/.config/Code/User

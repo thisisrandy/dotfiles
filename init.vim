@@ -72,6 +72,10 @@
 " jupytext.vim requires that jupytext be installed
 " > pip install jupytext
 
+" this virtualenv must of course exist and have the neovim package installed
+" in it. install.sh takes care of that
+let g:python3_host_prog = '~/.pyenv/versions/neovim/bin/python'
+
 " note that runtime rather than source is used because it doesn't require an
 " absolute path (source does, and thus is less portable)
 runtime noplug.init.vim
