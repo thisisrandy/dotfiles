@@ -174,7 +174,8 @@ gp - go to previous diagnostic message
 ge - go to next error position, i.e. skip warnings, etc.
   ^ this is turned off because it shadows the default ge mapping and was never
   | being used anyways
-K - show documentation
+gh / K - show documentation
+<C-w>w / <C-w><C-w> - focus on popup for scrolling
 F2 - rename current word
 <leader>b - format buffer
 <leader>co - show commands
