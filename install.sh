@@ -205,6 +205,7 @@ sudo usermod -aG docker $USER
 
 # install poetry
 curl -sSL https://install.python-poetry.org/ | python -
+poetry config virtualenvs.in-project true
 
 # increase default number of file watchers (for webpack, see
 # https://github.com/webpack/docs/wiki/troubleshooting#not-enough-watchers)
