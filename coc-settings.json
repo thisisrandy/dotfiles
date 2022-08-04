@@ -1,5 +1,4 @@
 {
-  "prettier.eslintIntegration": true,
   "html.suggest.html5": true,
   "python.formatting.provider": "black",
   "python.analysis.typeCheckingMode": "basic",
