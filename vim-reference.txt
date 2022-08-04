@@ -165,6 +165,8 @@ q{0-9a-zA-Z"} - record a macro into the specified register, pressing q again to 
 
 ## coc.vim
 
+To use project-specific settings, specifiy them in <PROJECT DIR>/.vim/coc-settings.json
+
 gd - go to definition
 gt - go to type definition
 gi - go to implementation
