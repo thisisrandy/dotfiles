@@ -29,7 +29,9 @@ mkdir -p ~/.local/bin
 sudo ubuntu-drivers autoinstall
 sudo prime-select nvidia
 
-# create softlinks to all of the dot files in script directory
+# we'll be creating softlinks in various locations to several files in the
+# script directory. per e.g. https://stackoverflow.com/a/246128/12162258, this
+# captures said directory
 PATH_TO_DOT_FILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # install curl, git, zsh...
