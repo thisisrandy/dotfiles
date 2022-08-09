@@ -26,6 +26,9 @@ inoremap <C-v> <C-o>P
 " map to execute the current line
 nmap <F6> :exec '!'.getline('.')
 
+" add an extra line for messages
+set cmdheight=2
+
 " turn down timeoutlen (defaults to 1000)
 set timeoutlen=500
 

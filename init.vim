@@ -243,9 +243,6 @@ autocmd BufNewFile,BufRead *.tsx set ft=typescript.jsx
 set nobackup
 set nowritebackup
 
-" Better display for messages
-set cmdheight=2
-
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=200
 
