@@ -137,7 +137,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'airblade/vim-gitgutter'
-Plug 'thisisrandy/vim-numbertoggle', { 'branch': 'main' }
+Plug 'jeffkreeftmeijer/vim-numbertoggle', { 'branch': 'main' }
 Plug 'tpope/vim-surround'
 " NOTE: requires nodejs and yarn to be installed
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
