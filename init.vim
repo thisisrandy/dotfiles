@@ -204,6 +204,14 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 """ vim-airline
 
 let g:airline_powerline_fonts = 1
+" the nice powerline colnr symbol was removed in
+" https://github.com/vim-airline/vim-airline/commit/aee282c964060fdba9ad7f8d2f22973c4549cd9a
+" and replaced with the care of symbol (\u2105). my font definitely includes
+" \ue0a3, so override with the old symbol
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.colnr = ' :'
 
 """ NERDcommenter
 
