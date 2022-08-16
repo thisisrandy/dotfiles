@@ -82,6 +82,9 @@ zt - "                      " top    "           "
 zb - "                      " bottom "           "
 C-y - move screen up one line
 C-e - move screen down one line
+C-q - enter character code in insert mode. e.g for unicode, uXXXX where XXXX is
+      the character's hex value. this is also normally mapped to C-v, but I
+      have that remapped to paste
 
 ## Marks
 
