@@ -37,6 +37,8 @@ C-k z - Enter zen mode
        a new group
     given these issues, C-p is generally more intuitive if multiple groups
     are open
+A-S-right/left - right expands the selection (words, bracket contents, blocks,
+                 functions, etc.) and left shrinks it
 
 ## Explorer
 
