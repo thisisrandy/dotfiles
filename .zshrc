@@ -155,6 +155,9 @@ alias pip='python -m pip'
 alias venv="source .venv/bin/activate"
 alias mr="pip freeze | grep -v pkg-resources > requirements.txt"
 alias ip='ip -c'
+# swap zsh l and la (I prefer ls -lAh as my min keystroke alias)
+alias l='ls -lAh'
+alias la='ls -lah'
 
 # vi mode
 
