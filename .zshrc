@@ -261,10 +261,19 @@ if command -v tmux &> /dev/null \
    && [[ ! "$TERM" =~ tmux ]] \
    && [ -z "$TMUX" ] \
    && ! pstree -s $$ | grep -Ewq "code|n?vim"; then
-    if [[ -n $(pgrep tmux) ]]; then
-        exec tmux attach
-    else
-        exec tmux new -s default
-    fi
+    # previously I had this set up to attach any existing session, but there
+    # are good reasons to want multiple terminal windows with distinct sessions
+    # open sometimes, e.g. in different workspaces
+
+    # if [[ -n $(pgrep tmux) ]]; then
+    #     exec tmux attach
+    # else
+    #     exec tmux new -s default
+    # fi
+
+    # instead, we can start a new, randomly-named session for every window.
+    # other sessions can always be freely attached, ended, switched between,
+    # etc. using standard methods
+    exec tmux new -s "default$RANDOM"
 fi
 
