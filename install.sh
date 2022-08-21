@@ -19,7 +19,6 @@ if [ $USER = root ]; then
     echo Please run it normally and priviledges will be escalated as needed
     exit 1
 fi
-insta
 set -x
 
 # this will be used in several places
