@@ -21,7 +21,7 @@ cmap jk <Esc>
 map Y y$
 
 " paste in insert mode
-inoremap <C-v> <C-o>P
+inoremap <C-v> <Cmd>norm P<CR>
 
 " map to execute the current line
 nmap <F6> :exec '!'.getline('.')
@@ -160,7 +160,7 @@ endfu
 " rebind <Home> to ^ (first non-whitespace character)
 nmap <Home> ^
 vmap <Home> ^
-imap <Home> <C-o>^
+imap <Home> <Cmd>norm ^<CR>
 
 " make line wrapping nicer. off by default
 set nowrap
@@ -192,10 +192,10 @@ function ToggleWrap()
     noremap  <buffer> <silent> <Down> gj
     noremap  <buffer> <silent> <Home> g^
     noremap  <buffer> <silent> <End>  g<End>
-    inoremap <buffer> <silent> <Up>   <C-o>gk
-    inoremap <buffer> <silent> <Down> <C-o>gj
-    inoremap <buffer> <silent> <Home> <C-o>g<Home>
-    inoremap <buffer> <silent> <End>  <C-o>g<End>
+    inoremap <buffer> <silent> <Up>   <Cmd>norm gk<CR>
+    inoremap <buffer> <silent> <Down> <Cmd>norm gj<CR>
+    inoremap <buffer> <silent> <Home> <Cmd>norm g^<CR>
+    inoremap <buffer> <silent> <End>  <Cmd>norm g$<CR>
   endif
 endfunction
 
@@ -214,7 +214,7 @@ autocmd TermOpen * startinsert
 autocmd BufWritePre * :%s/\s\+$//e
 
 " save in insert mode
-inoremap <C-s> <C-o>:w<CR>
+inoremap <C-s> <Cmd>w<CR>
 
 " mappings to cut and paste into the "black hole register"
 nnoremap <leader>d "_d

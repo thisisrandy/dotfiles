@@ -230,7 +230,7 @@ let g:NERDTrimTrailingWhitespace = 1
 " Remap toggle comment. Note that _ is actually /. No idea why, but it is
 nnoremap <C-_> :call nerdcommenter#Comment(0,"toggle")<CR>
 vnoremap <C-_> :call nerdcommenter#Comment(0,"toggle")<CR>
-inoremap <C-_> <C-o>:call nerdcommenter#Comment(0,"toggle")<CR>
+inoremap <C-_> <Cmd>call nerdcommenter#Comment(0,"toggle")<CR>
 
 """ coc.nvim
 
