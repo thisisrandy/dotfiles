@@ -23,6 +23,9 @@ map Y y$
 " paste in insert mode
 inoremap <C-v> <Cmd>norm P<CR>
 
+" undo in insert mode
+inoremap <C-z> <Cmd>norm u<CR>
+
 " map to execute the current line
 nmap <F6> :exec '!'.getline('.')
 
