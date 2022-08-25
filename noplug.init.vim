@@ -227,3 +227,6 @@ xnoremap <leader>p "_dP
 " toggle relative line numbers in the gutter
 :nnoremap <silent> <C-l> :set relativenumber!<cr>
 
+" close all quickfix and location lists. the mapping is the same as close
+" panel in VSCode
+nnoremap <silent> <C-j> :windo lcl\|ccl<CR>

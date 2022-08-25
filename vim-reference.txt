@@ -74,6 +74,9 @@ C-S-arrow - resize window. not this is not placement aware, so up = +,
             down = -, right = +, left = - regardless of window position
 :copen - open the quickfix window
 :cclose - close the quickfix window
+:lopen - open the location list
+:lclose - close the location list
+C-j - close all quickfix and location lists
 gq - rebalance text to textwidth
 F6 - execute current line in the shell
 C-a - increment the number under the cursor
