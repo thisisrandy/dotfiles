@@ -20,8 +20,8 @@ cmap jk <Esc>
 " remap Y
 map Y y$
 
-" paste in insert mode
-inoremap <C-v> <Cmd>norm P<CR>
+" paste from the system clipboard in insert mode
+inoremap <C-v> <C-r>+
 
 " undo in insert mode
 inoremap <C-z> <Cmd>norm u<CR>
