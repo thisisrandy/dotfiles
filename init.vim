@@ -244,9 +244,14 @@ let g:coc_global_extensions=["coc-json", "coc-eslint", "coc-tsserver",
 " correct comment highlighting for config file
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
-" make sure jsx files are correctly mapped
-autocmd BufNewFile,BufRead *.jsx set ft=javascript.jsx
-autocmd BufNewFile,BufRead *.tsx set ft=typescript.jsx
+" make sure jsx files are correctly mapped. this was added in 200f7598, but
+" I'm unable currently to find any justification for it. in fact, it breaks
+" color schemes under some conditions involving template literals. possibly
+" the need for it has been obviated by improvements to coc. commenting out but
+" leaving in to address the possibility that the utility of these autocommands
+" is rediscovered later on
+" autocmd BufNewFile,BufRead *.jsx set ft=javascript.jsx
+" autocmd BufNewFile,BufRead *.tsx set ft=typescript.jsx
 
 " Some servers have issues with backup files, see #649
 set nobackup
