@@ -134,8 +134,6 @@ Plug 'google/vim-glaive' " vim-codefmt requirement
 Plug 'google/vim-codefmt'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sheerun/vim-polyglot'
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
 Plug 'airblade/vim-gitgutter'
 Plug 'jeffkreeftmeijer/vim-numbertoggle', { 'branch': 'main' }
 Plug 'tpope/vim-surround'
@@ -238,8 +236,8 @@ inoremap <C-_> <Cmd>call nerdcommenter#Comment(0,"toggle")<CR>
 let g:coc_global_extensions=["coc-json", "coc-eslint", "coc-tsserver",
   \ "coc-snippets", "coc-html", "coc-css", "coc-pyright", "coc-java",
   \ "coc-highlight", "coc-yank", "coc-omnisharp", "coc-emmet",
-  \ "coc-lists", "coc-marketplace", "coc-neosnippet", "coc-prettier",
-  \ "coc-clangd", "coc-cmake", "coc-xml", "coc-rls" ]
+  \ "coc-lists", "coc-marketplace", "coc-prettier", "coc-clangd",
+  \ "coc-cmake", "coc-xml", "coc-rls" ]
 
 " correct comment highlighting for config file
 autocmd FileType json syntax match Comment +\/\/.\+$+
