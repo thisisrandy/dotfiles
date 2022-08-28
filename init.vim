@@ -114,6 +114,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jnurmine/Zenburn'
+Plug 'EdenEast/nightfox.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
@@ -168,9 +169,8 @@ endif
 
 """ colorscheme
 
-" dracula and zenburn both nice, at least for python
-" colorscheme dracula
-colorscheme zenburn
+" colorscheme zenburn
+colorscheme nightfox
 
 """ FuzzySearch
 
