@@ -115,6 +115,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jnurmine/Zenburn'
 Plug 'EdenEast/nightfox.nvim'
+Plug 'ellisonleao/gruvbox.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
@@ -170,7 +171,8 @@ endif
 """ colorscheme
 
 " colorscheme zenburn
-colorscheme nightfox
+" colorscheme nightfox
+colorscheme gruvbox
 
 """ FuzzySearch
 
