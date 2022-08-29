@@ -330,6 +330,8 @@ nmap <F2> <Plug>(coc-rename)
 " after the search is performed, so we'll have to be satisfied with just
 " opening the outline for now
 nmap <C-t> :CocOutline<CR>
+" make the outline close itself once it's no longer in focus
+autocmd BufLeave CocTree1 q
 
 " Remap for format selected region
 " I never use these, and considering that I'd need to set them up with the
