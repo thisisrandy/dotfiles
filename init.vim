@@ -231,6 +231,12 @@ let g:NERDTrimTrailingWhitespace = 1
 nnoremap <C-_> :call nerdcommenter#Comment(0,"toggle")<CR>
 vnoremap <C-_> :call nerdcommenter#Comment(0,"toggle")<CR>
 inoremap <C-_> <Cmd>call nerdcommenter#Comment(0,"toggle")<CR>
+" Custom delimiters for [JT]SX commenting. Switch to alt using <leader>ca
+" (mnemonic: comment alt)
+let g:NERDCustomDelimiters={
+    \ 'javascriptreact': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
+    \ 'typescriptreact': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
+    \}
 
 """ coc.nvim
 
