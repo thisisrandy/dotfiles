@@ -20,8 +20,15 @@ cmap jk <Esc>
 " remap Y
 map Y y$
 
-" paste from the system clipboard in insert mode
-inoremap <C-v> <C-r>+
+" paste from the clipboard in insert mode. I've tried this variously as
+" <Cmd>norm P<CR>, which ends up with the cursor either one character before
+" the end of the pasted text (single-line yank) or at the beginning of the
+" pasted text (multi-line), and <C-r>+, which seems to add text line by line,
+" resulting in extra indentation and the commenting of subsequent lines if a
+" previous line was commented. as noted elsewhere, this method switches modes,
+" which can be annoying and slow with mode switch autocmds, but it does at
+" least do what I expect vis-a-vis pasting
+inoremap <C-v> <C-o>P
 
 " undo in insert mode
 inoremap <C-z> <Cmd>norm u<CR>
