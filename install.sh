@@ -83,8 +83,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 # install .tmux. it's a good idea to sync with gpakosz/.tmux before installing
 pushd ~
 git clone https://github.com/thisisrandy/.tmux.git
-ln -s -f .tmux/.tmux.conf
-cp .tmux/.tmux.conf.local .
+ln -s -f .tmux/.tmux.conf .tmux/.tmux.conf.local .
 popd
 
 # install node/yarn
