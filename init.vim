@@ -7,6 +7,10 @@
 "
 " Run install.sh to attempt to set everything up automatically
 "
+" NOTE: I don't maintain the notes below anymore. Some of them are still
+" useful if one is wondering why something is included in install.sh, but
+" others are obsolete or refer to plugins I no longer use.
+"
 " Curl is required to automatically install Plug
 " > sudo apt-get install curl
 "
