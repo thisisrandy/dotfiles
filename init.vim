@@ -132,7 +132,6 @@ Plug 'cohama/lexima.vim'
 Plug 'wesQ3/vim-windowswap'
 Plug 'alvan/vim-closetag'
 Plug 'thisisrandy/vim-outdated-plugins', { 'do': function('UpdateRemotePlugins') }
-Plug 'ggVGc/vim-fuzzysearch'
 Plug 'google/vim-maktaba' " vim-codefmt requirement
 Plug 'google/vim-glaive' " vim-codefmt requirement
 Plug 'google/vim-codefmt'
@@ -178,11 +177,6 @@ endif
 " colorscheme zenburn
 " colorscheme nightfox
 colorscheme gruvbox
-
-""" FuzzySearch
-
-" \ - use vim-fuzzysearch in normal mode
-nnoremap \ :FuzzySearch<CR>
 
 """ NERDTree
 
