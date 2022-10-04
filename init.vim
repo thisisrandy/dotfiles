@@ -132,9 +132,6 @@ Plug 'cohama/lexima.vim'
 Plug 'wesQ3/vim-windowswap'
 Plug 'alvan/vim-closetag'
 Plug 'thisisrandy/vim-outdated-plugins', { 'do': function('UpdateRemotePlugins') }
-Plug 'google/vim-maktaba' " vim-codefmt requirement
-Plug 'google/vim-glaive' " vim-codefmt requirement
-Plug 'google/vim-codefmt'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sheerun/vim-polyglot'
 Plug 'airblade/vim-gitgutter'
@@ -166,11 +163,6 @@ for key in keys(g:plugs)
     break
   endif
 endfor
-
-" install glaive if it has been loaded
-if has_key(g:plugs, "vim-glaive") && isdirectory(g:plugs["vim-glaive"].dir)
-  call glaive#Install()
-endif
 
 """ colorscheme
 
@@ -348,9 +340,8 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " may be better if I want to do more with this, but a simple hack should
 " suffice for now.
 function RunFormatter()
-  if &ft =~ 'html'
-    " vim-codefmt
-    :FormatCode
+  if &ft =~ 'vim'
+    :exec "norm! gg=G\<C-o>"
   else
     :call CocAction('format')
   endif
@@ -360,7 +351,7 @@ nmap <leader>b :call RunFormatter()<CR>
 
 " Format on save
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.py,*.rs,*.hs :call RunFormatter()
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.py,*.rs,*.hs,*.vim :call RunFormatter()
 
 augroup mygroup
   autocmd!
