@@ -126,12 +126,10 @@ Plug 'tpope/vim-rhubarb'
 Plug 'mtth/scratch.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jackguo380/vim-lsp-cxx-highlight' " depends on coc
-Plug 'shougo/denite.nvim', { 'do': function('UpdateRemotePlugins') }
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-dadbod'
 Plug 'cohama/lexima.vim'
 Plug 'wesQ3/vim-windowswap'
-Plug 'jremmen/vim-ripgrep'
 Plug 'alvan/vim-closetag'
 Plug 'thisisrandy/vim-outdated-plugins', { 'do': function('UpdateRemotePlugins') }
 Plug 'ggVGc/vim-fuzzysearch'
@@ -147,6 +145,9 @@ Plug 'tpope/vim-surround'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'goerz/jupytext.vim'
 Plug 'andymass/vim-matchup'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -333,13 +334,8 @@ endfunction
 " Remap for rename current word
 nmap <F2> <Plug>(coc-rename)
 
-" Map for outline. Note that this is different from my VSCode mapping (C-O)
-" since vim can't detect C-S-most keys, but the same as my VSCode mapping for
-" fuzzy searching tags. Initiating a fuzzy search after this command
-" (currently bound to \) results in the outline window not appearing until
-" after the search is performed, so we'll have to be satisfied with just
-" opening the outline for now
-nmap <C-t> :CocOutline<CR>
+" Map for outline
+nmap <leader>o :CocOutline<CR>
 " make the outline close itself once it's no longer in focus
 autocmd BufLeave CocTree* q
 
@@ -407,117 +403,33 @@ nnoremap <silent> <space>y  :<C-u>CocList --normal yank<cr>
 " hopefully yield a better solution at some point
 nnoremap <silent> <leader>' :exec winnr('$').'wincmd c'<cr>
 
-""" denite
+""" fzf
 
-" Use ripgrep for searching current directory for files
-" By default, ripgrep will respect rules in .gitignore
-"   --files: Print each file that would be searched (but don't search)
-"   --glob:  Include or excludes files for searching that match the given glob
-"            (aka ignore .git files)
-"
-call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git', '--hidden'])
+" From most windows, <C-t> opens in new tab, <C-x> in split, and <C-v> in
+" vertical split
 
-" Use ripgrep in place of "grep"
-call denite#custom#var('grep', 'command', ['rg'])
-
-" Custom options for ripgrep
-"   --vimgrep:  Show results with every match on it's own line
-"   --hidden:   Search hidden directories and files
-"   --heading:  Show the file name above clusters of matches from each file
-"   --S:        Search case insensitively if the pattern is all lowercase
-call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
-
-" Recommended defaults for ripgrep via Denite docs
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
-
-" Remove date from buffer list - I actually don't hate this. Leave it in.
-" call denite#custom#var('buffer', 'date_format', '')
-
-" ;         - Browse currently open buffers (starts in filter mode)
-" <C-p> - Browse list of files in current directory (starts in filter mode)
+" ;         - Browse currently open buffers
+" <C-p> - Browse list of files in current directory
 " <leader>g - Search current directory for occurences of given term and close window if no results
 " <leader>u - Search current directory for occurences of word under cursor
-nmap ; :Denite buffer<CR>i
-nmap <C-p> :DeniteProjectDir file/rec<CR>i
-nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
-nnoremap <leader>u :<C-u>DeniteCursorWord grep:.<CR>
+nnoremap <silent> ; :Buffers<CR>
+nnoremap <silent> <C-p> :Files<CR>
+nnoremap <leader>g :Rg
+nnoremap <silent> <leader>u yiw :Rg <C-r>"<CR>
 
-" Define mappings while in 'filter' mode
-"   <C-o>/jk - Quit filter mode
-"   <C-c>    - Close denite buffer
-"   <Esc>    - Switch to normal mode inside of filter bar (rarely useful)
-"   <CR>     - Open currently selected filter
-"   <C-v>    - "" in vsplit
-"   <C-h>    - "" in split
-"   <C-t>    - "" in new tab
-"   <C-a>    - Toggle select all
-autocmd FileType denite-filter call s:denite_filter_my_settings()
-function! s:denite_filter_my_settings() abort
-  imap <silent><buffer> <C-o>
-  \ <Plug>(denite_filter_update)
-  imap <silent><buffer> jk
-  \ <Plug>(denite_filter_update)
-  imap <silent><buffer> <C-c>
-  \ <Plug>(denite_filter_quit)
-  inoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-  inoremap <silent><buffer><expr> <C-h>
-  \ denite#do_map('do_action', 'split')
-  inoremap <silent><buffer><expr> <C-v>
-  \ denite#do_map('do_action', 'vsplit')
-  inoremap <silent><buffer><expr> <C-t>
-  \ denite#do_map('do_action', 'tabopen')
-  inoremap <silent><buffer><expr> <C-a>
-  \ denite#do_map('toggle_select_all')
-  inoremap <silent><buffer><expr> <C-q>
-  \ denite#do_map('quit')
-endfunction
+" TODO: coc-fzf also provides these, but it's broken. investigate and maybe
+" file a bug
+nnoremap <silent> <leader>s       :<C-u>CocList symbols<CR>
+nnoremap <silent> <leader>l       :<C-u>CocList location<CR>
 
-" Define mappings while in denite window
-"   <CR>            - Opens currently selected file
-"   <C-v>           - "" in vsplit
-"   <C-h>           - "" in split
-"   <C-t>           - "" in new tab
-"   q/<Esc>/;/<C-c> - Quit Denite window
-"   d               - Delete currenly selected file (just the buffer)
-"   p               - Preview currently selected file
-"   <C-o> or i      - Switch to insert mode inside of filter prompt
-"   <C-Space>       - Toggle select
-"   <C-a>           - Toggle select all
-autocmd FileType denite call s:denite_my_settings()
-function! s:denite_my_settings() abort
-  nnoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-  nnoremap <silent><buffer><expr> q
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> <C-c>
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> <Esc>
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> ;
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> d
-  \ denite#do_map('do_action', 'delete')
-  nnoremap <silent><buffer><expr> p
-  \ denite#do_map('do_action', 'preview')
-  nnoremap <silent><buffer><expr> i
-  \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> <C-o>
-  \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> <C-h>
-  \ denite#do_map('do_action', 'split')
-  nnoremap <silent><buffer><expr> <C-v>
-  \ denite#do_map('do_action', 'vsplit')
-  nnoremap <silent><buffer><expr> <C-t>
-  \ denite#do_map('do_action', 'tabopen')
-  nnoremap <silent><buffer><expr> <C-Space>
-  \ denite#do_map('toggle_select').'j'
-  nnoremap <silent><buffer><expr> <C-a>
-  \ denite#do_map('toggle_select_all')
-endfunction
+""" coc-fzf
+nnoremap <silent> <leader><leader> :<C-u>CocFzfList<CR>
+nnoremap <silent> <leader>a       :<C-u>CocFzfList diagnostics<CR>
+nnoremap <silent> <leader>b       :<C-u>CocFzfList diagnostics --current-buf<CR>
+nnoremap <silent> <leader>c       :<C-u>CocFzfList commands<CR>
+nnoremap <silent> <leader>e       :<C-u>CocFzfList extensions<CR>
+nnoremap <silent> <C-t>           :<C-u>CocFzfList outline<CR>
+nnoremap <silent> <leader>r       :<C-u>CocFzfListResume<CR>
 
 """ vim-easymotion
 

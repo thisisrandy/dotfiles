@@ -202,36 +202,26 @@ F2 - rename current word
 <leader>' - close the last window. useful for closing popups which don't go
             away on their own
 
-<C-t> - open :CocOutline
+<leader>o - open :CocOutline
 
-## denite
+## fzf/coc-fzf
 
-; - Browser currently open buffers (starts in filter mode)
+From most windows, <C-t> opens in new tab, <C-x> in split, and <C-v> in
+vertical split
+
+; - Browser currently open buffers
 <C-p> - Browse list of files in current directory (starts in filter mode)
 <leader>g - Search current directory for occurences of given term and close window if no results
 <leader>u - Search current directory for occurences of word under cursor
 
-In filter mode:
-<C-o>/jk - Quit filter mode
-<C-c>    - Close denite buffer
-<Esc>    - Switch to normal mode inside of filter bar (rarely useful)
-<CR>     - Open currently selected filter
-<C-v>    - "" in vsplit
-<C-h>    - "" in split
-<C-t>    - "" in new tab
-<C-a>    - Toggle select all
-
-In normal mode:
-<CR>            - Opens currently selected file
-<C-v>           - "" in vsplit
-<C-h>           - "" in split
-<C-t>           - "" in new tab
-q/<Esc>/;/<C-c> - Quit Denite window
-d               - Delete currenly selected file (just the buffer)
-p               - Preview currently selected file
-<C-o> or i      - Switch to insert mode inside of filter prompt
-<C-Space>       - Toggle select
-<C-a>           - Toggle select all
+<leader>a - Diagnostics
+<leader>b - Current buffer diagnostics
+<leader>c - Commands
+<leader>e - Extensions
+<leader>l - Locations
+<C-t>     - Outline
+<leader>s - Symbols
+<leader>r - Resume in last opened window
 
 ## NERDTree
 

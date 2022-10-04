@@ -11,6 +11,9 @@ Note that [zsh-install.sh](zsh-install.sh) &
 [vscode-install-extensions.sh](vscode-install-extensions.sh) are run
 automatically after Oh-My-Zsh & VS Code are installed, respectively.
 
+Note also that `vim-plug` installs `fzf`, so the latter won't be available
+until `nvim` is started for the first time.
+
 ### Manual Steps
 
 #### Display
