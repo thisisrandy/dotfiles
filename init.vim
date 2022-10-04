@@ -408,7 +408,7 @@ nnoremap <silent> <leader>' :exec winnr('$').'wincmd c'<cr>
 " <leader>u - Search current directory for occurences of word under cursor
 nnoremap <silent> ; :Buffers<CR>
 nnoremap <silent> <C-p> :Files<CR>
-nnoremap <leader>g :Rg
+nnoremap <leader>g :Rg<space>
 nnoremap <silent> <leader>u yiw :Rg <C-r>"<CR>
 
 " TODO: coc-fzf also provides these, but it's broken. investigate and maybe
