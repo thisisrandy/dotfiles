@@ -134,6 +134,7 @@ pushd $(mktemp -d)
 curl -LO https://go.dev/dl/go1.18.4.linux-amd64.tar.gz
 tar xfz go1.18.4.linux-amd64.tar.gz
 sudo mv go /usr/local
+PATH=/usr/local/go/bin:$PATH
 rm go1.18.4.linux-amd64.tar.gz
 popd
 
