@@ -365,9 +365,6 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Highlight word under cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Yank list
-nnoremap <silent> <space>y  :<C-u>CocList --normal yank<cr>
-
 " coc leaves popups open on a fairly regular basis, sometimes obstructing
 " large portions of the window and necessitating a restart. the following is a
 " partial solution that closes the last window, which seems to always be a
@@ -402,6 +399,7 @@ nnoremap <silent> <leader>l        :<C-u>CocFzfList location<CR>
 nnoremap <silent> <C-t>            :<C-u>CocFzfList outline<CR>
 nnoremap <silent> <leader>s        :<C-u>CocFzfList symbols<CR>
 nnoremap <silent> <leader>r        :<C-u>CocFzfListResume<CR>
+nnoremap <silent> <leader>y        :<C-u>CocFzfList yank<CR>
 
 """ vim-easymotion
 
