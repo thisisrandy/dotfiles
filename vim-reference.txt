@@ -207,7 +207,8 @@ F2 - rename current word
 ## fzf/coc-fzf
 
 From most windows, <C-t> opens in new tab, <C-x> in split, and <C-v> in
-vertical split
+vertical split. <C-up>/<C-down> scrolls the preview, and where applicable,
+Tab/Shift-Tab selects an item and moves to the next/previous item, respectively
 
 ; - Browser currently open buffers
 <C-p> - Browse list of files in current directory (starts in filter mode)
