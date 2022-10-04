@@ -378,9 +378,6 @@ command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` to fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
-" Show commands
-nnoremap <silent> <leader>co  :<C-u>CocList commands<cr>
-
 " Highlight word under cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
@@ -418,9 +415,9 @@ nnoremap <silent> <leader>l       :<C-u>CocList location<CR>
 
 """ coc-fzf
 nnoremap <silent> <leader><leader> :<C-u>CocFzfList<CR>
-nnoremap <silent> <leader>a       :<C-u>CocFzfList diagnostics<CR>
-nnoremap <silent> <leader>b       :<C-u>CocFzfList diagnostics --current-buf<CR>
-nnoremap <silent> <leader>c       :<C-u>CocFzfList commands<CR>
+nnoremap <silent> <leader>aa       :<C-u>CocFzfList diagnostics<CR>
+nnoremap <silent> <leader>ab       :<C-u>CocFzfList diagnostics --current-buf<CR>
+nnoremap <silent> <leader>co      :<C-u>CocFzfList commands<CR>
 nnoremap <silent> <leader>e       :<C-u>CocFzfList extensions<CR>
 nnoremap <silent> <C-t>           :<C-u>CocFzfList outline<CR>
 nnoremap <silent> <leader>r       :<C-u>CocFzfListResume<CR>
