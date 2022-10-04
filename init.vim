@@ -322,20 +322,6 @@ nmap <leader>o :CocOutline<CR>
 " make the outline close itself once it's no longer in focus
 autocmd BufLeave CocTree* q
 
-" Remap for format selected region
-" I never use these, and considering that I'd need to set them up with the
-" html hack below, just leaving them out for now.
-" xmap <leader>f  <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format-selected)
-
-" Whole buffer
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-" Prettier breaks up tags onto new lines in a way I don't like in html.
-" There may be other reasons to choose a different formatter per file type, so
-" encode that here. There are some plugins to organize maps by file type which
-" may be better if I want to do more with this, but a simple hack should
-" suffice for now.
 function RunFormatter()
   if &ft =~ 'vim'
     :exec "norm! gg=G\<C-o>"
