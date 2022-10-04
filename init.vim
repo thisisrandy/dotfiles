@@ -559,3 +559,8 @@ endfunction
 " and map it
 :nnoremap <leader>fr :call FindReplace()<CR>
 
+""" vim-windowswap
+
+" prevent default bindings and then remap easy swap only
+let g:windowswap_map_keys = 0
+nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
