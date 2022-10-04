@@ -329,6 +329,7 @@ function RunFormatter()
     :call CocAction('format')
   endif
 endfunction
+
 " Whole buffer map
 nmap <leader>b :call RunFormatter()<CR>
 
