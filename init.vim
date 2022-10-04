@@ -417,10 +417,10 @@ nnoremap <silent> <leader>l       :<C-u>CocList location<CR>
 nnoremap <silent> <leader><leader> :<C-u>CocFzfList<CR>
 nnoremap <silent> <leader>aa       :<C-u>CocFzfList diagnostics<CR>
 nnoremap <silent> <leader>ab       :<C-u>CocFzfList diagnostics --current-buf<CR>
-nnoremap <silent> <leader>co      :<C-u>CocFzfList commands<CR>
-nnoremap <silent> <leader>e       :<C-u>CocFzfList extensions<CR>
-nnoremap <silent> <C-t>           :<C-u>CocFzfList outline<CR>
-nnoremap <silent> <leader>r       :<C-u>CocFzfListResume<CR>
+nnoremap <silent> <leader>co       :<C-u>CocFzfList commands<CR>
+nnoremap <silent> <leader>e        :<C-u>CocFzfList extensions<CR>
+nnoremap <silent> <C-t>            :<C-u>CocFzfList outline<CR>
+nnoremap <silent> <leader>r        :<C-u>CocFzfListResume<CR>
 
 """ vim-easymotion
 
