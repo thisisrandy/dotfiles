@@ -335,7 +335,9 @@ nmap <leader>b :call RunFormatter()<CR>
 
 " Format on save
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.py,*.rs,*.hs,*.vim :call RunFormatter()
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,
+            \ *.graphql,*.md,*.vue,*.yaml,*.html,*.py,*.rs,*.hs
+            \ :call RunFormatter()
 
 augroup mygroup
   autocmd!
