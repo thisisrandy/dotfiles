@@ -302,7 +302,7 @@ export BOOTSTRAP_HASKELL_INSTALL_HLS=1;
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 
 # install handbrake
-push $(mktemp -d)
+pushd $(mktemp -d)
 sudo apt -y install flatpak
 sudo apt -y install gnome-software-plugin-flatpak
 wget https://dl.flathub.org/repo/appstream/fr.handbrake.ghb.flatpakref
