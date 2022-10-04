@@ -143,7 +143,9 @@ Plug 'goerz/jupytext.vim'
 Plug 'andymass/vim-matchup'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
+" see https://github.com/antoinemadec/coc-fzf/issues/118
+" Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
+Plug 'thisisrandy/coc-fzf', {'branch': 'symbols-fix'}
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -392,18 +394,15 @@ nnoremap <silent> <C-p> :Files<CR>
 nnoremap <leader>g :Rg<space>
 nnoremap <silent> <leader>u yiw :Rg <C-r>"<CR>
 
-" TODO: coc-fzf also provides these, but it's broken. investigate and maybe
-" file a bug
-nnoremap <silent> <leader>s       :<C-u>CocList symbols<CR>
-nnoremap <silent> <leader>l       :<C-u>CocList location<CR>
-
 """ coc-fzf
 nnoremap <silent> <leader><leader> :<C-u>CocFzfList<CR>
 nnoremap <silent> <leader>aa       :<C-u>CocFzfList diagnostics<CR>
 nnoremap <silent> <leader>ab       :<C-u>CocFzfList diagnostics --current-buf<CR>
 nnoremap <silent> <leader>co       :<C-u>CocFzfList commands<CR>
 nnoremap <silent> <leader>e        :<C-u>CocFzfList extensions<CR>
+nnoremap <silent> <leader>l        :<C-u>CocFzfList location<CR>
 nnoremap <silent> <C-t>            :<C-u>CocFzfList outline<CR>
+nnoremap <silent> <leader>s        :<C-u>CocFzfList symbols<CR>
 nnoremap <silent> <leader>r        :<C-u>CocFzfListResume<CR>
 
 """ vim-easymotion
