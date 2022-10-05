@@ -395,6 +395,12 @@ nnoremap <silent> <leader>u yiw :Rg <C-r>"<CR>
 nnoremap <silent> <leader>co :Commands<CR>
 
 """ coc-fzf
+
+" make coc-fzf windows open fullscreen in a new tab. since they display with
+" preview above filter text in a horizontal split, this is a much nicer
+" experience
+let g:coc_fzf_preview_fullscreen = 1
+
 nnoremap <silent> <leader><leader> :<C-u>CocFzfList<CR>
 nnoremap <silent> <leader>aa       :<C-u>CocFzfList diagnostics<CR>
 nnoremap <silent> <leader>ab       :<C-u>CocFzfList diagnostics --current-buf<CR>
