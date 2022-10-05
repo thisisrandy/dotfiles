@@ -392,6 +392,11 @@ nnoremap <leader>g :Rg<space>
 nnoremap <silent> <leader>u yiw :Rg <C-r>"<CR>
 nnoremap <silent> <leader>co :Commands<CR>
 
+" Identical to Rg defined in fzf.vim except for the -uuu flag, which causes
+" ripgrep to disable all smart searching. all files, including .gitignored,
+" hidden, and binary are searched
+command! -bang -nargs=* Rgu call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case -uuu -- ".shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
+
 """ coc-fzf
 
 " make coc-fzf windows open fullscreen in a new tab. since they display with
