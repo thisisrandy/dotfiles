@@ -238,17 +238,34 @@ local paste_widgets=(
 x11-clip-wrap-widgets copy $copy_widgets
 x11-clip-wrap-widgets paste  $paste_widgets
 
-# fzf setup. vi mode wipes out the fzf bindings, so make sure to put this
-# after vi mode setup. note that fzf bindings only work in insert mode
+# fzf setup. vi mode wipes out the fzf bindings, so make sure to put this after
+# vi mode setup. note that fzf bindings only work in insert mode. if one runs
+# the fzf install script, all of this is placed in ~/.fzf.(zsh|bash), which is
+# sourced from the user's shell rc file, also modified as part of that script.
+# however, other methods of installation (via package managers, as a vim plugin,
+# etc.) don't offer the option to generate the file. since I'm using fzf as a
+# vim plugin, it seems easiest to just directly replicate the contents of
+# .fzf.zsh here. an alternative would be to run the install script after fzf is
+# already installed, which would cause it to find fzf in the path and create
+# simlinks, but that would be an extra step that I don't care to take
 
-# per https://github.com/junegunn/fzf#using-linux-package-managers, the
-# bindings might not just work (we don't seem to always have the below file)
-if [ -f ~/.fzf.zsh ]; then
-    source ~/.fzf.zsh
-else
-    source /usr/share/doc/fzf/examples/key-bindings.zsh
-    source /usr/share/doc/fzf/examples/completion.zsh
+FZF_PATH=$HOME/.local/share/nvim/plugged/fzf
+
+# Setup fzf
+# ---------
+if [[ ! "$PATH" == *$FZF_PATH/bin* ]]; then
+  PATH="${PATH:+${PATH}:}$FZF_PATH/bin"
 fi
+
+# Auto-completion
+# ---------------
+[[ $- == *i* ]] && source "$FZF_PATH/shell/completion.zsh" 2> /dev/null
+
+# Key bindings
+# ------------
+source "$FZF_PATH/shell/key-bindings.zsh"
+
+# (end fzf setup)
 
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
