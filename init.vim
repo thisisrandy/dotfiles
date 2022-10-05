@@ -208,6 +208,8 @@ let g:airline_symbols.colnr = ' :'
 
 """ NERDcommenter
 
+" Don't create default mappings
+let g:NERDCreateDefaultMappings = 0
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 " " Use compact syntax for prettified multi-line comments
@@ -226,6 +228,7 @@ vnoremap <C-_> :call nerdcommenter#Comment(0,"toggle")<CR>
 inoremap <C-_> <Cmd>call nerdcommenter#Comment(0,"toggle")<CR>
 " Custom delimiters for [JT]SX commenting. Switch to alt using <leader>ca
 " (mnemonic: comment alt)
+nnoremap <leader>ca :call nerdcommenter#SwitchToAlternativeDelimiters(1)<CR>
 let g:NERDCustomDelimiters={
     \ 'javascriptreact': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
     \ 'typescriptreact': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
