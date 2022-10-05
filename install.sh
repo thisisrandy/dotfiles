@@ -69,8 +69,13 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ln -sf $PATH_TO_DOT_FILES/.zshrc $HOME/.zshrc
 ln -sf $PATH_TO_DOT_FILES/.zshenv $HOME/.zshenv
 # change zsh to default. the install script can do this too, but only
-# interactively
-type zsh | awk '{print $3}' | xargs -I{} sudo chsh -s {} $USER
+# interactively.
+# UPDATE: type may specify that an executable is hashed, which screws up the
+# below (see https://askubuntu.com/a/446583/1014459 for what this means). which
+# will do no such thing, so it's more reliable for this particular bit of
+# automation
+# type zsh | awk '{print $3}' | xargs -I{} sudo chsh -s {} $USER
+which zsh | xargs -I{} sudo chsh -s {} $USER
 # and then run zsh-install for any additional steps in the oh-my-zsh context
 ./zsh-install.sh
 
