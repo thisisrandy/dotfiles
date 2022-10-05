@@ -384,16 +384,18 @@ nnoremap <silent> <leader>' :exec winnr('$').'wincmd c'<cr>
 " <C-p> - Browse list of files in current directory
 " <leader>g - Search current directory for occurences of given term and close window if no results
 " <leader>u - Search current directory for occurences of word under cursor
+" <leader>co - Browse commands
 nnoremap <silent> ; :Buffers<CR>
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <leader>g :Rg<space>
 nnoremap <silent> <leader>u yiw :Rg <C-r>"<CR>
+nnoremap <silent> <leader>co :Commands<CR>
 
 """ coc-fzf
 nnoremap <silent> <leader><leader> :<C-u>CocFzfList<CR>
 nnoremap <silent> <leader>aa       :<C-u>CocFzfList diagnostics<CR>
 nnoremap <silent> <leader>ab       :<C-u>CocFzfList diagnostics --current-buf<CR>
-nnoremap <silent> <leader>co       :<C-u>CocFzfList commands<CR>
+nnoremap <silent> <leader>cc       :<C-u>CocFzfList commands<CR>
 nnoremap <silent> <leader>e        :<C-u>CocFzfList extensions<CR>
 nnoremap <silent> <leader>l        :<C-u>CocFzfList location<CR>
 nnoremap <silent> <C-t>            :<C-u>CocFzfList outline<CR>

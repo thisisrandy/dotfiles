@@ -213,15 +213,16 @@ Tab/Shift-Tab selects an item and moves to the next/previous item, respectively
 <C-p> - Browse list of files in current directory (starts in filter mode)
 <leader>g - Search current directory for occurences of given term and close window if no results
 <leader>u - Search current directory for occurences of word under cursor
+<leader>co - Browse commands
 
-<leader>a - Diagnostics
-<leader>b - Current buffer diagnostics
-<leader>c - Commands
-<leader>e - Extensions
-<leader>l - Locations
-<C-t>     - Outline
-<leader>s - Symbols
-<leader>r - Resume in last opened window
+<leader>aa - Diagnostics
+<leader>ab - Current buffer diagnostics
+<leader>cc - CoC Commands
+<leader>e  - Extensions
+<leader>l  - Locations
+<C-t>      - Outline
+<leader>s  - Symbols
+<leader>r  - Resume in last opened window
 
 ## NERDTree
 
