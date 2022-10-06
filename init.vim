@@ -144,7 +144,7 @@ Plug 'andymass/vim-matchup'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'antoinemadec/coc-fzf'
-Plug 'yegappan/greplace'
+Plug 'brooth/far.vim', { 'do': function('UpdateRemotePlugins') }
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -484,3 +484,13 @@ command! -bang -nargs=* Glog tab Gclog!<bang> <args>
 " prevent default bindings and then remap easy swap only
 let g:windowswap_map_keys = 0
 nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
+
+""" far
+
+" enable undo shortcut (u)
+let g:far#enable_undo=1
+let g:far#source='rgnvim'
+let g:far#glob_mode='native'
+set lazyredraw
+nnoremap <silent> <leader>fr :Farr<CR>
+vnoremap <silent> <leader>fr :Farr<CR>
