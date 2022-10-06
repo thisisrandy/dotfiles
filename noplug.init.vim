@@ -238,6 +238,9 @@ xnoremap <leader>p "_dP
 " panel in VSCode
 nnoremap <silent> <C-j> :windo lcl\|ccl<CR>
 
+" use ripgrep for grep
+set grepprg=rg\ --vimgrep\ --hidden
+
 " global find/replace inside cwd. this requires ripgrep be in the path, but
 " nothing else. compared to the greplace plugin, it takes fewer keystrokes,
 " and can leverage rg's "smart" search, but there's something of a price:
