@@ -243,8 +243,12 @@ nnoremap <silent> <C-j> :windo lcl\|ccl<CR>
 " and can leverage rg's "smart" search, but there's something of a price:
 " files which aren't already open in a buffer get opened without a filetype,
 " so all of the functionality which depends on filetype isn't available until
-" the buffers are closed and reopened. greplace is getting around that,
-" probably by using vimgrep instead of external grep
+" the buffers are closed and reopened. greplace is getting around that by
+" actually editing each file and then hiding it before moving onto the next
+" one, which cfdo apparently does not
+" TODO: try to figure a way to get cfdo to properly open each file
+" TODO: why am I specifying that the input pattern isn't just ripgrep's native
+" syntax? should change to just use that directly
 function! FindReplace()
   " figure out which directory we're in
   let dir = getcwd()
