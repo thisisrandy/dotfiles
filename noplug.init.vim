@@ -262,13 +262,18 @@ function! FindReplace()
   if replace == '<ESC>' | return | endif
   :mode " clear echoed message
 
+  " check if we're going to be
+  let searchHidden = confirm("Do you want to include hidden files?", "&Yes\n&No", 2)
+  if searchHidden == 0 | return | endif
+  :mode
+
   " confirm each change individually
   let confirmEach = confirm("Do you want to confirm each individual change?", "&Yes\n&No", 2)
   if confirmEach == 0 | return | endif
   :mode
 
   " are you sure?
-  let confirm = confirm('WARNING: Replacing ' . find . ' with ' . replace . ' in ' . dir . '/**/*. Proceed?', "&Yes\n&No", 2)
+  let confirm = confirm('Replacing pattern "' . find . '" with string "' . replace . '" in ' . dir . '/**/*. Proceed?', "&Yes\n&No", 2)
   :mode
 
   if confirm == 1
@@ -287,9 +292,12 @@ function! FindReplace()
     let l:grepprgb = &grepprg
     let l:grepformatb = &grepformat
     let &grepprg = 'rg --vimgrep'
+    if searchHidden == 1
+      let &grepprg = &grepprg . ' --hidden'
+    endif
     let &grepformat = '%f:%l:%c:%m'
 
-    :silent exe 'grep! --hidden --glob !.git ' . rgFind
+    :silent exe 'grep! ' . rgFind
 
     " use cfdo to substitute on all quickfix files
     if confirmEach == 1
@@ -304,7 +312,7 @@ function! FindReplace()
     " return to start buffer
     :silent exe 'buffer ' . currBuff
 
-    :echom('Replaced ' . find . ' with ' . replace . ' in all files in ' . dir )
+    :echom('Replaced "' . find . '" with "' . replace . '" in all files in ' . dir )
 
     let &grepprg = l:grepprgb
     let &grepformat = l:grepformatb
