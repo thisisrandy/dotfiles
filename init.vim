@@ -391,6 +391,7 @@ nnoremap <silent> ; :Buffers<CR>
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <leader>g :Rg<space>
 nnoremap <silent> <leader>u yiw :Rg <C-r>"<CR>
+vnoremap <silent> <leader>u y :Rg <C-r>"<CR>
 nnoremap <silent> <leader>co :Commands<CR>
 
 let s:rg_base_cmd = "rg --column --line-number --no-heading --color=always --smart-case"
