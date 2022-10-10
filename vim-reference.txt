@@ -215,8 +215,8 @@ Tab/Shift-Tab selects an item and moves to the next/previous item, respectively
 <leader>u - Search current directory for occurences of word under cursor
 <leader>co - Browse commands
 
-The command :Rgu is also defined to grep all files, including those listed in
-.gitignore, hidden files, and binaries
+The commands :Rgu[u][u] are also defined to correspond to ripgrep's -u, -uu, and
+-uuu options
 
 <leader>aa - Diagnostics
 <leader>ab - Current buffer diagnostics
