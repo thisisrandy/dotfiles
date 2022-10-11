@@ -203,6 +203,10 @@ F2 - rename current word
 
 <leader>o - open :CocOutline
 
+<leader>ac - open the codeAction menu for the current buffer
+<leader>af - apply autofix to a problem on the current line. <C-.> in VSCode
+<leader>al - run the Code Lens action on the current line
+
 ## fzf/coc-fzf
 
 From most windows, <C-t> opens in new tab, <C-x> in split, and <C-v> in
