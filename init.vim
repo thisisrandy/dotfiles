@@ -354,7 +354,7 @@ augroup end
 " Open codeAction menu for the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap <C-.>  <Plug>(coc-fix-current)
+nmap <leader>af  <Plug>(coc-fix-current)
 " Run the Code Lens action on the current line.
 nmap <leader>al  <Plug>(coc-codelens-action)
 
