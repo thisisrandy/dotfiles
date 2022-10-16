@@ -44,7 +44,7 @@ Timeshift is automatically installed but needs to be configured. Open the
 Timeshift application and set up as appropriate. Boot + monthly/weekly/daily
 snapshots seem appropriate.
 
-#### Gnome Tweaks
+#### GNOME Tweaks
 
 All tweaks are automatically set via `gsettings` during installation. If
 desired, additional customization can be performed via the Tweaks interface or
@@ -74,12 +74,12 @@ In reverse:
 timedatectl set-local-rtc 0 --adjust-system-clock
 ```
 
-#### Gnome extensions
+#### GNOME extensions
 
-While it's possible to install gnome extensions programmatically, one has to
+While it's possible to install GNOME extensions programmatically, one has to
 match the download url with one's shell version, and the maintenance cost just
 isn't worth it for a small list of extensions. In fact, I'm only using one at
-the moment, so it's much easier to manually enable it using the gnome shell
+the moment, so it's much easier to manually enable it using the GNOME shell
 integration chrome plugin. A list of install url(s) follows:
 
 - [windowNavigator](https://extensions.gnome.org/extension/10/windownavigator/)
@@ -107,7 +107,7 @@ gets us through to the win. In particular:
   - `lvscan` to list all logical volumes in all volume groups
   - `mount /dev/new_name/root /(mnt|media/user)/whereever`. May need to create mount location first
 
-## Gnome Boxes
+## GNOME Boxes
 
 ### Getting files out of a VM
 
