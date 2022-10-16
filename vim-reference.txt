@@ -201,7 +201,8 @@ F2 - rename current word
 <leader>' - close the last window. useful for closing popups which don't go
             away on their own
 
-<leader>o - open :CocOutline
+<leader>o - open :CocOutline. within this window, f to search, t to toggle
+            expansion and M to fold everything. see coc-tree-mappings
 
 <leader>ac - open the codeAction menu for the current buffer
 <leader>af - apply autofix to a problem on the current line. <C-.> in VSCode
