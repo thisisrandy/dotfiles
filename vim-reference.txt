@@ -207,6 +207,9 @@ F2 - rename current word
 <leader>af - apply autofix to a problem on the current line. <C-.> in VSCode
 <leader>al - run the Code Lens action on the current line
 
+:CocRestart - restart the language server. useful to get some servers to pick
+              up added deps, etc.
+
 ## fzf/coc-fzf
 
 From most windows, <C-t> opens in new tab, <C-x> in split, and <C-v> in
