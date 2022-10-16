@@ -393,6 +393,8 @@ nnoremap <leader>g :Rg<space>
 nnoremap <silent> <leader>u yiw :Rg <C-r>"<CR>
 vnoremap <silent> <leader>u y :Rg <C-r>"<CR>
 nnoremap <silent> <leader>co :Commands<CR>
+nnoremap <silent> <leader>la :Lines<CR>
+nnoremap <silent> <leader>lb :BLines<CR>
 
 let s:rg_base_cmd = "rg --column --line-number --no-heading --color=always --smart-case"
 " Identical to Rg defined in fzf.vim except for the -u flag, which causes
@@ -415,7 +417,7 @@ nnoremap <silent> <leader>aa       :<C-u>CocFzfList diagnostics<CR>
 nnoremap <silent> <leader>ab       :<C-u>CocFzfList diagnostics --current-buf<CR>
 nnoremap <silent> <leader>cc       :<C-u>CocFzfList commands<CR>
 nnoremap <silent> <leader>e        :<C-u>CocFzfList extensions<CR>
-nnoremap <silent> <leader>l        :<C-u>CocFzfList location<CR>
+nnoremap <silent> <leader>ll       :<C-u>CocFzfList location<CR>
 nnoremap <silent> <C-t>            :<C-u>CocFzfList outline<CR>
 nnoremap <silent> <leader>s        :<C-u>CocFzfList symbols<CR>
 nnoremap <silent> <leader>r        :<C-u>CocFzfListResume<CR>

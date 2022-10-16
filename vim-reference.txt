@@ -230,7 +230,9 @@ The commands :Rgu[u][u] are also defined to correspond to ripgrep's -u, -uu, and
 <leader>ab - Current buffer diagnostics
 <leader>cc - CoC Commands
 <leader>e  - Extensions
-<leader>l  - Locations
+<leader>ll - Locations list
+<leader>la - Lines (all buffers)
+<leader>lb - BLines (current buffer)
 <C-t>      - Outline
 <leader>s  - Symbols
 <leader>r  - Resume in last opened window
