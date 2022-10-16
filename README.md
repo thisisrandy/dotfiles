@@ -74,6 +74,16 @@ In reverse:
 timedatectl set-local-rtc 0 --adjust-system-clock
 ```
 
+#### Gnome extensions
+
+While it's possible to install gnome extensions programmatically, one has to
+match the download url with one's shell version, and the maintenance cost just
+isn't worth it for a small list of extensions. In fact, I'm only using one at
+the moment, so it's much easier to manually enable it using the gnome shell
+integration chrome plugin. A list of install url(s) follows:
+
+- [windowNavigator](https://extensions.gnome.org/extension/10/windownavigator/)
+
 ## Mounting external RAID member HDDs
 
 The wisdom found collectively in [Ubuntu doesn't "see" external USB Hard
