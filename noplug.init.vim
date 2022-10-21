@@ -242,3 +242,15 @@ nnoremap <silent> <C-j> :windo lcl\|ccl<CR>
 " superior alternatives. still, this would be useful if we for some reason
 " wanted to populate the quickfix list
 set grepprg=rg\ --vimgrep\ --hidden
+
+" Focus on the first floating window
+function! s:GotoFirstFloat() abort
+  for w in range(1, winnr('$'))
+    let c = nvim_win_get_config(win_getid(w))
+    " c.relative isn't set for normal windows. see nvim_win_get_config()
+    if c.focusable && !empty(c.relative)
+      execute w . 'wincmd w'
+    endif
+  endfor
+endfunction
+noremap <silent> <c-w><space> :<c-u>call <sid>GotoFirstFloat()<cr>

@@ -183,7 +183,7 @@ ge - go to next error position, i.e. skip warnings, etc.
   ^ this is turned off because it shadows the default ge mapping and was never
   | being used anyways
 gh / K - show documentation
-<C-w>w / <C-w><C-w> - focus on popup for scrolling
+<C-w><space> - focus on popup for scrolling. unfocus with <C-w>p or :q
 F2 - rename current word
 <leader>b - format buffer
 <leader>co - show commands
