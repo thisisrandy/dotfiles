@@ -217,8 +217,10 @@ nnoremap <C-Right> <C-w>l
 
 " on open terminal (:te), start in terminal mode
 autocmd TermOpen * startinsert
-" allow exit to normal mode with esc
-:tnoremap <Esc> <C-\><C-n>
+" allow exit to normal mode with esc. I've decided to disable this because it
+" conflicts with the behavior of esc in the fzf.vim plugin, and also since I'm
+" much more likely to use new tmux panes than the embedded vim terminal anyway
+" :tnoremap <Esc> <C-\><C-n>
 
 " always trim whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
