@@ -323,3 +323,6 @@ C-l - toggle absolute line numbers in normal mode. note that this doesn't
       stick; numbertoggle is just a couple of autocmds, so anytime one of
       them is triggered, line number status is overwritten
 
+## vim-mundo
+
+<F5> - toggle the undo menu

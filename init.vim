@@ -145,6 +145,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'antoinemadec/coc-fzf'
 Plug 'brooth/far.vim', { 'do': function('UpdateRemotePlugins') }
+Plug 'simnalamburt/vim-mundo'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -508,3 +509,8 @@ let g:far#glob_mode='native'
 set lazyredraw
 nnoremap <silent> <leader>fr :Farr<CR>
 vnoremap <silent> <leader>fr :Farr<CR>
+
+""" Mundo
+nnoremap <silent> <F5> :MundoToggle<CR>
+set undofile
+set undodir=~/.vim/undo
