@@ -390,20 +390,27 @@ nnoremap <silent> <leader>' :exec winnr('$').'wincmd c'<cr>
 nnoremap <silent> ; :Buffers<CR>
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <leader>g :Rg<space>
-nnoremap <silent> <leader>u yiw :Rg <C-r>"<CR>
-vnoremap <silent> <leader>u y :Rg <C-r>"<CR>
+nnoremap <silent> <leader>u yiw :Rgf <C-r>"<CR>
+vnoremap <silent> <leader>u y :Rgf <C-r>"<CR>
 nnoremap <silent> <leader>co :Commands<CR>
 nnoremap <silent> <leader>la :Lines<CR>
 nnoremap <silent> <leader>lb :BLines<CR>
 
 let s:rg_base_cmd = "rg --column --line-number --no-heading --color=always --smart-case"
 " Identical to Rg defined in fzf.vim except for the -u flag, which causes
-" ripgrep to include .gitignored files
+" ripgrep to include .gitignore'd files
 command! -bang -nargs=* Rgu call fzf#vim#grep((s:rg_base_cmd . " -u -- ").shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
 " additionally include hidden files and directories
 command! -bang -nargs=* Rguu call fzf#vim#grep((s:rg_base_cmd . " -uu -- ").shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
 " additionally include binary files
 command! -bang -nargs=* Rguuu call fzf#vim#grep((s:rg_base_cmd . " -uuu -- ").shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
+" Identical to Rg except for the -F flag, which causes rg to treat the pattern
+" as a fixed string instead of a regexp
+command! -bang -nargs=* Rgf call fzf#vim#grep((s:rg_base_cmd . " -F -- ").shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
+" u, uu, and uuu for fixed strings
+command! -bang -nargs=* Rgfu call fzf#vim#grep((s:rg_base_cmd . " -F -u -- ").shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
+command! -bang -nargs=* Rgfuu call fzf#vim#grep((s:rg_base_cmd . " -F -uu -- ").shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
+command! -bang -nargs=* Rgfuuu call fzf#vim#grep((s:rg_base_cmd . " -F -uuu -- ").shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
 
 """ coc-fzf
 

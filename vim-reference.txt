@@ -223,8 +223,9 @@ Tab/Shift-Tab selects an item and moves to the next/previous item, respectively
 <leader>u - Search current directory for occurences of word under cursor
 <leader>co - Browse commands
 
-The commands :Rgu[u][u] are also defined to correspond to ripgrep's -u, -uu, and
--uuu options
+The commands :Rgu[u][u] are also defined to correspond to ripgrep's -u, -uu,
+and -uuu options, as well as :Rgf[u][u][u] for fixed strings (the -F option).
+Note that :Rgf is used for the <leader>u mapping
 
 <leader>aa - Diagnostics
 <leader>ab - Current buffer diagnostics
