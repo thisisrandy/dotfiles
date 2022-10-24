@@ -147,6 +147,7 @@ Plug 'antoinemadec/coc-fzf'
 Plug 'brooth/far.vim', { 'do': function('UpdateRemotePlugins') }
 Plug 'simnalamburt/vim-mundo'
 Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-repeat'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
