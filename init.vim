@@ -148,6 +148,7 @@ Plug 'brooth/far.vim', { 'do': function('UpdateRemotePlugins') }
 Plug 'simnalamburt/vim-mundo'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-repeat'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -526,3 +527,16 @@ let g:mundo_right = 1
 let g:mundo_close_on_revert = 1
 let g:mundo_mirror_graph = 0
 let g:mundo_auto_preview_delay = 100
+
+""" nvim-treesitter
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  matchup = {
+    enable = true,              -- mandatory, false will disable the whole extension
+    disable = {},               -- optional, list of language that will be disabled
+    -- [options]
+  },
+}
+EOF
+
