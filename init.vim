@@ -502,6 +502,10 @@ command! -bang -nargs=* Glog tab Gclog!<bang> <args>
 let g:windowswap_map_keys = 0
 nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
 
+""" vim-matchup
+
+nnoremap <C-k> :<C-u>MatchupWhereAmI?<CR>
+
 """ far
 
 " enable undo shortcut (u)
