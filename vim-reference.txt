@@ -336,3 +336,9 @@ g% - backwards ""
 z% - go inside to the nearest inner block
 :MatchupWhereAmI?[?] - print a bread crumb. ?? is more verbose
 C-k - MatchupWhereAmI?
+
+## vim-treesitter
+
+<leader>i - begin incremental selection
+<M-S-left> - increment active selection
+<M-S-right> - decrement active selection
