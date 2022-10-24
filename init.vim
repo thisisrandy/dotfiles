@@ -116,7 +116,6 @@ endfunction
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
 Plug 'jnurmine/Zenburn'
 Plug 'EdenEast/nightfox.nvim'
 Plug 'ellisonleao/gruvbox.nvim'
@@ -210,37 +209,6 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline_symbols.colnr = ' :'
-
-""" NERDcommenter
-
-" NOTE: I mostly use Comment.nvim these days, but since it doesn't support
-" an insert mode mapping, I still keep NERDCommenter around
-
-" Don't create default mappings
-let g:NERDCreateDefaultMappings = 0
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-" " Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
-" Align line-wise comment delimiters flush left instead of following code
-" indentation
-let g:NERDDefaultAlign = 'left'
-" Allow commenting and inverting empty lines (useful when commenting a
-" region)
-let g:NERDCommentEmptyLines = 1
-" Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
-" Remap toggle comment. Note that _ is actually /. No idea why, but it is
-" nnoremap <C-_> :call nerdcommenter#Comment(0,"toggle")<CR>
-" vnoremap <C-_> :call nerdcommenter#Comment(0,"toggle")<CR>
-inoremap <C-_> <Cmd>call nerdcommenter#Comment(0,"toggle")<CR>
-" Custom delimiters for [JT]SX commenting. Switch to alt using <leader>ca
-" (mnemonic: comment alt)
-nnoremap <leader>ca :call nerdcommenter#SwitchToAlternativeDelimiters(1)<CR>
-let g:NERDCustomDelimiters={
-      \ 'javascriptreact': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
-      \ 'typescriptreact': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
-      \}
 
 """ coc.nvim
 
@@ -618,3 +586,4 @@ EOF
 
 nmap <C-_> gcc
 vmap <C-_> gc
+imap <C-_> <C-o>gcc
