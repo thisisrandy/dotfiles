@@ -222,6 +222,8 @@ Tab/Shift-Tab selects an item and moves to the next/previous item, respectively
 <leader>g - Search current directory for occurences of given term and close window if no results
 <leader>u - Search current directory for occurences of word under cursor
 <leader>co - Browse commands
+<leader>ch - Command history
+<leader>cs - Search history
 
 The commands :Rgu[u][u] are also defined to correspond to ripgrep's -u, -uu,
 and -uuu options, as well as :Rgf[u][u][u] for fixed strings (the -F option).

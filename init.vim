@@ -370,6 +370,8 @@ nnoremap <leader>g :Rg<space>
 nnoremap <silent> <leader>u yiw :Rgf <C-r>"<CR>
 vnoremap <silent> <leader>u y :Rgf <C-r>"<CR>
 nnoremap <silent> <leader>co :Commands<CR>
+nnoremap <silent> <leader>ch :History:<CR>
+nnoremap <silent> <leader>cs :History/<CR>
 nnoremap <silent> <leader>la :Lines<CR>
 nnoremap <silent> <leader>lb :BLines<CR>
 
