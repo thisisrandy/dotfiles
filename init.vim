@@ -88,17 +88,17 @@ runtime noplug.init.vim
 
 " check whether vim-plug is installed and install it if necessary
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
-    if executable('curl')
-        let plugurl = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-        call system('curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs ' . plugurl)
-        if v:shell_error
-            echom "Error downloading vim-plug. Please install it manually.\n"
-            exit
-        endif
-    else
-        echom "vim-plug not installed. Please install it manually or install curl.\n"
-        exit
+  if executable('curl')
+    let plugurl = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    call system('curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs ' . plugurl)
+    if v:shell_error
+      echom "Error downloading vim-plug. Please install it manually.\n"
+      exit
     endif
+  else
+    echom "vim-plug not installed. Please install it manually or install curl.\n"
+    exit
+  endif
 endif
 
 " when remote plugins are first installed (or updated), UpdateRemotePlugins
@@ -196,7 +196,7 @@ let g:NERDTreeShowHidden = 1
 
 " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+      \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 """ vim-airline
 
@@ -206,7 +206,7 @@ let g:airline_powerline_fonts = 1
 " and replaced with the care of symbol (\u2105). my font definitely includes
 " \ue0a3, so override with the old symbol
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+  let g:airline_symbols = {}
 endif
 let g:airline_symbols.colnr = ' :'
 
@@ -237,18 +237,18 @@ inoremap <C-_> <Cmd>call nerdcommenter#Comment(0,"toggle")<CR>
 " (mnemonic: comment alt)
 nnoremap <leader>ca :call nerdcommenter#SwitchToAlternativeDelimiters(1)<CR>
 let g:NERDCustomDelimiters={
-    \ 'javascriptreact': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
-    \ 'typescriptreact': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
-    \}
+      \ 'javascriptreact': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
+      \ 'typescriptreact': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
+      \}
 
 """ coc.nvim
 
 " extensions
 let g:coc_global_extensions=["coc-json", "coc-eslint", "coc-tsserver",
-  \ "coc-snippets", "coc-html", "coc-css", "coc-pyright", "coc-java",
-  \ "coc-highlight", "coc-yank", "coc-omnisharp", "coc-emmet",
-  \ "coc-lists", "coc-marketplace", "coc-prettier", "coc-clangd",
-  \ "coc-cmake", "coc-xml", "coc-rls" ]
+      \ "coc-snippets", "coc-html", "coc-css", "coc-pyright", "coc-java",
+      \ "coc-highlight", "coc-yank", "coc-omnisharp", "coc-emmet",
+      \ "coc-lists", "coc-marketplace", "coc-prettier", "coc-clangd",
+      \ "coc-cmake", "coc-xml", "coc-rls" ]
 
 " correct comment highlighting for config file
 autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -283,11 +283,11 @@ set signcolumn=yes
 " Use tab for trigger completion, completion confirm, snippet expand and jump like VSCode.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
-  \ coc#pum#visible() ? coc#_select_confirm() :
-  \ coc#expandableOrJumpable() ?
-  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
+      \ coc#pum#visible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ?
+      \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -477,17 +477,17 @@ map  N <Plug>(easymotion-prev)
 """ nerdtree-git-plugin
 
 let g:NERDTreeGitStatusIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
+      \ "Modified"  : "✹",
+      \ "Staged"    : "✚",
+      \ "Untracked" : "✭",
+      \ "Renamed"   : "➜",
+      \ "Unmerged"  : "═",
+      \ "Deleted"   : "✖",
+      \ "Dirty"     : "✗",
+      \ "Clean"     : "✔︎",
+      \ 'Ignored'   : '☒',
+      \ "Unknown"   : "?"
+      \ }
 
 """ vim-outdated-plugins
 
@@ -536,61 +536,61 @@ let g:mundo_auto_preview_delay = 100
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = {
-        "c",
-        "cpp",
-        "rust",
-        "java",
-        "python",
-        "lua",
-        "vim",
-        "haskell",
-        "javascript",
-        "typescript",
-        "tsx",
-        "sql",
-        "json",
-        "css",
-        "scss",
-        "html",
-        "markdown",
-        "yaml",
+  ensure_installed = {
+    "c",
+    "cpp",
+    "rust",
+    "java",
+    "python",
+    "lua",
+    "vim",
+    "haskell",
+    "javascript",
+    "typescript",
+    "tsx",
+    "sql",
+    "json",
+    "css",
+    "scss",
+    "html",
+    "markdown",
+    "yaml",
+  },
+  matchup = {
+    enable = true,              -- mandatory, false will disable the whole extension
+    disable = {},               -- optional, list of language that will be disabled
+    -- [options]
+  },
+  highlight = {
+    enable = true,
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<leader>i",
+      node_incremental = "<M-S-left>",
+      -- this isn't a whole lot different from node_incremental. it's much
+      -- easier to just mirror the vscode bindings instead
+      -- scope_incremental = "<leader>is",
+      node_decremental = "<M-S-right>",
     },
-    matchup = {
-        enable = true,              -- mandatory, false will disable the whole extension
-        disable = {},               -- optional, list of language that will be disabled
-        -- [options]
+  },
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+    config = {
+      javascript = {
+        __default = '// %s',
+        jsx_element = '{/* %s */}',
+        jsx_fragment = '{/* %s */}',
+        jsx_attribute = '// %s',
+        comment = '// %s'
+      },
     },
-    highlight = {
-        enable = true,
-    },
-    incremental_selection = {
-        enable = true,
-        keymaps = {
-            init_selection = "<leader>i",
-            node_incremental = "<M-S-left>",
-            -- this isn't a whole lot different from node_incremental. it's much
-            -- easier to just mirror the vscode bindings instead
-            -- scope_incremental = "<leader>is",
-            node_decremental = "<M-S-right>",
-        },
-    },
-    context_commentstring = {
-        enable = true,
-        enable_autocmd = false,
-        config = {
-            javascript = {
-                __default = '// %s',
-                jsx_element = '{/* %s */}',
-                jsx_fragment = '{/* %s */}',
-                jsx_attribute = '// %s',
-                comment = '// %s'
-            },
-        },
-    },
-    indent = {
-      enable = true,
-    },
+  },
+  indent = {
+    enable = true,
+  },
 }
 EOF
 
@@ -601,8 +601,8 @@ set foldexpr=nvim_treesitter#foldexpr()
 
 lua << EOF
 require('Comment').setup {
-    -- per https://github.com/JoosepAlviste/nvim-ts-context-commentstring#nvim-comment
-    pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+  -- per https://github.com/JoosepAlviste/nvim-ts-context-commentstring#nvim-comment
+  pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
 }
 EOF
 
