@@ -48,6 +48,12 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
+" better manual indentation support
+nnoremap <Tab> >>
+nnoremap <S-Tab> <<
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+
 " Open hsplit below current window
 set splitbelow
 " Open vsplit right of current window
