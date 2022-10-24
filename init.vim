@@ -329,7 +329,7 @@ nmap <leader>o :CocOutline<CR>
 " make the outline close itself once it's no longer in focus
 autocmd BufLeave CocTree* q
 
-function RunFormatter()
+function! RunFormatter()
   if &ft =~ 'vim'
     :exec "norm! gg=G\<C-o>"
   else
