@@ -354,5 +354,6 @@ NOTE: treesitter's incremental selection is hugely helpful for quickly
       selecting code blocks to send
 
 C-c C-c - send to repl. this is currently configured to be the last (previously
-          active) pane in the current tmux window
-C-c v - if for some reason the target needs to be changed, use this
+          active) pane in the current tmux window by default
+C-c v - if for some reason the target needs to be changed after slime is first
+        invoked, use this
