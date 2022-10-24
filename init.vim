@@ -150,6 +150,7 @@ Plug 'tpope/vim-repeat'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+Plug 'p00f/nvim-ts-rainbow'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -590,6 +591,14 @@ require'nvim-treesitter.configs'.setup {
   },
   indent = {
     enable = true,
+  },
+  rainbow = {
+    enable = true,
+    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    -- colors = {}, -- table of hex strings
+    -- termcolors = {} -- table of colour name strings
   },
 }
 EOF
