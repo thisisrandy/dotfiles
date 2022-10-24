@@ -520,3 +520,9 @@ vnoremap <silent> <leader>fr :Farr<CR>
 nnoremap <silent> <F5> :MundoToggle<CR>
 set undofile
 set undodir=~/.vim/undo
+let g:mundo_width = 80
+let g:mundo_preview_height = 30
+let g:mundo_right = 1
+let g:mundo_close_on_revert = 1
+let g:mundo_mirror_graph = 0
+let g:mundo_auto_preview_delay = 100
