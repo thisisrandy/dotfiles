@@ -562,6 +562,9 @@ require'nvim-treesitter.configs'.setup {
   },
   indent = {
     enable = true,
+    -- this breaks indentation in python. see
+    -- https://github.com/nvim-treesitter/nvim-treesitter/issues/2947
+    disable = {"python"},
   },
   rainbow = {
     enable = true,
