@@ -150,6 +150,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'p00f/nvim-ts-rainbow'
+Plug 'jpalardy/vim-slime'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -589,3 +590,10 @@ EOF
 nmap <C-_> gcc
 vmap <C-_> gc
 imap <C-_> <C-o>gcc
+
+""" vim-slime
+
+let g:slime_target = "tmux"
+let g:slime_paste_file = tempname()
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
+let g:slime_python_ipython = 1
