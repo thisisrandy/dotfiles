@@ -85,6 +85,10 @@ ln -s $PATH_TO_DOT_FILES/avit.zsh-theme $HOME/.oh-my-zsh/custom/themes/avit.zsh-
 # install zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
+# install zplug. zplug is unacceptably slow to start on my machine. I may
+# reenable this in the future after an upgrade
+# curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+
 # install .tmux. it's a good idea to sync with gpakosz/.tmux before installing
 pushd ~
 git clone https://github.com/thisisrandy/.tmux.git
