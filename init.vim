@@ -133,7 +133,6 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'alvan/vim-closetag'
 Plug 'thisisrandy/vim-outdated-plugins', { 'do': function('UpdateRemotePlugins') }
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'sheerun/vim-polyglot'
 Plug 'airblade/vim-gitgutter'
 Plug 'jeffkreeftmeijer/vim-numbertoggle', { 'branch': 'main' }
 Plug 'tpope/vim-surround'
