@@ -575,7 +575,7 @@ set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set foldlevel=99
 
-""" Comment.vim
+""" Comment.nvim
 
 lua << EOF
 require('Comment').setup {
