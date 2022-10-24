@@ -148,6 +148,8 @@ Plug 'simnalamburt/vim-mundo'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-repeat'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'numToStr/Comment.nvim'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -210,6 +212,9 @@ let g:airline_symbols.colnr = ' :'
 
 """ NERDcommenter
 
+" NOTE: I mostly use Comment.nvim these days, but since it doesn't support
+" an insert mode mapping, I still keep NERDCommenter around
+
 " Don't create default mappings
 let g:NERDCreateDefaultMappings = 0
 " Add spaces after comment delimiters by default
@@ -225,8 +230,8 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 " Remap toggle comment. Note that _ is actually /. No idea why, but it is
-nnoremap <C-_> :call nerdcommenter#Comment(0,"toggle")<CR>
-vnoremap <C-_> :call nerdcommenter#Comment(0,"toggle")<CR>
+" nnoremap <C-_> :call nerdcommenter#Comment(0,"toggle")<CR>
+" vnoremap <C-_> :call nerdcommenter#Comment(0,"toggle")<CR>
 inoremap <C-_> <Cmd>call nerdcommenter#Comment(0,"toggle")<CR>
 " Custom delimiters for [JT]SX commenting. Switch to alt using <leader>ca
 " (mnemonic: comment alt)
@@ -570,8 +575,33 @@ require'nvim-treesitter.configs'.setup {
             node_decremental = "<M-S-right>",
         },
     },
+    context_commentstring = {
+        enable = true,
+        enable_autocmd = false,
+        config = {
+            javascript = {
+                __default = '// %s',
+                jsx_element = '{/* %s */}',
+                jsx_fragment = '{/* %s */}',
+                jsx_attribute = '// %s',
+                comment = '// %s'
+            },
+        },
+    },
 }
 EOF
 
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
+
+""" Comment.vim
+
+lua << EOF
+require('Comment').setup {
+    -- per https://github.com/JoosepAlviste/nvim-ts-context-commentstring#nvim-comment
+    pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+}
+EOF
+
+nmap <C-_> gcc
+vmap <C-_> gc

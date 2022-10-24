@@ -259,10 +259,14 @@ if not already configured, and then do an operation that requires entering crede
 
 ## NERDCommenter
 
-[count]<leader>c<space> - toggle comment state of selected lines. Also C-/ in any mode
-[count]<leader>cc - comment
-[count]<leader>cu - uncomment
-[count]<leader>cs - "sexy" (block) comment
+C-/ - toggle comment in insert mode. for other modes, Comment.nvim is used
+
+## Comment.nvim
+
+C-/ - toggle context-aware (thanks to nvim-ts-context-commentstring) comment in
+      normal and visual modes
+gc{motion} - toggle comment over motion
+gb{motion} - toggle block comment over motion
 
 ## scratch.vim
 
