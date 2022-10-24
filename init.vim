@@ -538,13 +538,18 @@ require'nvim-treesitter.configs'.setup {
         "java",
         "python",
         "lua",
+        "vim",
         "haskell",
+        "javascript",
         "typescript",
         "tsx",
+        "sql",
         "json",
         "css",
+        "scss",
         "html",
         "markdown",
+        "yaml",
     },
     matchup = {
         enable = true,              -- mandatory, false will disable the whole extension
