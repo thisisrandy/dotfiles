@@ -30,8 +30,9 @@ map Y y$
 " least do what I expect vis-a-vis pasting
 inoremap <C-v> <C-o>P
 
-" undo in insert mode
+" undo/redo in insert mode
 inoremap <C-z> <Cmd>norm u<CR>
+inoremap <C-y> <Cmd>norm <C-r><CR>
 
 " map to execute the current line
 nmap <F6> :exec '!'.getline('.')
