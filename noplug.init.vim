@@ -176,7 +176,7 @@ imap <Home> <Cmd>norm ^<CR>
 set nowrap
 set virtualedit=block,onemore
 noremap <silent> <Leader>wr :call ToggleWrap()<CR>
-function ToggleWrap()
+function! ToggleWrap()
   if &wrap
     echo "Wrap OFF"
     setlocal nowrap
