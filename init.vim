@@ -579,7 +579,10 @@ EOF
 
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
-set foldlevel=99
+set foldlevel=1
+nnoremap - zc
+nnoremap = zo
+nnoremap + zO
 
 """ Comment.nvim
 

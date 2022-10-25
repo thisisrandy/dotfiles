@@ -125,6 +125,10 @@ za - open/close fold
 zA - recursively open/close fold
 zM - close all folds. zm for reduce folding level
 zR - open all folds. zr for increase folding level
+-/zc - close the folder under the cursor
+=/zo - open the fold under the cursor. note that any horizontal movement,
+       including 0/^/$, will accomplish the same and is often more ergnomic
++/zO - recursively open the fold under the cursor
 
 ## Search/replace
 
