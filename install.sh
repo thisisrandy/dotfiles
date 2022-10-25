@@ -36,7 +36,9 @@ PATH_TO_DOT_FILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && p
 # install curl, git, zsh...
 sudo apt-get -y install curl git zsh xclip htop iftop gcc make \
     multitime jq tmux peek datamash nmap bvi httpie ripgrep \
-    gnome-weather gnome-tweaks tree mkvtoolnix perl-doc
+    gnome-weather gnome-tweaks tree mkvtoolnix perl-doc fortunes \
+    cowsay
+
 ln -sf $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
 
 # install pyenv
