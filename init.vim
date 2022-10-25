@@ -585,6 +585,10 @@ set foldexpr=nvim_treesitter#foldexpr()
 set foldlevel=1
 nnoremap - zc
 nnoremap = zo
+" just in case we want to use indent on something
+nnoremap \ =
+" make visual map match
+vnoremap \ =
 nnoremap + zO
 
 """ Comment.nvim
