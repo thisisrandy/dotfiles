@@ -219,7 +219,7 @@ let g:coc_global_extensions=["coc-json", "coc-eslint", "coc-tsserver",
       \ "coc-snippets", "coc-html", "coc-css", "coc-pyright", "coc-java",
       \ "coc-highlight", "coc-yank", "coc-omnisharp", "coc-emmet",
       \ "coc-lists", "coc-marketplace", "coc-prettier", "coc-clangd",
-      \ "coc-cmake", "coc-xml", "coc-rls" ]
+      \ "coc-cmake", "coc-xml", "coc-rls", "coc-sh" ]
 
 " correct comment highlighting for config file
 autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -306,7 +306,7 @@ nmap <leader>o :CocOutline<CR>
 autocmd BufLeave CocTree* q
 
 function! RunFormatter()
-  if &ft =~ 'vim'
+  if &ft =~ 'vim' || &ft =~ 'sh'
     :exec "norm! gg=G\<C-o>"
   else
     :call CocAction('format')
