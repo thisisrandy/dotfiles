@@ -482,6 +482,8 @@ nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
 """ vim-matchup
 
 nnoremap <C-k> :<C-u>MatchupWhereAmI?<CR>
+nmap ]] z%
+nmap [[ [%
 
 """ far
 

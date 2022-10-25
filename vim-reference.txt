@@ -340,9 +340,9 @@ C-l - toggle absolute line numbers in normal mode. note that this doesn't
 
 % - forwards to next matching word
 g% - backwards ""
-[% - go to previous outer open word
+[%/[[ - go to previous outer open word
 ]% - next surrounding close word
-z% - go inside to the nearest inner block
+z%/]] - go inside to the nearest inner block
 :MatchupWhereAmI?[?] - print a bread crumb. ?? is more verbose
 C-k - MatchupWhereAmI?
 
