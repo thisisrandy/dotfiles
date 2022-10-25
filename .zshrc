@@ -159,6 +159,11 @@ alias ip='ip -c'
 # swap zsh l and la (I prefer ls -lAh as my min keystroke alias)
 alias l='ls -lAh'
 alias la='ls -lah'
+# shortcuts for the jump plugin
+alias j=jump
+alias m=mark
+alias um=unmark
+alias ms=marks
 
 # vi mode
 
