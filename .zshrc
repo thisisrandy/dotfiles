@@ -150,6 +150,7 @@ alias f="fzf --preview '[[ \$(file --mime {}) =~ binary ]] && \
                  echo {} is a binary file || \
                  bat --style=numbers --color=always {} | \
                  head -100'"
+alias v=vim
 alias vf='vim "$(f)"'
 alias lf='less "$(f)"'
 alias pip='python -m pip'
