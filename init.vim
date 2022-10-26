@@ -154,6 +154,7 @@ Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'jpalardy/vim-slime'
 Plug 'nvim-treesitter/nvim-treesitter-context'
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -597,3 +598,22 @@ let g:slime_target = "tmux"
 let g:slime_paste_file = tempname()
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 let g:slime_python_ipython = 1
+
+""" nvim-treesitter-refactor
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  refactor = {
+    highlight_definitions = {
+      enable = true,
+      -- Set to false if you have an `updatetime` of ~100.
+      clear_on_cursor_move = true,
+    },
+    highlight_current_scope = { enable = true },
+    -- refactor provides two other modules, smart_rename and navigation both,
+    -- but they both seem to suck. lsp from coc is much more (if not 100%)
+    -- reliable
+  },
+}
+EOF
+
