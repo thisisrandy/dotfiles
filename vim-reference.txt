@@ -249,10 +249,27 @@ Note that :Rgf is used for the <leader>u mapping
 <leader>s  - Symbols
 <leader>r  - Resume in last opened window
 
-## NERDTree
+## vim-vinegar/netrw
 
-C-n - open. see internal help for other mappings
-C-f - find current file in tree
+vinegar:
+  _ - enter netrw in current pane
+  . - pre-populate file path at the end of a : command line
+  y. - yank absolute path of file under cursor
+  ~ - to home
+
+netrw:
+  -/_ - go up in netrw
+  % - new file
+  d - new directory
+  cd - cd to browsing directory
+  D - remove item under cursor
+  m[fF] - mark/unmark file
+  mg - grep marked files
+  p - preview file (<C-w>z or :pclose to close)
+  x - view file with an associated program
+  X - execute file
+  C-^/6 - close netrw without selecting a file
+  F1 - netrw help
 
 ## vim-fugitive/rhubarb (git)
 
