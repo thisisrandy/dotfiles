@@ -609,7 +609,10 @@ require'nvim-treesitter.configs'.setup {
       -- Set to false if you have an `updatetime` of ~100.
       clear_on_cursor_move = true,
     },
-    highlight_current_scope = { enable = true },
+    -- highlight is kind of cool, but it's also kind of distracting, a bit
+    -- buggy, and most importantly, conflicts with the effect of
+    -- coc-highlight. turning off for now
+    -- highlight_current_scope = { enable = true },
     -- refactor provides two other modules, smart_rename and navigation both,
     -- but they both seem to suck. lsp from coc is much more (if not 100%)
     -- reliable
