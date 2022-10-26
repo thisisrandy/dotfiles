@@ -50,9 +50,10 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
-" better manual indentation support
-nnoremap <Tab> >>
-nnoremap <S-Tab> <<
+" better manual indentation support. note that tab and ctrl-i aren't
+" distinguished on most terminal emulators, so to avoid overwriting the jump
+" command, don't map tab in normal mode (>> .* does a fine job). we could map
+" <s-tab> without any conflicts, but for consistency we don't
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 

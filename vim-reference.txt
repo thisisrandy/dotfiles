@@ -91,7 +91,8 @@ C-q - enter character code in insert mode. e.g for unicode, uXXXX where XXXX is
       have that remapped to paste
 :e! - revert file to last save
 gv - reselect the last visual shape
-Tab/S-Tab - indent in/out in normal and visual modes (this is my mapping)
+Tab/S-Tab - indent in/out in visual mode (this is my mapping). for normal mode,
+            use >>/<< and . to repeat
 C-t/C-d - indent in/out in insert mode (built-in)
 
 ## Marks
