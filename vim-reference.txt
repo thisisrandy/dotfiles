@@ -79,6 +79,7 @@ C-S-arrow - resize window. not this is not placement aware, so up = +,
 C-j - close all quickfix and location lists
 gq - rebalance text to textwidth
 F6 - execute current line in the shell
+F7 - execute current line as a vim command
 C-a - increment the number under the cursor
 zz - move current line to the middle of the screen
 zt - "                      " top    "           "

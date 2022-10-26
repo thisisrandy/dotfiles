@@ -36,6 +36,8 @@ inoremap <C-y> <Cmd>norm <C-r><CR>
 
 " map to execute the current line
 nmap <F6> :exec '!'.getline('.')
+" the same thing but as a vim command instead of a shell command
+nmap <F7> :exec getline('.')
 
 " add an extra line for messages
 set cmdheight=2
