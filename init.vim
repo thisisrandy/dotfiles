@@ -420,12 +420,6 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
-""" tagbar (currently unused)
-
-" nmap <F8> :TagbarToggle<CR>
-" nmap <F9> :TagbarOpenAutoClose<CR>
-" nmap <C-t> :TagbarOpenAutoClose<CR>\
-
 """ nerdtree-git-plugin
 
 let g:NERDTreeGitStatusIndicatorMapCustom = {
