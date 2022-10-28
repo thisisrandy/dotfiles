@@ -380,3 +380,7 @@ C-c C-c - send to repl. this is currently configured to be the last (previously
           active) pane in the current tmux window by default
 C-c v - if for some reason the target needs to be changed after slime is first
         invoked, use this
+
+## vim-zoom
+
+C-w m - toggle the current window full screen. analogous to tmux's C-b z

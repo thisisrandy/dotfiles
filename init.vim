@@ -155,6 +155,7 @@ Plug 'p00f/nvim-ts-rainbow'
 Plug 'jpalardy/vim-slime'
 Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
+Plug 'dhruvasagar/vim-zoom'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
