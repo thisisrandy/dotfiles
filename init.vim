@@ -153,7 +153,11 @@ Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'jpalardy/vim-slime'
-Plug 'nvim-treesitter/nvim-treesitter-context'
+" So long as
+" https://github.com/nvim-treesitter/nvim-treesitter-context/issues/180 is
+" open, use the original context plugin instead
+" Plug 'nvim-treesitter/nvim-treesitter-context'
+Plug 'wellle/context.vim'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
 
 " this is probably useful for some languages, but unclear if it really
