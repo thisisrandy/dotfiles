@@ -335,16 +335,6 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Highlight word under cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" coc leaves popups open on a fairly regular basis, sometimes obstructing
-" large portions of the window and necessitating a restart. the following is a
-" partial solution that closes the last window, which seems to always be a
-" popup, assuming one is open. this solution isn't ideal, given that it will
-" also close the last window if there *isn't* a popup displayed, and the
-" assumption that the last window is a popup may be flawed. there is more
-" discussion at https://vi.stackexchange.com/q/34654/25078, which will
-" hopefully yield a better solution at some point
-nnoremap <silent> <leader>' :exec winnr('$').'wincmd c'<cr>
-
 """ fzf
 
 " From most windows, <C-t> opens in new tab, <C-x> in split, and <C-v> in
