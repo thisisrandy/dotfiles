@@ -178,10 +178,12 @@ popd
 curl -sSL https://get.daml.com/ | sh
 
 # install nvim
-rm -f $HOME/.local/bin/nvim
-curl -fLo ~/.local/bin/nvim --create-dirs https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod a+x ~/.local/bin/nvim
-ln -sf $HOME/.local/bin/nvim $HOME/.local/bin/vim
+pushd $(mktemp -d)
+# NOTE: nightly is needed for all treesitter features to work properly
+curl -fLo nvim-linux64.deb https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
+sudo apt install ./nvim-linux64.deb
+popd
+ln -sf /usr/bin/nvim $HOME/.local/bin/vim
 mkdir -p $HOME/.config/nvim
 ln -sf $PATH_TO_DOT_FILES/init.vim $HOME/.config/nvim/init.vim
 ln -sf $PATH_TO_DOT_FILES/noplug.init.vim $HOME/.config/nvim/noplug.init.vim
