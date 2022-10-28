@@ -499,10 +499,11 @@ let g:mundo_close_on_revert = 1
 let g:mundo_mirror_graph = 0
 let g:mundo_auto_preview_delay = 100
 
-""" nvim-treesitter
+""" nvim-treesitter and friends
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
+  -- nvim-treesitter
   ensure_installed = {
     "c",
     "cpp",
@@ -523,13 +524,14 @@ require'nvim-treesitter.configs'.setup {
     "markdown",
     "yaml",
   },
-  matchup = {
-    enable = true,              -- mandatory, false will disable the whole extension
-    disable = {},               -- optional, list of language that will be disabled
-    -- [options]
-  },
   highlight = {
     enable = true,
+  },
+  indent = {
+    enable = true,
+    -- this breaks indentation in python. see
+    -- https://github.com/nvim-treesitter/nvim-treesitter/issues/2947
+    disable = {"python"},
   },
   incremental_selection = {
     enable = true,
@@ -542,6 +544,24 @@ require'nvim-treesitter.configs'.setup {
       node_decremental = "<M-S-right>",
     },
   },
+
+  -- nvim-treesitter-refactor
+  refactor = {
+    highlight_definitions = {
+      enable = true,
+      -- Set to false if you have an `updatetime` of ~100.
+      clear_on_cursor_move = true,
+    },
+    -- highlight is kind of cool, but it's also kind of distracting, a bit
+    -- buggy, and most importantly, conflicts with the effect of
+    -- coc-highlight. turning off for now
+    -- highlight_current_scope = { enable = true },
+    -- refactor provides two other modules, smart_rename and navigation both,
+    -- but they both seem to suck. lsp from coc is much more (if not 100%)
+    -- reliable
+  },
+
+  -- nvim-ts-context-commentstring
   context_commentstring = {
     enable = true,
     enable_autocmd = false,
@@ -555,12 +575,15 @@ require'nvim-treesitter.configs'.setup {
       },
     },
   },
-  indent = {
-    enable = true,
-    -- this breaks indentation in python. see
-    -- https://github.com/nvim-treesitter/nvim-treesitter/issues/2947
-    disable = {"python"},
+
+  -- vim-matchup
+  matchup = {
+    enable = true,              -- mandatory, false will disable the whole extension
+    disable = {},               -- optional, list of language that will be disabled
+    -- [options]
   },
+
+  -- nvim-ts-rainbow
   rainbow = {
     enable = true,
     -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
@@ -602,25 +625,3 @@ let g:slime_target = "tmux"
 let g:slime_paste_file = tempname()
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 let g:slime_python_ipython = 1
-
-""" nvim-treesitter-refactor
-
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  refactor = {
-    highlight_definitions = {
-      enable = true,
-      -- Set to false if you have an `updatetime` of ~100.
-      clear_on_cursor_move = true,
-    },
-    -- highlight is kind of cool, but it's also kind of distracting, a bit
-    -- buggy, and most importantly, conflicts with the effect of
-    -- coc-highlight. turning off for now
-    -- highlight_current_scope = { enable = true },
-    -- refactor provides two other modules, smart_rename and navigation both,
-    -- but they both seem to suck. lsp from coc is much more (if not 100%)
-    -- reliable
-  },
-}
-EOF
-
