@@ -517,7 +517,7 @@ require'nvim-treesitter.configs'.setup {
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = "<leader>i",
+      init_selection = "<M-S-left>",
       node_incremental = "<M-S-left>",
       -- this isn't a whole lot different from node_incremental. it's much
       -- easier to just mirror the vscode bindings instead
