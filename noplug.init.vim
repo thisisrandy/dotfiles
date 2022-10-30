@@ -96,14 +96,12 @@ set autoread
 set clipboard+=unnamedplus
 
 " C-h - Find and replace
-" <leader>/ - Clear highlighted search terms while preserving history
 nnoremap <C-h> :%s/\v//g<left><left><left>
 vnoremap <C-h> :s/\v//g<left><left><left>
-nnoremap <silent> <leader>/ :nohlsearch<CR>
-" actually, highlighting is never useful. just turn it off altogether. note
-" there are some weird cases where highlighting still happens, so leave the
-" <leader>/ binding in place just in case
+" highlighting is rarely useful, so turn it off by default. some actions will
+" turn it back on, so a shortcut for :nohlsearch is defined
 set hls!
+nnoremap <silent> <leader>o :nohlsearch<CR>
 
 " move lines up and down with M-k/j (or up/down) from
 " https://vim.fandom.com/wiki/Moving_lines_up_or_down#Mappings_to_move_lines,
@@ -239,9 +237,11 @@ autocmd BufWritePre * :%s/\s\+$//e
 inoremap <C-s> <Cmd>w<CR>
 
 " mappings to cut and paste into the "black hole register"
-nnoremap <leader>d "_d
-xnoremap <leader>d "_d
-xnoremap <leader>p "_dP
+nnoremap <leader>bc "_c
+nnoremap <leader>bd "_d
+xnoremap <leader>bc "_c
+xnoremap <leader>bd "_d
+xnoremap <leader>bp "_dP
 
 " toggle relative line numbers in the gutter
 :nnoremap <silent> <C-l> :set relativenumber!<cr>

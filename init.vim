@@ -156,6 +156,8 @@ Plug 'jpalardy/vim-slime'
 Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'dhruvasagar/vim-zoom'
+Plug 'liuchengxu/vim-which-key'
+Plug 'AckslD/nvim-whichkey-setup.lua'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -289,11 +291,11 @@ endfunction
 " Remap for rename current word
 nmap <F2> <Plug>(coc-rename)
 
-" Map for outline
-nmap <leader>o :CocOutline<CR>
-" make the outline close itself once it's no longer in focus
+" make the outline close itself once it's no longer in focus. open map is via
+" which-key
 autocmd BufLeave CocTree* q
 
+" note that buffer format map is via which-key
 function! RunFormatter()
   if &ft =~ 'vim' || &ft =~ 'sh'
     :exec "norm! gg=G\<C-o>"
@@ -301,9 +303,6 @@ function! RunFormatter()
     :call CocAction('format')
   endif
 endfunction
-
-" Whole buffer map
-nmap <leader>b :call RunFormatter()<CR>
 
 " Format on save
 let g:prettier#autoformat = 0
@@ -318,13 +317,6 @@ augroup mygroup
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
-
-" Open codeAction menu for the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>af  <Plug>(coc-fix-current)
-" Run the Code Lens action on the current line.
-nmap <leader>al  <Plug>(coc-codelens-action)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
@@ -342,19 +334,9 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " ;         - Browse currently open buffers
 " <C-p> - Browse list of files in current directory
-" <leader>g - Search current directory for occurences of given term and close window if no results
-" <leader>u - Search current directory for occurences of word under cursor
-" <leader>co - Browse commands
+" a variety of other maps are created via which-key
 nnoremap <silent> ; :Buffers<CR>
 nnoremap <silent> <C-p> :Files<CR>
-nnoremap <leader>g :Rg<space>
-nnoremap <silent> <leader>u yiw :Rgf <C-r>"<CR>
-vnoremap <silent> <leader>u y :Rgf <C-r>"<CR>
-nnoremap <silent> <leader>co :Commands<CR>
-nnoremap <silent> <leader>ch :History:<CR>
-nnoremap <silent> <leader>cs :History/<CR>
-nnoremap <silent> <leader>la :Lines<CR>
-nnoremap <silent> <leader>lb :BLines<CR>
 
 let s:rg_base_cmd = "rg --column --line-number --no-heading --color=always --smart-case"
 " Identical to Rg defined in fzf.vim except for the -u flag, which causes
@@ -379,20 +361,12 @@ command! -bang -nargs=* Rgfuuu call fzf#vim#grep((s:rg_base_cmd . " -F -uuu -- "
 " experience
 let g:coc_fzf_preview_fullscreen = 1
 
-nnoremap <silent> <leader><leader> :<C-u>CocFzfList<CR>
-nnoremap <silent> <leader>aa       :<C-u>CocFzfList diagnostics<CR>
-nnoremap <silent> <leader>ab       :<C-u>CocFzfList diagnostics --current-buf<CR>
-nnoremap <silent> <leader>cc       :<C-u>CocFzfList commands<CR>
-nnoremap <silent> <leader>e        :<C-u>CocFzfList extensions<CR>
-nnoremap <silent> <leader>ll       :<C-u>CocFzfList location<CR>
+" note that leader maps are via which-key
 nnoremap <silent> <C-t>            :<C-u>CocFzfList outline<CR>
-nnoremap <silent> <leader>s        :<C-u>CocFzfList symbols<CR>
-nnoremap <silent> <leader>r        :<C-u>CocFzfListResume<CR>
-nnoremap <silent> <leader>y        :<C-u>CocFzfList yank<CR>
 
 """ vim-easymotion
 
-" Disable default mappings
+" Disable default mappings. <leader>j/k are via which-key
 let g:EasyMotion_do_mapping = 0
 
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
@@ -405,10 +379,6 @@ nmap f <Plug>(easymotion-overwin-f)
 
 " Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
-
-" JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
 
 " Gif config
 map  / <Plug>(easymotion-sn)
@@ -449,9 +419,19 @@ command! -bang -nargs=* Glog tab Gclog!<bang> <args>
 
 """ vim-windowswap
 
-" prevent default bindings and then remap easy swap only
+" prevent default bindings and then remap easy swap only (via which-key)
 let g:windowswap_map_keys = 0
-nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
+
+""" vim-gitgutter
+
+" prevent default mappings so that which-key can handle leader maps
+let g:gitgutter_map_keys = 0
+nmap ]c <Plug>(GitGutterNextHunk)
+nmap [c <Plug>(GitGutterPrevHunk)
+omap ih <Plug>(GitGutterTextObjectInnerPending)
+omap ah <Plug>(GitGutterTextObjectOuterPending)
+xmap ih <Plug>(GitGutterTextObjectInnerVisual)
+xmap ah <Plug>(GitGutterTextObjectOuterVisual)
 
 """ vim-matchup
 
@@ -465,8 +445,7 @@ let g:far#enable_undo=1
 let g:far#source='rgnvim'
 let g:far#glob_mode='native'
 set lazyredraw
-nnoremap <silent> <leader>fr :Farr<CR>
-vnoremap <silent> <leader>fr :Farr<CR>
+" maps via which-key
 
 """ Mundo
 nnoremap <silent> <F5> :MundoToggle<CR>
@@ -605,3 +584,75 @@ let g:slime_target = "tmux"
 let g:slime_paste_file = tempname()
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 let g:slime_python_ipython = 1
+
+""" vim-which-key
+
+lua<<EOF
+local wk = require('whichkey_setup')
+
+local keymap = {
+  b = {
+    name = '+[b]lackhole-delete',
+    c = {'"_c', 'overwrite (using [c])'},
+    d = {'"_d', '[d]elete'},
+  },
+  c = {
+    name = '+[c]oc',
+    a = {':CocFzfList diagnostics<CR>', 'di[a]gnostics (project)'},
+    b = {':CocFzfList diagnostics --current-buf<CR>', 'diagnostics (current [b]uffer)'},
+    c = {'<Plug>(coc-codeaction)', '[c]odeactions'},
+    d = {'<Plug>(coc-codelens-action)', 'co[d]elens action'},
+    e = {':CocFzfList extensions<CR>', '[e]xtensions'},
+    f = {':call RunFormatter()<CR>', '[f]ormat buffer'},
+    l = {':CocFzfList location<CR>', '[l]ocations list'},
+    m = {':CocFzfList<CR>', 'list of lists ([m]eta)'},
+    n = {':CocFzfList commands<CR>', 'comma[n]ds'},
+    o = {':CocOutline<CR>', '[o]utline'},
+    r = {':CocFzfListResume<CR>', '[r]esume last list'},
+    s = {':CocFzfList symbols<CR>', '[s]ymbols'},
+    x = {'<Plug>(coc-fix-current)', 'autofi[x]'},
+    y = {':CocFzfList yank<CR>', '[y]ank list'},
+  },
+  f = {':Farr<CR>', '[f]ind/replace'},
+  g = {':Rg ', 'rip[g]rep'},
+  h = {
+    name = '+[h]unks',
+    p = {'<Plug>(GitGutterPreviewHunk)', '[p]review hunk'},
+    s = {'<Plug>(GitGutterStageHunk)', '[s]tage hunk'},
+    u = {'<Plug>(GitGutterUndoHunk)', '[u]ndo hunk'},
+  },
+  j = {'<Plug>(easymotion-j)', 'easymotion below ([j])'},
+  k = {'<Plug>(easymotion-k)', 'easymotion above ([k])'},
+  l = {
+    name = '+[l]ines/locations',
+    a = {':Lines<CR>', 'lines search ([a]ll buffers)'},
+    b = {':BLines<CR>', 'lines search (current [b]uffer)'},
+  },
+  o = {':nohlsearch<CR>', 'highlight [o]ff'},
+  s = {
+    name = '+[s]earch',
+    c = {':Commands<CR>', '[c]ommands'},
+    h = {':History:<CR>', 'command [h]istory'},
+    s = {':History/<CR>', '[s]earch history'},
+  },
+  u = {'yiw :Rgf <C-r>"<CR>', 'ripgrep word [u]nder cursor'},
+  w = {
+    name = '+[w]rap/windows',
+    r = {':call ToggleWrap()<CR>', 'toggle line w[r]ap'},
+    w = {':call WindowSwap#EasyWindowSwap()<CR>', '[w]indow swap'},
+  },
+}
+
+local visual_keymap = {
+  b = {
+    name = '+[b]lackhole-delete',
+    c = {'"_c', 'overwrite (using [c])'},
+    d = {'"_d', '[d]elete'},
+    p = {'"_dP', '[p]aste'},
+  },
+  f = {':Farr<CR>', '[f]ind/replace'},
+}
+
+wk.register_keymap('leader', keymap, { silent = false })
+wk.register_keymap('leader', visual_keymap, { mode = 'v', silent = false })
+EOF

@@ -138,7 +138,7 @@ zR - open all folds. zr for increase folding level
 * - search for word under cursor. g* is partial match.
     press again or use n/N to navigate between matches
 # - * in reverse. g# also valid
-:noh - remove highlighting, e.g. from *. mapped to <leader>/ (NOTE:
+:noh - remove highlighting, e.g. from *. mapped to <leader>o (NOTE:
        highlighting currently turned off, so this is moot)
 % - find matching paren/brace
 :%s/foo/bar/ - whole file. also mapped to C-h
@@ -194,25 +194,25 @@ ge - go to next error position, i.e. skip warnings, etc.
 gh / K - show documentation
 <C-w><space> - focus on popup for scrolling. unfocus with <C-w>p or :q
 F2 - rename current word
-<leader>b - format buffer
-<leader>co - show commands
+<leader>t - format buffer
+<leader>cn - show commands
 
 <TAB> - snippet completion. also next snippet placeholder (when not in completion mode)
 <C-n> - next completion. allows use without snippet, e.g. for refering to functions
         instead of function calls. <Down> mapped to the same.
 <C-p> - previous completion. <Up> mapped to the same.
 
-<leader>y - yank list. i to fuzzy search, <space> to select multiple. note that system
-            clipboard copies aren't included
+<leader>cy - yank list. i to fuzzy search, <space> to select multiple. note that system
+             clipboard copies aren't included
 
 :CocList marketplace - see which extensions are installed and search for new ones
 
-<leader>o - open :CocOutline. within this window, f to search, t to toggle
-            expansion and M to fold everything. see coc-tree-mappings
+<leader>co - open :CocOutline. within this window, f to search, t to toggle
+             expansion and M to fold everything. see coc-tree-mappings
 
-<leader>ac - open the codeAction menu for the current buffer
-<leader>af - apply autofix to a problem on the current line. <C-.> in VSCode
-<leader>al - run the Code Lens action on the current line
+<leader>cc - open the codeAction menu for the current buffer
+<leader>cx - apply autofix to a problem on the current line. <C-.> in VSCode
+<leader>cd - run the Code Lens action on the current line
 
 :CocRestart - restart the language server. useful to get some servers to pick
               up added deps, etc.
@@ -227,24 +227,24 @@ Tab/Shift-Tab selects an item and moves to the next/previous item, respectively
 <C-p> - Browse list of files in current directory (starts in filter mode)
 <leader>g - Search current directory for occurences of given term and close window if no results
 <leader>u - Search current directory for occurences of word under cursor
-<leader>co - Browse commands
-<leader>ch - Command history
-<leader>cs - Search history
+<leader>sc - Browse commands
+<leader>sh - Command history
+<leader>ss - Search history
 
 The commands :Rgu[u][u] are also defined to correspond to ripgrep's -u, -uu,
 and -uuu options, as well as :Rgf[u][u][u] for fixed strings (the -F option).
 Note that :Rgf is used for the <leader>u mapping
 
-<leader>aa - Diagnostics
-<leader>ab - Current buffer diagnostics
-<leader>cc - CoC Commands
-<leader>e  - Extensions
-<leader>ll - Locations list
+<leader>ca - Diagnostics
+<leader>cb - Current buffer diagnostics
+<leader>cn - CoC Commands
+<leader>ce  - Extensions
+<leader>cl - Locations list
 <leader>la - Lines (all buffers)
 <leader>lb - BLines (current buffer)
 <C-t>      - Outline
-<leader>s  - Symbols
-<leader>r  - Resume in last opened window
+<leader>cs  - Symbols
+<leader>cr  - Resume in last opened window
 
 ## vim-vinegar/netrw
 
