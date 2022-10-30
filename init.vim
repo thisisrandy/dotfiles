@@ -515,7 +515,7 @@ require'nvim-treesitter.configs'.setup {
     -- buggy, and most importantly, conflicts with the effect of
     -- coc-highlight. turning off for now
     -- highlight_current_scope = { enable = true },
-    -- refactor provides two other modules, smart_rename and navigation both,
+    -- refactor provides two other modules, smart_rename and navigation,
     -- but they both seem to suck. lsp from coc is much more (if not 100%)
     -- reliable
   },
