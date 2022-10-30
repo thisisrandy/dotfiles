@@ -298,9 +298,11 @@ autocmd BufLeave CocTree* q
 " note that buffer format map is via which-key
 function! RunFormatter()
   if &ft =~ 'vim' || &ft =~ 'sh'
-    :exec "norm! gg=G\<C-o>"
+    let winView = winsaveview()
+    exec "norm! gg=G"
+    call winrestview(winView)
   else
-    :call CocAction('format')
+    call CocAction('format')
   endif
 endfunction
 
