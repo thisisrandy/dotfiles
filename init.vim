@@ -651,6 +651,7 @@ local visual_keymap = {
     p = {'"_dP', '[p]aste'},
   },
   f = {':Farr<CR>', '[f]ind/replace'},
+  u = {'y :Rgf <C-r>"<CR>', 'ripgrep selected text ([u]nder cursor)'},
 }
 
 wk.register_keymap('leader', keymap, { silent = false })
