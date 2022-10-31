@@ -156,8 +156,7 @@ Plug 'jpalardy/vim-slime'
 Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'dhruvasagar/vim-zoom'
-Plug 'liuchengxu/vim-which-key'
-Plug 'AckslD/nvim-whichkey-setup.lua'
+Plug 'folke/which-key.nvim'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 " this is probably useful for some languages, but unclear if it really
@@ -661,12 +660,12 @@ let g:slime_paste_file = tempname()
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 let g:slime_python_ipython = 1
 
-""" vim-which-key
+""" which-key.nvim
 
 lua<<EOF
-local wk = require('whichkey_setup')
+local wk = require('which-key')
 
-local keymap = {
+wk.register({
   b = {
     name = '+[b]lackhole-delete',
     c = {'"_c', 'overwrite (using [c])'},
@@ -690,7 +689,6 @@ local keymap = {
     y = {':CocFzfList yank<CR>', '[y]ank list'},
   },
   f = {':Farr<CR>', '[f]ind/replace'},
-  g = {':Rg ', 'rip[g]rep'},
   h = {
     name = '+[h]unks',
     p = {'<Plug>(GitGutterPreviewHunk)', '[p]review hunk'},
@@ -717,13 +715,11 @@ local keymap = {
     r = {':call ToggleWrap()<CR>', 'toggle line w[r]ap'},
     w = {':call WindowSwap#EasyWindowSwap()<CR>', '[w]indow swap'},
   },
-}
+}, { prefix = '<leader>' })
 
--- while the appropriate visual mode mappings are created, these fail to
--- execute from the which-key menu, so it's useful only for reference for now.
--- I've filed https://github.com/AckslD/nvim-whichkey-setup.lua/issues/17 to
--- hopefully address the issue
-local visual_keymap = {
+wk.register({ g = {':Rg ', 'rip[g]rep'} }, { prefix = '<leader>', silent = false })
+
+wk.register({
   b = {
     name = '+[b]lackhole-delete',
     c = {'"_c', 'overwrite (using [c])'},
@@ -732,8 +728,5 @@ local visual_keymap = {
   },
   f = {':Farr<CR>', '[f]ind/replace'},
   u = {'y :Rgf <C-r>"<CR>', 'ripgrep selected text ([u]nder cursor)'},
-}
-
-wk.register_keymap('leader', keymap, { silent = false })
-wk.register_keymap('leader', visual_keymap, { mode = 'v', silent = false })
+  }, { prefix = '<leader>', mode = 'v' })
 EOF
