@@ -545,12 +545,11 @@ require'nvim-treesitter.configs'.setup {
       -- * method: eg 'v' or 'o'
       -- and should return the mode ('v', 'V', or '<c-v>') or a table
       -- mapping query_strings to modes.
-      -- TODO: this doesn't seem to work. File a bug
-      selection_modes = {
-        ['@block.outer'] = 'V',
-        ['@function.outer'] = 'V',
-        ['@class.outer'] = 'V',
-      },
+      --
+      -- Note that this doesn't apply to visual selection, which instead uses
+      -- visualmode() to select the mode
+      selection_modes = 'V',
+
       -- If you set this to `true` (default is `false`) then any textobject is
       -- extended to include preceding or succeeding whitespace. Succeeding
       -- whitespace has priority in order to act similarly to eg the built-in
