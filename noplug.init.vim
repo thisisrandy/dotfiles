@@ -183,7 +183,7 @@ imap <Home> <Cmd>norm ^<CR>
 " make line wrapping nicer. off by default
 set nowrap
 set virtualedit=block,onemore
-noremap <silent> <Leader>wr :call ToggleWrap()<CR>
+nnoremap <silent> <Leader>wr :call ToggleWrap()<CR>
 function! ToggleWrap()
   if &wrap
     echo "Wrap OFF"
