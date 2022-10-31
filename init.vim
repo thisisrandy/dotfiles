@@ -669,6 +669,8 @@ set timeoutlen=250
 lua<<EOF
 local wk = require('which-key')
 
+wk.setup { plugins = { spelling = { enabled = true } } }
+
 wk.register({
   b = {
     name = '+[b]lackhole-delete',
