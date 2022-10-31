@@ -94,6 +94,8 @@ gv - reselect the last visual shape
 Tab/S-Tab - indent in/out in visual mode (this is my mapping). for normal mode,
             use >>/<< and . to repeat
 C-t/C-d - indent in/out in insert mode (built-in)
+xph - swap current character with next and return cursor to original position
+Xp - swap current character with previous
 
 ## Marks
 
