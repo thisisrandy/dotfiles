@@ -158,6 +158,7 @@ Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'dhruvasagar/vim-zoom'
 Plug 'liuchengxu/vim-which-key'
 Plug 'AckslD/nvim-whichkey-setup.lua'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -520,6 +521,79 @@ require'nvim-treesitter.configs'.setup {
     -- refactor provides two other modules, smart_rename and navigation,
     -- but they both seem to suck. lsp from coc is much more (if not 100%)
     -- reliable
+  },
+
+  -- nvim-treesitter-textobjects
+  textobjects = {
+    select = {
+      enable = true,
+
+      -- Automatically jump forward to textobj, similar to targets.vim
+      lookahead = true,
+
+      keymaps = {
+        ["ab"] = "@block.outer",
+        ["ib"] = "@block.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+      },
+      -- You can choose the select mode (default is charwise 'v')
+      --
+      -- Can also be a function which gets passed a table with the keys
+      -- * query_string: eg '@function.inner'
+      -- * method: eg 'v' or 'o'
+      -- and should return the mode ('v', 'V', or '<c-v>') or a table
+      -- mapping query_strings to modes.
+      -- TODO: this doesn't seem to work. File a bug
+      selection_modes = {
+        ['@block.outer'] = 'V',
+        ['@function.outer'] = 'V',
+        ['@class.outer'] = 'V',
+      },
+      -- If you set this to `true` (default is `false`) then any textobject is
+      -- extended to include preceding or succeeding whitespace. Succeeding
+      -- whitespace has priority in order to act similarly to eg the built-in
+      -- `ap`.
+      --
+      -- Can also be a function which gets passed a table with the keys
+      -- * query_string: eg '@function.inner'
+      -- * selection_mode: eg 'v'
+      -- and should return true or false
+      include_surrounding_whitespace = false,
+    },
+
+    -- swap = {
+    --   enable = true,
+    --   swap_next = {
+    --     ["<leader>s"] = "@parameter.inner",
+    --   },
+    --   swap_previous = {
+    --     ["<leader>S"] = "@parameter.inner",
+    --   },
+    -- },
+
+    move = {
+      enable = true,
+      set_jumps = true, -- whether to set jumps in the jumplist
+      goto_next_start = {
+        ["]f"] = "@function.outer",
+        ["]]"] = "@block.outer",
+      },
+      goto_next_end = {
+        ["]F"] = "@function.outer",
+        ["]["] = "@block.outer",
+      },
+      goto_previous_start = {
+        ["[f"] = "@function.outer",
+        ["[["] = "@block.outer",
+      },
+      goto_previous_end = {
+        ["[F"] = "@function.outer",
+        ["[]"] = "@block.outer",
+      },
+    },
   },
 
   -- nvim-ts-context-commentstring

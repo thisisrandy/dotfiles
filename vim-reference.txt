@@ -368,6 +368,23 @@ C-k - MatchupWhereAmI?
 <M-S-left> - increment active selection
 <M-S-right> - decrement active selection
 
+## nvim-treesitter-textobjects
+
+Motions:
+  [ai]b - block
+  [ai]f - function
+  [ai]c - class
+
+Movement:
+  ]f - next function start
+  ]F - next function end
+  [f - previous function start
+  [F - previous function end
+  ]] - next block start
+  ][ - next block end
+  [[ - previous block start
+  [] - previous block end
+
 ## vim-slime
 
 NOTE: treesitter's incremental selection is hugely helpful for quickly
