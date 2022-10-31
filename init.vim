@@ -662,6 +662,10 @@ let g:slime_python_ipython = 1
 
 """ which-key.nvim
 
+" which-key works for any timeoutlen, including 0, so turn it down from the
+" 500 in noplug.init.vim
+set timeoutlen=250
+
 lua<<EOF
 local wk = require('which-key')
 
