@@ -719,6 +719,10 @@ local keymap = {
   },
 }
 
+-- while the appropriate visual mode mappings are created, these fail to
+-- execute from the which-key menu, so it's useful only for reference for now.
+-- I've filed https://github.com/AckslD/nvim-whichkey-setup.lua/issues/17 to
+-- hopefully address the issue
 local visual_keymap = {
   b = {
     name = '+[b]lackhole-delete',
