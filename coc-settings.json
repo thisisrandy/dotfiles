@@ -1,7 +1,7 @@
 {
   "html.suggest.html5": true,
   "python.formatting.provider": "black",
-  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.typeCheckingMode": "strict",
   "python.pythonPath": "./.venv/bin/python",
   "languageserver": {
     "haskell": {
