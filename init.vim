@@ -116,6 +116,7 @@ endfunction
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-unimpaired'
 Plug 'jnurmine/Zenburn'
 Plug 'EdenEast/nightfox.nvim'
 Plug 'ellisonleao/gruvbox.nvim'
