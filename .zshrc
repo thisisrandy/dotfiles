@@ -257,6 +257,8 @@ x11-clip-wrap-widgets paste  $paste_widgets
 # simlinks, but that would be an extra step that I don't care to take
 
 FZF_PATH=$HOME/.local/share/nvim/plugged/fzf
+# technically this is a bat setting, but I don't use it outside of fzf
+export BAT_THEME=gruvbox-dark
 
 # Setup fzf
 # ---------
