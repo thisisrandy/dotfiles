@@ -735,8 +735,10 @@ wk.register({
   o = {':nohlsearch<CR>', 'highlight [o]ff'},
   s = {
     name = '+[s]earch',
-    c = {':Commands<CR>', '[c]ommands'},
+    b = {':BCommits<CR>', 'commits ([b]uffer)'},
+    c = {':Commits<CR>', '[c]ommits'},
     h = {':History:<CR>', 'command [h]istory'},
+    o = {':Commands<CR>', 'c[o]mmands'},
     s = {':History/<CR>', '[s]earch history'},
   },
   u = {'yiw :Rgf <C-r>"<CR>', 'ripgrep word [u]nder cursor'},
