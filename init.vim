@@ -115,7 +115,9 @@ endfunction
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'tpope/vim-unimpaired'
+" I've forked this in order to remove some conflicting mappings. it seems
+" unlikely to change much in the future, so maintenance should be nil
+Plug 'thisisrandy/vim-unimpaired'
 Plug 'scrooloose/nerdtree'
 Plug 'jnurmine/Zenburn'
 Plug 'EdenEast/nightfox.nvim'
