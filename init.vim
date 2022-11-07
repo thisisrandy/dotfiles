@@ -188,8 +188,8 @@ colorscheme gruvbox
 
 """ NERDTree
 
-map <C-n> :NERDTreeToggle<CR>
-nmap <C-f> :NERDTreeFind<CR>
+map <silent> <C-n> :NERDTreeToggle<CR>
+nmap <silent> <C-f> :NERDTreeFind<CR>
 
 " This opens with file
 " autocmd vimenter * NERDTree
