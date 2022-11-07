@@ -160,12 +160,18 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # install bat. per https://askubuntu.com/a/1300824/1014459, on 20.04 this needs
 # some special magic
-sudo apt-get -y install -o Dpkg::Options::="--force-overwrite" bat
+# sudo apt-get -y install -o Dpkg::Options::="--force-overwrite" bat
+# the version of bat that apt uses for 20.04 throws an error when opening files
+# inside a git repo. see
+# https://github.com/sharkdp/bat/issues/2317#issuecomment-1248343739. we can
+# just manually install the latest version instead
+pushd $(mktemp -d)
+wget https://github.com/sharkdp/bat/releases/download/v0.22.1/bat_0.22.1_amd64.deb
+sudo dpkg -i bat_0.22.1_amd64.deb
 # per https://github.com/sharkdp/bat#on-ubuntu-using-apt, bat might be installed
 # as batcat. set up a symlink so fzf can use it as bat
 command -v bat || ln -s /usr/bin/batcat ~/.local/bin/bat
 # and extras
-pushd $(mktemp -d)
 curl -LO https://github.com/eth-p/bat-extras/archive/master.zip
 unzip master.zip
 pushd bat-extras-master
