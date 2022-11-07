@@ -758,3 +758,7 @@ wk.register({
   u = {'y :Rgf <C-r>"<CR>', 'ripgrep selected text ([u]nder cursor)'},
   }, { prefix = '<leader>', mode = 'v' })
 EOF
+
+""" vim-speeddating
+
+autocmd Vimenter * :SpeedDatingFormat %m/%d/%Y
