@@ -115,8 +115,8 @@ endfunction
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-unimpaired'
+Plug 'scrooloose/nerdtree'
 Plug 'jnurmine/Zenburn'
 Plug 'EdenEast/nightfox.nvim'
 Plug 'ellisonleao/gruvbox.nvim'
@@ -132,6 +132,7 @@ Plug 'cohama/lexima.vim'
 Plug 'wesQ3/vim-windowswap'
 Plug 'alvan/vim-closetag'
 Plug 'thisisrandy/vim-outdated-plugins', { 'do': function('UpdateRemotePlugins') }
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'jeffkreeftmeijer/vim-numbertoggle', { 'branch': 'main' }
 Plug 'tpope/vim-surround'
@@ -185,9 +186,27 @@ endfor
 " colorscheme nightfox
 colorscheme gruvbox
 
-""" vim-vinegar
+""" NERDTree
 
-nnoremap _ <Plug>VinegarUp
+map <C-n> :NERDTreeToggle<CR>
+nmap <C-f> :NERDTreeFind<CR>
+
+" This opens with file
+" autocmd vimenter * NERDTree
+" This opens without file
+" let NERDTreeShowHidden=1
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" quit if last window
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" show hidden files by default
+let g:NERDTreeShowHidden = 1
+
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+      \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 """ vim-airline
 
