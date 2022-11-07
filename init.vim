@@ -146,10 +146,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'antoinemadec/coc-fzf'
 Plug 'brooth/far.vim', { 'do': function('UpdateRemotePlugins') }
-" Plug 'simnalamburt/vim-mundo'
-" use my branch until https://github.com/simnalamburt/vim-mundo/issues/126 is
-" resolved
-Plug 'thisisrandy/vim-mundo'
+Plug 'simnalamburt/vim-mundo'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-repeat'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
