@@ -56,6 +56,9 @@ set expandtab
 " <s-tab> without any conflicts, but for consistency we don't
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
+" also retain selection w/normal mappings
+vnoremap > >gv
+vnoremap < <gv
 
 " Open hsplit below current window
 set splitbelow
