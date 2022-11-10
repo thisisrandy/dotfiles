@@ -725,7 +725,7 @@ wk.register({
   j = {'<Plug>(easymotion-j)', 'easymotion below ([j])'},
   k = {'<Plug>(easymotion-k)', 'easymotion above ([k])'},
   l = {
-    name = '+[l]ines/locations',
+    name = '+[l]ines',
     a = {':Lines<CR>', 'lines search ([a]ll buffers)'},
     b = {':BLines<CR>', 'lines search (current [b]uffer)'},
   },
