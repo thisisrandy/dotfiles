@@ -650,6 +650,14 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+" see https://github.com/p00f/nvim-ts-rainbow/issues/112
+" TS rainbow isn't very good at staying sane after file edits. until it
+" improves, here's a hack to just turn it off and on again after every write
+autocmd BufWritePost * TSDisable rainbow | TSEnable rainbow
+" I also observed that the behavior improves after a few disable/enable
+" cycles. here's a jumpstart
+autocmd BufReadPost,BufNewFile * TSDisable rainbow | TSEnable rainbow | TSDisable rainbow | TSEnable rainbow | TSDisable rainbow | TSEnable rainbow
+
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set foldlevel=1
