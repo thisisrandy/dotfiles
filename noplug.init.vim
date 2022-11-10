@@ -269,3 +269,5 @@ function! s:GotoFirstFloat() abort
   endfor
 endfunction
 noremap <silent> <c-w><space> :<c-u>call <sid>GotoFirstFloat()<cr>
+
+set dictionary=/usr/share/dict/words
