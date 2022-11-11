@@ -101,9 +101,6 @@ set clipboard+=unnamedplus
 " C-h - Find and replace
 nnoremap <C-h> :%s/\v//g<left><left><left>
 vnoremap <C-h> :s/\v//g<left><left><left>
-" highlighting is rarely useful, so turn it off by default. some actions will
-" turn it back on, so a shortcut for :nohlsearch is defined
-set hls!
 nnoremap <silent> <leader>o :nohlsearch<CR>
 
 " move lines up and down with M-k/j (or up/down) from
