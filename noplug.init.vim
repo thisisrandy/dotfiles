@@ -265,6 +265,7 @@ function! s:GotoFirstFloat() abort
     " c.relative isn't set for normal windows. see nvim_win_get_config()
     if c.focusable && !empty(c.relative)
       execute w . 'wincmd w'
+      break
     endif
   endfor
 endfunction
