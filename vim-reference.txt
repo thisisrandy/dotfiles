@@ -279,12 +279,12 @@ gb{motion} - toggle block comment over motion
 gs - normal mode: insert in scratch buffer. visual: paste
 gS - same as gs, but clear scratch first
 
-## vim-easymotion
+## hop.nvim (easymotion replacement)
 
-f - type a single to find, then type the appropriate label or ESC
-/ - type n characters, <CR>, then label button(s)
-<leader>j - lines below
-<leader>k - lines above
+f - find a single character. esc cancels
+F - find a single character on current line only
+t - find a pattern
+T - find a pattern on current line only
 
 ## vim-dadbod
 

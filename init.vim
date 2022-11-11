@@ -128,7 +128,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'mtth/scratch.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jackguo380/vim-lsp-cxx-highlight' " depends on coc
-Plug 'easymotion/vim-easymotion'
+Plug 'phaazon/hop.nvim', { 'branch': 'v2' }
 Plug 'tpope/vim-dadbod'
 Plug 'cohama/lexima.vim'
 Plug 'wesQ3/vim-windowswap'
@@ -386,31 +386,16 @@ let g:coc_fzf_preview_fullscreen = 1
 " note that leader maps are via which-key
 nnoremap <silent> <C-t>            :<C-u>CocFzfList outline<CR>
 
-""" vim-easymotion
+""" hop.nvim - modern easymotion replacement
 
-" Disable default mappings. <leader>j/k are via which-key
-let g:EasyMotion_do_mapping = 0
-
-" Jump to anywhere you want with minimal keystrokes, with just one key binding.
-" `f{char}{label}`
-nmap f <Plug>(easymotion-overwin-f)
-" or
-" `f{char}{char}{label}`
-" Need one more keystroke, but on average, it may be more comfortable.
-" nmap f <Plug>(easymotion-overwin-f2)
-
-" Turn on case-insensitive feature
-let g:EasyMotion_smartcase = 1
-
-" Gif config
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-
-" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
-" Without these mappings, `n` & `N` works fine. (These mappings just provide
-" different highlight method and have some other features )
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
+lua<<EOF
+local hop = require('hop')
+hop.setup()
+vim.keymap.set('', 'f', hop.hint_char1)
+vim.keymap.set('', 'F', (function() hop.hint_char1({current_line_only = true}) end))
+vim.keymap.set('', 't', hop.hint_patterns)
+vim.keymap.set('', 'T', (function() hop.hint_patterns({current_line_only = true}) end))
+EOF
 
 """ nerdtree-git-plugin
 
