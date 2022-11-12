@@ -119,6 +119,12 @@ call plug#begin('~/.local/share/nvim/plugged')
 " unlikely to change much in the future, so maintenance should be nil
 Plug 'thisisrandy/vim-unimpaired'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" NOTE: this is a fork to address
+" https://github.com/tiagofumo/vim-nerdtree-syntax-highlight/issues/53
+Plug 'johnstef99/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
+Plug 'PhilRunninger/nerdtree-visual-selection'
 Plug 'ellisonleao/gruvbox.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
@@ -132,7 +138,6 @@ Plug 'cohama/lexima.vim'
 Plug 'wesQ3/vim-windowswap'
 Plug 'alvan/vim-closetag'
 Plug 'thisisrandy/vim-outdated-plugins', { 'do': function('UpdateRemotePlugins') }
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'jeffkreeftmeijer/vim-numbertoggle', { 'branch': 'main' }
 Plug 'tpope/vim-surround'
@@ -204,6 +209,12 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 let g:NERDTreeQuitOnOpen = 1
 " close NERDTree we leave it otherwise
 " autocmd BufLeave * if bufname('%') =~ 'NERD_tree_\d\+' | q | endif
+
+""" vim-devicons
+
+" FIXME: this doesn't work, though I'm not entirely sure I care enough to dig
+" in. I suspect the issue is neovim
+let g:webdevicons_enable_airline_statusline = 1
 
 """ vim-airline
 
