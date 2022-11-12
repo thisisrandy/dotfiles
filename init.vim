@@ -200,6 +200,11 @@ let g:NERDTreeShowHidden = 1
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
       \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
+" close NERDTree only when we've used it to open a file
+let g:NERDTreeQuitOnOpen = 1
+" close NERDTree we leave it otherwise
+" autocmd BufLeave * if bufname('%') =~ 'NERD_tree_\d\+' | q | endif
+
 """ vim-airline
 
 let g:airline_powerline_fonts = 1
