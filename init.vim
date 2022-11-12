@@ -119,8 +119,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 " unlikely to change much in the future, so maintenance should be nil
 Plug 'thisisrandy/vim-unimpaired'
 Plug 'scrooloose/nerdtree'
-Plug 'jnurmine/Zenburn'
-Plug 'EdenEast/nightfox.nvim'
 Plug 'ellisonleao/gruvbox.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
