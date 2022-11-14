@@ -299,7 +299,7 @@ sudo apt-get -y install timeshift
 
 # snaps
 sudo snap install code --classic
-sudo snap install spotify gimp vlc
+sudo snap install spotify gimp vlc universal-ctags
 
 # vs code extensions
 ./vscode-install-extensions.sh
