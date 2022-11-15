@@ -114,10 +114,10 @@ gets us through to the win. In particular:
 1. Launch the client, then go to Properties -> Devices & Shares -> Folder Shares and add a folder
 2. On the client, install `spice-webdavd`, then run `sudo spice-webdavd -p 10000`. "Spice client folder" should now be available from the "Other Locations" menu in Files
 3. Sometimes when attempting to open the Spice client folder, it will error
-   with "HTTP error: Could not connect: Connection refused". While `apt-get update`/`upgrade` may fix the issue temporarily, it seems, per [this
-   discussion](https://github.com/utmapp/UTM/discussions/3917), that the root
-   cause is time. That is, if the client folder is refusing to connect, simply
-   waiting a few minutes seems to resolve the issue
+   with `HTTP error: Could not connect: Connection refused`. It seems, per
+   [this discussion](https://github.com/utmapp/UTM/discussions/3917), that the
+   best way to fix the issue is to manually type `dav://localhost:9843` into
+   the `Other Locations -> Connect to Server` textbox
 
 ### Migrating a VM to another host
 
