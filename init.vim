@@ -392,8 +392,23 @@ command! -bang -nargs=* Rgfuuu call fzf#vim#grep((s:rg_base_cmd . " -F -uuu -- "
 " experience
 let g:coc_fzf_preview_fullscreen = 1
 
+function! s:searchOutline()
+  " this is an inexhaustive list of filetypes I don't have a language server
+  " installed for. fzf.nvim's :BTags works even when a tags file hasn't been
+  " generated. this *does not* cover the jump to definition (C-]) case, which
+  " requires a tags file. I've made no attempt to auto-generate those, though
+  " it seems easy enough to do were I to start editing these file types often.
+  " were that the case, I'd probably also want to selectively change the
+  " behavior of gh to C-] and pull non-lsp file types out into a variable
+  if (index(['vim','perl'], &filetype) >= 0)
+    :BTags
+  else
+    :CocFzfList outline
+  endif
+endfunction
+
 " note that leader maps are via which-key
-nnoremap <silent> <C-t>            :<C-u>CocFzfList outline<CR>
+nnoremap <silent> <C-t> :call <SID>searchOutline()<CR>
 
 """ hop.nvim - modern easymotion replacement
 
