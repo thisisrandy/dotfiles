@@ -482,9 +482,12 @@ set lazyredraw
 nnoremap <silent> <F5> :MundoToggle<CR>
 " the following sets up persistent undos, but it's unacceptably slow for files
 " with long histories. it seems pretty rare that I'd want the entire undo
-" history for a file, anyways (SCM is a much better solution to that problem)
-" set undofile
-" set undodir=~/.vim/undo
+" history for a file, anyways (SCM is a much better solution to that problem).
+" a nice compromise is to use a tmp dir so that the undo history from the
+" session only is persisted (assuming default tmp file cleanup settings. see
+" man tmpfiles.d)
+set undofile
+set undodir=/tmp/.vim/undo
 let g:mundo_width = 80
 let g:mundo_preview_height = 30
 let g:mundo_right = 1
