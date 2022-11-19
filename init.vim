@@ -767,7 +767,17 @@ wk.register({
   },
 }, { prefix = '<leader>' })
 
-wk.register({ g = {':Rg ', 'rip[g]rep'} }, { prefix = '<leader>', silent = false })
+wk.register({
+  d = {
+    name = '+[diff]',
+    o = { ':diffoff<CR>', 'diff [o]ff' },
+    s = { ':diffsplit ', '[s]plit' },
+    t = { ':diffthis<CR>', '[t]his' },
+    v = { ':vertical diffsplit ', '[v]ertical split' },
+    u = { ':diffupdate<CR>', '[u]pdate' },
+  },
+  g = {':Rg ', 'rip[g]rep'}
+}, { prefix = '<leader>', silent = false })
 
 wk.register({
   b = {
