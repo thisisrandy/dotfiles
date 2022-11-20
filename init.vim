@@ -716,7 +716,7 @@ wk.setup { plugins = { spelling = { enabled = true } } }
 wk.register({
   b = {
     name = '+[b]lackhole-delete',
-    c = {'"_c', 'overwrite (using [c])'},
+    c = {'"_c', '[c]hange'},
     d = {'"_d', '[d]elete'},
   },
   c = {
