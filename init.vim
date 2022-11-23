@@ -673,7 +673,7 @@ autocmd BufReadPost,BufNewFile * TSDisable rainbow | TSEnable rainbow | TSDisabl
 
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
-set foldlevel=1
+set foldlevel=99
 nnoremap - zc
 nnoremap = zo
 " just in case we want to use indent on something
@@ -681,6 +681,8 @@ nnoremap \ =
 " make visual map match
 vnoremap \ =
 nnoremap + zO
+" also make a shortcut to mostly folded
+nnoremap <silent> z1 :set foldlevel=1<CR>
 
 """ Comment.nvim
 
