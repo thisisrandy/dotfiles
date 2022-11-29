@@ -82,7 +82,7 @@ isn't worth it for a small list of extensions. In fact, I'm only using one at
 the moment, so it's much easier to manually enable it using the GNOME shell
 integration chrome plugin. A list of install url(s) follows:
 
-- [windowNavigator](https://extensions.gnome.org/extension/10/windownavigator/)
+- [OverviewNavigation](https://extensions.gnome.org/extension/1702/overview-navigation/)
 
 ## Mounting external RAID member HDDs
 
