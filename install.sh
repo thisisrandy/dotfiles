@@ -98,7 +98,7 @@ ln -s -f .tmux/.tmux.conf .tmux/.tmux.conf.local .
 popd
 
 # install node/yarn
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_19.x | sudo -E bash -
 sudo apt-get -y install -y nodejs
 npm config set prefix ~/.local # prevents need to sudo for -g
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
