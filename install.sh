@@ -106,8 +106,11 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 sudo apt-get -y update && sudo apt-get -y install yarn
 
 # install clangd
-sudo apt-get -y install clangd-9
-sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-9 100
+sudo apt-get -y install clangd
+# I previously had this installing clangd-9, but I'm not sure why (jammy is at
+# v14, so v9 is pretty old). I'm leaving this here as a reminder that I might
+# have had a legitimate reason
+# sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-9 100
 
 # install powerline fonts that work with vscode. chosen from the selection at
 # https://github.com/ryanoasis/nerd-fonts
