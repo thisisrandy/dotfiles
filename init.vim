@@ -464,11 +464,6 @@ omap ah <Plug>(GitGutterTextObjectOuterPending)
 xmap ih <Plug>(GitGutterTextObjectInnerVisual)
 xmap ah <Plug>(GitGutterTextObjectOuterVisual)
 
-""" vim-matchup
-
-nmap ]] z%
-nmap [[ [%
-
 """ far
 
 " enable undo shortcut (u)
