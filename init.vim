@@ -756,6 +756,17 @@ wk.register({
     o = {':Commands<CR>', 'c[o]mmands'},
     s = {':History/<CR>', '[s]earch history'},
   },
+  t = {
+    name = '+[t]abs',
+    c = {':tabclose<CR>', '[c]lose'},
+    f = {':tabfirst<CR>', '[f]irst'},
+    l = {':tablast<CR>', '[l]ast'},
+    n = {':tabnext<CR>', '[n]ew'},
+    o = {':tabonly<CR>', '[o]nly'},
+    p = {':tabprevious<CR>', '[p]revious'},
+    t = {':tabs<CR>', '[t]abs (list)'},
+    w = {':tabnew<CR>', 'ne[w]'},
+  },
   u = {'yiw :Rgf <C-r>"<CR>', 'ripgrep word [u]nder cursor'},
   w = {
     name = '+[w]rap/windows',
