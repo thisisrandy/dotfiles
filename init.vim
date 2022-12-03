@@ -740,8 +740,6 @@ wk.register({
     s = {'<Plug>(GitGutterStageHunk)', '[s]tage hunk'},
     u = {'<Plug>(GitGutterUndoHunk)', '[u]ndo hunk'},
   },
-  j = {'<Plug>(easymotion-j)', 'easymotion below ([j])'},
-  k = {'<Plug>(easymotion-k)', 'easymotion above ([k])'},
   l = {
     name = '+[l]ines',
     a = {':Lines<CR>', 'lines search ([a]ll buffers)'},
