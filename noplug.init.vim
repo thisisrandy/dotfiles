@@ -269,3 +269,18 @@ endfunction
 noremap <silent> <c-w><space> :<c-u>call <sid>GotoFirstFloat()<cr>
 
 set dictionary=/usr/share/dict/words
+
+" close the current buffer without closing its window. switches to the next
+" buffer if one exists or edits a new unnamed buffer otherwise
+function! s:CloseCurrentBuffer() abort
+  " count the number of buffers. see https://superuser.com/a/1221514/1264067
+  if len(getbufinfo({'buflisted':1})) > 1
+    :bn
+  else
+    :enew
+  endif
+  " this will fail if the only open buffer is unnamed. we can ignore the
+  " error with silent!
+  :silent! bd #
+endfunction
+command! -nargs=0 Bclose call <sid>CloseCurrentBuffer()
