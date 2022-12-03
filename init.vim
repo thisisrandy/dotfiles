@@ -776,11 +776,11 @@ wk.register({
 wk.register({
   d = {
     name = '+[d]iff',
-    g = { ':diffget<CR>', 'diff [g]et (from other)' },
-    o = { ':diffoff<CR>', 'diff [o]ff (current)' },
-    O = { ':diffoff!<CR>', 'diff [O]ff! (all in tab)' },
-    p = { ':diffput<CR>', 'diff [p]ut (to other)' },
-    s = { ':diffsplit ', '[s]plit' },
+    g = { ':diffget<CR>', '[g]et (from other)' },
+    o = { ':diffoff<CR>', '[o]ff (current buffer)' },
+    O = { ':diffoff!<CR>', '[O]ff! (all in tab)' },
+    p = { ':diffput<CR>', '[p]ut (to other)' },
+    s = { ':diffsplit ', 'horizontal [s]plit' },
     t = { ':diffthis<CR>', '[t]his' },
     v = { ':vertical diffsplit ', '[v]ertical split' },
     u = { ':diffupdate<CR>', '[u]pdate' },
