@@ -777,7 +777,7 @@ wk.register({
 
 wk.register({
   d = {
-    name = '+[diff]',
+    name = '+[d]iff',
     o = { ':diffoff<CR>', 'diff [o]ff' },
     s = { ':diffsplit ', '[s]plit' },
     t = { ':diffthis<CR>', '[t]his' },
