@@ -347,3 +347,10 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | \
 && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
 && sudo apt update \
 && sudo apt install gh -y
+
+# install unclutter
+# NOTE: behavior can be modified by editing /etc/default/unclutter
+# NB: if the target system is using Wayland instead of X, the associated
+# unclutter-startup is currently broken. I've filed a bug at
+# https://bugs.launchpad.net/ubuntu/+source/unclutter/+bug/1998720
+sudo apt-get -y install unclutter-xfixes
