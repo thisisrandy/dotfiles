@@ -776,6 +776,7 @@ wk.register({
 wk.register({
   d = {
     name = '+[d]iff',
+    a = { ':diffpatch ', 'p[a]tch from file' },
     g = { ':diffget<CR>', '[g]et (from other)' },
     o = { ':diffoff<CR>', '[o]ff (current buffer)' },
     O = { ':diffoff!<CR>', '[O]ff! (all in tab)' },
