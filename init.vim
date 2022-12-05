@@ -759,7 +759,7 @@ wk.register({
     c = {':tabclose<CR>', '[c]lose'},
     f = {':tabfirst<CR>', '[f]irst'},
     l = {':tablast<CR>', '[l]ast'},
-    n = {':tabnext<CR>', '[n]ew'},
+    n = {':tabnext<CR>', '[n]ext'},
     o = {':tabonly<CR>', '[o]nly'},
     p = {':tabprevious<CR>', '[p]revious'},
     t = {':tabs<CR>', '[t]abs (list)'},
