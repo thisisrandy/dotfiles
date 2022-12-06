@@ -126,8 +126,8 @@ GNOME_TERMINAL_PROFILE=`gsettings get org.gnome.Terminal.ProfilesList default | 
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ font 'UbuntuMono Nerd Font Mono Regular 12'
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ use-system-font false
 
-# gnome in jammy doesn't seem to fully support the system theme, so we need to
-# turn it off and select a scheme explicitly
+# gnome-terminal in jammy doesn't seem to fully support the system theme, so we
+# need to turn it off and select a scheme explicitly
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ use-theme-colors false
 # this is the same as the tango dark built-in. it doesn't appear there's an
 # option to set a built-in via gsettings, but we can replicate its result
