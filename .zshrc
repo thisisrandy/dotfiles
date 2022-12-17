@@ -144,7 +144,8 @@ alias sudoenv='sudo env "PATH=$PATH" "HOME=$HOME"'
 alias p=pushd
 alias po=popd
 alias open='xdg-open'
-alias start='nautilus --browser'
+# this is better accomplished via `open .`
+# alias start='nautilus --browser'
 alias vnp='vim -u ~/.config/nvim/noplug.init.vim'
 alias f="fzf --preview '[[ \$(file --mime {}) =~ binary ]] && \
                  echo {} is a binary file || \
