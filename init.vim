@@ -796,7 +796,6 @@ wk.register({
     d = {'"_d', '[d]elete'},
     p = {'"_dP', '[p]aste'},
   },
-  f = {':Farr<CR>', '[f]ind/replace'},
   u = {'y :Rgf <C-r>"<CR>', 'ripgrep selected text ([u]nder cursor)'},
   }, { prefix = '<leader>', mode = 'v' })
 EOF
