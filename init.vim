@@ -237,6 +237,11 @@ let g:coc_global_extensions=["coc-json", "coc-eslint", "coc-tsserver",
       \ "coc-lists", "coc-marketplace", "coc-prettier", "coc-clangd",
       \ "coc-cmake", "coc-xml", "coc-rls", "coc-sh", "coc-lua",
       \ "coc-dictionary", "coc-emoji"]
+" dictionary completions seem to mostly just get in the way, so disable them
+" unless a special variable is set. I have command aliases set up to do this
+if $COC_USE_DICT == ""
+  autocmd VimEnter * call CocActionAsync("deactivateExtension", "coc-dictionary")
+endif
 
 " correct comment highlighting for config file
 autocmd FileType json syntax match Comment +\/\/.\+$+

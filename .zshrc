@@ -152,7 +152,9 @@ alias f="fzf --preview '[[ \$(file --mime {}) =~ binary ]] && \
                  bat --style=numbers --color=always {} | \
                  head -100'"
 alias v=vim
-alias vf='vim "$(f)"'
+alias vd='COC_USE_DICT=true v'
+alias vf='v "$(f)"'
+alias vdf='COC_USE_DICT=true vf'
 alias lf='less "$(f)"'
 alias pip='python -m pip'
 alias venv="source .venv/bin/activate"
