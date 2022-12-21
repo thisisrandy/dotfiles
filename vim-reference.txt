@@ -217,6 +217,8 @@ F2 - rename current word
 
 :CocRestart - restart the language server. useful to get some servers to pick
               up added deps, etc.
+:CRestart - a wrapper around CocRestart which also deactivates the dictionary
+            extenion unless it's explicitly enabled via the COC_USE_DICT var
 
 ## fzf/coc-fzf
 

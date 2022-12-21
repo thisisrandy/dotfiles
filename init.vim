@@ -242,6 +242,16 @@ let g:coc_global_extensions=["coc-json", "coc-eslint", "coc-tsserver",
 if $COC_USE_DICT == ""
   autocmd VimEnter * call CocActionAsync("deactivateExtension", "coc-dictionary")
 endif
+" the above doesn't survive across restarts. a quick hack to address that is
+" to provide a custom command that restarts and then potentially deactivates
+" the dictionary
+function! s:CocRestartDeactivateDictionary() abort
+  :CocRestart
+  if $COC_USE_DICT == ""
+    call CocActionAsync("deactivateExtension", "coc-dictionary")
+  endif
+endfunction
+command! -nargs=0 CRestart call <sid>CocRestartDeactivateDictionary()
 
 " correct comment highlighting for config file
 autocmd FileType json syntax match Comment +\/\/.\+$+
