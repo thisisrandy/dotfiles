@@ -811,6 +811,10 @@ wk.register({
     d = {'"_d', '[d]elete'},
     p = {'"_dP', '[p]aste'},
   },
+  h = {
+    name = '+[h]unks',
+    s = {'<Plug>(GitGutterStageHunk)', '[s]tage hunk'},
+  },
   u = {'y :Rgf <C-r>"<CR>', 'ripgrep selected text ([u]nder cursor)'},
   }, { prefix = '<leader>', mode = 'v' })
 EOF
