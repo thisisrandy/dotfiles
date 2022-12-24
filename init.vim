@@ -537,7 +537,8 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     -- this breaks indentation in python. see
     -- https://github.com/nvim-treesitter/nvim-treesitter/issues/2947
-    disable = {"python"},
+    -- it also breaks adding items to the end of lists in yaml
+    disable = {"python", "yaml"},
   },
   incremental_selection = {
     enable = true,
