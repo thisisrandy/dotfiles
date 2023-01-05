@@ -730,7 +730,9 @@ wk.register({
   b = {
     name = '+[b]lackhole-delete',
     c = {'"_c', '[c]hange'},
+    C = {'"_C', '[C]hange to EOL'},
     d = {'"_d', '[d]elete'},
+    D = {'"_D', '[D]elete to EOL'},
   },
   c = {
     name = '+[c]oc',
