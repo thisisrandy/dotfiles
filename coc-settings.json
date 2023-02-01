@@ -14,7 +14,12 @@
         "package.yaml",
         "hie.yaml"
       ],
-      "filetypes": ["haskell", "lhaskell"]
+      "filetypes": ["haskell", "lhaskell"],
+      "settings": {
+        "haskell": {
+          "formattingProvider": "fourmolu"
+        }
+      }
     }
   },
   // from https://www.chrisatmachine.com/blog/category/neovim/26-lsp-symbols
