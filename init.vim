@@ -532,6 +532,9 @@ require'nvim-treesitter.configs'.setup {
   },
   highlight = {
     enable = true,
+    -- disabled for typescript while
+    -- https://github.com/nvim-treesitter/nvim-treesitter/issues/4362 is open
+    disable = { "typescript" }
   },
   indent = {
     enable = true,
