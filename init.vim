@@ -235,7 +235,7 @@ let g:coc_global_extensions=["coc-json", "coc-eslint", "coc-tsserver",
       \ "coc-snippets", "coc-html", "coc-css", "coc-pyright", "coc-java",
       \ "coc-highlight", "coc-yank", "coc-omnisharp", "coc-emmet",
       \ "coc-lists", "coc-marketplace", "coc-prettier", "coc-clangd",
-      \ "coc-cmake", "coc-xml", "coc-rls", "coc-sh", "coc-lua",
+      \ "coc-cmake", "coc-xml", "coc-rust-analyzer", "coc-sh", "coc-lua",
       \ "coc-dictionary", "coc-emoji"]
 " dictionary completions seem to mostly just get in the way, so disable them
 " unless a special variable is set. I have command aliases set up to do this
