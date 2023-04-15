@@ -353,7 +353,7 @@ endfunction
 
 " Format on save
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.py,*.rs,*.hs,*.toml :call RunFormatter()
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.py,*.rs,*.hs,*.toml,*.c,*.cc,*.ccp :call RunFormatter()
 
 augroup mygroup
   autocmd!
