@@ -205,6 +205,7 @@ ln -sf /usr/bin/nvim $HOME/.local/bin/vim
 mkdir -p $HOME/.config/nvim
 ln -sf $PATH_TO_DOT_FILES/init.vim $HOME/.config/nvim/init.vim
 ln -sf $PATH_TO_DOT_FILES/noplug.init.vim $HOME/.config/nvim/noplug.init.vim
+ln -sf $PATH_TO_DOT_FILES/ts.init.vim $HOME/.config/nvim/ts.init.vim
 ln -sf $PATH_TO_DOT_FILES/coc-settings.json $HOME/.config/nvim/coc-settings.json
 yarn global add neovim
 # create a virtual env specifically for nvim and install the relevant packages

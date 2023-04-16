@@ -1,3 +1,10 @@
+""" What is this file?
+" treesitter has become untennably slow for large files and suffers from bugs
+" that will sometimes lock nvim up completely when doing something simple like
+" quitting. this is a version of my init.vim that uses older plugins to get
+" most of the treesitter functionality that I was using, namely, polyflot,
+" rainbow parens, and context.
+"
 """ Fresh installation notes
 " PlugInstall is run if needed when this file is sourced on startup. Run it
 " manually otherwise. This file is probably broken until plugins are installed
@@ -152,17 +159,15 @@ Plug 'brooth/far.vim', { 'do': function('UpdateRemotePlugins') }
 Plug 'simnalamburt/vim-mundo'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-repeat'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'numToStr/Comment.nvim'
-Plug 'JoosepAlviste/nvim-ts-context-commentstring'
-Plug 'p00f/nvim-ts-rainbow'
 Plug 'jpalardy/vim-slime'
-Plug 'nvim-treesitter/nvim-treesitter-context'
-Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'dhruvasagar/vim-zoom'
 Plug 'folke/which-key.nvim'
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'inkarkat/vim-AdvancedSorters', {'branch': 'stable'}
+" the following are the treesitter replacement plugins
+Plug 'frazrepo/vim-rainbow'
+Plug 'sheerun/vim-polyglot'
+Plug 'wellle/context.vim'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -508,186 +513,186 @@ let g:mundo_auto_preview_delay = 100
 
 """ nvim-treesitter and friends
 
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  -- nvim-treesitter
-  ensure_installed = {
-    "c",
-    "cpp",
-    "rust",
-    "java",
-    "python",
-    "lua",
-    "vim",
-    "haskell",
-    "javascript",
-    "typescript",
-    "tsx",
-    "sql",
-    "json",
-    "css",
-    "scss",
-    "html",
-    "markdown",
-    "yaml",
-  },
-  highlight = {
-    enable = true,
-    -- disabled for typescript while
-    -- https://github.com/nvim-treesitter/nvim-treesitter/issues/4362 is open
-    disable = { "typescript" }
-  },
-  indent = {
-    enable = true,
-    -- this breaks indentation in python. see
-    -- https://github.com/nvim-treesitter/nvim-treesitter/issues/2947
-    -- it also breaks adding items to the end of lists in yaml
-    disable = {"python", "yaml"},
-  },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = "<M-S-left>",
-      node_incremental = "<M-S-left>",
-      -- this isn't a whole lot different from node_incremental. it's much
-      -- easier to just mirror the vscode bindings instead
-      -- scope_incremental = "<leader>is",
-      node_decremental = "<M-S-right>",
-    },
-  },
-
-  -- nvim-treesitter-refactor
-  refactor = {
-    highlight_definitions = {
-      enable = true,
-      -- Set to false if you have an `updatetime` of ~100.
-      clear_on_cursor_move = true,
-    },
-    -- highlight is kind of cool, but it's also kind of distracting, a bit
-    -- buggy, and most importantly, conflicts with the effect of
-    -- coc-highlight. turning off for now
-    -- highlight_current_scope = { enable = true },
-    -- refactor provides two other modules, smart_rename and navigation,
-    -- but they both seem to suck. lsp from coc is much more (if not 100%)
-    -- reliable
-  },
-
-  -- nvim-treesitter-textobjects
-  textobjects = {
-    select = {
-      enable = true,
-
-      -- Automatically jump forward to textobj, similar to targets.vim
-      lookahead = true,
-
-      keymaps = {
-        ["ab"] = "@block.outer",
-        ["ib"] = "@block.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-      },
-      -- You can choose the select mode (default is charwise 'v')
-      --
-      -- Can also be a function which gets passed a table with the keys
-      -- * query_string: eg '@function.inner'
-      -- * method: eg 'v' or 'o'
-      -- and should return the mode ('v', 'V', or '<c-v>') or a table
-      -- mapping query_strings to modes.
-      --
-      -- Note that this doesn't apply to visual selection, which instead uses
-      -- visualmode() to select the mode
-      selection_modes = 'V',
-
-      -- If you set this to `true` (default is `false`) then any textobject is
-      -- extended to include preceding or succeeding whitespace. Succeeding
-      -- whitespace has priority in order to act similarly to eg the built-in
-      -- `ap`.
-      --
-      -- Can also be a function which gets passed a table with the keys
-      -- * query_string: eg '@function.inner'
-      -- * selection_mode: eg 'v'
-      -- and should return true or false
-      include_surrounding_whitespace = false,
-    },
-
-    -- swap = {
-    --   enable = true,
-    --   swap_next = {
-    --     ["<leader>s"] = "@parameter.inner",
-    --   },
-    --   swap_previous = {
-    --     ["<leader>S"] = "@parameter.inner",
-    --   },
-    -- },
-
-    move = {
-      enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
-      goto_next_start = {
-        ["]f"] = "@function.outer",
-        ["]]"] = "@block.outer",
-      },
-      goto_next_end = {
-        ["]F"] = "@function.outer",
-        ["]["] = "@block.outer",
-      },
-      goto_previous_start = {
-        ["[f"] = "@function.outer",
-        ["[["] = "@block.outer",
-      },
-      goto_previous_end = {
-        ["[F"] = "@function.outer",
-        ["[]"] = "@block.outer",
-      },
-    },
-  },
-
-  -- nvim-ts-context-commentstring
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-    config = {
-      javascript = {
-        __default = '// %s',
-        jsx_element = '{/* %s */}',
-        jsx_fragment = '{/* %s */}',
-        jsx_attribute = '// %s',
-        comment = '// %s'
-      },
-    },
-  },
-
-  -- vim-matchup
-  matchup = {
-    enable = true,              -- mandatory, false will disable the whole extension
-    disable = {},               -- optional, list of language that will be disabled
-    -- [options]
-  },
-
-  -- nvim-ts-rainbow
-  rainbow = {
-    enable = true,
-    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = nil, -- Do not enable for files with more than n lines, int
-    -- colors = {}, -- table of hex strings
-    -- termcolors = {} -- table of colour name strings
-  },
-}
-EOF
-
-" see https://github.com/p00f/nvim-ts-rainbow/issues/112
-" TS rainbow isn't very good at staying sane after file edits. until it
-" improves, here's a hack to just turn it off and on again after every write
-autocmd BufWritePost * TSDisable rainbow | TSEnable rainbow
-" I also observed that the behavior improves after a few disable/enable
-" cycles. here's a jumpstart
-autocmd BufReadPost,BufNewFile * TSDisable rainbow | TSEnable rainbow | TSDisable rainbow | TSEnable rainbow | TSDisable rainbow | TSEnable rainbow
-
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
+" lua <<EOF
+" require'nvim-treesitter.configs'.setup {
+"   -- nvim-treesitter
+"   ensure_installed = {
+"     "c",
+"     "cpp",
+"     "rust",
+"     "java",
+"     "python",
+"     "lua",
+"     "vim",
+"     "haskell",
+"     "javascript",
+"     "typescript",
+"     "tsx",
+"     "sql",
+"     "json",
+"     "css",
+"     "scss",
+"     "html",
+"     "markdown",
+"     "yaml",
+"   },
+"   highlight = {
+"     enable = true,
+"     -- disabled for typescript while
+"     -- https://github.com/nvim-treesitter/nvim-treesitter/issues/4362 is open
+"     disable = { "typescript" }
+"   },
+"   indent = {
+"     enable = true,
+"     -- this breaks indentation in python. see
+"     -- https://github.com/nvim-treesitter/nvim-treesitter/issues/2947
+"     -- it also breaks adding items to the end of lists in yaml
+"     disable = {"python", "yaml"},
+"   },
+"   incremental_selection = {
+"     enable = true,
+"     keymaps = {
+"       init_selection = "<M-S-left>",
+"       node_incremental = "<M-S-left>",
+"       -- this isn't a whole lot different from node_incremental. it's much
+"       -- easier to just mirror the vscode bindings instead
+"       -- scope_incremental = "<leader>is",
+"       node_decremental = "<M-S-right>",
+"     },
+"   },
+"
+"   -- nvim-treesitter-refactor
+"   refactor = {
+"     highlight_definitions = {
+"       enable = true,
+"       -- Set to false if you have an `updatetime` of ~100.
+"       clear_on_cursor_move = true,
+"     },
+"     -- highlight is kind of cool, but it's also kind of distracting, a bit
+"     -- buggy, and most importantly, conflicts with the effect of
+"     -- coc-highlight. turning off for now
+"     -- highlight_current_scope = { enable = true },
+"     -- refactor provides two other modules, smart_rename and navigation,
+"     -- but they both seem to suck. lsp from coc is much more (if not 100%)
+"     -- reliable
+"   },
+"
+"   -- nvim-treesitter-textobjects
+"   textobjects = {
+"     select = {
+"       enable = true,
+"
+"       -- Automatically jump forward to textobj, similar to targets.vim
+"       lookahead = true,
+"
+"       keymaps = {
+"         ["ab"] = "@block.outer",
+"         ["ib"] = "@block.inner",
+"         ["ac"] = "@class.outer",
+"         ["ic"] = "@class.inner",
+"         ["af"] = "@function.outer",
+"         ["if"] = "@function.inner",
+"       },
+"       -- You can choose the select mode (default is charwise 'v')
+"       --
+"       -- Can also be a function which gets passed a table with the keys
+"       -- * query_string: eg '@function.inner'
+"       -- * method: eg 'v' or 'o'
+"       -- and should return the mode ('v', 'V', or '<c-v>') or a table
+"       -- mapping query_strings to modes.
+"       --
+"       -- Note that this doesn't apply to visual selection, which instead uses
+"       -- visualmode() to select the mode
+"       selection_modes = 'V',
+"
+"       -- If you set this to `true` (default is `false`) then any textobject is
+"       -- extended to include preceding or succeeding whitespace. Succeeding
+"       -- whitespace has priority in order to act similarly to eg the built-in
+"       -- `ap`.
+"       --
+"       -- Can also be a function which gets passed a table with the keys
+"       -- * query_string: eg '@function.inner'
+"       -- * selection_mode: eg 'v'
+"       -- and should return true or false
+"       include_surrounding_whitespace = false,
+"     },
+"
+"     -- swap = {
+"     --   enable = true,
+"     --   swap_next = {
+"     --     ["<leader>s"] = "@parameter.inner",
+"     --   },
+"     --   swap_previous = {
+"     --     ["<leader>S"] = "@parameter.inner",
+"     --   },
+"     -- },
+"
+"     move = {
+"       enable = true,
+"       set_jumps = true, -- whether to set jumps in the jumplist
+"       goto_next_start = {
+"         ["]f"] = "@function.outer",
+"         ["]]"] = "@block.outer",
+"       },
+"       goto_next_end = {
+"         ["]F"] = "@function.outer",
+"         ["]["] = "@block.outer",
+"       },
+"       goto_previous_start = {
+"         ["[f"] = "@function.outer",
+"         ["[["] = "@block.outer",
+"       },
+"       goto_previous_end = {
+"         ["[F"] = "@function.outer",
+"         ["[]"] = "@block.outer",
+"       },
+"     },
+"   },
+"
+"   -- nvim-ts-context-commentstring
+"   context_commentstring = {
+"     enable = true,
+"     enable_autocmd = false,
+"     config = {
+"       javascript = {
+"         __default = '// %s',
+"         jsx_element = '{/* %s */}',
+"         jsx_fragment = '{/* %s */}',
+"         jsx_attribute = '// %s',
+"         comment = '// %s'
+"       },
+"     },
+"   },
+"
+"   -- vim-matchup
+"   matchup = {
+"     enable = true,              -- mandatory, false will disable the whole extension
+"     disable = {},               -- optional, list of language that will be disabled
+"     -- [options]
+"   },
+"
+"   -- nvim-ts-rainbow
+"   rainbow = {
+"     enable = true,
+"     -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+"     extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+"     max_file_lines = nil, -- Do not enable for files with more than n lines, int
+"     -- colors = {}, -- table of hex strings
+"     -- termcolors = {} -- table of colour name strings
+"   },
+" }
+" EOF
+"
+" " see https://github.com/p00f/nvim-ts-rainbow/issues/112
+" " TS rainbow isn't very good at staying sane after file edits. until it
+" " improves, here's a hack to just turn it off and on again after every write
+" autocmd BufWritePost * TSDisable rainbow | TSEnable rainbow
+" " I also observed that the behavior improves after a few disable/enable
+" " cycles. here's a jumpstart
+" autocmd BufReadPost,BufNewFile * TSDisable rainbow | TSEnable rainbow | TSDisable rainbow | TSEnable rainbow | TSDisable rainbow | TSEnable rainbow
+"
+" set foldmethod=expr
+" set foldexpr=nvim_treesitter#foldexpr()
 set foldlevel=99
 nnoremap - zc
 nnoremap = zo
@@ -704,7 +709,7 @@ nnoremap <silent> z1 :set foldlevel=1<CR>
 lua << EOF
 require('Comment').setup {
   -- per https://github.com/JoosepAlviste/nvim-ts-context-commentstring#nvim-comment
-  pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+  -- pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
 }
 EOF
 
