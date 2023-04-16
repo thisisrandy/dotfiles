@@ -649,3 +649,7 @@ EOF
 """ vim-speeddating
 
 autocmd Vimenter * :SpeedDatingFormat %m/%d/%Y
+
+""" vim-rainbow
+
+let g:rainbow_active = 1
