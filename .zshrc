@@ -147,7 +147,7 @@ alias open='xdg-open'
 # this is better accomplished via `open .`
 # alias start='nautilus --browser'
 alias vnp='vim -u ~/.config/nvim/noplug.init.vim'
-alias vts='vim -u ~/.config/nvim/ts.init.vim'
+alias vts='nvim.nightly -u ~/.config/nvim/ts.init.vim'
 alias f="fzf --preview '[[ \$(file --mime {}) =~ binary ]] && \
                  echo {} is a binary file || \
                  bat --style=numbers --color=always {} | \

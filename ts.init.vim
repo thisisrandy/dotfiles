@@ -3,6 +3,9 @@
 " proven to be often buggy and overly resource hungry for use on my aging
 " machine. As such, this is now my non-default setup, at least for a while.
 "
+" NOTE: nvim-treesitter does best on the nightly nvim build. it may break
+" quite catastrophically if run on stable.
+"
 """ Fresh installation notes
 " PlugInstall is run if needed when this file is sourced on startup. Run it
 " manually otherwise. This file is probably broken until plugins are installed

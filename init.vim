@@ -5,6 +5,10 @@
 " most of the treesitter functionality that I was using, namely, polyflot,
 " rainbow parens, and context.
 "
+" NOTE: the plugins in this file are generally pretty happy to function on the
+" stable nvim release, so it should be run that way unless there's a
+" compelling reason not to.
+"
 """ Fresh installation notes
 " PlugInstall is run if needed when this file is sourced on startup. Run it
 " manually otherwise. This file is probably broken until plugins are installed
