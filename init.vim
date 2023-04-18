@@ -123,7 +123,6 @@ function! UpdateRemotePlugins(...)
   UpdateRemotePlugins
 endfunction
 
-
 call plug#begin('~/.local/share/nvim/plugged')
 
 " I've forked this in order to remove some conflicting mappings. it seems
