@@ -284,3 +284,6 @@ function! s:CloseCurrentBuffer() abort
   :silent! bd #
 endfunction
 command! -nargs=0 Bclose call <sid>CloseCurrentBuffer()
+
+" turn the spell checker on by default
+set spell
