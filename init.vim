@@ -1,5 +1,5 @@
 """ What is this file?
-" treesitter has become untennably slow for large files and suffers from bugs
+" treesitter has become untenably slow for large files and suffers from bugs
 " that will sometimes lock nvim up completely when doing something simple like
 " quitting. this is a version of my init.vim that uses older plugins to get
 " most of the treesitter functionality that I was using, namely, polyglot,
