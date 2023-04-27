@@ -167,6 +167,7 @@ Plug 'jpalardy/vim-slime'
 Plug 'dhruvasagar/vim-zoom'
 Plug 'folke/which-key.nvim'
 Plug 'inkarkat/vim-AdvancedSorters', {'branch': 'stable'}
+Plug 'Yggdroot/indentLine'
 " the following are the treesitter replacement plugins
 Plug 'frazrepo/vim-rainbow'
 Plug 'sheerun/vim-polyglot'
