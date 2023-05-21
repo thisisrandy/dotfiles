@@ -657,3 +657,9 @@ autocmd Vimenter * :SpeedDatingFormat %m/%d/%Y
 """ vim-rainbow
 
 let g:rainbow_active = 1
+
+""" vim-markdown (via polyglot)
+
+" By default, e.g. links and code blocks are concealed, which is
+" super-annoying for editing purposes. This disables all concealment
+let g:vim_markdown_conceal = 0
