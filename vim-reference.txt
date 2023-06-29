@@ -102,8 +102,7 @@ Xp - swap current character with previous
 m[key] - set mark. note that lowercase marks are buffer local, whereas
           uppercase marks are global
 '[key] - go to mark line. can be prefixed with an action, e.g. d'a = delete until
-         mark a. EDIT: I'm currently using this for CamelCaseMotion. ` is still
-         available
+         mark a
 `[key] - go to mark line and column
 :marks [keys] - list all marks if called without keys, otherwise those matching
                 keys
@@ -385,8 +384,3 @@ C-c v - if for some reason the target needs to be changed after slime is first
 ## vim-zoom
 
 C-w m - toggle the current window full screen. analogous to tmux's C-b z
-
-## CamelCaseMotion
-
-Before entering a motion, press ', e.g. di'w will delete the word under the
-cursor, respecting camelCase, PascalCase, and snake_case

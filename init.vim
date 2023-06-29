@@ -168,7 +168,7 @@ Plug 'dhruvasagar/vim-zoom'
 Plug 'folke/which-key.nvim'
 Plug 'inkarkat/vim-AdvancedSorters', {'branch': 'stable'}
 Plug 'Yggdroot/indentLine'
-Plug 'bkad/CamelCaseMotion'
+Plug 'chaoren/vim-wordmotion'
 " the following are the treesitter replacement plugins
 Plug 'frazrepo/vim-rainbow'
 Plug 'sheerun/vim-polyglot'
@@ -664,7 +664,3 @@ let g:rainbow_active = 1
 " By default, e.g. links and code blocks are concealed, which is
 " super-annoying for editing purposes. This disables all concealment
 let g:vim_markdown_conceal = 0
-
-""" CamelCaseMotion
-
-let g:camelcasemotion_key = "'"
