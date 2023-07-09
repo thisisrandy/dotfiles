@@ -664,3 +664,11 @@ let g:rainbow_active = 1
 " By default, e.g. links and code blocks are concealed, which is
 " super-annoying for editing purposes. This disables all concealment
 let g:vim_markdown_conceal = 0
+
+""" vim-wordmotion
+
+" I don't really use the WORD motions, and I'm finding wordmotion getting
+" in the way a lot of the time, so overwrite the WORD motions with wordmotions
+" CamelCase etc. motions
+" Note: Annoyingly, vim fails to parse the closing brace when this is on multiple lines
+let g:wordmotion_mappings = { "w": "W", "b": "B", "e": "E", "ge": "gE", "aw": "aW", "iw": "iW", "<C-R><C-W>": "<C-R><C-A>", }
