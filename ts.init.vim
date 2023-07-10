@@ -128,9 +128,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'thisisrandy/vim-unimpaired'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" NOTE: this is a fork to address
-" https://github.com/tiagofumo/vim-nerdtree-syntax-highlight/issues/53
-Plug 'johnstef99/vim-nerdtree-syntax-highlight'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'PhilRunninger/nerdtree-visual-selection'
 Plug 'ellisonleao/gruvbox.nvim'
