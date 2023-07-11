@@ -801,6 +801,12 @@ wk.register({
     r = {':call ToggleWrap()<CR>', 'toggle line w[r]ap'},
     w = {':call WindowSwap#EasyWindowSwap()<CR>', '[w]indow swap'},
   },
+  x = {
+    name = '+conte[x]t',
+    d = {':ContextDisable<CR>', '[d]isable'},
+    e = {':ContextEnable<CR>', '[e]nable'},
+    t = {':ContextToggle<CR>', '[t]oggle'},
+  },
 }, { prefix = '<leader>' })
 
 wk.register({
