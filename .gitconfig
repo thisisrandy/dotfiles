@@ -1,38 +1,38 @@
 [user]
-	email = randywest55@gmail.com
-	name = Randy West
+  email = randywest55@gmail.com
+  name = Randy West
 [core]
   editor = vim
   conflictstyle = diff3
-	pager = delta
+  pager = delta
 [mergetool "nvimdiff"]
-	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [merge]
-	tool = nvimdiff
-	conflictstyle = diff3
+  tool = nvimdiff
+  conflictstyle = diff3
 [credential]
-	helper = store
-	helper =
-	helper = /usr/local/bin/git-credential-manager-core
-	credentialStore = secretservice
+  helper = store
+  helper =
+  helper = /usr/local/bin/git-credential-manager-core
+  credentialStore = secretservice
 [credential "https://dev.azure.com"]
-	useHttpPath = true
+  useHttpPath = true
 [alias]
-    lg = lg1
-    lg1 = lg1-specific --all
-    lg2 = lg2-specific --all
-    lg3 = lg3-specific --all
+	lg = lg1
+	lg1 = lg1-specific --all
+	lg2 = lg2-specific --all
+	lg3 = lg3-specific --all
 
-    lg1-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
-    lg2-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
-    lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
+	lg1-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+	lg2-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+	lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [interactive]
-	diffFilter = delta --color-only
+  diffFilter = delta --color-only
 [delta]
-	navigate = true    # use n and N to move between diff sections
-	light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
-	line-numbers = true
+  navigate = true    # use n and N to move between diff sections
+  light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+  line-numbers = true
 [diff]
-	colorMoved = default
+  colorMoved = default
