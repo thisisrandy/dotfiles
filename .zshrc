@@ -156,6 +156,7 @@ alias v=vim
 alias vd='COC_USE_DICT=true v'
 alias vf='v "$(f)"'
 alias vdf='COC_USE_DICT=true vf'
+alias sv='sudoenv vim'
 alias lf='less "$(f)"'
 alias pip='python -m pip'
 alias venv="source .venv/bin/activate"
