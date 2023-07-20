@@ -81,8 +81,8 @@ which zsh | xargs -I{} sudo chsh -s {} $USER
 # and then run zsh-install for any additional steps in the oh-my-zsh context
 ./zsh-install.sh
 
-# install custom zsh theme
-ln -s $PATH_TO_DOT_FILES/avit.zsh-theme $HOME/.oh-my-zsh/custom/themes/avit.zsh-theme
+# install powerlevel10k config
+ln -s $PATH_TO_DOT_FILES/.p10k.zsh $HOME/.p10k.zsh
 
 # install zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
