@@ -80,7 +80,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git virtualenv zsh-autosuggestions poetry rust safe-paste ripgrep jump \
-  jsontools emoji aliases)
+  jsontools emoji aliases zsh-syntax-highlighting)
 export ZSH_THEME_VIRTUALENV_PREFIX="("
 export ZSH_THEME_VIRTUALENV_SUFFIX=")"
 
