@@ -37,7 +37,7 @@ PATH_TO_DOT_FILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && p
 sudo apt-get -y install curl git zsh xclip htop iftop gcc make \
     multitime jq tmux peek datamash nmap bvi httpie ripgrep \
     gnome-weather gnome-tweaks tree mkvtoolnix perl-doc fortunes \
-    cowsay at linux-tools-common linux-tools-generic
+    cowsay at linux-tools-common linux-tools-generic ranger
 
 ln -sf $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
 

@@ -162,6 +162,7 @@ alias f="fzf --preview '[[ \$(file --mime {}) =~ binary ]] && \
                  echo {} is a binary file || \
                  bat --style=numbers --color=always {} | \
                  head -100'"
+alias r=ranger
 alias v=vim
 alias vd='COC_USE_DICT=true v'
 alias vf='v "$(f)"'
