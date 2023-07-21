@@ -361,3 +361,6 @@ pushd $(mktemp -d)
 wget https://github.com/dandavison/delta/releases/download/0.16.5/git-delta_0.16.5_amd64.deb
 sudo dpkg -i git-delta_0.16.5_amd64.deb
 popd
+
+# install navi
+cargo install --locked navi

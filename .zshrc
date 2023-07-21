@@ -192,6 +192,11 @@ bindkey -v
 
 bindkey jk vi-cmd-mode
 
+# install navi shell widget and change its binding
+eval "$(navi widget zsh)"
+bindkey -r '^g'
+bindkey '^h' _navi_widget
+
 # All of this wipes out the rhs of the status line, which actually contains
 # useful information. It also changes text to bold on exit to normal mode,
 # weirdly even when the fonts are set to normal weight. Keeping commented here
