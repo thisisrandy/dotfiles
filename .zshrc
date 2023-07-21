@@ -129,6 +129,9 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+# thefuck
+eval $(thefuck --alias)
+
 # history
 export HISTSIZE=1000000
 setopt HIST_IGNORE_ALL_DUPS

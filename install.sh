@@ -63,7 +63,7 @@ alias pip='python -m pip'
 pip install --upgrade pip
 # then install some useful packages
 pip install --user wheel
-pip install --user black tqdm jupytext csvkit ipython numpy matplotlib
+pip install --user black tqdm jupytext csvkit ipython numpy matplotlib thefuck
 
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh) --unattended"
