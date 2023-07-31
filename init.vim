@@ -670,6 +670,8 @@ let g:rainbow_active = 1
 " By default, e.g. links and code blocks are concealed, which is
 " super-annoying for editing purposes. This disables all concealment
 let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_strikethrough = 1
 
 """ vim-wordmotion
 
