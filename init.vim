@@ -320,8 +320,10 @@ endif
 " Remap keys for gotos
 " gd is a built-in heuristic lookup that usually functions well in vimscript
 " files. make sure it isn't shadowed when one is open
-autocmd Filetype * if &ft!="vim"|nmap <silent> gd <Plug>(coc-definition)|endif
-autocmd Filetype vim silent! nunmap gd
+nmap gd <Plug>(coc-definition)
+autocmd FileType vim silent! nunmap <buffer> gd
+" For reference, an alternate way to do this would be something like
+" autocmd FileType * if &ft!="vim"|nmap <buffer> <silent> gd <Plug>(coc-definition)|endif
 nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
