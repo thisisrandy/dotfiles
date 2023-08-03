@@ -233,11 +233,20 @@ augroup END
 " much more likely to use new tmux panes than the embedded vim terminal anyway
 " :tnoremap <Esc> <C-\><C-n>
 
-" always trim whitespace on save
-augroup TrimWhiteSpace
+" always trim whitespace on save, including trailing lines
+augroup TrimWhiteSpaceGroup
   autocmd!
-  autocmd BufWritePre * :%s/\s\+$//e
+  autocmd BufWritePre * call TrimWhiteSpace()
 augroup END
+
+" It's necessary to save and restore the cursor position to avoid jumping
+" around
+function! TrimWhiteSpace()
+    let save_cursor = getpos(".")
+    silent! %s/\($\n\s*\)\+\%$//
+    silent! %s/\s\+$//
+    call setpos('.', save_cursor)
+endfunction
 
 " save in insert mode
 inoremap <C-s> <Cmd>w<CR>
