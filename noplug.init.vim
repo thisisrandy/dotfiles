@@ -224,14 +224,20 @@ nnoremap <C-Up> <C-w>k
 nnoremap <C-Right> <C-w>l
 
 " on open terminal (:te), start in terminal mode
-autocmd TermOpen * startinsert
+augroup TermInsert
+  autocmd!
+  autocmd TermOpen * startinsert
+augroup END
 " allow exit to normal mode with esc. I've decided to disable this because it
 " conflicts with the behavior of esc in the fzf.vim plugin, and also since I'm
 " much more likely to use new tmux panes than the embedded vim terminal anyway
 " :tnoremap <Esc> <C-\><C-n>
 
 " always trim whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
+augroup TrimWhiteSpace
+  autocmd!
+  autocmd BufWritePre * :%s/\s\+$//e
+augroup END
 
 " save in insert mode
 inoremap <C-s> <Cmd>w<CR>
