@@ -141,6 +141,9 @@ zR - open all folds. zr for increase folding level
 <C-h> - Find and replace in very magic mode
 * - search for word under cursor. g* is partial match.
     press again or use n/N to navigate between matches
+    NOTE: I'm using vim-asterisk in place of the default * family of mappings.
+    The behavior there is that * etc. don't move the cursor, so n/N must be
+    employed to seek other matches
 # - * in reverse. g# also valid
 :noh - remove highlighting, e.g. from *. mapped to <leader>o
 % - find matching paren/brace
@@ -389,3 +392,16 @@ C-c v - if for some reason the target needs to be changed after slime is first
 ## vim-zoom
 
 C-w m - toggle the current window full screen. analogous to tmux's C-b z
+
+### vim-asterisk
+
+Star motions: After selecting a match with one of the * family keys, take some
+action using an operator motion. The same action can then be repeated with . on
+other matches. For example
+
+  *ciwnew_valjkn.
+
+1. Selects the word under the cursor
+2. Enters insert mode and changes it to new_val
+3. Returns to normal mode and selects the next match
+4. Repeats the same action

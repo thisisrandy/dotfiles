@@ -167,6 +167,7 @@ Plug 'folke/which-key.nvim'
 Plug 'inkarkat/vim-AdvancedSorters', {'branch': 'stable'}
 Plug 'Yggdroot/indentLine'
 Plug 'chaoren/vim-wordmotion'
+Plug 'haya14busa/vim-asterisk'
 " the following are the treesitter replacement plugins
 Plug 'frazrepo/vim-rainbow'
 Plug 'sheerun/vim-polyglot'
@@ -682,3 +683,13 @@ let g:vim_markdown_strikethrough = 1
 " CamelCase etc. motions
 " Note: Annoyingly, vim fails to parse the closing brace when this is on multiple lines
 let g:wordmotion_mappings = { "w": "W", "b": "B", "e": "E", "ge": "gE", "aw": "aW", "iw": "iW", "<C-R><C-W>": "<C-R><C-A>", }
+
+""" vim-asterisk
+
+" Set the z (stay) behavior as default
+map *  <Plug>(asterisk-z*)
+map #  <Plug>(asterisk-z#)
+map g* <Plug>(asterisk-gz*)
+map g# <Plug>(asterisk-gz#)
+" And stay in position when selecting the next match
+let g:asterisk#keeppos = 1
