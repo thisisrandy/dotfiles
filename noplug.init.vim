@@ -98,6 +98,10 @@ set autoread
 " Yank and paste with the system clipboard
 set clipboard+=unnamedplus
 
+" Use very magic mode by default for search
+nnoremap / /\v
+vnoremap / /\v
+
 " C-h - Find and replace
 nnoremap <C-h> :%s/\v//g<left><left><left>
 vnoremap <C-h> :s/\v//g<left><left><left>
