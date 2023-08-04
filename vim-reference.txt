@@ -166,6 +166,9 @@ Also note that while \n matches a new line, replacement with a newline must use 
 Other useful characters (that are different from perl syntax. Assuming \v below):
 \_s - where s can be any character class, add new-line, so e.g. \_s == [\s\n]
 <> - front and end word boundaries
+%^/%$ - beginning/end of document
+
+See |pattern-overview| for more.
 
 Finally, note that othree/eregex.vim exists to translate from perl-style if the
 differences become too frustrating.
