@@ -100,7 +100,9 @@ set clipboard+=unnamedplus
 
 " Use very magic mode by default for search
 nnoremap / /\v
+nnoremap ? ?\v
 vnoremap / /\v
+vnoremap ? ?\v
 
 " C-h - Find and replace
 nnoremap <C-h> :%s/\v//g<left><left><left>
