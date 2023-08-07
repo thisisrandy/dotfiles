@@ -303,6 +303,14 @@ source "$FZF_PATH/shell/key-bindings.zsh"
 
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
+# Ring the bell every time a prompt is shown. Useful when a long-running
+# process is running in another window. From
+# https://stackoverflow.com/a/72182868/12162258. The redirect to $TTY avoids
+# angering powerlevel10k's instant prompt feature
+precmd() {
+  echo -n -e "\a" >$TTY
+}
+
 # start tmux if conditions met. see
 # https://unix.stackexchange.com/a/113768/460319 and
 # https://stackoverflow.com/a/69579460/12162258
@@ -327,4 +335,3 @@ if command -v tmux &> /dev/null \
     # etc. using standard methods
     exec tmux new -s "default$RANDOM"
 fi
-
