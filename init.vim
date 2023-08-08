@@ -617,7 +617,7 @@ wk.register({
     t = {':tabs<CR>', '[t]abs (list)'},
     w = {':tabnew<CR>', 'ne[w]'},
   },
-  u = {'yiw :Rgf <C-r>"<CR>', 'ripgrep word [u]nder cursor'},
+  u = {'"uyiw :Rgf <C-r>u<CR>', 'ripgrep word [u]nder cursor'},
   w = {
     name = '+[w]rap/windows',
     r = {':call ToggleWrap()<CR>', 'toggle line w[r]ap'},
