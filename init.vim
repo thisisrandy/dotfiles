@@ -319,12 +319,12 @@ else
 endif
 
 " Remap keys for gotos
-nmap gd <Plug>(coc-definition)
+nmap <silent> gd <Plug>(coc-definition)
 " gd is a built-in heuristic lookup that usually functions well in vimscript
 " files. Make sure it isn't shadowed when one is open. Note that there doesn't
 " appear to be a way to unmap a global mapping in a buffer context, but the
 " easy workaround is just to noremap it to itself
-autocmd FileType vim nnoremap <buffer> gd gd
+autocmd FileType vim nnoremap <silent> <buffer> gd gd
 " For reference, an alternate way to do this would be something like
 " autocmd FileType * if &ft!="vim"|nmap <buffer> <silent> gd <Plug>(coc-definition)|endif
 nmap <silent> gt <Plug>(coc-type-definition)
@@ -332,7 +332,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 " Grepping for the word under the cursor is a reasonable proxy for references
 " when no language server is available. This is the same as my <leader>u map
-autocmd FileType vim nnoremap <buffer> gr "uyiw :Rgf <c-r>u<cr>
+autocmd FileType vim nnoremap <silent> <buffer> gr "uyiw :Rgf <c-r>u<cr>
 nmap <silent> gn <Plug>(coc-diagnostic-next)
 nmap <silent> gp <Plug>(coc-diagnostic-prev)
 " I never use this (gn & gp are sufficient), and it shadows a mapping that I
@@ -352,7 +352,7 @@ function! s:show_documentation()
 endfunction
 
 " Remap for rename current word
-nmap <F2> <Plug>(coc-rename)
+nmap <silent> <F2> <Plug>(coc-rename)
 
 " make the outline close itself once it's no longer in focus. open map is via
 " which-key
