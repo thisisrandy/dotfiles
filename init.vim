@@ -330,6 +330,9 @@ autocmd FileType vim nnoremap <buffer> gd gd
 nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+" Grepping for the word under the cursor is a reasonable proxy for references
+" when no language server is available. This is the same as my <leader>u map
+autocmd FileType vim nnoremap <buffer> gr "uyiw :Rgf <c-r>u<cr>
 nmap <silent> gn <Plug>(coc-diagnostic-next)
 nmap <silent> gp <Plug>(coc-diagnostic-prev)
 " I never use this (gn & gp are sufficient), and it shadows a mapping that I
