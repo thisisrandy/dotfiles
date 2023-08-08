@@ -332,7 +332,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 " Grepping for the word under the cursor is a reasonable proxy for references
 " when no language server is available. This is the same as my <leader>u map
-autocmd FileType vim nnoremap <silent> <buffer> gr "uyiw :Rgf <c-r>u<cr>
+autocmd FileType vim nnoremap <silent> <buffer> gr :execute "Rgf " . expand("<cword>")<cr>
 nmap <silent> gn <Plug>(coc-diagnostic-next)
 nmap <silent> gp <Plug>(coc-diagnostic-prev)
 " I never use this (gn & gp are sufficient), and it shadows a mapping that I
@@ -620,7 +620,7 @@ wk.register({
     t = {':tabs<CR>', '[t]abs (list)'},
     w = {':tabnew<CR>', 'ne[w]'},
   },
-  u = {'"uyiw :Rgf <C-r>u<CR>', 'ripgrep word [u]nder cursor'},
+  u = {':execute "Rgf " . expand("<cword>")<CR>', 'ripgrep word [u]nder cursor'},
   w = {
     name = '+[w]rap/windows',
     r = {':call ToggleWrap()<CR>', 'toggle line w[r]ap'},
