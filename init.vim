@@ -319,10 +319,12 @@ else
 endif
 
 " Remap keys for gotos
-" gd is a built-in heuristic lookup that usually functions well in vimscript
-" files. make sure it isn't shadowed when one is open
 nmap gd <Plug>(coc-definition)
-autocmd FileType vim silent! nunmap <buffer> gd
+" gd is a built-in heuristic lookup that usually functions well in vimscript
+" files. Make sure it isn't shadowed when one is open. Note that there doesn't
+" appear to be a way to unmap a global mapping in a buffer context, but the
+" easy workaround is just to noremap it to itself
+autocmd FileType vim nnoremap <buffer> gd gd
 " For reference, an alternate way to do this would be something like
 " autocmd FileType * if &ft!="vim"|nmap <buffer> <silent> gd <Plug>(coc-definition)|endif
 nmap <silent> gt <Plug>(coc-type-definition)
