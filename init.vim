@@ -168,6 +168,7 @@ Plug 'inkarkat/vim-AdvancedSorters', {'branch': 'stable'}
 Plug 'Yggdroot/indentLine'
 Plug 'chaoren/vim-wordmotion'
 Plug 'haya14busa/vim-asterisk'
+Plug 'wellle/targets.vim'
 " the following are the treesitter replacement plugins
 Plug 'frazrepo/vim-rainbow'
 Plug 'sheerun/vim-polyglot'
