@@ -338,12 +338,19 @@ nmap <silent> gp <Plug>(coc-diagnostic-prev)
 " nmap <silent> ge <Plug>(coc-diagnostic-next-error)
 
 " Use K to show documentation in preview window. also gh to match VSCode
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-nnoremap <silent> gh :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call <SID>show_documentation(0)<CR>
+nnoremap <silent> gh :call <SID>show_documentation(0)<CR>
+" Lots of help topics have non-word characters in them, e.g. syn-match. It's
+" convenient to have a mapping that uses <cWORD>
+nnoremap <silent> gH :call <SID>show_documentation(1)<CR>
 
-function! s:show_documentation()
+function! s:show_documentation(use_WORD)
   if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
+    if a:use_WORD
+      execute 'h '.expand('<cWORD>')
+    else
+      execute 'h '.expand('<cword>')
+    endif
   else
     call CocActionAsync('doHover')
   endif
