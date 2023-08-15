@@ -365,3 +365,19 @@ popd
 
 # install navi
 cargo install --locked navi
+
+# install lua + rocks
+pushd $(mktemp -d)
+curl -R -O http://www.lua.org/ftp/lua-5.4.6.tar.gz
+tar zxf lua-5.4.6.tar.gz
+cd lua-5.4.6
+make all test
+sudo make install
+cd ..
+curl -R -O http://luarocks.github.io/luarocks/releases/luarocks-3.9.2.tar.gz
+tar zxf luarocks-3.9.2.tar.gz
+cd luarocks-3.9.2
+./configure --with-lua-include=/usr/local/include
+make
+sudo make install
+popd
