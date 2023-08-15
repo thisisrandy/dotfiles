@@ -112,6 +112,7 @@ export PATH=~/.yarn/bin:$PATH
 export PATH=~/go/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
 export PATH="$HOME/.poetry/bin:$PATH"
+export PATH=~/.luarocks/bin:$PATH
 
 # DAML
 export PATH=~/.daml/bin:$PATH
