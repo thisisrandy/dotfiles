@@ -381,3 +381,4 @@ cd luarocks-3.9.2
 make
 sudo make install
 popd
+luarocks install croissant --local
