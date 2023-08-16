@@ -62,7 +62,7 @@ gsettings list-schemas | \
 
 If the system is dual boot with windows, run
 [this command](https://www.howtogeek.com/323390/how-to-fix-windows-and-linux-showing-different-times-when-dual-booting/)
-to fix windows time going awry everytime linux is booted:
+to fix windows time going awry every time linux is booted:
 
 ```
 timedatectl set-local-rtc 1 --adjust-system-clock
