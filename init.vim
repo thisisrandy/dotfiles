@@ -512,6 +512,7 @@ let g:windowswap_map_keys = 0
 
 " prevent default mappings so that which-key can handle leader maps
 let g:gitgutter_map_keys = 0
+let g:gitgutter_close_preview_on_escape = 1
 nmap ]c <Plug>(GitGutterNextHunk)
 nmap [c <Plug>(GitGutterPrevHunk)
 omap ih <Plug>(GitGutterTextObjectInnerPending)
