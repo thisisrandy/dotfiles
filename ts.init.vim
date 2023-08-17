@@ -144,7 +144,7 @@ Plug 'cohama/lexima.vim'
 Plug 'wesQ3/vim-windowswap'
 Plug 'alvan/vim-closetag'
 Plug 'thisisrandy/vim-outdated-plugins', { 'do': function('UpdateRemotePlugins') }
-Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter', { 'branch': 'main' }
 Plug 'jeffkreeftmeijer/vim-numbertoggle', { 'branch': 'main' }
 Plug 'tpope/vim-surround'
 " NOTE: requires nodejs and yarn to be installed
