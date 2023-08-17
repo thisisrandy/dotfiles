@@ -394,6 +394,10 @@ command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` to fold current buffer
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
+" Use :OrganizeImports to organize current buffer imports. Some format actions do
+" this automatically
+command! -nargs=0 OrganizeImports :call CocActionAsync('runCommand', 'editor.action.organizeImport')
+
 " Highlight word under cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
