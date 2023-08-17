@@ -207,10 +207,12 @@ F2 - rename current word
 <leader>t - format buffer
 <leader>cn - show commands
 
-<TAB> - snippet completion. also next snippet placeholder (when not in completion mode)
-<C-n> - next completion. allows use without snippet, e.g. for refering to functions
-        instead of function calls. <Down> mapped to the same.
+<TAB> - accept completion
+<C-n> - next completion. <Down> mapped to the same.
 <C-p> - previous completion. <Up> mapped to the same.
+
+<C-j> - next snippet position
+<C-k> - previous snippet position
 
 <leader>cy - yank list. i to fuzzy search, <space> to select multiple. note that system
              clipboard copies aren't included
