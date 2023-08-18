@@ -593,6 +593,7 @@ wk.register({
     d = {'<Plug>(coc-codelens-action)', 'co[d]elens action'},
     e = {':CocFzfList extensions<CR>', '[e]xtensions'},
     f = {':Fold<CR>', '[f]old buffer'},
+    g = {':OrganizeImports<CR>', 'or[g]anize imports'},
     l = {':CocFzfList location<CR>', '[l]ocations list'},
     m = {':CocFzfList<CR>', 'list of lists ([m]eta)'},
     n = {':CocFzfList commands<CR>', 'comma[n]ds'},
