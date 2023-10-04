@@ -161,7 +161,9 @@ Plug 'tpope/vim-repeat'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
-Plug 'p00f/nvim-ts-rainbow'
+" FIXME: This plugin is no longer maintained and is broken for tsx and
+" probably others. Need to either fork and fix or replace
+" Plug 'p00f/nvim-ts-rainbow'
 Plug 'jpalardy/vim-slime'
 Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
