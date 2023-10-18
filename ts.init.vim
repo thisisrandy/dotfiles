@@ -162,8 +162,10 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 " FIXME: This plugin is no longer maintained and is broken for tsx and
-" probably others. Need to either fork and fix or replace
+" probably others
 " Plug 'p00f/nvim-ts-rainbow'
+" For now, we're replacing it with the old rainbow plugin
+Plug 'frazrepo/vim-rainbow'
 Plug 'jpalardy/vim-slime'
 Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
@@ -684,25 +686,25 @@ require'nvim-treesitter.configs'.setup {
     -- [options]
   },
 
-  -- nvim-ts-rainbow
-  rainbow = {
-    enable = true,
-    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = nil, -- Do not enable for files with more than n lines, int
-    -- colors = {}, -- table of hex strings
-    -- termcolors = {} -- table of colour name strings
-  },
+  -- nvim-ts-rainbow - DISABLED, hence commenting here and below
+  -- rainbow = {
+  --   enable = true,
+  --   -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+  --   extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+  --   max_file_lines = nil, -- Do not enable for files with more than n lines, int
+  --   -- colors = {}, -- table of hex strings
+  --   -- termcolors = {} -- table of colour name strings
+  -- },
 }
 EOF
 
 " see https://github.com/p00f/nvim-ts-rainbow/issues/112
 " TS rainbow isn't very good at staying sane after file edits. until it
 " improves, here's a hack to just turn it off and on again after every write
-autocmd BufWritePost * TSDisable rainbow | TSEnable rainbow
+" autocmd BufWritePost * TSDisable rainbow | TSEnable rainbow
 " I also observed that the behavior improves after a few disable/enable
 " cycles. here's a jumpstart
-autocmd BufReadPost,BufNewFile * TSDisable rainbow | TSEnable rainbow | TSDisable rainbow | TSEnable rainbow | TSDisable rainbow | TSEnable rainbow
+" autocmd BufReadPost,BufNewFile * TSDisable rainbow | TSEnable rainbow | TSDisable rainbow | TSEnable rainbow | TSDisable rainbow | TSEnable rainbow
 
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
@@ -716,6 +718,10 @@ vnoremap \ =
 nnoremap + zO
 " also make a shortcut to mostly folded
 nnoremap <silent> z1 :set foldlevel=1<CR>
+
+""" vim-rainbow
+
+let g:rainbow_active = 1
 
 """ Comment.nvim
 
