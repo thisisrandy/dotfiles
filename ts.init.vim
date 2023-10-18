@@ -231,6 +231,18 @@ let g:NERDTreeQuitOnOpen = 1
 " in. I suspect the issue is neovim
 let g:webdevicons_enable_airline_statusline = 1
 
+" vim-nerdtree-syntax-highlight
+
+" In order to deal with lag, we need to disable default extensions and add
+" back a more circumscribed set
+let g:NERDTreeSyntaxDisableDefaultExtensions = 1
+" This is all of the extensions which would be enabled with
+" g:NERDTreeLimitedSyntax enabled + typescript and tsx
+let g:NERDTreeSyntaxEnabledExtensions = ['bmp', 'c', 'coffee', 'cpp', 'cs', 'css',
+      \ 'erb', 'go', 'hs', 'html', 'java', 'jpg', 'js', 'json', 'jsx', 'less', 'lua',
+      \ 'markdown', 'md', 'php', 'png', 'pl', 'py', 'rb', 'rs', 'scala', 'scss', 'sh',
+      \ 'sql', 'vim', 'ts', 'tsx']
+
 """ vim-airline
 
 let g:airline_powerline_fonts = 1
