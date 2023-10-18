@@ -241,7 +241,6 @@ let g:NERDTreeSyntaxEnabledExtensions = ['bmp', 'c', 'coffee', 'cpp', 'cs', 'css
       \ 'markdown', 'md', 'php', 'png', 'pl', 'py', 'rb', 'rs', 'scala', 'scss', 'sh',
       \ 'sql', 'vim', 'ts', 'tsx']
 
-
 """ vim-airline
 
 let g:airline_powerline_fonts = 1
