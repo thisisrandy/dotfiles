@@ -297,7 +297,7 @@ gS - same as gs, but clear scratch first
 f - find a single character. esc cancels
 F - find a single character on current line only
 t - find a pattern
-T - find a pattern on current line only
+(no find a pattern on current line only support is currently available)
 
 ## vim-dadbod
 

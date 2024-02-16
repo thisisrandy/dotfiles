@@ -465,7 +465,9 @@ hop.setup()
 vim.keymap.set('', 'f', hop.hint_char1)
 vim.keymap.set('', 'F', (function() hop.hint_char1({current_line_only = true}) end))
 vim.keymap.set('', 't', hop.hint_patterns)
-vim.keymap.set('', 'T', (function() hop.hint_patterns({current_line_only = true}) end))
+-- hint_patterns doesn't take opts and therefore doesn't support
+-- current_line_only. I previously had a T mapping that just did the same thing
+-- as t due to my misreading of the docs
 EOF
 
 """ nerdtree-git-plugin
