@@ -174,7 +174,9 @@ Plug 'frazrepo/vim-rainbow'
 Plug 'sheerun/vim-polyglot'
 " Waiting for resolution of https://github.com/wellle/context.vim/issues/132
 " Plug 'wellle/context.vim'
-Plug 'thisisrandy/context.vim'
+" Context seems to break visual mode, which is way more annoying than context
+" is useful, so I'm just turning it off for now
+" Plug 'thisisrandy/context.vim'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
@@ -643,12 +645,13 @@ wk.register({
     r = {':call ToggleWrap()<CR>', 'toggle line w[r]ap'},
     w = {':call WindowSwap#EasyWindowSwap()<CR>', '[w]indow swap'},
   },
-  x = {
-    name = '+conte[x]t',
-    d = {':ContextDisable<CR>', '[d]isable'},
-    e = {':ContextEnable<CR>', '[e]nable'},
-    t = {':ContextToggle<CR>', '[t]oggle'},
-  },
+  -- See note in the plugged section at the top
+  -- x = {
+  --   name = '+conte[x]t',
+  --   d = {':ContextDisable<CR>', '[d]isable'},
+  --   e = {':ContextEnable<CR>', '[e]nable'},
+  --   t = {':ContextToggle<CR>', '[t]oggle'},
+  -- },
 }, { prefix = '<leader>' })
 
 wk.register({
