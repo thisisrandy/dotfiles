@@ -38,7 +38,7 @@ sudo apt-get -y install curl git zsh xclip htop iftop gcc make \
     multitime jq tmux peek datamash nmap bvi httpie ripgrep \
     gnome-weather gnome-tweaks tree mkvtoolnix perl-doc fortunes \
     cowsay at linux-tools-common linux-tools-generic ranger sshfs \
-    figlet
+    figlet whois
 
 ln -sf $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
 
