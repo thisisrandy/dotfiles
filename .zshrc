@@ -318,6 +318,11 @@ precmd() {
   echo -n -e "\a" >$TTY
 }
 
+# Don't add commands which trigger command not found to history. From
+# https://superuser.com/a/902508/1264067. Note that only simple one line,
+# single command cases are covered
+zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
+
 # start tmux if conditions met. see
 # https://unix.stackexchange.com/a/113768/460319 and
 # https://stackoverflow.com/a/69579460/12162258
