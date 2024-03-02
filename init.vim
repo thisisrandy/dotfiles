@@ -364,10 +364,6 @@ endfunction
 " Remap for rename current word
 nmap <silent> <F2> <Plug>(coc-rename)
 
-" make the outline close itself once it's no longer in focus. open map is via
-" which-key
-autocmd BufLeave CocTree* q
-
 " note that buffer format map is via which-key
 function! RunFormatter()
   if &ft =~ 'vim' || &ft =~ 'sh'
