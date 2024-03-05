@@ -156,7 +156,9 @@ Plug 'andymass/vim-matchup'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'antoinemadec/coc-fzf'
-Plug 'brooth/far.vim', { 'do': function('UpdateRemotePlugins') }
+" Waiting for https://github.com/brooth/far.vim/issues/72 to be resolved
+" Plug 'brooth/far.vim', { 'do': function('UpdateRemotePlugins') }
+Plug 'thisisrandy/far.vim', { 'do': function('UpdateRemotePlugins') }
 Plug 'simnalamburt/vim-mundo'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-repeat'
