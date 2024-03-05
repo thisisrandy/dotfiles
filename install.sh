@@ -102,9 +102,7 @@ popd
 curl -sL https://deb.nodesource.com/setup_19.x | sudo -E bash -
 sudo apt-get -y install -y nodejs
 npm config set prefix ~/.local # prevents need to sudo for -g
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get -y update && sudo apt-get -y install yarn
+npm install --global yarn
 
 # install clangd
 sudo apt-get -y install clangd
