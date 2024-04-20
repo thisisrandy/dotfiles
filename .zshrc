@@ -181,6 +181,8 @@ alias rg='rg --smart-case'
 # swap zsh l and la (I prefer ls -lAh as my min keystroke alias)
 alias l='ls -lAh'
 alias la='ls -lah'
+alias l1='ls -A1'
+alias l1a='ls -a1'
 # shortcuts for the jump plugin
 alias j=jump
 alias m=mark
