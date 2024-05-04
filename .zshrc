@@ -194,6 +194,7 @@ alias ms=marks
 # CR  '\r' 0x0D = § U+00A7 Section Sign (⏎ U+23CE also works fine)
 # LF  '\n' 0x0A = ¶ U+00B6 Pilcrow Sign (was "Paragraph Sign")
 alias whitespace="sed 's/ /·/g;s/\t/￫/g;s/\r/§/g;s/$/¶/g'"
+alias find='find -regextype egrep'
 
 # vi mode
 
