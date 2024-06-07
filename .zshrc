@@ -326,6 +326,15 @@ precmd() {
 # single command cases are covered
 zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 
+# Note on the below: I'm not quite sure when the highlighting plugin gets
+# sourced, but it's definitely before here
+# Rough workaround for
+# https://github.com/zsh-users/zsh-syntax-highlighting/issues/874
+ZSH_HIGHLIGHT_HIGHLIGHTERS+=(regexp)
+ZSH_HIGHLIGHT_REGEXP+=('^%\S*' fg=green)
+# Also activate the brackets highlighter
+ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets)
+
 # start tmux if conditions met. see
 # https://unix.stackexchange.com/a/113768/460319 and
 # https://stackoverflow.com/a/69579460/12162258
