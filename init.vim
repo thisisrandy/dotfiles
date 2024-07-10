@@ -172,11 +172,9 @@ Plug 'wellle/targets.vim'
 " the following are the treesitter replacement plugins
 Plug 'frazrepo/vim-rainbow'
 Plug 'sheerun/vim-polyglot'
-" Waiting for resolution of https://github.com/wellle/context.vim/issues/132
-" Plug 'wellle/context.vim'
 " Context seems to break visual mode, which is way more annoying than context
 " is useful, so I'm just turning it off for now
-" Plug 'thisisrandy/context.vim'
+" Plug 'wellle/context.vim'
 
 " this is probably useful for some languages, but unclear if it really
 " supports nodejs. turning off for now
