@@ -38,7 +38,7 @@ sudo apt-get -y install curl git zsh xclip htop iftop gcc make \
     multitime jq tmux peek datamash nmap bvi httpie ripgrep \
     gnome-weather gnome-tweaks tree mkvtoolnix perl-doc fortunes \
     cowsay at linux-tools-common linux-tools-generic ranger sshfs \
-    figlet whois
+    figlet whois default-jre
 
 ln -sf $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
 
@@ -382,3 +382,17 @@ make
 sudo make install
 popd
 luarocks install croissant --local
+
+# install HoDoKu. Note that this relies on java being available (default-jre is
+# installed above)
+mkdir -p ~/.local/jars/
+wget -o ~/.local/jars/hodoku.jar https://netactuate.dl.sourceforge.net/project/hodoku/hodoku/hodoku_2.2.0/hodoku.jar
+echo \[Desktop Entry\] > ~/.local/share/applications/Hodoku.desktop
+echo Name=Btop >> ~/.local/share/applications/Hodoku.desktop
+echo Exec=java -jar $HOME/.local/jars/hodoku.jar >> ~/.local/share/applications/Hodoku.desktop
+echo StartupNotify=true >> ~/.local/share/applications/Hodoku.desktop
+echo Terminal=true >> ~/.local/share/applications/Hodoku.desktop
+echo Type=Application >> ~/.local/share/applications/Hodoku.desktop
+# This probably isn't necessary in an installation situation, but it's useful
+# when making changes as an admin
+sudo update-desktop-database
