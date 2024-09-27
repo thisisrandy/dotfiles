@@ -164,6 +164,8 @@ Plug 'numToStr/Comment.nvim'
 Plug 'jpalardy/vim-slime'
 Plug 'dhruvasagar/vim-zoom'
 Plug 'folke/which-key.nvim'
+Plug 'echasnovski/mini.icons'
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'inkarkat/vim-AdvancedSorters', {'branch': 'stable'}
 Plug 'Yggdroot/indentLine'
 Plug 'chaoren/vim-wordmotion'

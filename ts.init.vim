@@ -171,6 +171,8 @@ Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'dhruvasagar/vim-zoom'
 Plug 'folke/which-key.nvim'
+Plug 'echasnovski/mini.icons'
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'inkarkat/vim-AdvancedSorters', {'branch': 'stable'}
 Plug 'Yggdroot/indentLine'
