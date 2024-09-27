@@ -765,108 +765,94 @@ local wk = require('which-key')
 
 wk.setup { plugins = { spelling = { enabled = true } } }
 
-wk.register({
-  b = {
-    name = '+[b]lackhole-delete',
-    c = {'"_c', '[c]hange'},
-    C = {'"_C', '[C]hange to EOL'},
-    d = {'"_d', '[d]elete'},
-    D = {'"_D', '[D]elete to EOL'},
+wk.add(
+  {
+    { "<leader>b", group = "[b]lackhole-delete" },
+    { "<leader>bC", '"_C', desc = "[C]hange to EOL" },
+    { "<leader>bD", '"_D', desc = "[D]elete to EOL" },
+    { "<leader>bc", '"_c', desc = "[c]hange" },
+    { "<leader>bd", '"_d', desc = "[d]elete" },
+    { "<leader>c", group = "[c]oc" },
+    { "<leader>ca", ":CocFzfList diagnostics<CR>", desc = "di[a]gnostics (project)" },
+    { "<leader>cb", ":CocFzfList diagnostics --current-buf<CR>", desc = "diagnostics (current [b]uffer)" },
+    { "<leader>cc", "<Plug>(coc-codeaction)", desc = "[c]odeactions" },
+    { "<leader>cd", "<Plug>(coc-codelens-action)", desc = "co[d]elens action" },
+    { "<leader>ce", ":CocFzfList extensions<CR>", desc = "[e]xtensions" },
+    { "<leader>cf", ":Fold<CR>", desc = "[f]old buffer" },
+    { "<leader>cg", ":OrganizeImports<CR>", desc = "or[g]anize imports" },
+    { "<leader>cl", ":CocFzfList location<CR>", desc = "[l]ocations list" },
+    { "<leader>cm", ":CocFzfList<CR>", desc = "list of lists ([m]eta)" },
+    { "<leader>cn", ":CocFzfList commands<CR>", desc = "comma[n]ds" },
+    { "<leader>co", ":CocOutline<CR>", desc = "[o]utline" },
+    { "<leader>cr", ":CocFzfListResume<CR>", desc = "[r]esume last list" },
+    { "<leader>cs", ":CocFzfList symbols<CR>", desc = "[s]ymbols" },
+    { "<leader>ct", ":call RunFormatter()<CR>", desc = "forma[t] buffer" },
+    { "<leader>cx", "<Plug>(coc-fix-current)", desc = "autofi[x]" },
+    { "<leader>cy", ":CocFzfList yank<CR>", desc = "[y]ank list" },
+    { "<leader>f", ":Farr<CR>", desc = "[f]ind/replace" },
+    { "<leader>h", group = "[h]unks" },
+    { "<leader>hp", "<Plug>(GitGutterPreviewHunk)", desc = "[p]review hunk" },
+    { "<leader>hs", "<Plug>(GitGutterStageHunk)", desc = "[s]tage hunk" },
+    { "<leader>hu", "<Plug>(GitGutterUndoHunk)", desc = "[u]ndo hunk" },
+    { "<leader>l", group = "[l]ines" },
+    { "<leader>la", ":Lines<CR>", desc = "lines search ([a]ll buffers)" },
+    { "<leader>lb", ":BLines<CR>", desc = "lines search (current [b]uffer)" },
+    { "<leader>o", ":nohlsearch<CR>", desc = "highlight [o]ff" },
+    { "<leader>s", group = "[s]earch" },
+    { "<leader>sb", ":BCommits<CR>", desc = "commits ([b]uffer)" },
+    { "<leader>sc", ":Commits<CR>", desc = "[c]ommits" },
+    { "<leader>sh", ":History:<CR>", desc = "command [h]istory" },
+    { "<leader>so", ":Commands<CR>", desc = "c[o]mmands" },
+    { "<leader>ss", ":History/<CR>", desc = "[s]earch history" },
+    { "<leader>t", group = "[t]abs" },
+    { "<leader>tc", ":tabclose<CR>", desc = "[c]lose" },
+    { "<leader>tf", ":tabfirst<CR>", desc = "[f]irst" },
+    { "<leader>tl", ":tablast<CR>", desc = "[l]ast" },
+    { "<leader>tn", ":tabnext<CR>", desc = "[n]ext" },
+    { "<leader>to", ":tabonly<CR>", desc = "[o]nly" },
+    { "<leader>tp", ":tabprevious<CR>", desc = "[p]revious" },
+    { "<leader>tt", ":tabs<CR>", desc = "[t]abs (list)" },
+    { "<leader>tw", ":tabnew<CR>", desc = "ne[w]" },
+    { "<leader>u", ':execute "Rgf " . expand("<cword>")<CR>', desc = "ripgrep word [u]nder cursor" },
+    { "<leader>w", group = "[w]rap/windows" },
+    { "<leader>wr", ":call ToggleWrap()<CR>", desc = "toggle line w[r]ap" },
+    { "<leader>ww", ":call WindowSwap#EasyWindowSwap()<CR>", desc = "[w]indow swap" },
   },
-  c = {
-    name = '+[c]oc',
-    a = {':CocFzfList diagnostics<CR>', 'di[a]gnostics (project)'},
-    b = {':CocFzfList diagnostics --current-buf<CR>', 'diagnostics (current [b]uffer)'},
-    c = {'<Plug>(coc-codeaction)', '[c]odeactions'},
-    d = {'<Plug>(coc-codelens-action)', 'co[d]elens action'},
-    e = {':CocFzfList extensions<CR>', '[e]xtensions'},
-    f = {':Fold<CR>', '[f]old buffer'},
-    g = {':OrganizeImports<CR>', 'or[g]anize imports'},
-    l = {':CocFzfList location<CR>', '[l]ocations list'},
-    m = {':CocFzfList<CR>', 'list of lists ([m]eta)'},
-    n = {':CocFzfList commands<CR>', 'comma[n]ds'},
-    o = {':CocOutline<CR>', '[o]utline'},
-    r = {':CocFzfListResume<CR>', '[r]esume last list'},
-    s = {':CocFzfList symbols<CR>', '[s]ymbols'},
-    t = {':call RunFormatter()<CR>', 'forma[t] buffer'},
-    x = {'<Plug>(coc-fix-current)', 'autofi[x]'},
-    y = {':CocFzfList yank<CR>', '[y]ank list'},
-  },
-  f = {':Farr<CR>', '[f]ind/replace'},
-  h = {
-    name = '+[h]unks',
-    p = {'<Plug>(GitGutterPreviewHunk)', '[p]review hunk'},
-    s = {'<Plug>(GitGutterStageHunk)', '[s]tage hunk'},
-    u = {'<Plug>(GitGutterUndoHunk)', '[u]ndo hunk'},
-  },
-  l = {
-    name = '+[l]ines',
-    a = {':Lines<CR>', 'lines search ([a]ll buffers)'},
-    b = {':BLines<CR>', 'lines search (current [b]uffer)'},
-  },
-  o = {':nohlsearch<CR>', 'highlight [o]ff'},
-  s = {
-    name = '+[s]earch',
-    b = {':BCommits<CR>', 'commits ([b]uffer)'},
-    c = {':Commits<CR>', '[c]ommits'},
-    h = {':History:<CR>', 'command [h]istory'},
-    o = {':Commands<CR>', 'c[o]mmands'},
-    s = {':History/<CR>', '[s]earch history'},
-  },
-  t = {
-    name = '+[t]abs',
-    c = {':tabclose<CR>', '[c]lose'},
-    f = {':tabfirst<CR>', '[f]irst'},
-    l = {':tablast<CR>', '[l]ast'},
-    n = {':tabnext<CR>', '[n]ext'},
-    o = {':tabonly<CR>', '[o]nly'},
-    p = {':tabprevious<CR>', '[p]revious'},
-    t = {':tabs<CR>', '[t]abs (list)'},
-    w = {':tabnew<CR>', 'ne[w]'},
-  },
-  u = {':execute "Rgf " . expand("<cword>")<CR>', 'ripgrep word [u]nder cursor'},
-  w = {
-    name = '+[w]rap/windows',
-    r = {':call ToggleWrap()<CR>', 'toggle line w[r]ap'},
-    w = {':call WindowSwap#EasyWindowSwap()<CR>', '[w]indow swap'},
-  },
-  x = {
-    name = '+conte[x]t',
-    d = {':ContextDisable<CR>', '[d]isable'},
-    e = {':ContextEnable<CR>', '[e]nable'},
-    t = {':ContextToggle<CR>', '[t]oggle'},
-  },
-}, { prefix = '<leader>' })
+  {}
+)
 
-wk.register({
-  d = {
-    name = '+[d]iff',
-    a = { ':diffpatch ', 'p[a]tch from file' },
-    g = { ':diffget<CR>', '[g]et (from other)' },
-    o = { ':diffoff<CR>', '[o]ff (current buffer)' },
-    O = { ':diffoff!<CR>', '[O]ff! (all in tab)' },
-    p = { ':diffput<CR>', '[p]ut (to other)' },
-    s = { ':diffsplit ', 'horizontal [s]plit' },
-    t = { ':diffthis<CR>', '[t]his' },
-    v = { ':vertical diffsplit ', '[v]ertical split' },
-    u = { ':diffupdate<CR>', '[u]pdate' },
+wk.add(
+  {
+    { "<leader>d", group = "[d]iff", silent = false },
+    { "<leader>dO", ":diffoff!<CR>", desc = "[O]ff! (all in tab)", silent = false },
+    { "<leader>da", ":diffpatch ", desc = "p[a]tch from file", silent = false },
+    { "<leader>dg", ":diffget<CR>", desc = "[g]et (from other)", silent = false },
+    { "<leader>do", ":diffoff<CR>", desc = "[o]ff (current buffer)", silent = false },
+    { "<leader>dp", ":diffput<CR>", desc = "[p]ut (to other)", silent = false },
+    { "<leader>ds", ":diffsplit ", desc = "horizontal [s]plit", silent = false },
+    { "<leader>dt", ":diffthis<CR>", desc = "[t]his", silent = false },
+    { "<leader>du", ":diffupdate<CR>", desc = "[u]pdate", silent = false },
+    { "<leader>dv", ":vertical diffsplit ", desc = "[v]ertical split", silent = false },
+    { "<leader>g", ":Rg ", desc = "rip[g]rep", silent = false },
   },
-  g = {':Rg ', 'rip[g]rep'}
-}, { prefix = '<leader>', silent = false })
+  { silent = false }
+)
 
-wk.register({
-  b = {
-    name = '+[b]lackhole-delete',
-    c = {'"_c', 'overwrite (using [c])'},
-    d = {'"_d', '[d]elete'},
-    p = {'"_dP', '[p]aste'},
+wk.add(
+  {
+    {
+      mode = { "v" },
+      { "<leader>b", group = "[b]lackhole-delete" },
+      { "<leader>bc", '"_c', desc = "overwrite (using [c])" },
+      { "<leader>bd", '"_d', desc = "[d]elete" },
+      { "<leader>bp", '"_dP', desc = "[p]aste" },
+      { "<leader>h", group = "[h]unks" },
+      { "<leader>hs", "<Plug>(GitGutterStageHunk)", desc = "[s]tage hunk" },
+      { "<leader>u", 'y :Rgf <C-r>"<CR>', desc = "ripgrep selected text ([u]nder cursor)" },
+    },
   },
-  h = {
-    name = '+[h]unks',
-    s = {'<Plug>(GitGutterStageHunk)', '[s]tage hunk'},
-  },
-  u = {'y :Rgf <C-r>"<CR>', 'ripgrep selected text ([u]nder cursor)'},
-  }, { prefix = '<leader>', mode = 'v' })
+  { mode = 'v' }
+)
 EOF
 
 """ vim-speeddating
