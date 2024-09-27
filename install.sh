@@ -112,17 +112,21 @@ sudo apt-get -y install clangd
 # sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-9 100
 
 # install powerline fonts that work with vscode. chosen from the selection at
-# https://github.com/ryanoasis/nerd-fonts
-wget https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/UbuntuMono/Regular/complete/Ubuntu%20Mono%20Nerd%20Font%20Complete%20Mono.ttf
+# https://www.nerdfonts.com/font-downloads
+pushd $(mktemp -d)
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/UbuntuMono.zip
+unzip UbuntuMono.zip
 mkdir -p ~/.local/share/fonts
-mv -f 'Ubuntu Mono Nerd Font Complete Mono.ttf' ~/.local/share/fonts/
+mv -f UbuntuMonoNerdFont-Regular.ttf ~/.local/share/fonts/
+popd
 sudo fc-cache -vf ~/.local/share/fonts/
 # then, the terminal needs to be set to use it. per
 # https://ncona.com/2019/11/configuring-gnome-terminal-programmatically/, we
-# can do this programmatically
+# can do this programmatically. Note that if the font name of the install ttf
+# is unclear, we can run fc-list | less and search for the ttf file name
 GNOME_TERMINAL_PROFILE=`gsettings get org.gnome.Terminal.ProfilesList default | \
     awk -F \' '{print $2}'`
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ font 'UbuntuMono Nerd Font Mono Regular 12'
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ font 'UbuntuMono Nerd Font Regular 12'
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ use-system-font false
 
 # gnome-terminal in jammy doesn't seem to fully support the system theme, so we
