@@ -560,6 +560,7 @@ require'nvim-treesitter.configs'.setup {
     "html",
     "markdown",
     "yaml",
+    "perl",
   },
   highlight = {
     enable = true,
