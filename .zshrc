@@ -296,7 +296,7 @@ x11-clip-wrap-widgets paste  $paste_widgets
 # already installed, which would cause it to find fzf in the path and create
 # simlinks, but that would be an extra step that I don't care to take
 
-FZF_PATH=$HOME/.local/share/nvim/plugged/fzf
+FZF_PATH=$HOME/.local/share/nvim/lazy/fzf
 # technically this is a bat setting, but I don't use it outside of fzf
 export BAT_THEME=gruvbox-dark
 
