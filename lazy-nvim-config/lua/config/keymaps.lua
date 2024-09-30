@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 
 vim.keymap.set({ "i", "v", "c" }, "jk", "<esc>")
-vim.keymap.set("n", "<C-_>", "gcc")
-vim.keymap.set("i", "<C-_>", "<C-o>gcc")
-vim.keymap.set("v", "<C-_>", "gc")
-vim.keymap.set("n", "<C-p>", "gcc")
+vim.keymap.set("n", "<c-h>", ":KittyNavigateLeft<cr>", { silent = true })
+vim.keymap.set("n", "<c-j>", ":KittyNavigateDown<cr>", { silent = true })
+vim.keymap.set("n", "<c-k>", ":KittyNavigateUp<cr>", { silent = true })
+vim.keymap.set("n", "<c-l>", ":KittyNavigateRight<cr>", { silent = true })

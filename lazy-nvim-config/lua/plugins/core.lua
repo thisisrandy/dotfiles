@@ -73,4 +73,12 @@ return {
       require("kitty-scrollback").setup()
     end,
   },
+
+  {
+    "knubie/vim-kitty-navigator",
+    config = function()
+      local data = vim.fn.stdpath("data")
+      os.execute("cp " .. data .. "/lazy/vim-kitty-navigator/*.py ~/.config/kitty/")
+    end,
+  },
 }
