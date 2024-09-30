@@ -18,6 +18,10 @@ vim.keymap.set({ "n", "v" }, "?", "?\\v", { desc = "Search backwards using very 
 vim.keymap.set({ "n", "v" }, "/", "/\\v", { desc = "Search using very magic mode" })
 vim.keymap.set("n", "<leader>h", ":%s/\\v//g<left><left><left>", { desc = "Search/replace in the current buffer" })
 vim.keymap.set("v", "<leader>h", ":s/\\v//g<left><left><left>", { desc = "Search/replace in the current selection" })
+vim.keymap.set("n", "gh", "K", { desc = "Hover (synonym for K)", remap = true })
+vim.keymap.set("n", ";", "<leader>,", { desc = "Switch buffers", remap = true })
+vim.keymap.set("n", "<C-p>", "<leader><leader>", { desc = "Find files (Root Dir)", remap = true })
+vim.keymap.set("n", "<F2>", "<leader>cr", { desc = "Rename", remap = true })
 
 -- move lines up and down with M-k/j (or up/down) from
 -- https://vim.fandom.com/wiki/Moving_lines_up_or_down#Mappings_to_move_lines,
