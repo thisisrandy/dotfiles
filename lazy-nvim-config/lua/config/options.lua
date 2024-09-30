@@ -3,3 +3,4 @@
 -- Add any additional options here
 
 vim.opt.spell = true
+vim.opt.dictionary = "/usr/share/dict/words"
