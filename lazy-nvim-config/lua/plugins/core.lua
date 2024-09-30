@@ -76,7 +76,7 @@ return {
 
   {
     "knubie/vim-kitty-navigator",
-    config = function()
+    build = function()
       local data = vim.fn.stdpath("data")
       os.execute("cp " .. data .. "/lazy/vim-kitty-navigator/*.py ~/.config/kitty/")
     end,
