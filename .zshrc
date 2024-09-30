@@ -165,17 +165,18 @@ alias po=popd
 alias open='xdg-open'
 # this is better accomplished via `open .`
 # alias start='nautilus --browser'
-alias vnp='vim -u ~/.config/nvim/noplug.init.vim'
-alias vts='nvim.nightly -u ~/.config/nvim/ts.init.vim'
+alias vnp='vim -u ~/git/dotfiles/noplug.init.vim'
+# these are no longer relevant since I switched to LazyVim
+# alias vts='nvim.nightly -u ~/.config/nvim/ts.init.vim'
+# alias vd='COC_USE_DICT=true v'
+# alias vdf='COC_USE_DICT=true vf'
 alias f="fzf --preview '[[ \$(file --mime {}) =~ binary ]] && \
                  echo {} is a binary file || \
                  bat --style=numbers --color=always {} | \
                  head -100'"
 alias r=ranger
 alias v=vim
-alias vd='COC_USE_DICT=true v'
 alias vf='v "$(f)"'
-alias vdf='COC_USE_DICT=true vf'
 alias sv='sudoenv vim'
 alias lf='less "$(f)"'
 alias pip='python -m pip'
