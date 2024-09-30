@@ -209,11 +209,14 @@ ln -sf nvim vim
 curl -fLo nvim.nightly https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 chmod u+x nvim.nightly
 popd
-mkdir -p $HOME/.config/nvim
-ln -sf $PATH_TO_DOT_FILES/init.vim $HOME/.config/nvim/init.vim
-ln -sf $PATH_TO_DOT_FILES/noplug.init.vim $HOME/.config/nvim/noplug.init.vim
-ln -sf $PATH_TO_DOT_FILES/ts.init.vim $HOME/.config/nvim/ts.init.vim
-ln -sf $PATH_TO_DOT_FILES/coc-settings.json $HOME/.config/nvim/coc-settings.json
+# My old setup for reference
+# mkdir -p $HOME/.config/nvim
+# ln -sf $PATH_TO_DOT_FILES/init.vim $HOME/.config/nvim/init.vim
+# ln -sf $PATH_TO_DOT_FILES/noplug.init.vim $HOME/.config/nvim/noplug.init.vim
+# ln -sf $PATH_TO_DOT_FILES/ts.init.vim $HOME/.config/nvim/ts.init.vim
+# ln -sf $PATH_TO_DOT_FILES/coc-settings.json $HOME/.config/nvim/coc-settings.json
+# LazyNvim setup
+ln -sf $PATH_TO_DOT_FILES/lazy-nvim-config $HOME/.config/nvim
 yarn global add neovim
 # create a virtual env specifically for nvim and install the relevant packages
 # in it. init.vim must specify g:python3_host_prog pointing to bin/python in
