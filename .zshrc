@@ -347,6 +347,7 @@ if command -v tmux &> /dev/null \
    && [ -n "$PS1" ] \
    && [[ ! "$TERM" =~ screen ]] \
    && [[ ! "$TERM" =~ tmux ]] \
+   && [[ ! "$TERM" =~ xterm-kitty ]] \
    && [ -z "$TMUX" ] \
    && ! pstree -s $$ | grep -Ewq "code|n?vim"; then
     # previously I had this set up to attach any existing session, but there
