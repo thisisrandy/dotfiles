@@ -430,6 +430,8 @@ git clone https://github.com/yurikhan/kitty_grab.git
 cp kitty_grab/grab-vim.conf.example grab.conf
 sed -ri 's/# (map q\s*quit)/\1/' grab.conf
 popd
+# install a theme
+ln -sf $PATH_TO_DOT_FILES/kitty.theme.conf $HOME/.config/kitty/
 
 # install lazygit
 pushd $(mktemp -d)

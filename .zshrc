@@ -124,11 +124,13 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64
 
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files --glob !.git --hidden --follow'
-# This is Gruvbox Dark. See
-# https://github.com/junegunn/fzf/wiki/Color-schemes#gruvbox-dark
+# This is Dracula. See
+# https://github.com/junegunn/fzf/wiki/Color-schemes#dracula
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-  --color fg:#ebdbb2,bg:#282828,hl:#fabd2f,fg+:#ebdbb2,bg+:#3c3836,hl+:#fabd2f
-  --color info:#83a598,prompt:#bdae93,spinner:#fabd2f,pointer:#83a598,marker:#fe8019,header:#665c54'
+--color=dark
+--color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f
+--color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7
+'
 
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -299,7 +301,7 @@ x11-clip-wrap-widgets paste  $paste_widgets
 
 FZF_PATH=$HOME/.local/share/nvim/lazy/fzf
 # technically this is a bat setting, but I don't use it outside of fzf
-export BAT_THEME=gruvbox-dark
+export BAT_THEME=Dracula
 
 # Setup fzf
 # ---------
