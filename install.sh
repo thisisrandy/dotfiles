@@ -422,6 +422,8 @@ sed -i "s|Exec=kitty|Exec=$(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.loca
 echo 'kitty.desktop' > ~/.config/xdg-terminals.list
 # Create a symbolic link to the config file
 ln -sf $PATH_TO_DOT_FILES/kitty.conf $HOME/.config/kitty/
+# make kitty the default terminal
+gsettings set org.gnome.desktop.default-applications.terminal exec 'kitty'
 
 # install lazygit
 pushd $(mktemp -d)
