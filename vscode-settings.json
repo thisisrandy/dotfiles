@@ -252,7 +252,7 @@
   "files.trimTrailingWhitespace": true,
   "editor.autoClosingQuotes": "always",
   "editor.autoClosingBrackets": "always",
-  "workbench.editor.showTabs": "single",
+  "workbench.editor.showTabs": false,
   "zenMode.hideStatusBar": false,
   "files.hotExit": "off",
   "[json]": {
@@ -321,13 +321,5 @@
     "statusBar.foreground": "#303030",
     "statusBar.debuggingForeground": "#303030"
   },
-  "haskell.manageHLS": "GHCup",
-  "lldb.suppressUpdateNotifications": true,
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
-  },
-  "vscode-neovim.neovimExecutablePaths.linux": "/home/randy/.local/bin/vim",
-  "vscode-neovim.neovimExecutablePaths.darwin": "",
-  "vscode-neovim.statusLineSeparator": "",
-  "vscode-neovim.neovimInitVimPaths.linux": "/home/randy/.config/nvim/init.vim"
+  "haskell.manageHLS": "GHCup"
 }
