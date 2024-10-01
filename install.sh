@@ -424,6 +424,12 @@ echo 'kitty.desktop' > ~/.config/xdg-terminals.list
 ln -sf $PATH_TO_DOT_FILES/kitty.conf $HOME/.config/kitty/
 # make kitty the default terminal
 gsettings set org.gnome.desktop.default-applications.terminal exec 'kitty'
+# install https://github.com/yurikhan/kitty_grab
+pushd ~/.config/kitty
+git clone https://github.com/yurikhan/kitty_grab.git
+cp kitty_grab/grab-vim.conf.example grab.conf
+sed -ri 's/# (map q\s*quit)/\1/' grab.conf
+popd
 
 # install lazygit
 pushd $(mktemp -d)
