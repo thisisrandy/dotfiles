@@ -20,10 +20,14 @@ vim.api.nvim_create_autocmd("WinLeave", {
   end,
 })
 
-local term_insert = augroup("TermInsert")
-vim.api.nvim_create_autocmd("TermOpen", {
-  group = term_insert,
-  callback = function()
-    vim.cmd.startinsert()
-  end,
-})
+-- kitty-scrollback gets confused if I try to start insert on term open, hence
+-- the guard
+if vim.env.KITTY_SCROLLBACK_NVIM ~= "true" then
+  local term_insert = augroup("TermInsert")
+  vim.api.nvim_create_autocmd("TermOpen", {
+    group = term_insert,
+    callback = function()
+      vim.cmd.startinsert()
+    end,
+  })
+end
