@@ -22,6 +22,20 @@ vim.keymap.set("n", "gh", "K", { desc = "Hover (synonym for K)", remap = true })
 vim.keymap.set("n", ";", "<leader>,", { desc = "Switch buffers", remap = true })
 vim.keymap.set("n", "<C-p>", "<leader><leader>", { desc = "Find files (Root Dir)", remap = true })
 vim.keymap.set("n", "<F2>", "<leader>cr", { desc = "Rename", remap = true })
+-- Note that neither of the following account for special regex chars in any
+-- way. Copied text has the potential to be a malformed expression
+vim.keymap.set(
+  "n",
+  "<leader>r",
+  '"zyiw<leader>/<c-r>z',
+  { desc = "Grep for word unde[r] cursor (Root Dir)", remap = true }
+)
+vim.keymap.set(
+  "v",
+  "<leader>r",
+  '"zy<leader>/<c-r>z',
+  { desc = "Grep for highlighted wo[r]d (Root Dir)", remap = true }
+)
 
 -- move lines up and down with M-k/j (or up/down) from
 -- https://vim.fandom.com/wiki/Moving_lines_up_or_down#Mappings_to_move_lines,
