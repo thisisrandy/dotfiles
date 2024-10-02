@@ -34,6 +34,7 @@ return {
             statuscolumn = " ",
           },
         },
+        close_automatic_events = { "unsupported" },
         icons = icons,
         filter_kind = filter_kind,
       -- stylua: ignore
