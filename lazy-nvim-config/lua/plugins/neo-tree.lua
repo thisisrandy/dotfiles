@@ -34,4 +34,18 @@ return {
       desc = "Explorer NeoTree (cwd, toggle)",
     },
   },
+  opts = {
+    -- See https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Recipes#auto-close-on-open-file
+    event_handlers = {
+      {
+        event = "file_open_requested",
+        handler = function()
+          -- auto close
+          -- vim.cmd("Neotree close")
+          -- OR
+          require("neo-tree.command").execute({ action = "close" })
+        end,
+      },
+    },
+  },
 }
