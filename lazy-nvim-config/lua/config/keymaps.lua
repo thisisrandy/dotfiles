@@ -26,18 +26,28 @@ vim.keymap.set("n", "<F2>", "<leader>cr", { desc = "Rename", remap = true })
 -- way. Copied text has the potential to be a malformed expression
 vim.keymap.set(
   "n",
-  "<leader>r",
+  "<leader>su",
   '"zyiw<leader>sg<c-r>z',
-  { desc = "Grep for word unde[r] cursor (Root Dir)", remap = true }
+  { desc = "Grep for word [u]nder cursor (Root Dir)", remap = true }
 )
-vim.keymap.set("n", "<leader>R", '"zyiw<leader>sG<c-r>z', { desc = "Grep for word unde[R] cursor (cwd)", remap = true })
+vim.keymap.set(
+  "n",
+  "<leader>sU",
+  '"zyiw<leader>sG<c-r>z',
+  { desc = "Grep for word [U]nder cursor (cwd)", remap = true }
+)
 vim.keymap.set(
   "v",
-  "<leader>r",
+  "<leader>su",
   '"zy<leader>sg<c-r>z',
-  { desc = "Grep for highlighted wo[r]d (Root Dir)", remap = true }
+  { desc = "Grep for highlighted word ([u]nder cursor) (Root Dir)", remap = true }
 )
-vim.keymap.set("v", "<leader>R", '"zy<leader>sG<c-r>z', { desc = "Grep for highlighted wo[R]d (cwd)", remap = true })
+vim.keymap.set(
+  "v",
+  "<leader>sU",
+  '"zy<leader>sG<c-r>z',
+  { desc = "Grep for highlighted word ([U]nder cursor) (cwd)", remap = true }
+)
 
 -- move lines up and down with M-k/j (or up/down) from
 -- https://vim.fandom.com/wiki/Moving_lines_up_or_down#Mappings_to_move_lines,
