@@ -2,7 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
--- general
 vim.keymap.set({ "i", "v", "c" }, "jk", "<esc>")
 vim.keymap.set("i", "<C-v>", "<C-o>P", { desc = "Paste from the keyboard in insert mode", noremap = true })
 vim.keymap.set("n", "<F6>", ":exec '!'.getline('.')<CR>", { desc = "Execute the current line as a shell command" })
@@ -71,48 +70,3 @@ function! V_Move(up)
   endif
 endfu
 ]])
-
--- kitty-navigator
-vim.keymap.set("n", "<c-h>", ":KittyNavigateLeft<cr>", { silent = true })
-vim.keymap.set("n", "<c-j>", ":KittyNavigateDown<cr>", { silent = true })
-vim.keymap.set("n", "<c-k>", ":KittyNavigateUp<cr>", { silent = true })
-vim.keymap.set("n", "<c-l>", ":KittyNavigateRight<cr>", { silent = true })
-
--- comment.nvim
-vim.keymap.set("n", "<C-_>", "gcc", { desc = "Toggle line comment", remap = true })
-vim.keymap.set("i", "<C-_>", "<C-o>gcc", { desc = "Toggle line comment", remap = true })
-vim.keymap.set("v", "<C-_>", "gc", { desc = "Toggle line comments", remap = true })
-
--- lsp
-vim.keymap.set("n", "gh", "K", { desc = "Hover (synonym for K)", remap = true })
-vim.keymap.set("n", "<F2>", "<leader>cr", { desc = "Rename", remap = true })
-
--- search
-vim.keymap.set("n", ";", "<leader>,", { desc = "Switch buffers", remap = true })
-vim.keymap.set("n", "<C-p>", "<leader>ff", { desc = "Find files (Root Dir)", remap = true })
--- Note that the following don't account for special regex chars in any way.
--- Copied text has the potential to be a malformed expression
-vim.keymap.set(
-  "n",
-  "<leader>su",
-  '"zyiw<leader>sg<c-r>z',
-  { desc = "Grep for word [u]nder cursor (Root Dir)", remap = true }
-)
-vim.keymap.set(
-  "n",
-  "<leader>sU",
-  '"zyiw<leader>sG<c-r>z',
-  { desc = "Grep for word [U]nder cursor (cwd)", remap = true }
-)
-vim.keymap.set(
-  "v",
-  "<leader>su",
-  '"zy<leader>sg<c-r>z',
-  { desc = "Grep for highlighted word ([u]nder cursor) (Root Dir)", remap = true }
-)
-vim.keymap.set(
-  "v",
-  "<leader>sU",
-  '"zy<leader>sG<c-r>z',
-  { desc = "Grep for highlighted word ([U]nder cursor) (cwd)", remap = true }
-)
