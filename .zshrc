@@ -204,6 +204,7 @@ alias ms=marks
 # LF  '\n' 0x0A = ¶ U+00B6 Pilcrow Sign (was "Paragraph Sign")
 alias whitespace="sed 's/ /·/g;s/\t/￫/g;s/\r/§/g;s/$/¶/g'"
 alias find='find -regextype egrep'
+alias icat='kitten icat'
 
 # vi mode
 
