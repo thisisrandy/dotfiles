@@ -205,6 +205,7 @@ alias ms=marks
 alias whitespace="sed 's/ /·/g;s/\t/￫/g;s/\r/§/g;s/$/¶/g'"
 alias find='find -regextype egrep'
 alias icat='kitten icat'
+alias help=run-help
 
 # vi mode
 
