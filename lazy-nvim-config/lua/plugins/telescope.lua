@@ -10,6 +10,23 @@ return {
         end,
         desc = "Find Plugin File",
       },
+      -- I don't see much utility in pickers going into normal mode when we
+      -- press esc, so instead just exit the picker entirely
+      {
+        mode = "i",
+        "<esc>",
+        function()
+          require("telescope.actions").close(vim.fn["bufnr"]("%"))
+        end,
+      },
+      -- Also map jk to exit
+      {
+        mode = "i",
+        "jk",
+        function()
+          require("telescope.actions").close(vim.fn["bufnr"]("%"))
+        end,
+      },
       -- faster and more familiar file/buffer switching
       { mode = "n", ";", "<leader>,", desc = "Switch buffers", remap = true },
       { mode = "n", "<C-p>", "<leader>ff", desc = "Find files (Root Dir),", remap = true },
