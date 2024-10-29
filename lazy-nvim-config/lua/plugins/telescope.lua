@@ -1,6 +1,11 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-telescope/telescope-smart-history.nvim",
+      "nvim-telescope/telescope-frecency.nvim",
+      "kkharji/sqlite.lua",
+    },
     keys = {
       -- browse plugin files
       {
@@ -30,11 +35,39 @@ return {
       -- faster and more familiar file/buffer switching
       { mode = "n", ";", "<leader>,", desc = "Switch buffers", remap = true },
       { mode = "n", "<C-p>", "<leader>ff", desc = "Find files (Root Dir),", remap = true },
+      {
+        mode = "i",
+        "<c-down>",
+        function()
+          require("telescope.actions").cycle_history_next(vim.fn["bufnr"]("%"))
+        end,
+      },
+      {
+        mode = "i",
+        "<c-up>",
+        function()
+          require("telescope.actions").cycle_history_prev(vim.fn["bufnr"]("%"))
+        end,
+      },
     },
     opts = {
       defaults = {
         layout_strategy = "vertical",
       },
     },
+    config = function()
+      require("telescope").setup({
+        defaults = {
+          layout_strategy = "vertical",
+          history = {
+            path = "~/.local/share/nvim/databases/telescope_history.sqlite3",
+            limit = 200,
+          },
+        },
+      })
+      os.execute("mkdir -p ~/.local/share/nvim/databases/")
+      require("telescope").load_extension("smart_history")
+      require("telescope").load_extension("frecency")
+    end,
   },
 }
