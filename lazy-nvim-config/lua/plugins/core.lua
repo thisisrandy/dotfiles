@@ -8,4 +8,5 @@ return {
     end,
   },
   { "fladson/vim-kitty" },
+  { "andymass/vim-matchup" },
 }
