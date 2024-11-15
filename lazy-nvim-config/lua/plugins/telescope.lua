@@ -15,45 +15,8 @@ return {
         end,
         desc = "Find Plugin File",
       },
-      -- I don't see much utility in pickers going into normal mode when we
-      -- press esc, so instead just exit the picker entirely
-      {
-        mode = "i",
-        "<esc>",
-        function()
-          require("telescope.actions").close(vim.fn["bufnr"]("%"))
-        end,
-      },
-      -- Also map jk to exit
-      {
-        mode = "i",
-        "jk",
-        function()
-          require("telescope.actions").close(vim.fn["bufnr"]("%"))
-        end,
-      },
-      -- faster and more familiar file/buffer switching
       { mode = "n", ";", "<leader>,", desc = "Switch buffers", remap = true },
       { mode = "n", "<C-p>", "<leader>ff", desc = "Find files (Root Dir),", remap = true },
-      {
-        mode = "i",
-        "<c-down>",
-        function()
-          require("telescope.actions").cycle_history_next(vim.fn["bufnr"]("%"))
-        end,
-      },
-      {
-        mode = "i",
-        "<c-up>",
-        function()
-          require("telescope.actions").cycle_history_prev(vim.fn["bufnr"]("%"))
-        end,
-      },
-    },
-    opts = {
-      defaults = {
-        layout_strategy = "vertical",
-      },
     },
     config = function()
       require("telescope").setup({
@@ -62,6 +25,16 @@ return {
           history = {
             path = "~/.local/share/nvim/databases/telescope_history.sqlite3",
             limit = 200,
+          },
+          mappings = {
+            i = {
+              ["<C-Down>"] = require("telescope.actions").cycle_history_next,
+              ["<C-Up>"] = require("telescope.actions").cycle_history_prev,
+              -- I don't see much utility in pickers going into normal mode
+              -- when we press esc, so instead just exit the picker entirely
+              ["jk"] = require("telescope.actions").close,
+              ["<esc>"] = require("telescope.actions").close,
+            },
           },
         },
       })
