@@ -13,6 +13,10 @@ vim.keymap.set({ "n", "v" }, "?", "?\\v", { desc = "Search backwards using very 
 vim.keymap.set({ "n", "v" }, "/", "/\\v", { desc = "Search using very magic mode" })
 vim.keymap.set("n", "<leader>h", ":%s/\\v//g<left><left><left>", { desc = "Search/replace in the current buffer" })
 vim.keymap.set("v", "<leader>h", ":s/\\v//g<left><left><left>", { desc = "Search/replace in the current selection" })
+vim.keymap.set("n", "<C-_>", "gcc", { desc = "Toggle line comment", remap = true })
+vim.keymap.set("i", "<C-_>", "<C-o>gcc", { desc = "Toggle line comment", remap = true })
+vim.keymap.set("v", "<C-_>", "gc", { desc = "Toggle line comments", remap = true })
+
 -- move lines up and down with M-k/j (or up/down) from
 -- https://vim.fandom.com/wiki/Moving_lines_up_or_down#Mappings_to_move_lines,
 -- modified to use map-cmds and thus not change modes, which plays nicely with
