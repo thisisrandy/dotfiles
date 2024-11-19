@@ -21,4 +21,7 @@ return {
       matchup = { enable = true },
     },
   },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+  },
 }
