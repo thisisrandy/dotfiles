@@ -17,6 +17,12 @@ return {
       },
       { mode = "n", ";", "<leader>,", desc = "Switch buffers", remap = true },
       { mode = "n", "<C-p>", "<leader>ff", desc = "Find files (Root Dir),", remap = true },
+      -- browse yank history
+      {
+        "<leader>sy",
+        require("telescope").extensions.yank_history.yank_history,
+        desc = "Yank History",
+      },
     },
     config = function()
       require("telescope").setup({
@@ -41,6 +47,7 @@ return {
       os.execute("mkdir -p ~/.local/share/nvim/databases/")
       require("telescope").load_extension("smart_history")
       require("telescope").load_extension("frecency")
+      require("telescope").load_extension("yank_history")
     end,
   },
 }
