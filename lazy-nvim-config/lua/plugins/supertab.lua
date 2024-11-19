@@ -1,5 +1,6 @@
 return {
-  -- supertab recipe (see https://www.lazyvim.org/configuration/recipes)
+  -- supertab recipe (see https://www.lazyvim.org/configuration/recipes) +
+  -- disable <CR> functionality
   {
     "hrsh7th/nvim-cmp",
     ---@param opts cmp.ConfigSchema
@@ -37,6 +38,10 @@ return {
             fallback()
           end
         end, { "i", "s" }),
+        ["<CR>"] = function(fallback)
+          cmp.abort()
+          fallback()
+        end,
       })
     end,
   },
