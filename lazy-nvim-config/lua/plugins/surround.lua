@@ -2,6 +2,7 @@ return {
   "echasnovski/mini.surround",
   opts = {
     n_lines = 100,
+    highlight_duration = 1500,
     custom_surroundings = {
       -- Preserves tag attributes. See
       -- https://github.com/echasnovski/mini.nvim/issues/1293#issuecomment-2423827325
