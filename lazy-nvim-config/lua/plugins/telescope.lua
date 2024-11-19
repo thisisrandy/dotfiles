@@ -36,10 +36,10 @@ return {
             i = {
               ["<C-Down>"] = require("telescope.actions").cycle_history_next,
               ["<C-Up>"] = require("telescope.actions").cycle_history_prev,
-              -- I don't see much utility in pickers going into normal mode
-              -- when we press esc, so instead just exit the picker entirely
+              -- Exit the picker immediately on jk, but still allow entering
+              -- normal mode w/esc. This is especially useful e.g. for
+              -- yank_history
               ["jk"] = require("telescope.actions").close,
-              ["<esc>"] = require("telescope.actions").close,
             },
           },
           dynamic_preview_title = true,
