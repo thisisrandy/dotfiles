@@ -4,3 +4,4 @@
 
 vim.opt.spell = true
 vim.opt.dictionary = "/usr/share/dict/words"
+vim.opt.virtualedit = "onemore"

@@ -3,6 +3,8 @@
 -- Add any additional keymaps here
 
 vim.keymap.set({ "i", "v", "c" }, "jk", "<esc>")
+-- NOTE: This requires virtualedit=onemore, otherwise the EOL behavior is
+-- different from anywhere else. See options.lua
 vim.keymap.set("i", "<C-v>", "<C-o>P", { desc = "Paste from the keyboard in insert mode", noremap = true })
 vim.keymap.set("n", "<F6>", ":exec '!'.getline('.')<CR>", { desc = "Execute the current line as a shell command" })
 vim.keymap.set("n", "<F7>", ":exec getline('.')<CR>", { desc = "Execute the current line as a vim command" })
