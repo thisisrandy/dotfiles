@@ -9,4 +9,7 @@ return {
   },
   { "fladson/vim-kitty" },
   { "andymass/vim-matchup" },
+  { -- NOTE: This is on gitlab, not github
+    "HiPhish/rainbow-delimiters.nvim",
+  },
 }
