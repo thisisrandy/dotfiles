@@ -3,15 +3,24 @@ return {
   keys = {
     {
       "<leader>e",
-      "<leader>fm",
+      function()
+        require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+      end,
       desc = "Open mini.files (Directory of Current File)",
-      remap = true,
     },
     {
       "<leader>E",
-      "<leader>fM",
+      function()
+        require("mini.files").open(vim.uv.cwd(), true)
+      end,
       desc = "Open mini.files (cwd)",
-      remap = true,
+    },
+    {
+      "<leader>fm",
+      function()
+        require("mini.files").open(LazyVim.root(), true)
+      end,
+      desc = "Open mini.files (root)",
     },
   },
 }
