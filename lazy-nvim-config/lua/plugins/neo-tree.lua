@@ -1,5 +1,6 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  enabled = false,
   -- I don't particularly like the default toggle behavior from the default
   -- mappings. Instead of having duplicates, I've instead split it up into
   -- toggle/no toggle variants. The same can always be achieved by just typing
