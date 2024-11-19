@@ -31,7 +31,7 @@ sudo prime-select nvidia
 # we'll be creating softlinks in various locations to several files in the
 # script directory. per e.g. https://stackoverflow.com/a/246128/12162258, this
 # captures said directory
-PATH_TO_DOT_FILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+PATH_TO_DOT_FILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 # install curl, git, zsh...
 sudo apt-get -y install curl git zsh xclip htop iftop gcc make \
@@ -51,8 +51,8 @@ eval "$(pyenv init -)"
 # we'll want to get an appropriate build environment set up for python
 # installations
 sudo apt-get -y install make build-essential libssl-dev zlib1g-dev \
-libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
-libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+    libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
+    libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 # now install python. the version will need to be updated in the future
 PYTHON_LATEST=3.10.5
 pyenv install $PYTHON_LATEST
@@ -124,8 +124,8 @@ sudo fc-cache -vf ~/.local/share/fonts/
 # https://ncona.com/2019/11/configuring-gnome-terminal-programmatically/, we
 # can do this programmatically. Note that if the font name of the install ttf
 # is unclear, we can run fc-list | less and search for the ttf file name
-GNOME_TERMINAL_PROFILE=`gsettings get org.gnome.Terminal.ProfilesList default | \
-    awk -F \' '{print $2}'`
+GNOME_TERMINAL_PROFILE=$(gsettings get org.gnome.Terminal.ProfilesList default |
+    awk -F \' '{print $2}')
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ font 'UbuntuMono Nerd Font Regular 12'
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ use-system-font false
 
@@ -241,7 +241,7 @@ sudo apt-get -y install \
     software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository -y \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io
@@ -336,9 +336,9 @@ sudo dpkg -i veracrypt-1.25.9-Debian-11-amd64.deb
 popd
 
 # install haskell
-export BOOTSTRAP_HASKELL_NONINTERACTIVE=1;
-export BOOTSTRAP_HASKELL_INSTALL_STACK=1;
-export BOOTSTRAP_HASKELL_INSTALL_HLS=1;
+export BOOTSTRAP_HASKELL_NONINTERACTIVE=1
+export BOOTSTRAP_HASKELL_INSTALL_STACK=1
+export BOOTSTRAP_HASKELL_INSTALL_HLS=1
 # .zshrc already contains the relevant line
 # export BOOTSTRAP_HASKELL_ADJUST_BASHRC=1;
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
@@ -352,12 +352,12 @@ sudo flatpak install -y fr.handbrake.ghb.flatpakref
 popd
 
 # install gh (github cli)
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | \
-   sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-&& sudo apt update \
-&& sudo apt install gh -y
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg |
+    sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg &&
+    sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg &&
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list >/dev/null &&
+    sudo apt update &&
+    sudo apt install gh -y
 
 # install unclutter
 # NB: if the target system is using Wayland instead of X, the associated
@@ -396,12 +396,12 @@ luarocks install croissant --local
 # installed above)
 mkdir -p ~/.local/jars/
 wget -o ~/.local/jars/hodoku.jar https://netactuate.dl.sourceforge.net/project/hodoku/hodoku/hodoku_2.2.0/hodoku.jar
-echo \[Desktop Entry\] > ~/.local/share/applications/Hodoku.desktop
-echo Name=Btop >> ~/.local/share/applications/Hodoku.desktop
-echo Exec=java -jar $HOME/.local/jars/hodoku.jar >> ~/.local/share/applications/Hodoku.desktop
-echo StartupNotify=true >> ~/.local/share/applications/Hodoku.desktop
-echo Terminal=true >> ~/.local/share/applications/Hodoku.desktop
-echo Type=Application >> ~/.local/share/applications/Hodoku.desktop
+echo \[Desktop Entry\] >~/.local/share/applications/Hodoku.desktop
+echo Name=Btop >>~/.local/share/applications/Hodoku.desktop
+echo Exec=java -jar $HOME/.local/jars/hodoku.jar >>~/.local/share/applications/Hodoku.desktop
+echo StartupNotify=true >>~/.local/share/applications/Hodoku.desktop
+echo Terminal=true >>~/.local/share/applications/Hodoku.desktop
+echo Type=Application >>~/.local/share/applications/Hodoku.desktop
 # This probably isn't necessary in an installation situation, but it's useful
 # when making changes as an admin
 sudo update-desktop-database
@@ -419,7 +419,7 @@ cp ~/.local/kitty.app/share/applications/kitty-open.desktop ~/.local/share/appli
 sed -i "s|Icon=kitty|Icon=$(readlink -f ~)/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" ~/.local/share/applications/kitty*.desktop
 sed -i "s|Exec=kitty|Exec=$(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.local/share/applications/kitty*.desktop
 # Make xdg-terminal-exec (and hence desktop environments that support it use kitty)
-echo 'kitty.desktop' > ~/.config/xdg-terminals.list
+echo 'kitty.desktop' >~/.config/xdg-terminals.list
 # Create a symbolic link to the config file
 ln -sf $PATH_TO_DOT_FILES/kitty.conf $HOME/.config/kitty/
 # And also to the zoom_toggle kitten
