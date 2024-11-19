@@ -42,6 +42,7 @@ return {
               ["<esc>"] = require("telescope.actions").close,
             },
           },
+          dynamic_preview_title = true,
         },
       })
       os.execute("mkdir -p ~/.local/share/nvim/databases/")
