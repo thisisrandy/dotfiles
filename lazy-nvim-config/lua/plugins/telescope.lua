@@ -17,11 +17,11 @@ return {
       },
       { mode = "n", ";", "<leader>,", desc = "Switch buffers", remap = true },
       { mode = "n", "<C-p>", "<leader>ff", desc = "Find files (Root Dir),", remap = true },
-      -- browse yank history
       {
-        "<leader>sy",
+        -- Also bound by default to <leader>p (for paste)
+        "<leader>sp",
         require("telescope").extensions.yank_history.yank_history,
-        desc = "Yank History",
+        desc = "Open Yank History",
       },
     },
     config = function()
