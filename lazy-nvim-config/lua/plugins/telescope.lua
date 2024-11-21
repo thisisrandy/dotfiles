@@ -24,8 +24,8 @@ return {
         desc = "Open Yank History",
       },
     },
-    config = function()
-      require("telescope").setup({
+    config = function(_, opts)
+      require("telescope").setup(vim.tbl_deep_extend("force", opts, {
         defaults = {
           layout_strategy = "vertical",
           history = {
@@ -44,7 +44,7 @@ return {
           },
           dynamic_preview_title = true,
         },
-      })
+      }))
       os.execute("mkdir -p ~/.local/share/nvim/databases/")
       require("telescope").load_extension("smart_history")
       require("telescope").load_extension("frecency")
