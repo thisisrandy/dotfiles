@@ -34,8 +34,6 @@ return {
           },
           mappings = {
             i = {
-              ["<C-Down>"] = require("telescope.actions").cycle_history_next,
-              ["<C-Up>"] = require("telescope.actions").cycle_history_prev,
               -- Exit the picker immediately on jk, but still allow entering
               -- normal mode w/esc. This is especially useful e.g. for
               -- yank_history
