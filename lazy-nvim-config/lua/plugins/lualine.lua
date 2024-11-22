@@ -9,8 +9,10 @@ return {
           -- total line number
           {
             function()
-              local r, c = unpack(vim.api.nvim_win_get_cursor(0))
-              return r .. "/" .. tostring(vim.fn.line("$")) .. ":" .. c
+              local line = vim.fn.line(".")
+              local col = vim.fn.charcol(".")
+              local line_total = vim.fn.line("$")
+              return string.format("%3d/%d:%-2d", line, line_total, col)
             end,
             separator = " ",
             padding = { left = 0, right = 1 },
