@@ -88,8 +88,8 @@ return {
       }
 
       local merge_with_base = function(to_merge)
-        for k, v in pairs(base_group) do
-          to_merge[k] = v
+        for _, v in ipairs(base_group) do
+          table.insert(to_merge, v)
         end
         return to_merge
       end
