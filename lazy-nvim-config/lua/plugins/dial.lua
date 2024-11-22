@@ -110,6 +110,7 @@ return {
           scss = "css",
           typescript = "typescript",
           typescriptreact = "typescript",
+          vue = "vue",
           yaml = "yaml",
         },
         groups = {
@@ -125,6 +126,11 @@ return {
             augend.hexcolor.new({
               case = "upper",
             }),
+          },
+          vue = {
+            augend.constant.new({ elements = { "let", "const" } }),
+            augend.hexcolor.new({ case = "lower" }),
+            augend.hexcolor.new({ case = "upper" }),
           },
           markdown = merge_with_base({ augend.misc.alias.markdown_header }),
           json = merge_with_base({ augend.semver.alias.semver }),
