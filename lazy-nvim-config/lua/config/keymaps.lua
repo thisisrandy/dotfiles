@@ -11,8 +11,18 @@ vim.keymap.set({ "i", "v", "c" }, "jk", "<esc>")
 vim.keymap.set("i", "<C-v>", "<C-o>P", { desc = "Paste from the keyboard in insert mode", noremap = true })
 
 -- Text execution
-vim.keymap.set("n", "<F6>", ":exec '!'.getline('.')<CR>", { desc = "Execute the current line as a shell command" })
-vim.keymap.set("n", "<F7>", ":exec getline('.')<CR>", { desc = "Execute the current line as a vim command" })
+vim.keymap.set(
+  "n",
+  "<F6>",
+  ":exec '!'.getline('.')<CR>",
+  { desc = "Execute the current line as a shell command", silent = true }
+)
+vim.keymap.set(
+  "n",
+  "<F7>",
+  ":exec getline('.')<CR>",
+  { desc = "Execute the current line as a vim command", silent = true }
+)
 
 -- Buffer search(/replace)
 vim.keymap.set({ "n", "v" }, "?", "?\\v", { desc = "Search backwards using very magic mode" })
@@ -29,9 +39,9 @@ vim.keymap.set("v", "<C-_>", "gc", { desc = "Toggle line comments", remap = true
 require("which-key").add({
   { "<leader>fo", group = "C[o]py Current File Path" },
 })
-vim.keymap.set("n", "<leader>for", ":let @+ = expand('%')<CR>", { desc = "Relative Path" })
-vim.keymap.set("n", "<leader>fop", ":let @+ = expand('%:p')<CR>", { desc = "Full [P]ath" })
-vim.keymap.set("n", "<leader>fof", ":let @+ = expand('%:t')<CR>", { desc = "Filename" })
+vim.keymap.set("n", "<leader>for", ":let @+ = expand('%')<CR>", { desc = "Relative Path", silent = true })
+vim.keymap.set("n", "<leader>fop", ":let @+ = expand('%:p')<CR>", { desc = "Full [P]ath", silent = true })
+vim.keymap.set("n", "<leader>fof", ":let @+ = expand('%:t')<CR>", { desc = "Filename", silent = true })
 
 -- Move lines up and down with M-k/j (or up/down) from
 -- https://vim.fandom.com/wiki/Moving_lines_up_or_down#Mappings_to_move_lines,
