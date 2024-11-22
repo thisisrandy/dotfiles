@@ -14,7 +14,7 @@ return {
       })
 
       -- Add and/or to python
-      -- FIXME: This is really a bug. I'll submit a PR later
+      -- TODO: #4875 was accepted. I can remove this as soon as it's released
       if not opts.groups.python then
         opts.groups.python = {}
       end
