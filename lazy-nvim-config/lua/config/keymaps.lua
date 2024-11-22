@@ -27,7 +27,7 @@ vim.keymap.set("v", "<C-_>", "gc", { desc = "Toggle line comments", remap = true
 
 -- Filename capture
 require("which-key").add({
-  { "<leader>fo", group = "C[o]py Current Buffer Path" },
+  { "<leader>fo", group = "C[o]py Current File Path" },
 })
 vim.keymap.set("n", "<leader>for", ":let @+ = expand('%')<CR>", { desc = "Relative Path" })
 vim.keymap.set("n", "<leader>fop", ":let @+ = expand('%:p')<CR>", { desc = "Full [P]ath" })
