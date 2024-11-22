@@ -25,6 +25,14 @@ vim.keymap.set("n", "<C-_>", "gcc", { desc = "Toggle line comment", remap = true
 vim.keymap.set("i", "<C-_>", "<C-o>gcc", { desc = "Toggle line comment", remap = true })
 vim.keymap.set("v", "<C-_>", "gc", { desc = "Toggle line comments", remap = true })
 
+-- Filename capture
+require("which-key").add({
+  { "<leader>fo", group = "C[o]py Current Buffer Path" },
+})
+vim.keymap.set("n", "<leader>for", ":let @+ = expand('%')<CR>", { desc = "Relative Path" })
+vim.keymap.set("n", "<leader>fop", ":let @+ = expand('%:p')<CR>", { desc = "Full [P]ath" })
+vim.keymap.set("n", "<leader>fof", ":let @+ = expand('%:t')<CR>", { desc = "Filename" })
+
 -- Move lines up and down with M-k/j (or up/down) from
 -- https://vim.fandom.com/wiki/Moving_lines_up_or_down#Mappings_to_move_lines,
 -- modified to use map-cmds and thus not change modes, which plays nicely with
