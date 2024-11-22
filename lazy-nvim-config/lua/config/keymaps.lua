@@ -2,21 +2,30 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- Ergonomic escape
 vim.keymap.set({ "i", "v", "c" }, "jk", "<esc>")
+
+-- Ergonomic paste
 -- NOTE: This requires virtualedit=onemore, otherwise the EOL behavior is
 -- different from anywhere else. See options.lua
 vim.keymap.set("i", "<C-v>", "<C-o>P", { desc = "Paste from the keyboard in insert mode", noremap = true })
+
+-- Text execution
 vim.keymap.set("n", "<F6>", ":exec '!'.getline('.')<CR>", { desc = "Execute the current line as a shell command" })
 vim.keymap.set("n", "<F7>", ":exec getline('.')<CR>", { desc = "Execute the current line as a vim command" })
+
+-- Buffer search(/replace)
 vim.keymap.set({ "n", "v" }, "?", "?\\v", { desc = "Search backwards using very magic mode" })
 vim.keymap.set({ "n", "v" }, "/", "/\\v", { desc = "Search using very magic mode" })
 vim.keymap.set("n", "<leader>h", ":%s/\\v//g<left><left><left>", { desc = "Search/replace in the current buffer" })
 vim.keymap.set("v", "<leader>h", ":s/\\v//g<left><left><left>", { desc = "Search/replace in the current selection" })
+
+-- Commenting
 vim.keymap.set("n", "<C-_>", "gcc", { desc = "Toggle line comment", remap = true })
 vim.keymap.set("i", "<C-_>", "<C-o>gcc", { desc = "Toggle line comment", remap = true })
 vim.keymap.set("v", "<C-_>", "gc", { desc = "Toggle line comments", remap = true })
 
--- move lines up and down with M-k/j (or up/down) from
+-- Move lines up and down with M-k/j (or up/down) from
 -- https://vim.fandom.com/wiki/Moving_lines_up_or_down#Mappings_to_move_lines,
 -- modified to use map-cmds and thus not change modes, which plays nicely with
 -- plugins like vim-airline that want to execute expensive autocmds on mode
