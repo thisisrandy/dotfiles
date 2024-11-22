@@ -23,6 +23,21 @@ return {
         require("telescope").extensions.yank_history.yank_history,
         desc = "Open Yank History",
       },
+      {
+        "<leader>gr",
+        require("telescope.builtin").git_branches,
+        desc = "B[r]anches",
+      },
+      {
+        "<leader>gt",
+        require("telescope.builtin").git_stash,
+        desc = "S[t]ashes",
+      },
+      {
+        "<leader>gu",
+        require("telescope.builtin").git_bcommits,
+        desc = "B[u]ffer Commits",
+      },
     },
     config = function(_, opts)
       require("telescope").setup(vim.tbl_deep_extend("force", opts, {
