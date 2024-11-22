@@ -85,6 +85,9 @@ return {
         ordinal_numbers,
         weekdays,
         months,
+        capitalized_boolean,
+        augend.constant.alias.bool,
+        logical_alias,
       }
 
       local merge_with_base = function(to_merge)
@@ -112,13 +115,10 @@ return {
         groups = {
           default = base_group,
           typescript = merge_with_base({
-            augend.constant.alias.bool,
-            logical_alias,
             augend.constant.new({ elements = { "let", "const" } }),
           }),
           yaml = merge_with_base({ augend.constant.alias.bool }),
           css = {
-            augend.integer.alias.decimal_int,
             augend.hexcolor.new({
               case = "lower",
             }),
@@ -129,17 +129,13 @@ return {
           markdown = merge_with_base({ augend.misc.alias.markdown_header }),
           json = merge_with_base({ augend.semver.alias.semver }),
           lua = merge_with_base({
-            augend.constant.alias.bool, -- boolean value (true <-> false)
             augend.constant.new({
               elements = { "and", "or" },
               word = true, -- if false, "sand" is incremented into "sor", "doctor" into "doctand", etc.
               cyclic = true, -- "or" is incremented into "and".
             }),
           }),
-          python = merge_with_base({
-            capitalized_boolean,
-            logical_alias,
-          }),
+          python = base_group,
         },
       }
     end,
