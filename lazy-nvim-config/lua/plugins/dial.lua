@@ -1,149 +1,27 @@
 return {
   {
     "monaqa/dial.nvim",
-    -- This is mostly the default implementation, but expanded in terms of
-    -- which augends are allowed for any given filetype
-    opts = function()
+    opts = function(_, opts)
       local augend = require("dial.augend")
 
-      local logical_alias = augend.constant.new({
-        elements = { "&&", "||" },
-        word = false,
-        cyclic = true,
-      })
-
-      local ordinal_numbers = augend.constant.new({
-        -- elements through which we cycle. When we increment, we go down
-        -- On decrement we go up
-        elements = {
-          "first",
-          "second",
-          "third",
-          "fourth",
-          "fifth",
-          "sixth",
-          "seventh",
-          "eighth",
-          "ninth",
-          "tenth",
-        },
-        -- if true, it only matches strings with word boundary. firstDate wouldn't work for example
-        word = false,
-        -- do we cycle back and forth (tenth to first on increment, first to tenth on decrement).
-        -- Otherwise nothing will happen when there are no further values
-        cyclic = true,
-      })
-
-      local weekdays = augend.constant.new({
-        elements = {
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday",
-        },
-        word = true,
-        cyclic = true,
-      })
-
-      local months = augend.constant.new({
-        elements = {
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September",
-          "October",
-          "November",
-          "December",
-        },
-        word = true,
-        cyclic = true,
-      })
-
-      local capitalized_boolean = augend.constant.new({
-        elements = {
-          "True",
-          "False",
-        },
-        word = true,
-        cyclic = true,
-      })
-
-      local base_group = {
-        augend.integer.alias.decimal_int,
-        augend.integer.alias.hex,
-        augend.date.alias["%Y/%m/%d"],
+      -- Add a few date/time formats to defaults
+      -- FIXME: Dates like "%m/%d/%Y" don't work properly. My initial guess is
+      -- that if the format isn't most to least significant then there are
+      -- problems. I should file a bug at some point
+      vim.list_extend(opts.groups.default, {
         augend.date.alias["%Y-%m-%d"],
         augend.date.alias["%H:%M:%S"],
-        ordinal_numbers,
-        weekdays,
-        months,
-        capitalized_boolean,
-        augend.constant.alias.bool,
-        logical_alias,
-      }
+      })
 
-      local merge_with_base = function(to_merge)
-        for _, v in ipairs(base_group) do
-          table.insert(to_merge, v)
-        end
-        return to_merge
+      -- Add and/or to python
+      -- FIXME: This is really a bug. I'll submit a PR later
+      if not opts.groups.python then
+        opts.groups.python = {}
       end
+      table.insert(opts.groups.python, augend.constant.new({ elements = { "and", "or" } }))
+      opts.dials_by_ft.python = "python"
 
-      return {
-        dials_by_ft = {
-          css = "css",
-          javascript = "typescript",
-          javascriptreact = "typescript",
-          json = "json",
-          lua = "lua",
-          markdown = "markdown",
-          python = "python",
-          sass = "css",
-          scss = "css",
-          typescript = "typescript",
-          typescriptreact = "typescript",
-          vue = "vue",
-          yaml = "yaml",
-        },
-        groups = {
-          default = base_group,
-          typescript = merge_with_base({
-            augend.constant.new({ elements = { "let", "const" } }),
-          }),
-          yaml = merge_with_base({ augend.constant.alias.bool }),
-          css = {
-            augend.hexcolor.new({
-              case = "lower",
-            }),
-            augend.hexcolor.new({
-              case = "upper",
-            }),
-          },
-          vue = {
-            augend.constant.new({ elements = { "let", "const" } }),
-            augend.hexcolor.new({ case = "lower" }),
-            augend.hexcolor.new({ case = "upper" }),
-          },
-          markdown = merge_with_base({ augend.misc.alias.markdown_header }),
-          json = merge_with_base({ augend.semver.alias.semver }),
-          lua = merge_with_base({
-            augend.constant.new({
-              elements = { "and", "or" },
-              word = true, -- if false, "sand" is incremented into "sor", "doctor" into "doctand", etc.
-              cyclic = true, -- "or" is incremented into "and".
-            }),
-          }),
-          python = base_group,
-        },
-      }
+      return opts
     end,
   },
 }
