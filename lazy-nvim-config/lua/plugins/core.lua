@@ -3,9 +3,7 @@
 return {
   {
     "junegunn/fzf",
-    build = function()
-      vim.fn["fzf#install"]()
-    end,
+    build = ":call fzf#install()",
   },
   { "fladson/vim-kitty" },
   { "andymass/vim-matchup" },
