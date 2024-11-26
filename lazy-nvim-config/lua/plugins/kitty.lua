@@ -11,7 +11,6 @@ return {
       require("kitty-scrollback").setup()
     end,
   },
-
   {
     "knubie/vim-kitty-navigator",
     build = function()
@@ -23,6 +22,13 @@ return {
       { mode = "n", "<c-j>", ":KittyNavigateDown<cr>", silent = true },
       { mode = "n", "<c-k>", ":KittyNavigateUp<cr>", silent = true },
       { mode = "n", "<c-l>", ":KittyNavigateRight<cr>", silent = true },
+    },
+  },
+  {
+    "MunsMan/kitty-navigator.nvim",
+    build = {
+      "cp navigate_kitty.py ~/.config/kitty",
+      "cp pass_keys.py ~/.config/kitty",
     },
   },
 }
