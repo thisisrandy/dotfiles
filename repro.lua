@@ -6,8 +6,8 @@ load(vim.fn.system("curl -s https://raw.githubusercontent.com/folke/lazy.nvim/ma
 require("lazy.minit").repro({
 	spec = {
 		-- If we want to test in conjunction with LazyVim (or if we're testing
-		-- LazyVim itself), uncomment the below { "LazyVim/LazyVim", import =
-		-- "lazyvim.plugins" },
+		-- LazyVim itself), uncomment the below
+		-- { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
 		-- Plugins to test go here
 	},
