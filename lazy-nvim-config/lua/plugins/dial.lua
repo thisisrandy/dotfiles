@@ -16,14 +16,6 @@ return {
         augend.date.alias["%H:%M:%S"],
       })
 
-      -- Add and/or to python
-      -- TODO: #4875 was accepted. I can remove this as soon as it's released
-      if not opts.groups.python then
-        opts.groups.python = {}
-      end
-      table.insert(opts.groups.python, augend.constant.new({ elements = { "and", "or" } }))
-      opts.dials_by_ft.python = "python"
-
       return opts
     end,
   },
