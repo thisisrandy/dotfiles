@@ -9,7 +9,7 @@ return {
       },
     }))
     require("which-key").add({
-      { mode = { "n", "v" }, "<leader>r", group = "Coe[r]ce" },
+      { mode = { "n", "v" }, "<leader>r", group = "coe[r]ce" },
       { "<leader>rw", group = "Word" },
       { "<leader>rm", group = "Motion" },
       { mode = "v", "<leader>rs", group = "Selection" },
