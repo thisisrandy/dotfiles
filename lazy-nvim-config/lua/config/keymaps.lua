@@ -102,3 +102,14 @@ function! V_Move(up)
   endif
 endfu
 ]])
+
+-- Language-specific shortcuts
+require("which-key").add({
+  { "<leader>cp", group = "python shortcuts" },
+})
+vim.keymap.set(
+  "n",
+  "<leader>cpd",
+  'o<c-o>3i"<esc>o<c-o>3i"<esc><<O',
+  { desc = "Insert an empty docstring", silent = true }
+)
