@@ -41,6 +41,7 @@ sudo apt-get -y install curl git zsh xclip htop iftop gcc make \
     figlet whois default-jre moreutils xsel
 
 ln -sf $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
+ln -sf $PATH_TO_DOT_FILES/rc.conf $HOME/.config/ranger/rc.conf
 
 # install pyenv
 curl https://pyenv.run | bash
