@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 
 -- Ergonomic escape
-vim.keymap.set({ "i", "v", "c" }, "jk", "<esc>")
+vim.keymap.set({ "i", "c" }, "jk", "<esc>")
 
 -- Ergonomic paste
 -- NOTE: This requires virtualedit=onemore, otherwise the EOL behavior is
