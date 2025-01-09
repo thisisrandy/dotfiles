@@ -4,7 +4,7 @@ return {
   "thisisrandy/blame_line.nvim",
   branch = "delay-improvements",
   opts = {
-    prefix = "        ",
+    prefix = "   ",
     delay = 500,
   },
 }
