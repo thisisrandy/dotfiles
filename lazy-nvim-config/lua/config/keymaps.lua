@@ -113,3 +113,6 @@ vim.keymap.set(
   'o<c-o>3i"<esc>o<c-o>3i"<esc><<O',
   { desc = "Insert an empty docstring", silent = true }
 )
+
+-- White space
+vim.keymap.set("n", "<leader>uW", ":set list!<cr>", { desc = "Toggle Show White Space", silent = true })

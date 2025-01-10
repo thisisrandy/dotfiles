@@ -5,3 +5,5 @@
 vim.opt.spell = true
 vim.opt.dictionary = "/usr/share/dict/words"
 vim.opt.virtualedit = "onemore"
+vim.opt.list = false
+vim.opt.listchars = "space:·,multispace:····+,tab:￫-,eol:¶,trail:~,extends:>,precedes:<,nbsp:⍽"
