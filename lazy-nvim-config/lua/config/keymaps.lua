@@ -115,4 +115,4 @@ vim.keymap.set(
 )
 
 -- White space
-vim.keymap.set("n", "<leader>uW", ":set list!<cr>", { desc = "Toggle Show White Space", silent = true })
+Snacks.toggle.option("list", { name = "Show White Space" }):map("<leader>uW")
