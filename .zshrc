@@ -139,7 +139,7 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # thefuck
-eval $(thefuck --alias)
+# eval $(thefuck --alias)
 
 # history
 export HISTSIZE=1000000
