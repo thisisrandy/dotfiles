@@ -147,6 +147,9 @@ setopt HIST_IGNORE_ALL_DUPS
 # all commands prefixed with a space will not be saved in history
 setopt HIST_IGNORE_SPACE
 
+# Enables exclusion patterns, among other things
+setopt EXTENDED_GLOB
+
 # enable and customize vi-style key bindings in .tmux
 export EDITOR=vim
 # we also need to turn down the key repeat delay to enable interactive split
