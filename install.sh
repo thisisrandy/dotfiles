@@ -166,11 +166,11 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature 47
 
 # install go
 pushd $(mktemp -d)
-curl -LO https://go.dev/dl/go1.18.4.linux-amd64.tar.gz
-tar xfz go1.18.4.linux-amd64.tar.gz
+curl -LO https://go.dev/dl/go1.26.1.linux-amd64.tar.gz
+tar xfz go1.26.1.linux-amd64.tar.gz
 sudo mv go /usr/local
 PATH=/usr/local/go/bin:$PATH
-rm go1.18.4.linux-amd64.tar.gz
+rm go1.26.1.linux-amd64.tar.gz
 popd
 
 # install shfmt (to ~/go/bin)
