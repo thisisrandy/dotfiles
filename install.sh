@@ -312,8 +312,8 @@ sudo update-grub
 
 # install zotero
 pushd $(mktemp -d)
-wget https://download.zotero.org/client/release/6.0.10/Zotero-6.0.10_linux-x86_64.tar.bz2
-tar xf Zotero-6.0.10_linux-x86_64.tar.bz2
+wget 'https://www.zotero.org/download/client/dl?channel=release&platform=linux-x86_64' -O zotero.tar.xz
+tar xf zotero.tar.xz
 wget https://www.zotero.org/support/_media/logo/zotero_128x128x32.png
 mv zotero_128x128x32.png Zotero_linux-x86_64/
 sed -i 's@zotero\.ico@'"$HOME"'/.local/standalone/Zotero_linux-x86_64/zotero_128x128x32.png@' \
