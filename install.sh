@@ -375,8 +375,8 @@ sudo perl -pi -e 's/(EXTRA_OPTS=).*/$1"--timeout 2"/' /etc/default/unclutter
 
 # install delta
 pushd $(mktemp -d)
-wget https://github.com/dandavison/delta/releases/download/0.16.5/git-delta_0.16.5_amd64.deb
-sudo dpkg -i git-delta_0.16.5_amd64.deb
+wget https://github.com/dandavison/delta/releases/download/0.19.2/git-delta_0.19.2_amd64.deb
+sudo dpkg -i git-delta_0.19.2_amd64.deb
 popd
 
 # install navi
