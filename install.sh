@@ -271,7 +271,7 @@ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo s
 # specific .deb package, which will inevitably go out of date. check the GCM
 # installation instructions for updates before installing
 pushd $(mktemp -d)
-curl -fLo gcm.deb https://github.com/GitCredentialManager/git-credential-manager/releases/download/v2.0.785/gcm-linux_amd64.2.0.785.deb
+curl -fLo gcm.deb https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.7.3/gcm-linux-x64-2.7.3.deb
 sudo dpkg -i gcm.deb
 popd
 bash -c 'git-credential-manager-core configure'
