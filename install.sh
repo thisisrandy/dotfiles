@@ -100,10 +100,16 @@ ln -s -f .tmux/.tmux.conf .tmux/.tmux.conf.local .
 popd
 
 # install node/yarn
-curl -sL https://deb.nodesource.com/setup_19.x | sudo -E bash -
-sudo apt-get -y install -y nodejs
+# From https://nodejs.org/en/download:
+# Download and install nvm:
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+# in lieu of restarting the shell
+\. "$HOME/.nvm/nvm.sh"
+# Download and install Node.js:
+nvm install 24
 npm config set prefix ~/.local # prevents need to sudo for -g
-npm install --global yarn
+# per https://yarnpkg.com/getting-started/install, we should no longer install yarn directly
+npm install --global corepack
 
 # install clangd
 sudo apt-get -y install clangd
