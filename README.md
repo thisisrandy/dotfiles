@@ -135,7 +135,7 @@ sudo apt-get install qemu-kvm libvirt-daemon-system
 ```
 sudo apt install qemu-kvm libvirt-daemon-system
 virsh -c qemu:///session list --all | awk 'NR>2 { print $2 }' | \
-    xargs -I {} sh -c 'virsh qemu:///session dumpxml $1 > $1.xml' -- {}
+    xargs -I {} sh -c 'virsh -c qemu:///session dumpxml $1 > $1.xml' -- {}
 ```
 
 #### Load
