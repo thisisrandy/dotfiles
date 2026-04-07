@@ -111,7 +111,8 @@ gets us through to the win. In particular:
 
 ### Getting files out of a VM
 
-1. Launch the client, then go to Properties -> Devices & Shares -> Folder Shares and add a folder
+1. Launch the client, then click on the client in the Boxes menu and go to
+   Preferences -> Devices & Shares -> Folder Shares and add a folder
 2. On the client, install `spice-webdavd`, then run `sudo spice-webdavd -p 10000`. "Spice client folder" should now be available from the "Other Locations" menu in Files
 3. Sometimes when attempting to open the Spice client folder, it will error
    with `HTTP error: Could not connect: Connection refused`. It seems, per
