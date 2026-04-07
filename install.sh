@@ -55,7 +55,7 @@ sudo apt-get -y install make build-essential libssl-dev zlib1g-dev \
     libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
     libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 # now install python. the version will need to be updated in the future
-PYTHON_LATEST=3.10.5
+PYTHON_LATEST=3.14.3
 pyenv install $PYTHON_LATEST
 # and make it the global version
 pyenv global $PYTHON_LATEST
