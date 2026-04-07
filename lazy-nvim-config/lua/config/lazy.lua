@@ -14,6 +14,11 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- See e.g. https://github.com/LazyVim/LazyVim/issues/5555. It looks like my
+-- lazy.lua doesn't include any extras, and I'm allowing :LazyExtras to manage
+-- extras in lazyvim.json, so I'm just going to ignore the error for now
+vim.g.lazyvim_check_order = false
+
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
