@@ -338,8 +338,8 @@ sudo snap install spotify gimp vlc universal-ctags
 pushd $(mktemp -d)
 sudo apt-get -y install libwxgtk3.0-gtk3-0v5 libayatana-appindicator3-1
 sudo apt -y --fix-broken install
-wget https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-Debian-11-amd64.deb
-sudo dpkg -i veracrypt-1.25.9-Debian-11-amd64.deb
+wget https://launchpad.net/veracrypt/trunk/1.26.24/+download/veracrypt-1.26.24-Ubuntu-24.04-amd64.deb
+sudo dpkg -i veracrypt-1.26.24-Ubuntu-24.04-amd64.deb
 popd
 
 # install haskell
