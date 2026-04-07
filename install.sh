@@ -384,15 +384,18 @@ cargo install --locked navi
 
 # install lua + rocks
 pushd $(mktemp -d)
-curl -R -O http://www.lua.org/ftp/lua-5.4.6.tar.gz
-tar zxf lua-5.4.6.tar.gz
-cd lua-5.4.6
+curl -R -O http://www.lua.org/ftp/lua-5.5.0.tar.gz
+tar zxf lua-5.5.0.tar.gz
+cd lua-5.5.0
 make all test
 sudo make install
 cd ..
-curl -R -O http://luarocks.github.io/luarocks/releases/luarocks-3.9.2.tar.gz
-tar zxf luarocks-3.9.2.tar.gz
-cd luarocks-3.9.2
+# I have all of these installed elsewhere, but noting here to make this section
+# stand-alone
+sudo apt install build-essential libreadline-dev unzip -y
+curl -R -O http://luarocks.github.io/luarocks/releases/luarocks-3.13.0.tar.gz
+tar zxf luarocks-3.13.0.tar.gz
+cd luarocks-3.13.0
 ./configure --with-lua-include=/usr/local/include
 make
 sudo make install
