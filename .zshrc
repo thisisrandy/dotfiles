@@ -353,7 +353,10 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets)
 # start tmux if conditions met. see
 # https://unix.stackexchange.com/a/113768/460319 and
 # https://stackoverflow.com/a/69579460/12162258
-if command -v tmux &> /dev/null \
+# FIXME: Some of the stuff we do in this file, pyenv init inparticular, doesn't carry
+# over to tmux. Since everything I used tmux for is provided by kitty, just disable
+# it for now
+if false && command -v tmux &> /dev/null \
    && [ -n "$PS1" ] \
    && [[ ! "$TERM" =~ screen ]] \
    && [[ ! "$TERM" =~ tmux ]] \
