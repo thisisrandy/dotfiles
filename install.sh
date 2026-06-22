@@ -12,7 +12,7 @@
 #   sometimes takes two tries to get it to ask for authentication. If auth
 #   fails, just try again and it should work
 # - Handbrake is not available until after a system restart
-# TESTED ON: Ubuntu 20.04
+# TESTED ON: Ubuntu 26.04
 
 if [ $USER = root ]; then
     echo This script should not be run as root.
@@ -25,8 +25,10 @@ set -x
 mkdir -p ~/.local/bin
 
 # install/use display drivers (restart needed)
-sudo ubuntu-drivers autoinstall
-sudo prime-select nvidia
+# UPDATE: no longer needed as of resolute
+# sudo ubuntu-drivers autoinstall
+# sudo prime-select nvidia
+
 
 # we'll be creating softlinks in various locations to several files in the
 # script directory. per e.g. https://stackoverflow.com/a/246128/12162258, this
@@ -35,12 +37,13 @@ PATH_TO_DOT_FILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)
 
 # install curl, git, zsh...
 sudo apt-get -y install curl git zsh xclip htop iftop gcc make \
-    multitime jq tmux peek datamash nmap bvi httpie ripgrep \
+    jq tmux peek datamash nmap bvi httpie ripgrep \
     gnome-weather gnome-tweaks tree mkvtoolnix perl-doc fortunes \
     cowsay at linux-tools-common linux-tools-generic ranger sshfs \
     figlet whois default-jre moreutils xsel dict lshw gnome-boxes
 
 ln -sf $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
+mkdir -p $HOME/.config/ranger
 ln -sf $PATH_TO_DOT_FILES/rc.conf $HOME/.config/ranger/rc.conf
 
 # install pyenv
@@ -55,7 +58,7 @@ sudo apt-get -y install make build-essential libssl-dev zlib1g-dev \
     libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
     libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 # now install python. the version will need to be updated in the future
-PYTHON_LATEST=3.14.3
+PYTHON_LATEST=3.14.6
 pyenv install $PYTHON_LATEST
 # and make it the global version
 pyenv global $PYTHON_LATEST
@@ -133,6 +136,7 @@ sudo fc-cache -vf ~/.local/share/fonts/
 # is unclear, we can run fc-list | less and search for the ttf file name
 GNOME_TERMINAL_PROFILE=$(gsettings get org.gnome.Terminal.ProfilesList default |
     awk -F \' '{print $2}')
+# FIXME: The org.gnome.Terminal.Legacy.Profile schema doesn't exist in resolute. Unneeded?
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ font 'UbuntuMono Nerd Font Regular 12'
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ use-system-font false
 
@@ -158,6 +162,7 @@ gsettings set org.gnome.desktop.interface locate-pointer false
 gsettings set org.gnome.desktop.interface clock-show-weekday true
 gsettings set org.gnome.desktop.interface clock-show-seconds true
 gsettings set org.gnome.mutter workspaces-only-on-primary false
+# FIXME: org.gnome.shell.extensions.desktop-icons is gone in resolute
 gsettings set org.gnome.shell.extensions.desktop-icons show-trash false
 gsettings set org.gnome.shell.extensions.desktop-icons show-home false
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
@@ -173,7 +178,7 @@ PATH=/usr/local/go/bin:$PATH
 rm go1.26.1.linux-amd64.tar.gz
 popd
 
-# install shfmt (to ~/go/bin)
+# install shfmt (to ~/go/bin) (for bat, below)
 pushd $(mktemp -d)
 go mod init tmp
 go get mvdan.cc/sh/cmd/shfmt
@@ -190,8 +195,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 # https://github.com/sharkdp/bat/issues/2317#issuecomment-1248343739. we can
 # just manually install the latest version instead
 pushd $(mktemp -d)
-wget https://github.com/sharkdp/bat/releases/download/v0.22.1/bat_0.22.1_amd64.deb
-sudo dpkg -i bat_0.22.1_amd64.deb
+wget https://github.com/sharkdp/bat/releases/download/v0.26.1/bat_0.26.1_amd64.deb
+sudo dpkg -i bat_0.26.1_amd64.deb
 # per https://github.com/sharkdp/bat#on-ubuntu-using-apt, bat might be installed
 # as batcat. set up a symlink so fzf can use it as bat
 command -v bat || ln -s /usr/bin/batcat ~/.local/bin/bat
@@ -213,6 +218,7 @@ curl -fLo nvim https://github.com/neovim/neovim/releases/latest/download/nvim.ap
 chmod u+x nvim
 ln -sf nvim vim
 # NOTE: nightly is needed for all treesitter features to work properly
+# FIXME: nightly no longer a thing?
 curl -fLo nvim.nightly https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 chmod u+x nvim.nightly
 popd
@@ -240,20 +246,22 @@ ln -sf $PATH_TO_DOT_FILES/vscode-settings.json $HOME/.config/Code/User/settings.
 ln -sf $PATH_TO_DOT_FILES/vscode-keybindings.json $HOME/.config/Code/User/keybindings.json
 
 # install docker
-sudo apt-get -y install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository -y \
-    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-sudo apt-get -y install docker-ce docker-ce-cli containerd.io
+# FIXME: This is broken in resolute, if not earlier. Specifically, docker-ce and
+# friends don't exist anymore
+# sudo apt-get -y install \
+#     apt-transport-https \
+#     ca-certificates \
+#     curl \
+#     gnupg-agent \
+#     software-properties-common
+# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# sudo add-apt-repository -y \
+#     "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+#    $(lsb_release -cs) \
+#    stable"
+# sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 # give current user permission to run docker (requires restart)
-sudo usermod -aG docker $USER
+# sudo usermod -aG docker $USER
 
 # install poetry
 curl -sSL https://install.python-poetry.org/ | python -
@@ -271,22 +279,25 @@ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo s
 # specific .deb package, which will inevitably go out of date. check the GCM
 # installation instructions for updates before installing
 pushd $(mktemp -d)
-curl -fLo gcm.deb https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.7.3/gcm-linux-x64-2.7.3.deb
+curl -fLo gcm.deb https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.8.0/gcm-linux-x64-2.8.0.deb
 sudo dpkg -i gcm.deb
 popd
-bash -c 'git-credential-manager-core configure'
+# UPDATE: This line appears to be obsolete
+# bash -c 'git-credential-manager-core configure'
 git config --global credential.credentialStore secretservice
 
 # install btop
 pushd $(mktemp -d)
 # gcc-11 not available as of writing on focal. from
 # https://stackoverflow.com/a/67453352/12162258, this is how to get it
-sudo apt -y install build-essential manpages-dev software-properties-common
-sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-sudo apt -y update
+# UPDATE: Since this script is currently tailored for resolute, we don't
+# need this stuff
+# sudo apt -y install build-essential manpages-dev software-properties-common
+# sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+# sudo apt -y update
 # the rest from https://github.com/aristocratos/btop#installation
 # obviously there is some repetition, but apt will correctly ignore it
-sudo apt -y install coreutils sed git build-essential gcc-11 g++-11
+sudo apt -y install coreutils sed git build-essential gcc-11 g++-11 lowdown
 git clone https://github.com/aristocratos/btop.git
 pushd btop
 make
@@ -294,8 +305,13 @@ sudo make install
 sudo make setuid
 popd
 popd
-# configuration
-perl -pi -e 's/(update_ms = )\d+/${1}1000/' ~/.config/btop/btop.conf
+# configuration. btop.conf isn't actually generated until btop is run, and
+# efforts to do that briefly and then kill it, e.g. with timeout, fail (the
+# file is not generated for unknown reasons)
+# btop 2&>1 >>/dev/null & (pgrep btop | xargs kill -9)
+# timeout 0.1 btop
+# As such, the following will fail, but it's useful for reference I guess
+perl -pi -e 's/(update_ms = )\d+/${1}400/' ~/.config/btop/btop.conf
 # finally, create an application so we can launch from the activities menu
 # UPDATE: btop appears to do this on its own these days. we'll leave this
 # commented for reference
@@ -336,10 +352,10 @@ sudo snap install spotify gimp vlc universal-ctags
 
 # install veracrypt
 pushd $(mktemp -d)
-sudo apt-get -y install libwxgtk3.0-gtk3-0v5 libayatana-appindicator3-1
+sudo apt-get -y install libwxgtk3.2-1t64 libayatana-appindicator3-1
 sudo apt -y --fix-broken install
-wget https://launchpad.net/veracrypt/trunk/1.26.24/+download/veracrypt-1.26.24-Ubuntu-24.04-amd64.deb
-sudo dpkg -i veracrypt-1.26.24-Ubuntu-24.04-amd64.deb
+wget https://launchpad.net/veracrypt/trunk/1.26.29/+download/veracrypt-1.26.29-Ubuntu-26.04-amd64.deb
+sudo dpkg -i veracrypt-1.26.29-Ubuntu-26.04-amd64.deb
 popd
 
 # install haskell
@@ -359,12 +375,14 @@ sudo flatpak install -y fr.handbrake.ghb.flatpakref
 popd
 
 # install gh (github cli)
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg |
-    sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg &&
-    sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg &&
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list >/dev/null &&
-    sudo apt update &&
-    sudo apt install gh -y
+sudo mkdir -p -m 755 /etc/apt/keyrings \
+&& out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+&& cat $out | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
+&& sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
+&& sudo mkdir -p -m 755 /etc/apt/sources.list.d \
+&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+&& sudo apt update \
+&& sudo apt install gh -y
 
 # install unclutter
 # NB: if the target system is using Wayland instead of X, the associated
@@ -384,7 +402,7 @@ cargo install --locked navi
 
 # install lua + rocks
 pushd $(mktemp -d)
-curl -R -O http://www.lua.org/ftp/lua-5.5.0.tar.gz
+curl -L -R -O http://www.lua.org/ftp/lua-5.5.0.tar.gz
 tar zxf lua-5.5.0.tar.gz
 cd lua-5.5.0
 make all test
@@ -400,21 +418,23 @@ cd luarocks-3.13.0
 make
 sudo make install
 popd
-luarocks install croissant --local
+# This isn't available on lua 5.5. lua -i can be used as an alternative
+# luarocks install croissant --local
 
 # install HoDoKu. Note that this relies on java being available (default-jre is
 # installed above)
-mkdir -p ~/.local/jars/
-wget -o ~/.local/jars/hodoku.jar https://netactuate.dl.sourceforge.net/project/hodoku/hodoku/hodoku_2.2.0/hodoku.jar
-echo \[Desktop Entry\] >~/.local/share/applications/Hodoku.desktop
-echo Name=HoDoKu >>~/.local/share/applications/Hodoku.desktop
-echo Exec=java -jar $HOME/.local/jars/hodoku.jar >>~/.local/share/applications/Hodoku.desktop
-echo StartupNotify=true >>~/.local/share/applications/Hodoku.desktop
-echo Terminal=true >>~/.local/share/applications/Hodoku.desktop
-echo Type=Application >>~/.local/share/applications/Hodoku.desktop
+# FIXME: The jar reads as corrupt on resolute/jre(v?)
+# mkdir -p ~/.local/jars/
+# wget -o ~/.local/jars/hodoku.jar https://netactuate.dl.sourceforge.net/project/hodoku/hodoku/hodoku_2.2.0/hodoku.jar
+# echo \[Desktop Entry\] >~/.local/share/applications/Hodoku.desktop
+# echo Name=HoDoKu >>~/.local/share/applications/Hodoku.desktop
+# echo Exec=java -jar $HOME/.local/jars/hodoku.jar >>~/.local/share/applications/Hodoku.desktop
+# echo StartupNotify=true >>~/.local/share/applications/Hodoku.desktop
+# echo Terminal=true >>~/.local/share/applications/Hodoku.desktop
+# echo Type=Application >>~/.local/share/applications/Hodoku.desktop
 # This probably isn't necessary in an installation situation, but it's useful
 # when making changes as an admin
-sudo update-desktop-database
+# sudo update-desktop-database
 
 # install kitty
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
