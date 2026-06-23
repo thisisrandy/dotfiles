@@ -157,3 +157,7 @@ virsh -c qemu:///session list --all | awk 'NR>2 { print $2 }' | \
 
 1. Replace the QCOW image(s) in the same location
 2. Run `virsh create CONFIG.xml` for each
+
+### Migrate /home to another partition
+
+See [this answer](https://askubuntu.com/a/50539/1014459).
