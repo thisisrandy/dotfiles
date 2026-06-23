@@ -92,6 +92,12 @@ The first `git` action will trigger login.
 0. `gpg --full-generate-key`
 0. `pass init <gpg-id>`
 
+#### Fixing default terminal to kitty
+
+As of writing, the kitty installer breaks the open terminal shortcut. I filed a
+[bug](https://github.com/kovidgoyal/kitty/issues/10177) which details the
+problem and solution.
+
 ## Mounting external RAID member HDDs
 
 The wisdom found collectively in [Ubuntu doesn't "see" external USB Hard
