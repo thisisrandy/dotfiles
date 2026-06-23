@@ -449,7 +449,7 @@ cp ~/.local/kitty.app/share/applications/kitty-open.desktop ~/.local/share/appli
 sed -i "s|Icon=kitty|Icon=$(readlink -f ~)/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" ~/.local/share/applications/kitty*.desktop
 sed -i "s|Exec=kitty|Exec=$(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.local/share/applications/kitty*.desktop
 # Make xdg-terminal-exec (and hence desktop environments that support it use kitty)
-echo 'kitty.desktop' >~/.config/xdg-terminals.list
+echo 'kitty.desktop' >~/.config/ubuntu-xdg-terminals.list
 # Create a symbolic link to the config file
 ln -sf $PATH_TO_DOT_FILES/kitty.conf $HOME/.config/kitty/
 # And also to the zoom_toggle kitten
