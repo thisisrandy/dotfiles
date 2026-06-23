@@ -1,12 +1,12 @@
 return {
-  "echasnovski/mini.surround",
+  "nvim-mini/mini.surround",
   opts = {
     n_lines = 100,
     highlight_duration = 1500,
     respect_selection_type = true,
     custom_surroundings = {
       -- Preserves tag attributes. See
-      -- https://github.com/echasnovski/mini.nvim/issues/1293#issuecomment-2423827325
+      -- https://github.com/nvim-mini/mini.nvim/issues/1293#issuecomment-2423827325
       T = {
         -- If this is hard to understand, see
         -- MiniSurround-surround-specification. Basically, the first input
