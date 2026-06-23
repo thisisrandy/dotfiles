@@ -92,6 +92,13 @@ The first `git` action will trigger login.
 0. `gpg --full-generate-key`
 0. `pass init <gpg-id>`
 
+#### Mounting a partition as /home
+
+[This
+answer](https://askubuntu.com/questions/21321/move-home-folder-to-second-drive)
+is exactly what's needed for a clear drive. For an encrypted drive, `rsync` per
+the answer and then use the `Disks` GUI to set up auto-unlock/mount.
+
 ## Mounting external RAID member HDDs
 
 The wisdom found collectively in [Ubuntu doesn't "see" external USB Hard
