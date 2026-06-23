@@ -281,9 +281,9 @@ pushd $(mktemp -d)
 curl -fLo gcm.deb https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.8.0/gcm-linux-x64-2.8.0.deb
 sudo dpkg -i gcm.deb
 popd
-# UPDATE: This line appears to be obsolete
-# bash -c 'git-credential-manager-core configure'
-git config --global credential.credentialStore secretservice
+bash -c 'git-credential-manager configure'
+sudo apt-get install -y pass
+git config --global credential.credentialStore gdp
 
 # install btop
 pushd $(mktemp -d)

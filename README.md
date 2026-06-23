@@ -84,6 +84,14 @@ integration chrome plugin. A list of install url(s) follows:
 
 - [OverviewNavigation](https://extensions.gnome.org/extension/1702/overview-navigation/)
 
+#### GPG
+
+Needed for [Github Credential Manager](https://github.com/git-ecosystem/git-credential-manager).
+The first `git` action will trigger login.
+
+0. `gpg --full-generate-key`
+0. `pass init <gpg-id>`
+
 ## Mounting external RAID member HDDs
 
 The wisdom found collectively in [Ubuntu doesn't "see" external USB Hard

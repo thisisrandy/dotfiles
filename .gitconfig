@@ -10,13 +10,6 @@
 [merge]
   tool = nvimdiff
   conflictstyle = diff3
-[credential]
-  helper = store
-  helper =
-  helper = /usr/local/bin/git-credential-manager-core
-  credentialStore = secretservice
-[credential "https://dev.azure.com"]
-  useHttpPath = true
 [alias]
 	lg = lg1
 	lg1 = lg1-specific --all
@@ -37,3 +30,9 @@
   hunk-header-style = syntax # default - line-numbers
 [diff]
   colorMoved = default
+[credential]
+	helper = 
+	helper = /usr/local/bin/git-credential-manager
+	credentialStore = gpg
+[credential "https://dev.azure.com"]
+	useHttpPath = true
