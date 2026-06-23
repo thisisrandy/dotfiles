@@ -455,7 +455,9 @@ ln -sf $PATH_TO_DOT_FILES/kitty.conf $HOME/.config/kitty/
 # And also to the zoom_toggle kitten
 ln -sf $PATH_TO_DOT_FILES/zoom_toggle.py $HOME/.config/kitty/
 # make kitty the default terminal
-gsettings set org.gnome.desktop.default-applications.terminal exec 'kitty'
+# UPDATE: The following is outdated and doesn't work on resolute. Leaving it as
+# default is fine
+# gsettings set org.gnome.desktop.default-applications.terminal exec 'kitty'
 # install https://github.com/yurikhan/kitty_grab
 pushd ~/.config/kitty
 git clone https://github.com/yurikhan/kitty_grab.git
