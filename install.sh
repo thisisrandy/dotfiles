@@ -214,12 +214,11 @@ curl -sSL https://get.daml.com/ | sh
 
 # install nvim
 pushd $HOME/.local/bin
-curl -fLo nvim https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+curl -fLo nvim https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
 chmod u+x nvim
 ln -sf nvim vim
 # NOTE: nightly is needed for all treesitter features to work properly
-# FIXME: nightly no longer a thing?
-curl -fLo nvim.nightly https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+curl -fLo nvim.nightly https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.appimage
 chmod u+x nvim.nightly
 popd
 # My old setup for reference
