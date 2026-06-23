@@ -79,7 +79,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git virtualenv zsh-autosuggestions poetry rust safe-paste ripgrep jump \
+plugins=(git virtualenv zsh-autosuggestions poetry rust safe-paste rg jump \
   jsontools emoji aliases zsh-syntax-highlighting)
 export ZSH_THEME_VIRTUALENV_PREFIX="("
 export ZSH_THEME_VIRTUALENV_SUFFIX=")"

@@ -29,7 +29,6 @@ mkdir -p ~/.local/bin
 # sudo ubuntu-drivers autoinstall
 # sudo prime-select nvidia
 
-
 # we'll be creating softlinks in various locations to several files in the
 # script directory. per e.g. https://stackoverflow.com/a/246128/12162258, this
 # captures said directory
@@ -89,8 +88,9 @@ which zsh | xargs -I{} sudo chsh -s {} $USER
 # install powerlevel10k config
 ln -s $PATH_TO_DOT_FILES/.p10k.zsh $HOME/.p10k.zsh
 
-# install zsh-autosuggestions
+# install zsh-autosuggestions and rg
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/pressdarling/rg-zsh-plugin ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/rg
 
 # install zplug. zplug is unacceptably slow to start on my machine. I may
 # reenable this in the future after an upgrade
