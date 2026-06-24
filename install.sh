@@ -284,7 +284,7 @@ sudo dpkg -i gcm.deb
 popd
 bash -c 'git-credential-manager configure'
 sudo apt-get install -y pass
-git config --global credential.credentialStore gdp
+git config --global credential.credentialStore gpg
 
 # install btop
 pushd $(mktemp -d)
