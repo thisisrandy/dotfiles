@@ -188,6 +188,9 @@ popd
 
 # install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+# The rust installer wants us to restart the shell at this point. Instead, we'll
+# just add the cargo path to PATH
+export PATH=$HOME/.cargo/bin/:$PATH
 
 # install bat. per https://askubuntu.com/a/1300824/1014459, on 20.04 this needs
 # some special magic
