@@ -23,6 +23,7 @@ set -x
 
 # this will be used in several places
 mkdir -p ~/.local/bin
+export PATH=~/.local/bin/:$PATH
 
 # install/use display drivers (restart needed)
 # UPDATE: no longer needed as of resolute
