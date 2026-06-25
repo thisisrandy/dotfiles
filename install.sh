@@ -41,7 +41,7 @@ sudo apt-get -y install curl git zsh xclip htop iftop gcc make \
     gnome-weather gnome-tweaks tree mkvtoolnix perl-doc fortunes \
     cowsay at linux-tools-common linux-tools-generic ranger sshfs \
     figlet whois default-jre moreutils xsel dict lshw gnome-boxes \
-    gnome-browser-connector ssh
+    gnome-browser-connector ssh shfmt
 
 ln -sf $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
 mkdir -p $HOME/.config/ranger
@@ -170,21 +170,6 @@ gsettings set org.gnome.shell.extensions.desktop-icons show-home false
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
 gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic true
 gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature 4700 # the least warm possible
-
-# install go
-pushd $(mktemp -d)
-curl -LO https://go.dev/dl/go1.26.1.linux-amd64.tar.gz
-tar xfz go1.26.1.linux-amd64.tar.gz
-sudo mv go /usr/local
-PATH=/usr/local/go/bin:$PATH
-rm go1.26.1.linux-amd64.tar.gz
-popd
-
-# install shfmt (to ~/go/bin) (for bat, below)
-pushd $(mktemp -d)
-go mod init tmp
-go get mvdan.cc/sh/cmd/shfmt
-popd
 
 # install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
