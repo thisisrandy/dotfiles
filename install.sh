@@ -312,7 +312,7 @@ perl -pi -e 's/(update_ms = )\d+/${1}400/' ~/.config/btop/btop.conf
 # echo Type=Application >> ~/.local/share/applications/Btop.desktop
 
 # make sure grub shows the full startup sequence
-sudo sed -i 's/quiet splash/nomodeset/' /etc/default/grub
+sudo sed -i 's/quiet splash//' /etc/default/grub
 sudo update-grub
 
 # install zotero
