@@ -234,7 +234,7 @@ popd
 # ln -sf $PATH_TO_DOT_FILES/coc-settings.json $HOME/.config/nvim/coc-settings.json
 # LazyNvim setup
 ln -sf $PATH_TO_DOT_FILES/lazy-nvim-config $HOME/.config/nvim
-yarn global add neovim
+yarn global add -s neovim
 # create a virtual env specifically for nvim and install the relevant packages
 # in it. init.vim must specify g:python3_host_prog pointing to bin/python in
 # the vevn
