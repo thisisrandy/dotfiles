@@ -41,7 +41,7 @@ sudo apt-get -y install curl git zsh xclip htop iftop gcc make \
     gnome-weather gnome-tweaks tree mkvtoolnix perl-doc fortunes \
     cowsay at linux-tools-common linux-tools-generic ranger sshfs \
     figlet whois default-jre moreutils xsel dict lshw gnome-boxes \
-    gnome-browser-connector ssh shfmt
+    gnome-browser-connector ssh shfmt mesa-utils
 
 ln -sf $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
 mkdir -p $HOME/.config/ranger
