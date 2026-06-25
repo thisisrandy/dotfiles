@@ -35,6 +35,11 @@ export PATH=~/.local/bin/:$PATH
 # captures said directory
 PATH_TO_DOT_FILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
+# make everything up-to-date and clean
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get autoremove
+sudo apt-get autoclean
 # install curl, git, zsh...
 sudo apt-get -y install curl git zsh xclip htop iftop gcc make \
     jq tmux peek datamash nmap bvi httpie ripgrep \
