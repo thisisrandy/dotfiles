@@ -11,6 +11,8 @@ return {
       require("kitty-scrollback").setup()
     end,
   },
+  -- TODO: The following two have overlap. I think the first of them, maybe
+  -- both, can be configured to be the whole package if I want to take the time
   {
     "knubie/vim-kitty-navigator",
     keys = {
