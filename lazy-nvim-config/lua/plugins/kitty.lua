@@ -13,10 +13,6 @@ return {
   },
   {
     "knubie/vim-kitty-navigator",
-    build = function()
-      local data = vim.fn.stdpath("data")
-      os.execute("cp " .. data .. "/lazy/vim-kitty-navigator/*.py ~/.config/kitty/")
-    end,
     keys = {
       { mode = "n", "<c-h>", ":KittyNavigateLeft<cr>", silent = true },
       { mode = "n", "<c-j>", ":KittyNavigateDown<cr>", silent = true },
