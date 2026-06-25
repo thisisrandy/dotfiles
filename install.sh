@@ -439,6 +439,9 @@ sed -i "s|Icon=kitty|Icon=$(readlink -f ~)/.local/kitty.app/share/icons/hicolor/
 sed -i "s|Exec=kitty|Exec=$(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.local/share/applications/kitty*.desktop
 # Make xdg-terminal-exec (and hence desktop environments that support it use kitty)
 echo 'kitty.desktop' >~/.config/ubuntu-xdg-terminals.list
+# The last time I installed kitty, it didn't create its directory under
+# .config, so ensure it's there
+mkdir -p $HOME/.config/kitty
 # Create a symbolic link to the config file
 ln -sf $PATH_TO_DOT_FILES/kitty.conf $HOME/.config/kitty/
 # And also to the zoom_toggle kitten
