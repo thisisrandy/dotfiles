@@ -164,3 +164,12 @@ virsh -c qemu:///session list --all | awk 'NR>2 { print $2 }' | \
 
 1. Replace the QCOW image(s) in the same location
 2. Run `virsh create CONFIG.xml` for each
+
+## Making use of older GPUs
+
+Ubuntu does a pretty good job of automatically installing
+[nouveau](https://nouveau.freedesktop.org/), but it uses the on-board graphics
+by default for everything. We can tell any application to use the Nvidia GPU by
+specifying `DRI_PRIME=1` in its environment. See [this
+answer](https://askubuntu.com/a/941432/1014459). Note that `prime-select` from
+the `nvidia-prime` functions, but doesn't seem to have any effect.

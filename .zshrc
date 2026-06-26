@@ -146,6 +146,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Use the nouveau driver for everything, at least everything run from zsh. See
+# the README
+export DRI_PRIME=1
+
 # history
 export HISTSIZE=1000000
 setopt HIST_IGNORE_ALL_DUPS
