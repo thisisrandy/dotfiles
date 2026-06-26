@@ -224,6 +224,15 @@ popd
 # ln -sf $PATH_TO_DOT_FILES/coc-settings.json $HOME/.config/nvim/coc-settings.json
 # LazyNvim setup
 ln -sf $PATH_TO_DOT_FILES/lazy-nvim-config $HOME/.config/nvim
+# Some tools needed for Snacks.image as reported in the nvim healthcheck
+# More image formats
+sudo apt-get install -y imagemagick
+# tectonic for LaTeX
+curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh
+mv tectonic $HOME/.local/bin
+# mermaid
+npm install -g @mermaid-js/mermaid-cli
+# Some other setup for nvim itself
 yes | yarn global add -s neovim
 # create a virtual env specifically for nvim and install the relevant packages
 # in it. init.vim must specify g:python3_host_prog pointing to bin/python in
