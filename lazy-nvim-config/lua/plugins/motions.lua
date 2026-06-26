@@ -2,7 +2,8 @@ return {
   {
     "chrisgrieser/nvim-various-textobjs",
     event = "VeryLazy",
-    opts = { keymaps = { useDefaults = true } },
+    -- gw conflicts with formatting in visual mode
+    opts = { keymaps = { useDefaults = true, disabledDefaults = { "gw" } } },
   },
   {
     "chrisgrieser/nvim-spider",
