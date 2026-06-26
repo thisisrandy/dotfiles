@@ -181,6 +181,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 # The rust installer wants us to restart the shell at this point. Instead, we'll
 # just add the cargo path to PATH
 export PATH=$HOME/.cargo/bin/:$PATH
+# Also install https://github.com/cargo-bins/cargo-binstall
+curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
 
 # install bat. per https://askubuntu.com/a/1300824/1014459, on 20.04 this needs
 # some special magic
