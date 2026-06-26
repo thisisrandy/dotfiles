@@ -90,7 +90,7 @@ Needed for [Github Credential Manager](https://github.com/git-ecosystem/git-cred
 The first `git` action will trigger login.
 
 0. `gpg --full-generate-key`
-0. `pass init <gpg-id>`
+1. `pass init <gpg-id>`
 
 #### Mounting a partition as /home
 
