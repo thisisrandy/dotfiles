@@ -99,6 +99,12 @@ answer](https://askubuntu.com/questions/21321/move-home-folder-to-second-drive)
 is exactly what's needed for a clear drive. For an encrypted drive, `rsync` per
 the answer and then use the `Disks` GUI to set up auto-unlock/mount.
 
+#### navi
+
+This first time running [navi](https://github.com/denisidoro/navi), it will
+need to load cheat sheet repos. After installing the default, make sure to also
+run `navi add thisisrandy/cheatsheets`.
+
 ## Mounting external RAID member HDDs
 
 The wisdom found collectively in [Ubuntu doesn't "see" external USB Hard
