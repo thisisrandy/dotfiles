@@ -234,6 +234,8 @@ curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh
 mv tectonic $HOME/.local/bin
 # mermaid
 npm install -g @mermaid-js/mermaid-cli
+# nvim-treesitter requirement
+yes | cargo binstall tree-sitter-cli
 # Some other setup for nvim itself
 yes | yarn global add -s neovim
 # create a virtual env specifically for nvim and install the relevant packages
