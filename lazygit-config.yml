@@ -1,4 +1,4 @@
 git:
   pagers:
     - colorArg: never
-      pager: delta --dark --paging=never --line-numbers
+      pager: delta --dark --paging=never --line-numbers --plus-style='syntax "#02360f"'
