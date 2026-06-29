@@ -126,7 +126,7 @@ gets us through to the win. In particular:
 - `ls /dev/ | grep sd` before/after to detect whether the HDD is even seen
 - `sudo fdisk -l` to find the correct device
 - `mount` complains about 'linux_raid_member'
-  - `mdmam --assemble --run /dev/md0 <DEVICE>`, assuming `/dev/md0` does not currently exist
+  - `mdadm --assemble --run /dev/md0 <DEVICE>`, assuming `/dev/md0` does not currently exist
 - `mount` complains about 'LVM2_member'
   - `sudo apt-get install lvm2` to install the logical volume management tools
   - `vgdisplay` to get volume group UUID
