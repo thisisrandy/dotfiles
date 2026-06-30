@@ -148,7 +148,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # Use the nouveau driver for everything, at least everything run from zsh. See
 # the README
-export DRI_PRIME=1
+# export DRI_PRIME=1
 
 # history
 export HISTSIZE=1000000
