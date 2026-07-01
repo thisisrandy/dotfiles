@@ -7,16 +7,23 @@ local function augroup(name)
 end
 
 local cursor_line_only_in_active_window = augroup("CursorLineOnlyInActiveWindow")
-vim.api.nvim_create_autocmd({ "VimEnter", "WinEnter", "BufWinEnter" }, {
+-- TermLeave is specifically to fix lazygit integration. It massively screws up
+-- when we e.g. switch from one terminal to another inside vim. I hardly ever
+-- use the integrated terminal, and certainly never two at one, so this is
+-- acceptable. Note that the integrated terminal also doesn't understand kitty
+-- navigation shortcut commands, so it's kind of broken anyways
+vim.api.nvim_create_autocmd({ "VimEnter", "WinEnter", "BufWinEnter", "TermLeave" }, {
   group = cursor_line_only_in_active_window,
   callback = function()
     vim.opt_local.cursorline = true
+    vim.opt_local.relativenumber = true
   end,
 })
 vim.api.nvim_create_autocmd("WinLeave", {
   group = cursor_line_only_in_active_window,
   callback = function()
     vim.opt_local.cursorline = false
+    vim.opt_local.relativenumber = false
   end,
 })
 
