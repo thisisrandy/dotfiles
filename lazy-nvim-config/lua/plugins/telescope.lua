@@ -52,7 +52,10 @@ return {
               -- Exit the picker immediately on jk, but still allow entering
               -- normal mode w/esc. This is especially useful e.g. for
               -- yank_history
-              ["jk"] = require("telescope.actions").close,
+              -- UPDATE: Actually I don't really like this because it makes me
+              -- leave the home row for results selection. <C-c> is fine to
+              -- kill any picker
+              -- ["jk"] = require("telescope.actions").close,
             },
           },
           dynamic_preview_title = true,
