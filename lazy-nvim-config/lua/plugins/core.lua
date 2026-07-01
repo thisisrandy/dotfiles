@@ -18,4 +18,15 @@ return {
       vim.cmd([[highlight MatchParen guibg=#3b4261]])
     end,
   },
+  {
+    "gbprod/yanky.nvim",
+    config = {
+      system_clipboard = {
+        -- This plants some VimEnter/VimLeave autocommands that cause gnome to
+        -- rapidly cycle focus of the next selected application, which causes
+        -- some ugly flickering
+        sync_with_ring = false,
+      },
+    },
+  },
 }
