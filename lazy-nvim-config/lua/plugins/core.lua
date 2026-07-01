@@ -29,4 +29,5 @@ return {
       },
     },
   },
+  { "vim-scripts/RelativeNumberCurrentWindow" },
 }
