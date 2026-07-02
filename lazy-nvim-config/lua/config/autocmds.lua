@@ -14,9 +14,11 @@ local cursor_line_only_in_active_window = augroup("CursorLineOnlyInActiveWindow"
 -- navigation shortcut commands, so it's kind of broken anyways
 vim.api.nvim_create_autocmd({ "VimEnter", "WinEnter", "BufWinEnter", "TermLeave" }, {
   group = cursor_line_only_in_active_window,
-  callback = function()
-    vim.opt_local.cursorline = true
-    vim.opt_local.relativenumber = true
+  callback = function(ev)
+    if ev.file ~= "" then
+      vim.opt_local.cursorline = true
+      vim.opt_local.relativenumber = true
+    end
   end,
 })
 vim.api.nvim_create_autocmd("WinLeave", {
