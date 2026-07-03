@@ -7,3 +7,4 @@ vim.opt.dictionary = "/usr/share/dict/words"
 vim.opt.virtualedit = "onemore"
 vim.opt.list = false
 vim.opt.listchars = "space:·,multispace:····+,tab:-￫,eol:¶,trail:~,extends:>,precedes:<,nbsp:⍽"
+vim.g.netrw_browsex_viewer = "setsid xdg-open"
