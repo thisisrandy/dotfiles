@@ -21,7 +21,7 @@ return {
         -- Also bound by default to <leader>p (for paste)
         "<leader>sp",
         require("telescope").extensions.yank_history.yank_history,
-        desc = "Open Yank History",
+        desc = "Open Yank History ([p]aste)",
       },
       {
         "<leader>gr",
