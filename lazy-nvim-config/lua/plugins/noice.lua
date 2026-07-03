@@ -1,5 +1,8 @@
 return {
   "folke/noice.nvim",
+  -- NOTE: Per the below, this is likely fragile. If noice starts misbehaving
+  -- in future updates, look here first. cmdline_output_to_split is a
+  -- completely acceptable alternative.
   -- I came to this setup with Gemini's help because noice's default settings
   -- (see :NoiceRouters with all this turned off) have a router near the top
   -- that suppresses all event="msg_show" output shorter than 20 lines. The
