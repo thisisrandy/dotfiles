@@ -497,4 +497,6 @@ ln -sf $(which fdfind) ~/.local/bin/fd
 pushd $(mktemp -d)
 wget https://iriun.gitlab.io/iriunwebcam-2.9.1.deb
 sudo dpkg -i iriunwebcam-2.9.1.deb
+sudo apt-get install -y libqt5widgets5 v4l2loopback-dkms
+sudo apt --fix-broken install -y
 popd
