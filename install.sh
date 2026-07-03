@@ -492,3 +492,9 @@ popd
 # install fd
 sudo apt-get install -y fd-find
 ln -sf $(which fdfind) ~/.local/bin/fd
+
+# install iriun
+pushd $(mktemp -d)
+wget https://iriun.gitlab.io/iriunwebcam-2.9.1.deb
+sudo dpkg -i iriunwebcam-2.9.1.deb
+popd
