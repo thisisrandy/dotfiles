@@ -32,4 +32,50 @@ return {
       },
     },
   },
+  {
+    "folke/noice.nvim",
+    -- I came to this setup with Gemini's help because noice wasn't displaying
+    -- shell output that didn't fall into the long bucket (20 lines). It works
+    -- great but is probably way more complicated than it needs to be
+    opts = {
+      -- 1. Define the customized view with your title and icon
+      views = {
+        custom_shell_popup = {
+          backend = "popup",
+          relative = "editor",
+          position = "50%",
+          enter = true, -- Auto-focuses the window when it appears
+          size = {
+            width = 80,
+            height = "auto",
+            max_height = 25,
+          },
+          border = {
+            style = "rounded",
+            text = {
+              top = "  Shell Output ", -- Your Nerd Font icon and title
+              top_align = "left",
+            },
+          },
+          win_options = {
+            winhighlight = { Normal = "Normal", Border = "DiagnosticInfo" },
+            wrap = true,
+          },
+        },
+      },
+      -- 2. Route shell output to your newly created custom view
+      routes = {
+        {
+          view = "custom_shell_popup", -- Tells noice to use the view defined above
+          filter = {
+            event = "msg_show",
+            any = {
+              { kind = "shell_out" },
+              { kind = "shell_err" },
+            },
+          },
+        },
+      },
+    },
+  },
 }
