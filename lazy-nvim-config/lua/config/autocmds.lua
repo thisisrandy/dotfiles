@@ -40,13 +40,3 @@ if vim.env.KITTY_SCROLLBACK_NVIM ~= "true" then
     end,
   })
 end
-
--- Enable q to close custom_shell_popup
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "noice",
-  callback = function(args)
-    vim.keymap.set("n", "q", function()
-      require("noice").cmd("dismiss")
-    end, { buffer = args.buf, silent = true, nowait = true })
-  end,
-})
