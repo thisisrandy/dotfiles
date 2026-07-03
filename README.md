@@ -4,6 +4,9 @@ Various dotfiles, associated scripts and cheatsheets as well as installation scr
 
 ## Ubuntu installation
 
+0. Make sure we're using UEFI (system setup). This will affect how the
+   installation of third-party stuff goes, so we need to do it first.
+
 1. Run [install.sh](install.sh) after updating any explicitly-specified
    versions
 
@@ -13,6 +16,10 @@ automatically after Oh-My-Zsh & VS Code are installed, respectively.
 
 Note also that `vim-plug` installs `fzf`, so the latter won't be available
 until `nvim` is started for the first time.
+
+Note finally that the [`iriun`](http://iriun.com/) deps installation will
+require some interaction when UEFI is configured. I haven't tested this in the
+script as of writing.
 
 ### Manual Steps
 
