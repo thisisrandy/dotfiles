@@ -106,14 +106,6 @@ prompt_context(){}
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Custom path locations
-export PATH=~/.local/bin/:$PATH
-export PATH=~/.yarn/bin:$PATH
-export PATH=~/go/bin:$PATH
-export PATH=/usr/local/go/bin:$PATH
-export PATH="$HOME/.poetry/bin:$PATH"
-export PATH=~/.luarocks/bin:$PATH
-
 # DAML
 export PATH=~/.daml/bin:$PATH
 fpath=(~/.daml/zsh $fpath)
