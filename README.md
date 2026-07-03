@@ -85,8 +85,8 @@ timedatectl set-local-rtc 0 --adjust-system-clock
 
 While it's possible to install GNOME extensions programmatically, one has to
 match the download url with one's shell version, and the maintenance cost just
-isn't worth it for a small list of extensions. In fact, I'm only using three at
-the moment, so it's much easier to manually enable it using the GNOME shell
+isn't worth it for a small list of extensions. I'm only using a few at the
+moment, so it's much easier to manually enable it using the GNOME shell
 integration chrome plugin. A list of install url(s) follows:
 
 - ~~[OverviewNavigation](https://extensions.gnome.org/extension/1702/overview-navigation/)~~
@@ -95,6 +95,9 @@ integration chrome plugin. A list of install url(s) follows:
 - [WSP (Windows Search Provider)](https://extensions.gnome.org/extension/6730/wsp-windows-search-provider/)
 - [Dash to Panel](https://extensions.gnome.org/extension/1160/dash-to-panel/).
   I exported its settings to [dash-to-panel.ini](dash-to-panel.ini)
+- [Hide Cursor](https://extensions.gnome.org/extension/6727/hide-cursor/)
+(Wayland replacement for
+  [unclutter](https://wiki.archlinux.org/title/Unclutter))
 
 Note that the [GNOME Shell Integration Chrome
 extension](https://chromewebstore.google.com/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep)
