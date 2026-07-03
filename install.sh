@@ -464,6 +464,8 @@ mkdir -p $HOME/.config/kitty
 ln -sf $PATH_TO_DOT_FILES/kitty.conf $HOME/.config/kitty/
 # And also to the zoom_toggle kitten
 ln -sf $PATH_TO_DOT_FILES/zoom_toggle.py $HOME/.config/kitty/
+# And a tab picker script
+ln -sf $PATH_TO_DOT_FILES/kitty-tab-picker.sh $HOME/.config/kitty/
 # make kitty the default terminal
 # UPDATE: The following is outdated and doesn't work on resolute. Leaving it as
 # default is fine
