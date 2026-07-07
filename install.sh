@@ -312,13 +312,8 @@ sudo make install
 sudo make setuid
 popd
 popd
-# configuration. btop.conf isn't actually generated until btop is run, and
-# efforts to do that briefly and then kill it, e.g. with timeout, fail (the
-# file is not generated for unknown reasons)
-# btop 2&>1 >>/dev/null & (pgrep btop | xargs kill -9)
-# timeout 0.1 btop
-# As such, the following will fail, but it's useful for reference I guess
-perl -pi -e 's/(update_ms = )\d+/${1}400/' ~/.config/btop/btop.conf
+# install the config file
+ln -sf $PATH_TO_DOT_FILES/btop.conf $HOME/.config/btop/
 # finally, create an application so we can launch from the activities menu
 # UPDATE: btop appears to do this on its own these days. we'll leave this
 # commented for reference
