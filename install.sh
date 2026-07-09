@@ -51,6 +51,7 @@ sudo apt-get -y install curl git zsh xclip htop iftop gcc make \
 ln -sf $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
 mkdir -p $HOME/.config/ranger
 ln -sf $PATH_TO_DOT_FILES/rc.conf $HOME/.config/ranger/rc.conf
+ln -sf $PATH_TO_DOT_FILES/ranger-scope.sh $HOME/.config/ranger/scope.sh
 
 # install pyenv
 curl https://pyenv.run | bash
