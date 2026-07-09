@@ -44,10 +44,5 @@ return {
 
       return { { message, "GitSignsCurrentLineBlame" } }
     end,
-
-    on_attach = function()
-      -- Keeps opacity linked to active colorscheme's Comment look
-      vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { link = "Comment" })
-    end,
   },
 }
