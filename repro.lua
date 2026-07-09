@@ -12,3 +12,5 @@ require("lazy.minit").repro({
 		-- Plugins to test go here
 	},
 })
+
+vim.keymap.set({ "i", "c" }, "jk", "<esc>")
