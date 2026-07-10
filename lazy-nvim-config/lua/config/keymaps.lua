@@ -10,6 +10,16 @@ vim.keymap.set({ "i", "c" }, "jk", "<esc>")
 -- different from anywhere else. See options.lua
 vim.keymap.set("i", "<C-v>", "<C-o>P", { desc = "Paste from the keyboard in insert mode", noremap = true })
 
+-- Map context menu key to mouse right click
+vim.keymap.set("n", "", "<Cmd>popup PopUp<CR>", { silent = true })
+vim.keymap.set("n", "q", function()
+  if vim.fn.pumvisible() == 1 then
+    return "<Esc>"
+  else
+    return "q"
+  end
+end, { expr = true, silent = true, desc = "Close popup menu contextually" })
+
 -- Text execution
 vim.keymap.set(
   "n",
