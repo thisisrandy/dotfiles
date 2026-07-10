@@ -4,7 +4,7 @@ return {
   -- in future updates, look here first. cmdline_output_to_split is a
   -- completely acceptable alternative.
   -- I came to this setup with Gemini's help because noice's default settings
-  -- (see :NoiceRouters with all this turned off) have a router near the top
+  -- (see :NoiceRoutes with all this turned off) have a router near the top
   -- that suppresses all event="msg_show" output shorter than 20 lines. The
   -- cmdline_output_to_split preset is really close to what I want, namely
   -- printing all :! output, but I had to do some hacking to get the output
