@@ -79,7 +79,7 @@ return {
         Service.set_active_list(bookmark_list.id)
         require("bookmarks.sign").safe_refresh_signs()
       end
-      vim.api.nvim_create_autocmd({ "VimEnter", "BufEnter" }, {
+      vim.api.nvim_create_autocmd({ "VimEnter", "BufEnter", "FocusGained" }, {
         group = vim.api.nvim_create_augroup("BookmarksGroup", {}),
         pattern = { "*" },
         callback = find_or_create_project_bookmark_group,
