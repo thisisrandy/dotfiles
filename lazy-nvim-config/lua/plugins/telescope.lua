@@ -37,6 +37,11 @@ return {
         require("telescope.builtin").git_bcommits,
         desc = "B[u]ffer Commits",
       },
+      {
+        "<leader>se",
+        require("telescope").extensions.projects.projects,
+        desc = "Proj[e]cts",
+      },
     },
     config = function(_, opts)
       require("telescope").setup(vim.tbl_deep_extend("force", opts, {
@@ -64,6 +69,7 @@ return {
       require("telescope").load_extension("smart_history")
       require("telescope").load_extension("frecency")
       require("telescope").load_extension("yank_history")
+      require("telescope").load_extension("projects")
     end,
   },
 }
