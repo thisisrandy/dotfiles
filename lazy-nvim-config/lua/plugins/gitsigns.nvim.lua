@@ -15,7 +15,7 @@ return {
       virt_text_priority = 100,
     },
 
-    current_line_blame_formatter = function(name, blame_info)
+    current_line_blame_formatter = function(_, blame_info)
       local now = os.time()
       local commit_time = blame_info.author_time
       local diff = now - commit_time
@@ -40,7 +40,7 @@ return {
         time_string = years == 1 and "last year" or years .. " years ago"
       end
 
-      local message = string.format("    %s • %s • %s", name, time_string, blame_info.summary)
+      local message = string.format("    %s • %s • %s", blame_info.author, time_string, blame_info.summary)
 
       return { { message, "GitSignsCurrentLineBlame" } }
     end,
