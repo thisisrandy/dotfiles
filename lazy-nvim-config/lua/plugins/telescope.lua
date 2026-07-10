@@ -16,6 +16,7 @@ return {
         desc = "Find Plugin File",
       },
       { mode = "n", "<C-p>", "<leader>ff", desc = "Find files (Root Dir),", remap = true },
+      { mode = "n", "<C-;>", "<leader>,", desc = "Switch Buffer", remap = true },
       {
         -- Also bound by default to <leader>p (for paste)
         "<leader>sp",
