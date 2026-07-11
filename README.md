@@ -90,15 +90,26 @@ moment, so it's much easier to manually enable it using the GNOME shell
 integration chrome plugin. A list of install url(s) follows:
 
 - ~~[OverviewNavigation](https://extensions.gnome.org/extension/1702/overview-navigation/)~~
-  (Not compatible with gnome > 42)
+  *(Not compatible with gnome > 42)*
 - [V-Shell](https://extensions.gnome.org/extension/5177/vertical-workspaces/)
 - [WSP (Windows Search Provider)](https://extensions.gnome.org/extension/6730/wsp-windows-search-provider/)
 - [Dash to Panel](https://extensions.gnome.org/extension/1160/dash-to-panel/).
-  I exported its settings to [dash-to-panel.ini](dash-to-panel.ini)
+*(Not currently using in preference to Dash to Dock)* This extension has a config
+dump baked into the GUI, so we don't *have* to use `dconf` (see below) but
+probably *can*. I exported its settings to
+[dash-to-panel.ini](dash-to-panel.ini)
+- [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
 - [Hide Cursor](https://extensions.gnome.org/extension/6727/hide-cursor/)
 (Wayland replacement for
   [unclutter](https://wiki.archlinux.org/title/Unclutter))
-- [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/). Settings can be exported via `dconf dump /org/gnome/shell/extensions/just-perfection/ > just-perfection.ini` (see [`just-perfection.ini`](just-perfection.ini)) and imported via `dconf load /org/gnome/shell/extensions/just-perfection/ < just-perfection.ini`.
+- [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/)
+
+For extensions with lots of configuration, we can dump it to file using
+`dconf`. For example, the Just Perfection config can be exported via `dconf
+dump /org/gnome/shell/extensions/just-perfection/ > just-perfection.ini` (see
+[`just-perfection.ini`](just-perfection.ini)) and imported via `dconf load
+/org/gnome/shell/extensions/just-perfection/ < just-perfection.ini`. Anything
+I've dumped at any point lives in this repo.
 
 Note that the [GNOME Shell Integration Chrome
 extension](https://chromewebstore.google.com/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep)
