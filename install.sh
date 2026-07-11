@@ -496,3 +496,6 @@ sudo dpkg -i iriunwebcam-2.9.1.deb
 sudo apt-get install -y libqt5widgets5 v4l2loopback-dkms
 sudo apt --fix-broken install -y
 popd
+
+# install Antigravity CLI
+curl -fsSL https://antigravity.google/cli/install.sh | bash
