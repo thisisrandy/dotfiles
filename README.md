@@ -98,6 +98,7 @@ integration chrome plugin. A list of install url(s) follows:
 - [Hide Cursor](https://extensions.gnome.org/extension/6727/hide-cursor/)
 (Wayland replacement for
   [unclutter](https://wiki.archlinux.org/title/Unclutter))
+- [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/). Settings can be exported via `dconf dump /org/gnome/shell/extensions/just-perfection/ > just-perfection.ini` (see [`just-perfection.ini`](just-perfection.ini)) and imported via `dconf load /org/gnome/shell/extensions/just-perfection/ < just-perfection.ini`.
 
 Note that the [GNOME Shell Integration Chrome
 extension](https://chromewebstore.google.com/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep)
