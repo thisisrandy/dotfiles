@@ -503,9 +503,7 @@ curl -fsSL https://antigravity.google/cli/install.sh | bash
 # install Copilot CLI
 curl -fsSL https://gh.io/copilot-install | bash
 
-# install gdctl dependencies. I used to have a script (now archived) to toggle
-# display layout that used gdctl, but I switched to an extension that does the
-# same thing a little more nicely with menu integration and shortcuts. I'm
-# still keeping this around so I can use gdctl
+# install gdctl dependencies along with my laptop monitor toggle script
 sudo apt-get install -y libcairo2-dev libxt-dev libgirepository-2.0-dev
 pip install pycairo PyGObject
+ln -sf $PATH_TO_DOT_FILES/laptop-monitor-toggle $HOME/.local/bin
