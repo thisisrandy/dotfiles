@@ -214,6 +214,13 @@ alias find='find -regextype egrep'
 alias icat='kitten icat'
 alias help=run-help
 alias lock=xdg-screensaver
+# Reset monitor config. This is obviously specialized to a specific setup.
+# Something like it is useful for when a monitor disconnects and reconnects as
+# happens e.g. when a laptop built-in display is cycled
+alias monitor-layout-triple='gdctl set --layout-mode logical \
+  --logical-monitor --monitor eDP-1 --mode 1920x1080@60.150 --x 0 --y 0 \
+  --logical-monitor --monitor DP-4 --mode 1920x1080@60.000 --x 1920 --y 0 --primary \
+  --logical-monitor --monitor DP-2 --mode 1920x1080@60.000 --x 3840 --y 0'
 
 # vi mode
 

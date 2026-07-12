@@ -502,3 +502,7 @@ curl -fsSL https://antigravity.google/cli/install.sh | bash
 
 # install Copilot CLI
 curl -fsSL https://gh.io/copilot-install | bash
+
+# install gdctl dependencies
+sudo apt-get install -y libcairo2-dev libxt-dev libgirepository-2.0-dev
+pip install pycairo PyGObject
