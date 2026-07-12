@@ -499,3 +499,6 @@ popd
 
 # install Antigravity CLI
 curl -fsSL https://antigravity.google/cli/install.sh | bash
+
+# install Copilot CLI
+curl -fsSL https://gh.io/copilot-install | bash
