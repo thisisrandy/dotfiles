@@ -9,6 +9,14 @@ return {
       -- unlikely to be fixed. In fact, even just "+p causes a flicker. I
       -- think I'm going to just deal with it
       sync_with_ring = true,
+      -- When yanky calls its setup function, the clipboard isn't set yet, so
+      -- utils.get_system_register returns "*" instead of "+", causing
+      -- "clipboard: error: Nothing is copied" when it runs getreg("*") Since I
+      -- know I want to use +, I can explicitly set the clipboard register to
+      -- bypass the faulty logic
+      -- TODO: Figure out why the ordering is wrong. This might be a LazyVim
+      -- bug
+      clipboard_register = "+",
     },
   },
 }
