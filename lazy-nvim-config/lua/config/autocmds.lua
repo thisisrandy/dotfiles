@@ -15,7 +15,7 @@ local cursor_line_only_in_active_window = augroup("CursorLineOnlyInActiveWindow"
 vim.api.nvim_create_autocmd({ "VimEnter", "WinEnter", "BufWinEnter", "TermLeave" }, {
   group = cursor_line_only_in_active_window,
   callback = function(ev)
-    if ev.file ~= "" then
+    if ev.file ~= "" and not string.find(ev.file, "^term://") then
       vim.opt_local.cursorline = true
       vim.opt_local.relativenumber = true
     end
