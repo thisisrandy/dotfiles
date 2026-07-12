@@ -103,6 +103,7 @@ probably *can*. I exported its settings to
 (Wayland replacement for
   [unclutter](https://wiki.archlinux.org/title/Unclutter))
 - [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/)
+- [All Windows](https://extensions.gnome.org/extension/4833/all-windows-saverestore-window-positions/)
 
 For extensions with lots of configuration, we can dump it to file using
 `dconf`. For example, the Just Perfection config can be exported via `dconf
