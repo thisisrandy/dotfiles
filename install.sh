@@ -503,6 +503,7 @@ curl -fsSL https://antigravity.google/cli/install.sh | bash
 # install Copilot CLI
 curl -fsSL https://gh.io/copilot-install | bash
 
-# install gdctl dependencies
+# install gdctl dependencies along with my laptop monitor toggle script
 sudo apt-get install -y libcairo2-dev libxt-dev libgirepository-2.0-dev
 pip install pycairo PyGObject
+ln -sf $PATH_TO_DOT_FILES/laptop-monitor-toggle $HOME/.local/bin
