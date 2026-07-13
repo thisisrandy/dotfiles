@@ -510,3 +510,6 @@ ln -sf $PATH_TO_DOT_FILES/laptop-monitor-toggle $HOME/.local/bin
 # this is general purpose, but I wrote it for this and only use it here
 ln -sf $PATH_TO_DOT_FILES/set-custom-shortcut $HOME/.local/bin
 perl -E 'say "Toggle Movie Mode"; say "$ENV{HOME}/.local/bin/laptop-monitor-toggle"; say "<Super>bracketright"' | set-custom-shortcut
+
+# install D-Spy. flatpack should already be installed at this point
+flatpak install -y flathub org.gnome.dspy
