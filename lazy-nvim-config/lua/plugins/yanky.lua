@@ -16,6 +16,7 @@ return {
       -- bypass the faulty logic
       -- TODO: Figure out why the ordering is wrong. This might be a LazyVim
       -- bug
+      -- FIXME: This still happens when there's nothing in +, e.g. at login
       clipboard_register = "+",
     },
   },
