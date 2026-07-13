@@ -3,11 +3,11 @@
 LOGICAL_MONITORS=$(gdctl show | sed -n '/^Logical monitors:/,$p')
 
 if grep -q "eDP-1" <<<"$LOGICAL_MONITORS"; then
-  notify-send -a laptop-monitor-toggle "Laptop screen is active. Switching to Video Mode"
+  zenity --info --title="laptop-monitor-toggle" --text="Laptop screen is active. Switching to Video Mode"
   gdctl set --layout-mode logical \
     --logical-monitor --monitor DP-4 --mode 1920x1080@60.000 --x 0 --y 0 --primary
 else
-  notify-send -a laptop-monitor-toggle "Laptop screen is disabled. Switching to Join Displays Mode"
+  zenity --info --title="laptop-monitor-toggle" --text="Laptop screen is disabled. Switching to Join Displays Mode"
   gdctl set --layout-mode logical \
     --logical-monitor --monitor eDP-1 --mode 1920x1080@60.150 --x 0 --y 0 \
     --logical-monitor --monitor DP-4 --mode 1920x1080@60.000 --x 1920 --y 0 --primary \
