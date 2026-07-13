@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# 1. Ask the user for details in succession
+read -p "Enter shortcut name (e.g., My Terminal): " NAME
+read -p "Enter command to execute (e.g., gnome-terminal): " COMMAND
+read -p "Enter key binding (e.g., <Primary><Alt>t. Some punctuation have special names): " SHORTCUT
+
+# 2. Generate a unique ID and path upfront to reuse everywhere
+SLOT_ID=$((RANDOM))
+PATH_SUFFIX="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom${SLOT_ID}/"
+
+# 3. Get the current list of custom keybindings
+CURRENT_BINDINGS=$(gsettings get org.gnome.settings-daemon.plugins.media-keys custom-keybindings)
+
+# 4. Append the new path to the existing array correctly
+if [ "$CURRENT_BINDINGS" = "@as []" ] || [ "$CURRENT_BINDINGS" = "[]" ]; then
+    # Array is completely empty
+    NEW_BINDINGS="['${PATH_SUFFIX}']"
+else
+    # Strip the leading '[' and trailing ']' without wrapping the inner contents in extra quotes
+    STRIPPED_BINDINGS="${CURRENT_BINDINGS#[}"
+    STRIPPED_BINDINGS="${STRIPPED_BINDINGS%]}"
+    NEW_BINDINGS="[${STRIPPED_BINDINGS}, '${PATH_SUFFIX}']"
+fi
+
+# 5. Update the main custom-keybindings schema array
+gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "$NEW_BINDINGS"
+
+# 6. Set the Name, Command, and Keybinding safely using the pre-defined path
+gsettings set "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${PATH_SUFFIX}" name "$NAME"
+gsettings set "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${PATH_SUFFIX}" command "$COMMAND"
+gsettings set "org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:${PATH_SUFFIX}" binding "'$SHORTCUT'"
+
+echo "Success! Custom shortcut '$NAME' is now active."

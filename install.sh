@@ -507,3 +507,6 @@ curl -fsSL https://gh.io/copilot-install | bash
 sudo apt-get install -y libcairo2-dev libxt-dev libgirepository-2.0-dev
 pip install pycairo PyGObject
 ln -sf $PATH_TO_DOT_FILES/laptop-monitor-toggle $HOME/.local/bin
+# this is general purpose, but I wrote it for this and only use it here
+ln -sf $PATH_TO_DOT_FILES/set-custom-shortcut $HOME/.local/bin
+perl -E 'say "Toggle Movie Mode"; say "$ENV{HOME}/.local/bin/laptop-monitor-toggle"; say "<Super>bracketright"' | set-custom-shortcut
