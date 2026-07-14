@@ -40,3 +40,14 @@ if vim.env.KITTY_SCROLLBACK_NVIM ~= "true" then
     end,
   })
 end
+
+-- Project-specific autocmds. This is primarily to circumvent having to
+-- remember to do :noautocmd w every time in project with different or
+-- inconsistent formatting to the formatters I use
+
+vim.api.nvim_create_autocmd("BufRead", {
+  pattern = "*/all-windows/*",
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})
