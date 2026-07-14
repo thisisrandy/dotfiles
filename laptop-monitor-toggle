@@ -5,6 +5,7 @@ LOGICAL_MONITORS=$(gdctl show | sed -n '/^Logical monitors:/,$p')
 if grep -q "eDP-1" <<<"$LOGICAL_MONITORS"; then
   zenity --question --default-cancel --title="laptop-monitor-toggle" --text="Switch to Video Mode?"
   if [ $? -eq 0 ]; then
+    gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell/Extensions/AllWindows --method org.gnome.Shell.Extensions.AllWindows.SaveSession
     gdctl set --layout-mode logical \
       --logical-monitor --monitor DP-4 --mode 1920x1080@60.000 --x 0 --y 0 --primary
     echo '<monitors version="2">
@@ -53,6 +54,7 @@ else
       --logical-monitor --monitor eDP-1 --mode 1920x1080@60.150 --x 0 --y 0 \
       --logical-monitor --monitor DP-4 --mode 1920x1080@60.000 --x 1920 --y 0 --primary \
       --logical-monitor --monitor DP-2 --mode 1920x1080@60.000 --x 3840 --y 0
+    gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell/Extensions/AllWindows --method org.gnome.Shell.Extensions.AllWindows.RestoreSession
     echo '<monitors version="2">
   <configuration>
     <layoutmode>logical</layoutmode>

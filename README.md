@@ -103,7 +103,15 @@ probably *can*. I exported its settings to
 (Wayland replacement for
   [unclutter](https://wiki.archlinux.org/title/Unclutter))
 - [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/)
-- [All Windows](https://extensions.gnome.org/extension/4833/all-windows-saverestore-window-positions/)
+- [All
+Windows](https://extensions.gnome.org/extension/4833/all-windows-saverestore-window-positions/).
+I'm using this for the save/restore window positions feature. I
+[forked](https://github.com/thisisrandy/all-windows) the extension and exposed
+those functions to DBus so I can trigger them from a script (see
+[`laptop-monitor-toggle`](laptop-monitor-toggle)). As such, we can't install
+from the [the extensions page](https://extensions.gnome.org/) until it's merged
+upstream and published. Follow the instructions I wrote down in the [testing
+section](https://github.com/thisisrandy/all-windows#testing) of the readme.
 
 For extensions with lots of configuration, we can dump it to file using
 `dconf`. For example, the Just Perfection config can be exported via `dconf
