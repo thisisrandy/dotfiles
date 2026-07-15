@@ -1745,4 +1745,7 @@ typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 'builtin' 'unset' 'p10k_config_opts'
 
 # Turn on a real time clock
-typeset -g POWERLEVEL9K_EXPERIMENTAL_TIME_REALTIME=true
+# UPDATE: I've noticed at a minimum that the cursor in an unfocused terminal
+# occasionally bounces with this on. It's a cool feature, but not cool enough
+# to be worth the visual annoyance 
+# typeset -g POWERLEVEL9K_EXPERIMENTAL_TIME_REALTIME=true
