@@ -194,6 +194,7 @@ alias rg='rg --smart-case'
 alias logout=gnome-session-quit --logout --no-prompt
 alias td='cd $(mktemp -d)'
 alias df='df -HTx tmpfs -x vfat -x efivarfs'
+alias sus='systemctl suspend'
 # swap zsh l and la (I prefer ls -lAh as my min keystroke alias)
 alias l='ls -lAh'
 alias la='ls -lah'
