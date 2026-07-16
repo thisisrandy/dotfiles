@@ -47,7 +47,7 @@ sudo apt-get -y install curl git zsh xclip htop iftop gcc make \
     cowsay at linux-tools-common linux-tools-generic ranger sshfs \
     figlet whois default-jre moreutils xsel dict lshw gnome-boxes \
     gnome-browser-connector ssh shfmt mesa-utils translate-shell \
-    mutter-dev-bin 7zip
+    mutter-dev-bin 7zip ydotool
 
 ln -sf $PATH_TO_DOT_FILES/.gitconfig $HOME/.gitconfig
 mkdir -p $HOME/.config/ranger
