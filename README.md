@@ -146,6 +146,22 @@ This first time running [navi](https://github.com/denisidoro/navi), it will
 need to load cheat sheet repos. After installing the default, make sure to also
 run `navi add thisisrandy/cheatsheets`.
 
+#### Audio sleep
+
+Ubuntu puts the audio interface to sleep after a few seconds by default. This
+results in a loud popping sound in headphones when the interface cycles, and
+Bluetooth speakers may go to sleep and not recover without manual cycling.
+Fortunately, the fix is easy: Add the following lines to
+`/etc/modprobe.d/audio-powersave.conf` (which may not exist):
+
+```
+options snd_hda_intel power_save=0
+options snd_hda_intel power_save_controller=N
+```
+
+This probably drains battery powered output devices faster, but it's worth the
+trade-off.
+
 ## Mounting external RAID member HDDs
 
 The wisdom found collectively in [Ubuntu doesn't "see" external USB Hard
