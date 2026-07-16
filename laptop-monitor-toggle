@@ -1,14 +1,32 @@
 #!/bin/bash
 
-LOGICAL_MONITORS=$(gdctl show | sed -n '/^Logical monitors:/,$p')
+MONITOR_CONFIG=$(gdctl show)
+LOGICAL_MONITORS=$(echo "$MONITOR_CONFIG" | sed -n '/^Logical monitors:/,$p')
+# Ubuntu keeps changing my external monitor connector names. It seems to cycle
+# between two sets, so the following should be enough to use the "correct"
+# names. If it isn't, I can go further and actually parse the output to get
+# serial numbers or something.
+# FIXME: There may be an underlying issue: It seems like writing monitors.xml
+# isn't enough for persistence. I may even be causing the connector name change
+# by doing it. I could look to
+# https://gitlab.com/knokelmaat/display-configuration-switcher-gnome-extension
+# for ideas if need be
+echo "$MONITOR_CONFIG" | grep DP-4
+if [ $? -eq 0]; then
+  PRIMARY=DP-4
+  SECONDARY=DP-2
+else
+  PRIMARY=DP-3
+  SECONDARY=DP-1
+fi
 
 if grep -q "eDP-1" <<<"$LOGICAL_MONITORS"; then
   zenity --question --default-cancel --title="" --text="Switch to Zen Mode?"
   if [ $? -eq 0 ]; then
     gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell/Extensions/AllWindows --method org.gnome.Shell.Extensions.AllWindows.SaveSession
     gdctl set --layout-mode logical \
-      --logical-monitor --monitor DP-4 --mode 1920x1080@60.000 --x 0 --y 0 --primary
-    echo '<monitors version="2">
+      --logical-monitor --monitor $PRIMARY --mode 1920x1080@60.000 --x 0 --y 0 --primary
+    echo "<monitors version=\"2\">
   <configuration>
     <layoutmode>logical</layoutmode>
     <logicalmonitor>
@@ -18,7 +36,7 @@ if grep -q "eDP-1" <<<"$LOGICAL_MONITORS"; then
       <primary>yes</primary>
       <monitor>
         <monitorspec>
-          <connector>DP-4</connector>
+          <connector>${PRIMARY}</connector>
           <vendor>ACR</vendor>
           <product>Acer B273H</product>
           <serial>LJF0W0064350</serial>
@@ -38,24 +56,24 @@ if grep -q "eDP-1" <<<"$LOGICAL_MONITORS"; then
         <serial>0x00000000</serial>
       </monitorspec>
       <monitorspec>
-        <connector>DP-2</connector>
+        <connector>${SECONDARY}</connector>
         <vendor>ACR</vendor>
         <product>Acer H236HL</product>
         <serial>LX1AA0034210</serial>
       </monitorspec>
     </disabled>
   </configuration>
-</monitors> ' >~/.config/monitors.xml
+</monitors>" >~/.config/monitors.xml
   fi
 else
   zenity --question --default-cancel --title="" --text="Switch to Join Displays Mode?"
   if [ $? -eq 0 ]; then
     gdctl set --layout-mode logical \
       --logical-monitor --monitor eDP-1 --mode 1920x1080@60.150 --x 0 --y 0 \
-      --logical-monitor --monitor DP-4 --mode 1920x1080@60.000 --x 1920 --y 0 --primary \
-      --logical-monitor --monitor DP-2 --mode 1920x1080@60.000 --x 3840 --y 0
+      --logical-monitor --monitor $PRIMARY --mode 1920x1080@60.000 --x 1920 --y 0 --primary \
+      --logical-monitor --monitor $SECONDARY --mode 1920x1080@60.000 --x 3840 --y 0
     gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell/Extensions/AllWindows --method org.gnome.Shell.Extensions.AllWindows.RestoreSession
-    echo '<monitors version="2">
+    echo "<monitors version=\"2\">
   <configuration>
     <layoutmode>logical</layoutmode>
     <logicalmonitor>
@@ -64,7 +82,7 @@ else
       <scale>1</scale>
       <monitor>
         <monitorspec>
-          <connector>DP-2</connector>
+          <connector>${SECONDARY}</connector>
           <vendor>ACR</vendor>
           <product>Acer H236HL</product>
           <serial>LX1AA0034210</serial>
@@ -101,7 +119,7 @@ else
       <primary>yes</primary>
       <monitor>
         <monitorspec>
-          <connector>DP-4</connector>
+          <connector>${PRIMARY}</connector>
           <vendor>ACR</vendor>
           <product>Acer B273H</product>
           <serial>LJF0W0064350</serial>
@@ -114,6 +132,6 @@ else
       </monitor>
     </logicalmonitor>
   </configuration>
-</monitors>' >~/.config/monitors.xml
+</monitors>" >~/.config/monitors.xml
   fi
 fi
