@@ -7,7 +7,7 @@ if grep -q "eDP-1" <<<"$LOGICAL_MONITORS"; then
   if [ $? -eq 0 ]; then
     gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell/Extensions/AllWindows --method org.gnome.Shell.Extensions.AllWindows.SaveSession
     gdctl set --layout-mode logical \
-      --logical-monitor --monitor DP-3 --mode 1920x1080@60.000 --x 0 --y 0 --primary
+      --logical-monitor --monitor DP-4 --mode 1920x1080@60.000 --x 0 --y 0 --primary
     echo '<monitors version="2">
   <configuration>
     <layoutmode>logical</layoutmode>
@@ -18,7 +18,7 @@ if grep -q "eDP-1" <<<"$LOGICAL_MONITORS"; then
       <primary>yes</primary>
       <monitor>
         <monitorspec>
-          <connector>DP-3</connector>
+          <connector>DP-4</connector>
           <vendor>ACR</vendor>
           <product>Acer B273H</product>
           <serial>LJF0W0064350</serial>
@@ -38,7 +38,7 @@ if grep -q "eDP-1" <<<"$LOGICAL_MONITORS"; then
         <serial>0x00000000</serial>
       </monitorspec>
       <monitorspec>
-        <connector>DP-1</connector>
+        <connector>DP-2</connector>
         <vendor>ACR</vendor>
         <product>Acer H236HL</product>
         <serial>LX1AA0034210</serial>
@@ -52,8 +52,8 @@ else
   if [ $? -eq 0 ]; then
     gdctl set --layout-mode logical \
       --logical-monitor --monitor eDP-1 --mode 1920x1080@60.150 --x 0 --y 0 \
-      --logical-monitor --monitor DP-3 --mode 1920x1080@60.000 --x 1920 --y 0 --primary \
-      --logical-monitor --monitor DP-1 --mode 1920x1080@60.000 --x 3840 --y 0
+      --logical-monitor --monitor DP-4 --mode 1920x1080@60.000 --x 1920 --y 0 --primary \
+      --logical-monitor --monitor DP-2 --mode 1920x1080@60.000 --x 3840 --y 0
     gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell/Extensions/AllWindows --method org.gnome.Shell.Extensions.AllWindows.RestoreSession
     echo '<monitors version="2">
   <configuration>
@@ -64,7 +64,7 @@ else
       <scale>1</scale>
       <monitor>
         <monitorspec>
-          <connector>DP-1</connector>
+          <connector>DP-2</connector>
           <vendor>ACR</vendor>
           <product>Acer H236HL</product>
           <serial>LX1AA0034210</serial>
@@ -101,7 +101,7 @@ else
       <primary>yes</primary>
       <monitor>
         <monitorspec>
-          <connector>DP-3</connector>
+          <connector>DP-4</connector>
           <vendor>ACR</vendor>
           <product>Acer B273H</product>
           <serial>LJF0W0064350</serial>
