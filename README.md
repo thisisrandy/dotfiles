@@ -112,6 +112,9 @@ those functions to DBus so I can trigger them from a script (see
 from the [the extensions page](https://extensions.gnome.org/) until it's merged
 upstream and published. Follow the instructions I wrote down in the [testing
 section](https://github.com/thisisrandy/all-windows#testing) of the readme.
+- [CHC-E](https://extensions.gnome.org/extension/4167/custom-hot-corners-extended/).
+I use this for a few custom shortcuts (prefixed by `Super+Shift`) and nothing
+else. Note that its visual effects (none of which I use) seem largely broken.
 
 For extensions with lots of configuration, we can dump it to file using
 `dconf`. For example, the Just Perfection config can be exported via `dconf
