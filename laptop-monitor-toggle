@@ -11,8 +11,8 @@ LOGICAL_MONITORS=$(echo "$MONITOR_CONFIG" | sed -n '/^Logical monitors:/,$p')
 # by doing it. I could look to
 # https://gitlab.com/knokelmaat/display-configuration-switcher-gnome-extension
 # for ideas if need be
-echo "$MONITOR_CONFIG" | grep DP-4
-if [ $? -eq 0]; then
+echo "$MONITOR_CONFIG" | grep DP-4 &>/dev/null
+if [ $? -eq 0 ]; then
   PRIMARY=DP-4
   SECONDARY=DP-2
 else
