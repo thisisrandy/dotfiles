@@ -162,6 +162,26 @@ options snd_hda_intel power_save_controller=N
 This probably drains battery powered output devices faster, but it's worth the
 trade-off.
 
+#### Mouse chugging under network load
+
+I was observing some bad mouse chugging when the system was under network load
+only (lots of CPU available). This is probably due to the mouse experiencing
+interrupt starvation since the network interface is generating tons of packet
+interrupts. Amazingly, my first attempt to fix this succeeded. We can modify
+`/etc/default/grub` as follows:
+
+```
+GRUB_CMDLINE_LINUX_DEFAULT="usbhid.mousepoll=2"
+```
+
+If the variable isn't already empty, append to it. Per [the archlinux
+wiki](https://wiki.archlinux.org/title/Mouse_polling_rate), this changes the
+frequency of mouse polls in ms. Also according to that page, the default is `8`
+(rounded down to a power of 2 from 10), so I've 4x'ed the work my CPU has to do
+to handle the mouse. I doubt I'll notice any negative impact from this, but
+need to remember that it's set just in case. The mouse is noticeably smoother
+with this setting on.
+
 ## Mounting external RAID member HDDs
 
 The wisdom found collectively in [Ubuntu doesn't "see" external USB Hard
