@@ -514,3 +514,9 @@ perl -E 'say "Toggle Movie Mode"; say "$ENV{HOME}/.local/bin/laptop-monitor-togg
 
 # install D-Spy. flatpack should already be installed at this point
 flatpak install -y flathub org.gnome.dspy
+
+# install go
+pushd $(mktemp -d)
+wget https://go.dev/dl/go1.26.5.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.26.5.linux-amd64.tar.gz
+popd
