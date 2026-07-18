@@ -2,13 +2,33 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- Explicitly use registers instead of relying on unnamedplus. See e.g.
+-- https://github.com/neovim/neovim/issues/11804 and where we set clipboard in
+-- options.lua
+-- Single-character delete/change operations
+vim.keymap.set({ "n", "x" }, "x", '"_x', { desc = "Cut char to + blackhole register", noremap = true })
+vim.keymap.set({ "n", "x" }, "X", '"_X', { desc = "Cut char backward to + blackhole register", noremap = true })
+-- Yank (Copy) operations
+vim.keymap.set({ "n", "x" }, "y", '"+y', { desc = "Yank to + register", noremap = true })
+vim.keymap.set("n", "Y", '"+y$', { desc = "Yank rest of line to + register", noremap = true })
+-- Delete (Cut) operations
+vim.keymap.set({ "n", "x" }, "d", '"+d', { desc = "Delete to + register", noremap = true })
+vim.keymap.set("n", "D", '"+D', { desc = "Delete rest of line to + register", noremap = true })
+-- Change operations
+vim.keymap.set({ "n", "x" }, "c", '"+c', { desc = "Change to + register", noremap = true })
+vim.keymap.set("n", "C", '"+C', { desc = "Change rest of line to + register", noremap = true })
+-- Paste operations
+vim.keymap.set({ "n", "x" }, "p", '"+p', { desc = "Paste after from + register", noremap = true })
+vim.keymap.set({ "n", "x" }, "P", '"+P', { desc = "Paste before from + register", noremap = true })
+-- s is mapped to flash.nvim, so we don't remap it here
+
 -- Ergonomic escape
 vim.keymap.set({ "i", "c" }, "jk", "<esc>")
 
 -- Ergonomic paste
 -- NOTE: This requires virtualedit=onemore, otherwise the EOL behavior is
 -- different from anywhere else. See options.lua
-vim.keymap.set("i", "<C-v>", "<C-o>P", { desc = "Paste from the keyboard in insert mode", noremap = true })
+vim.keymap.set("i", "<C-v>", "<C-o>P", { desc = "Paste from the keyboard in insert mode", remap = true })
 
 -- Map context menu key to mouse right click
 vim.keymap.set("n", "", "<Cmd>popup PopUp<CR>", { silent = true })
