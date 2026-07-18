@@ -115,6 +115,9 @@ section](https://github.com/thisisrandy/all-windows#testing) of the readme.
 - [CHC-E](https://extensions.gnome.org/extension/4167/custom-hot-corners-extended/).
 I use this for a few custom shortcuts (prefixed by `Super+Shift`) and nothing
 else. Note that its visual effects (none of which I use) seem largely broken.
+- [Focus](https://extensions.gnome.org/extension/3924/focus/). The interaction
+with nvim and the clipboard is annoying, especially when yanky's sync feature
+is on, but it is functional.
 
 For extensions with lots of configuration, we can dump it to file using
 `dconf`. For example, the Just Perfection config can be exported via `dconf
