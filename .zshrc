@@ -142,6 +142,10 @@ export NVM_DIR="$HOME/.nvm"
 # the README
 # export DRI_PRIME=1
 
+# crush 
+# WARN: NEVER COMMIT YOUR SECRET KEY
+export AIHUBMIX_API_KEY=
+
 # history
 export HISTSIZE=1000000
 setopt HIST_IGNORE_ALL_DUPS

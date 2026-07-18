@@ -1,0 +1,236 @@
+{
+  "providers": {
+    "aihubmix": {
+      "api_key": "${AIHUBMIX_API_KEY:?set AIHUBMIX_API_KEY}"
+    }
+  },
+  "models": {
+    "large": {
+      "model": "gpt-5.5-free",
+      "provider": "aihubmix",
+      "reasoning_effort": "medium",
+      "max_tokens": 128000
+    }
+  },
+  "recent_models": {
+    "large": [
+      {
+        "model": "gpt-5.5-free",
+        "provider": "aihubmix"
+      },
+      {
+        "model": "coding-glm-4.6-free",
+        "provider": "aihubmix"
+      },
+      {
+        "model": "kimi-for-coding-free",
+        "provider": "aihubmix"
+      },
+      {
+        "model": "gemini-3-flash-preview-free",
+        "provider": "aihubmix"
+      }
+    ]
+  },
+  "options": {
+    "tui": {
+      "compact_mode": false
+    },
+    "notification_style": "auto"
+  },
+  "lsp": {
+    "clangd": {
+      "command": "/home/randy/.local/share/nvim/mason/bin/clangd",
+      "filetypes": [
+        "c",
+        "cpp",
+        "objc",
+        "objcpp",
+        "cuda",
+        "proto"
+      ],
+      "root_markers": [
+        ".clangd",
+        ".clang-tidy",
+        ".clang-format",
+        "compile_commands.json",
+        "compile_flags.txt",
+        "configure.ac",
+        ".git"
+      ]
+    },
+    "go": {
+      "command": "/home/randy/.local/share/nvim/mason/bin/gopls",
+      "filetypes": [
+        "go",
+        "gomod",
+        "gowork",
+        "gotmpl"
+      ],
+      "root_markers": [
+        "go.work",
+        "go.mod",
+        ".git"
+      ]
+    },
+    "haskell": {
+      "command": "/home/randy/.local/share/nvim/mason/bin/haskell-language-server-wrapper",
+      "args": [
+        "--lsp"
+      ],
+      "filetypes": [
+        "haskell",
+        "lhaskell"
+      ],
+      "root_markers": [
+        "hie.yaml",
+        "stack.yaml",
+        "cabal.project",
+        "*.cabal",
+        "package.yaml",
+        ".git"
+      ]
+    },
+    "json": {
+      "command": "/home/randy/.local/share/nvim/mason/bin/vscode-json-language-server",
+      "args": [
+        "--stdio"
+      ],
+      "filetypes": [
+        "json",
+        "jsonc"
+      ],
+      "root_markers": [
+        ".git"
+      ]
+    },
+    "lua": {
+      "command": "/home/randy/.local/share/nvim/mason/bin/lua-language-server",
+      "filetypes": [
+        "lua"
+      ],
+      "root_markers": [
+        ".luarc.json",
+        ".luarc.jsonc",
+        ".luacheckrc",
+        ".stylua.toml",
+        "stylua.toml",
+        "selene.toml",
+        "selene.yml",
+        ".git"
+      ]
+    },
+    "markdown": {
+      "command": "/home/randy/.local/share/nvim/mason/bin/marksman",
+      "args": [
+        "server"
+      ],
+      "filetypes": [
+        "markdown",
+        "markdown.mdx"
+      ],
+      "root_markers": [
+        ".marksman.toml",
+        ".git"
+      ]
+    },
+    "cmake": {
+      "command": "/home/randy/.local/share/nvim/mason/bin/neocmakelsp",
+      "args": [
+        "stdio"
+      ],
+      "filetypes": [
+        "cmake"
+      ],
+      "root_markers": [
+        "CMakePresets.json",
+        "CTestConfig.cmake",
+        ".git",
+        "build",
+        "cmake"
+      ]
+    },
+    "python": {
+      "command": "/home/randy/.local/share/nvim/mason/bin/pyright-langserver",
+      "args": [
+        "--stdio"
+      ],
+      "filetypes": [
+        "python"
+      ],
+      "root_markers": [
+        "pyproject.toml",
+        "setup.py",
+        "setup.cfg",
+        "requirements.txt",
+        "Pipfile",
+        "pyrightconfig.json",
+        ".git"
+      ]
+    },
+    "ruff": {
+      "command": "/home/randy/.local/share/nvim/mason/bin/ruff",
+      "args": [
+        "server"
+      ],
+      "filetypes": [
+        "python"
+      ],
+      "root_markers": [
+        "pyproject.toml",
+        "ruff.toml",
+        ".ruff.toml",
+        ".git"
+      ]
+    },
+    "toml": {
+      "command": "/home/randy/.local/share/nvim/mason/bin/taplo",
+      "args": [
+        "lsp",
+        "stdio"
+      ],
+      "filetypes": [
+        "toml"
+      ],
+      "root_markers": [
+        "taplo.toml",
+        ".taplo.toml",
+        ".git"
+      ]
+    },
+    "typescript": {
+      "command": "/home/randy/.local/share/nvim/mason/bin/vtsls",
+      "args": [
+        "--stdio"
+      ],
+      "filetypes": [
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx"
+      ],
+      "root_markers": [
+        "tsconfig.json",
+        "jsconfig.json",
+        "package.json",
+        ".git"
+      ]
+    },
+    "yaml": {
+      "command": "/home/randy/.local/share/nvim/mason/bin/yaml-language-server",
+      "args": [
+        "--stdio"
+      ],
+      "filetypes": [
+        "yaml",
+        "yaml.docker-compose",
+        "yaml.gitlab"
+      ],
+      "root_markers": [
+        ".git"
+      ]
+    }
+  }
+}
