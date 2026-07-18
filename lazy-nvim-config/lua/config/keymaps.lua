@@ -2,11 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
--- Don't use the clipboard for x
-vim.keymap.set({ "n", "x" }, "x", '"_x', { desc = "Cut char to blackhole register", noremap = true })
-vim.keymap.set({ "n", "x" }, "X", '"_X', { desc = "Cut char backward to blackhole register", noremap = true })
--- -- s is mapped to flash.nvim, so we don't remap it here
-
 -- Ergonomic escape
 vim.keymap.set({ "i", "c" }, "jk", "<esc>")
 
