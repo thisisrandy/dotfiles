@@ -8,7 +8,10 @@ vim.opt.virtualedit = "onemore"
 vim.opt.list = false
 vim.opt.listchars = "space:·,multispace:····+,tab:-￫,eol:¶,trail:~,extends:>,precedes:<,nbsp:⍽"
 vim.g.netrw_browsex_viewer = "setsid xdg-open"
--- LazyVim sets this to unnamedplus, which we don't want to use due to perf
--- issues. See e.g. https://github.com/neovim/neovim/issues/11804 and also my
--- mappings using specific registers in keymaps.lua
-vim.o.clipboard = ""
+-- This is the solution to my system clipboard window focus-related woes. If we
+-- ask the terminal for the clipboard instead of using an external program (see
+-- :h clipboard-osc52) it doesn't make the UI flash. Note that some terminals
+-- block reading the clipboard by default as it's a security concern. I've
+-- configured kitty to allow all reads without asking, which is the only way to
+-- have a nice experience with vim
+vim.g.clipboard = "osc52"
