@@ -19,6 +19,10 @@
 		{
 			"passKeys": "",
 			"pattern": ":https://colab.research.google.com/"
+		},
+		{
+			"passKeys": "r ",
+			"pattern": ":https://github.com"
 		}
 	],
 	"grabBackFocus": true,
