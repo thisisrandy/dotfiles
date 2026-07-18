@@ -62,6 +62,12 @@ return {
               -- kill any picker
               -- ["jk"] = require("telescope.actions").close,
             },
+            n = {
+              -- It's unclear why this doesn't close pickers in normal mode by
+              -- default even though it works in insert mode. There's even a
+              -- catch that tells the user to use :qa to exit vim
+              ["<C-c>"] = require("telescope.actions").close,
+            },
           },
           dynamic_preview_title = true,
         },
