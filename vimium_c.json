@@ -1,11 +1,11 @@
 {
 	"name": "Vimium C",
-	"@time": "5/26/2022, 4:19:25 PM",
-	"time": 1653607165988,
+	"@time": "7/17/2026, 7:06:36 PM",
+	"time": 1784340396372,
 	"environment": {
-		"extension": "1.98.0",
+		"extension": "2.12.2",
 		"platform": "linux",
-		"chrome": "101"
+		"chromium": 150
 	},
 	"exclusionRules": [
 		{
@@ -23,9 +23,10 @@
 	],
 	"grabBackFocus": true,
 	"hideHud": true,
+	"keyLayout": 0,
 	"keyMappings": [
 		"#!no-check",
-		"map F LinkHints.activateModeToOpenInNewForegroundTab",
+		"map F LinkHints.activateOpenInNewForegroundTab",
 		"map X closeOtherTabs",
 		"map < moveTabLeft",
 		"map > moveTabRight",
