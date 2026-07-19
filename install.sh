@@ -530,3 +530,6 @@ sudo apt update && sudo apt install crush
 # install its config file, too. I'm relying on mason to manage LSPs. I
 # basically asked crush to analyze the mason packages dir and autogenerate this
 ln -sf $PATH_TO_DOT_FILES/crush.json $HOME/.local/share/crush/
+
+# install OpenCode
+curl -fsSL https://opencode.ai/install | bash
