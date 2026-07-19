@@ -146,6 +146,9 @@ export NVM_DIR="$HOME/.nvm"
 # WARN: NEVER COMMIT YOUR SECRET KEY
 export AIHUBMIX_API_KEY=
 
+# opencode
+export PATH=/home/randy/.opencode/bin:$PATH
+
 # history
 export HISTSIZE=1000000
 setopt HIST_IGNORE_ALL_DUPS
