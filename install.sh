@@ -19,7 +19,7 @@ if [ $USER = root ]; then
     echo Please run it normally and priviledges will be escalated as needed
     exit 1
 fi
-set -x
+set -xeuo pipefail
 
 # this will be used in several places
 mkdir -p ~/.local/bin
