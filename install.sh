@@ -533,3 +533,11 @@ ln -sf $PATH_TO_DOT_FILES/crush.json $HOME/.local/share/crush/
 
 # install OpenCode
 curl -fsSL https://opencode.ai/install | bash
+
+# install Arm GNU EABI (Embedded Application Binary Interface) toolchain. See
+# https://gitlab.arm.com/tooling/gnu-toolchains-for-arm/-/tree/releases/15.3.rel1
+pushd $HOME/.local/share
+wget "https://gitlab.arm.com/api/v4/projects/tooling%2Fgnu-toolchains-for-arm/packages/generic/gnu-toolchain/15.3.rel1/arm-gnu-toolchain-15.3.rel1-x86_64-arm-none-eabi.tar.xz"
+tar xJf arm-gnu-toolchain-15.3.rel1-x86_64-arm-none-eabi.tar.xz
+rm arm-gnu-toolchain-15.3.rel1-x86_64-arm-none-eabi.tar.xz
+popd
