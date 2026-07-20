@@ -19,7 +19,12 @@ return {
         "yaml",
         "css",
         "latex",
-        "norg",
+        -- These are provided by nvim-neorg/tree-sitter-norg and
+        -- nvim-neorg/tree-sitter-norg-meta. In 306e1034, I said I was adding
+        -- norg because it's required by Snacks.image, so maybe I was following
+        -- some instructions that have since updated
+        -- "norg",
+        -- "norg_meta",
         "scss",
         "svelte",
         "typst",
