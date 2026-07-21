@@ -122,7 +122,8 @@ For extensions with lots of configuration, we can dump it to file using
 dump /org/gnome/shell/extensions/just-perfection/ > just-perfection.ini` (see
 [`just-perfection.ini`](just-perfection.ini)) and imported via `dconf load
 /org/gnome/shell/extensions/just-perfection/ < just-perfection.ini`. Anything
-I've dumped at any point lives in this repo.
+I've dumped at any point lives in this repo. The dump/load cycle is scripted by
+[dconf_sync.sh](gnome-extension-config/dconf_sync.sh).
 
 Note that the [GNOME Shell Integration Chrome
 extension](https://chromewebstore.google.com/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep)
