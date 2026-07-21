@@ -280,6 +280,7 @@ pactl load-module module-null-sink sink_name=VirtualSpeaker sink_properties=devi
 pactl load-module module-virtual-source source_name=VirtualMic master=VirtualSpeaker.monitor
 ```
 
-In the OBS Studio Audio Mixer pane, find the DroidCam source and click "Enable
-Monitoring" (the headset icon near the bottom). VirtualMic can now be selected
-as the system input source.
+In OBS Studio, `File -> Settings -> Audio -> Advanced` and set Monitoring
+Device to our new `VirtualSpeaker`. In the Audio Mixer pane, find the DroidCam
+source and click "Enable Monitoring" (the headset icon near the bottom).
+VirtualMic can now be selected as the system input source.
