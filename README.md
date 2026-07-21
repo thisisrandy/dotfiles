@@ -264,3 +264,22 @@ application called
 [switcherooctl](https://man.archlinux.org/man/switcherooctl.1.en) that
 handles this in a more complete way. Note that `prime-select` from the
 `nvidia-prime` functions, but doesn't seem to have any effect.
+
+## [DroidCam](https://droidcam.app/) Virtual Camera Audio Setup
+
+Get `pactl`
+
+```
+sudo apt-get install pulseaudio-utils
+```
+
+Create a virtual speaker and mic that connects to it
+
+```
+pactl load-module module-null-sink sink_name=VirtualSpeaker sink_properties=device.description=VirtualSpeaker
+pactl load-module module-virtual-source source_name=VirtualMic master=VirtualSpeaker.monitor
+```
+
+In the OBS Studio Audio Mixer pane, find the DroidCam source and click "Enable
+Monitoring" (the headset icon near the bottom). VirtualMic can now be selected
+as the system input source.
