@@ -91,13 +91,13 @@ integration chrome plugin. A list of install url(s) follows:
 
 - ~~[OverviewNavigation](https://extensions.gnome.org/extension/1702/overview-navigation/)~~
   *(Not compatible with gnome > 42)*
-- [V-Shell](https://extensions.gnome.org/extension/5177/vertical-workspaces/)
-- [WSP (Windows Search Provider)](https://extensions.gnome.org/extension/6730/wsp-windows-search-provider/)
-- [Dash to Panel](https://extensions.gnome.org/extension/1160/dash-to-panel/).
+- ~~[Dash to Panel](https://extensions.gnome.org/extension/1160/dash-to-panel/)~~.
 *(Not currently using in preference to Dash to Dock)* This extension has a config
 dump baked into the GUI, so we don't *have* to use `dconf` (see below) but
 probably *can*. I exported its settings to
 [dash-to-panel.ini](dash-to-panel.ini)
+- [V-Shell](https://extensions.gnome.org/extension/5177/vertical-workspaces/)
+- [WSP (Windows Search Provider)](https://extensions.gnome.org/extension/6730/wsp-windows-search-provider/)
 - [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
 - [Hide Cursor](https://extensions.gnome.org/extension/6727/hide-cursor/)
 (Wayland replacement for
