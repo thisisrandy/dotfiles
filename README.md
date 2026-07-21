@@ -231,11 +231,6 @@ First, get the necessary software using
 sudo apt-get install qemu-kvm libvirt-daemon-system
 ```
 
-### Other notes
-
-- Remember to adjust the power settings on new VMs. Boxes doesn't seem able to
-  recover when the guest blanks its screen
-
 #### Dump
 
 1. Grab the QCOW disk image(s) in `~/.local/share/gnome-boxes/images`
@@ -251,6 +246,11 @@ virsh -c qemu:///session list --all | awk 'NR>2 { print $2 }' | \
 
 1. Replace the QCOW image(s) in the same location
 2. Run `virsh create CONFIG.xml` for each
+
+#### Other notes
+
+- Remember to adjust the power settings on new VMs. Boxes doesn't seem able to
+  recover when the guest blanks its screen
 
 ## Making use of older GPUs
 
