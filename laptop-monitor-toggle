@@ -14,13 +14,13 @@ LOGICAL_MONITORS=$(echo "$MONITOR_CONFIG" | sed -n '/^Logical monitors:/,$p')
 echo "$MONITOR_CONFIG" | grep DP-4 &>/dev/null
 if [ $? -eq 0 ]; then
   PRIMARY=DP-4
-  SECONDARY=DP-2
 else
   PRIMARY=DP-3
-  SECONDARY=DP-1
 fi
+SECONDARY=DVI-I-4 # Acer
+TERTIARY=DVI-I-3  # LG
 
-if grep -q "eDP-1" <<<"$LOGICAL_MONITORS"; then
+if [ $(grep "Logical monitor #" <<<"$LOGICAL_MONITORS" | wc -l) -eq 3 ]; then
   zenity --question --default-cancel --title="" --text="Switch to Zen Mode?"
   if [ $? -eq 0 ]; then
     gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell/Extensions/AllWindows --method org.gnome.Shell.Extensions.AllWindows.SavePositions
@@ -50,30 +50,19 @@ if grep -q "eDP-1" <<<"$LOGICAL_MONITORS"; then
     </logicalmonitor>
     <disabled>
       <monitorspec>
-        <connector>eDP-1</connector>
-        <vendor>LGD</vendor>
-        <product>0x032c</product>
-        <serial>0x00000000</serial>
-      </monitorspec>
-      <monitorspec>
         <connector>${SECONDARY}</connector>
         <vendor>ACR</vendor>
         <product>Acer H236HL</product>
         <serial>LX1AA0034210</serial>
       </monitorspec>
+      <monitorspec>
+        <connector>${TERTIARY}</connector>
+        <vendor>GSM</vendor>
+        <product>E2350</product>
+        <serial>0x01010101</serial>
+      </monitorspec>
     </disabled>
   </configuration>
-</monitors>" >~/.config/monitors.xml
-  fi
-else
-  zenity --question --default-cancel --title="" --text="Switch to Join Displays Mode?"
-  if [ $? -eq 0 ]; then
-    gdctl set --layout-mode logical \
-      --logical-monitor --monitor eDP-1 --mode 1920x1080@60.150 --x 0 --y 0 \
-      --logical-monitor --monitor $PRIMARY --mode 1920x1080@60.000 --x 1920 --y 0 --primary \
-      --logical-monitor --monitor $SECONDARY --mode 1920x1080@60.000 --x 3840 --y 0
-    gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell/Extensions/AllWindows --method org.gnome.Shell.Extensions.AllWindows.RestorePositions
-    echo "<monitors version=\"2\">
   <configuration>
     <layoutmode>logical</layoutmode>
     <logicalmonitor>
@@ -82,7 +71,134 @@ else
       <scale>1</scale>
       <monitor>
         <monitorspec>
+          <connector>DP-2</connector>
+          <vendor>ACR</vendor>
+          <product>Acer H236HL</product>
+          <serial>LX1AA0034210</serial>
+        </monitorspec>
+        <mode>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>60.000</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+    <logicalmonitor>
+      <x>0</x>
+      <y>0</y>
+      <scale>1</scale>
+      <monitor>
+        <monitorspec>
+          <connector>eDP-1</connector>
+          <vendor>LGD</vendor>
+          <product>0x032c</product>
+          <serial>0x00000000</serial>
+        </monitorspec>
+        <mode>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>60.150</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+    <logicalmonitor>
+      <x>1920</x>
+      <y>0</y>
+      <scale>1</scale>
+      <primary>yes</primary>
+      <monitor>
+        <monitorspec>
+          <connector>${PRIMARY}</connector>
+          <vendor>ACR</vendor>
+          <product>Acer B273H</product>
+          <serial>LJF0W0064350</serial>
+        </monitorspec>
+        <mode>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>60.000</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+  </configuration>
+</monitors>" >~/.config/monitors.xml
+  fi
+else
+  zenity --question --default-cancel --title="" --text="Switch to Join Displays Mode?"
+  if [ $? -eq 0 ]; then
+    gdctl set --layout-mode logical \
+      --logical-monitor --monitor $TERTIARY --mode 1920x1080@60.000 --x 0 --y 0 \
+      --logical-monitor --monitor $PRIMARY --mode 1920x1080@60.000 --x 1920 --y 0 --primary \
+      --logical-monitor --monitor $SECONDARY --mode 1920x1080@60.000 --x 3840 --y 0
+    gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell/Extensions/AllWindows --method org.gnome.Shell.Extensions.AllWindows.RestorePositions
+    echo "<monitors version=\"2\">
+  <configuration>
+    <layoutmode>logical</layoutmode>
+    <logicalmonitor>
+      <x>1920</x>
+      <y>0</y>
+      <scale>1</scale>
+      <primary>yes</primary>
+      <monitor>
+        <monitorspec>
+          <connector>${PRIMARY}</connector>
+          <vendor>ACR</vendor>
+          <product>Acer B273H</product>
+          <serial>LJF0W0064350</serial>
+        </monitorspec>
+        <mode>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>60.000</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+    <logicalmonitor>
+      <x>0</x>
+      <y>0</y>
+      <scale>1</scale>
+      <monitor>
+        <monitorspec>
+          <connector>${TERTIARY}</connector>
+          <vendor>GSM</vendor>
+          <product>E2350</product>
+          <serial>0x01010101</serial>
+        </monitorspec>
+        <mode>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>60.000</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+    <logicalmonitor>
+      <x>3840</x>
+      <y>0</y>
+      <scale>1</scale>
+      <monitor>
+        <monitorspec>
           <connector>${SECONDARY}</connector>
+          <vendor>ACR</vendor>
+          <product>Acer H236HL</product>
+          <serial>LX1AA0034210</serial>
+        </monitorspec>
+        <mode>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>60.000</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+  </configuration>
+  <configuration>
+    <layoutmode>logical</layoutmode>
+    <logicalmonitor>
+      <x>3840</x>
+      <y>0</y>
+      <scale>1</scale>
+      <monitor>
+        <monitorspec>
+          <connector>DP-2</connector>
           <vendor>ACR</vendor>
           <product>Acer H236HL</product>
           <serial>LX1AA0034210</serial>
