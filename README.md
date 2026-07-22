@@ -120,9 +120,10 @@ else. Note that its visual effects (none of which I use) seem largely broken.
 For extensions with lots of configuration, we can dump it to file using
 `dconf`. For example, the Just Perfection config can be exported via `dconf
 dump /org/gnome/shell/extensions/just-perfection/ > just-perfection.ini` (see
-[`just-perfection.ini`](just-perfection.ini)) and imported via `dconf load
-/org/gnome/shell/extensions/just-perfection/ < just-perfection.ini`. Anything
-I've dumped at any point lives in this repo. The dump/load cycle is scripted by
+[`just-perfection.ini`](gnome-extension-config/just-perfection.ini)) and
+imported via `dconf load /org/gnome/shell/extensions/just-perfection/ <
+just-perfection.ini`. Anything I've dumped at any point lives in this repo. The
+dump/load cycle is scripted by
 [`dconf_sync.sh`](gnome-extension-config/dconf_sync.sh).
 
 Note that the [GNOME Shell Integration Chrome
