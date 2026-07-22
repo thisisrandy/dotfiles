@@ -17,8 +17,20 @@ if [ $? -eq 0 ]; then
 else
   PRIMARY=DP-3
 fi
-SECONDARY=DVI-I-4 # Acer
-TERTIARY=DVI-I-3  # LG
+# Acer 23"
+grep -q DVI-I-4 <<<"$MONITOR_CONFIG"
+if [ $? -eq 0 ]; then
+  SECONDARY=DVI-I-4
+else
+  SECONDARY=DVI-I-2
+fi
+# LG 23"
+grep -q DVI-I-3 <<<"$MONITOR_CONFIG"
+if [ $? -eq 0 ]; then
+  TERTIARY=DVI-I-3
+else
+  TERTIARY=DVI-I-1
+fi
 
 if [ $(grep "Logical monitor #" <<<"$LOGICAL_MONITORS" | wc -l) -eq 3 ]; then
   zenity --question --default-cancel --title="" --text="Switch to Zen Mode?"
