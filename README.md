@@ -95,7 +95,7 @@ integration chrome plugin. A list of install url(s) follows:
 *(Not currently using in preference to Dash to Dock)* This extension has a config
 dump baked into the GUI, so we don't *have* to use `dconf` (see below) but
 probably *can*. I exported its settings to
-[dash-to-panel.ini](dash-to-panel.ini)
+[dash-to-panel.ini](gnome-extension-config/dash-to-panel.ini)
 - [V-Shell](https://extensions.gnome.org/extension/5177/vertical-workspaces/)
 - [WSP (Windows Search Provider)](https://extensions.gnome.org/extension/6730/wsp-windows-search-provider/)
 - [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
