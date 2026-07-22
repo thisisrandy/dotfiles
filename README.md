@@ -268,18 +268,36 @@ handles this in a more complete way. Note that `prime-select` from the
 
 ## [DroidCam](https://droidcam.app/) Virtual Camera Audio Setup
 
+### Persistence
+
+The naive instructions below don't persist, and in kind of an asymmetrical way.
+Despite the fact that I set up a `default.pa` under my home directory,
+`VirtualSpeaker` doesn't exist after rebooting. However, `OBS` remembers
+`VirtualSpeaker`, except it's really just remembering some dangling reference.
+So the best I have right now is to set this up manually for every session. That
+means the following:
+
+1. Open `OBS` settings and set Monitoring Device to something other than `VirtualSpeaker`.
+2. Run the `pactl` commands to create `VirtualSpeaker` and `VirtualMic`.
+3. Reselect `VirtualSpeaker` in `OBS`.
+4. Hit "Start Virtual Camera" in `OBS`.
+
+### Naive Instructions
+
 Get `pactl`
 
-```
-sudo apt-get install pulseaudio-utils
+```bash
+sudo apt-get install pulseaudio pulseaudio-utils
 ```
 
 Create a virtual speaker and mic that connects to it
 
-```
+```bash
 pactl load-module module-null-sink sink_name=VirtualSpeaker sink_properties=device.description=VirtualSpeaker
 pactl load-module module-virtual-source source_name=VirtualMic master=VirtualSpeaker.monitor
 ```
+
+For persistence, put these lines (sans `pactl`) in `~/.config/pulse/default.pa`.
 
 In OBS Studio, `File -> Settings -> Audio -> Advanced` and set Monitoring
 Device to our new `VirtualSpeaker`. In the Audio Mixer pane, find the DroidCam
