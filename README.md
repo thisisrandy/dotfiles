@@ -136,8 +136,8 @@ is supposedly able to sync these, so this may no longer be a manual step.
 Needed for [Github Credential Manager](https://github.com/git-ecosystem/git-credential-manager).
 The first `git` action will trigger login.
 
-0. `gpg --full-generate-key`
-1. `pass init <gpg-id>`
+1. `gpg --full-generate-key`
+2. `pass init <gpg-id>`
 
 #### Mounting a partition as /home
 
