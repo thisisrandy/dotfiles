@@ -214,6 +214,10 @@ gets us through to the win. In particular:
 
 ## GNOME Boxes
 
+A note upfront: I have abandoned Boxes for VirtualBox, which is also free and just
+way better at basically everything. I'll leave this around for reference, I
+guess.
+
 ### Getting files out of a VM
 
 1. Launch the client, then click on the client in the Boxes menu and go to
