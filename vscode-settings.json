@@ -322,5 +322,6 @@
     "statusBar.foreground": "#303030",
     "statusBar.debuggingForeground": "#303030"
   },
-  "haskell.manageHLS": "GHCup"
+  "haskell.manageHLS": "GHCup",
+  "stm32cube-ide-clangd.enableFormatting": true,
 }
