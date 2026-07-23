@@ -25,207 +25,218 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<leader>", "w", "r"],
-      "commands": ["editor.action.toggleWordWrap"]
+      "commands": ["editor.action.toggleWordWrap"],
     },
     {
       "before": ["Y"],
-      "after": ["y", "$"]
+      "after": ["y", "$"],
     },
     {
       "before": [">"],
-      "commands": ["editor.action.indentLines"]
+      "commands": ["editor.action.indentLines"],
     },
     {
       "before": ["<"],
-      "commands": ["editor.action.outdentLines"]
+      "commands": ["editor.action.outdentLines"],
     },
     {
       "before": [";"],
-      "commands": ["workbench.action.showAllEditors"]
+      "commands": ["workbench.action.showAllEditors"],
     },
     {
       "before": ["m", "a"],
-      "commands": ["numberedBookmarks.toggleBookmark1"]
+      "commands": ["numberedBookmarks.toggleBookmark1"],
     },
     {
       "before": ["m", "b"],
-      "commands": ["numberedBookmarks.toggleBookmark2"]
+      "commands": ["numberedBookmarks.toggleBookmark2"],
     },
     {
       "before": ["m", "c"],
-      "commands": ["numberedBookmarks.toggleBookmark3"]
+      "commands": ["numberedBookmarks.toggleBookmark3"],
     },
     {
       "before": ["m", "d"],
-      "commands": ["numberedBookmarks.toggleBookmark4"]
+      "commands": ["numberedBookmarks.toggleBookmark4"],
     },
     {
       "before": ["m", "e"],
-      "commands": ["numberedBookmarks.toggleBookmark5"]
+      "commands": ["numberedBookmarks.toggleBookmark5"],
     },
     {
       "before": ["m", "f"],
-      "commands": ["numberedBookmarks.toggleBookmark6"]
+      "commands": ["numberedBookmarks.toggleBookmark6"],
     },
     {
       "before": ["m", "g"],
-      "commands": ["numberedBookmarks.toggleBookmark7"]
+      "commands": ["numberedBookmarks.toggleBookmark7"],
     },
     {
       "before": ["m", "h"],
-      "commands": ["numberedBookmarks.toggleBookmark8"]
+      "commands": ["numberedBookmarks.toggleBookmark8"],
     },
     {
       "before": ["m", "i"],
-      "commands": ["numberedBookmarks.toggleBookmark9"]
+      "commands": ["numberedBookmarks.toggleBookmark9"],
     },
     {
       "before": ["m", "j"],
-      "commands": ["numberedBookmarks.toggleBookmark0"]
+      "commands": ["numberedBookmarks.toggleBookmark0"],
     },
     {
       "before": ["'", "a"],
-      "commands": ["numberedBookmarks.jumpToBookmark1"]
+      "commands": ["numberedBookmarks.jumpToBookmark1"],
     },
     {
       "before": ["'", "b"],
-      "commands": ["numberedBookmarks.jumpToBookmark2"]
+      "commands": ["numberedBookmarks.jumpToBookmark2"],
     },
     {
       "before": ["'", "c"],
-      "commands": ["numberedBookmarks.jumpToBookmark3"]
+      "commands": ["numberedBookmarks.jumpToBookmark3"],
     },
     {
       "before": ["'", "d"],
-      "commands": ["numberedBookmarks.jumpToBookmark4"]
+      "commands": ["numberedBookmarks.jumpToBookmark4"],
     },
     {
       "before": ["'", "e"],
-      "commands": ["numberedBookmarks.jumpToBookmark5"]
+      "commands": ["numberedBookmarks.jumpToBookmark5"],
     },
     {
       "before": ["'", "f"],
-      "commands": ["numberedBookmarks.jumpToBookmark6"]
+      "commands": ["numberedBookmarks.jumpToBookmark6"],
     },
     {
       "before": ["'", "g"],
-      "commands": ["numberedBookmarks.jumpToBookmark7"]
+      "commands": ["numberedBookmarks.jumpToBookmark7"],
     },
     {
       "before": ["'", "h"],
-      "commands": ["numberedBookmarks.jumpToBookmark8"]
+      "commands": ["numberedBookmarks.jumpToBookmark8"],
     },
     {
       "before": ["'", "i"],
-      "commands": ["numberedBookmarks.jumpToBookmark9"]
+      "commands": ["numberedBookmarks.jumpToBookmark9"],
     },
     {
       "before": ["'", "j"],
-      "commands": ["numberedBookmarks.jumpToBookmark0"]
+      "commands": ["numberedBookmarks.jumpToBookmark0"],
     },
     {
       "before": ["]", "c"],
       "commands": [
         "workbench.action.editor.nextChange",
-        "workbench.action.compareEditor.nextChange"
-      ]
+        "workbench.action.compareEditor.nextChange",
+      ],
     },
     {
       "before": ["[", "c"],
       "commands": [
         "workbench.action.editor.previousChange",
-        "workbench.action.compareEditor.previousChange"
-      ]
+        "workbench.action.compareEditor.previousChange",
+      ],
     },
     {
       "before": ["<leader>", "h", "u"],
-      "commands": ["git.revertSelectedRanges"]
+      "commands": ["git.revertSelectedRanges"],
     },
     {
       "before": ["<leader>", "h", "s"],
-      "commands": ["git.stageSelectedRanges"]
+      "commands": ["git.stageSelectedRanges"],
     },
     {
       "before": ["<leader>", "/"],
-      "commands": [":nohl"]
+      "commands": [":nohl"],
     },
     {
       "before": ["f"],
-      "after": ["<leader>", "<leader>", "s"]
+      "after": ["<leader>", "<leader>", "s"],
     },
     {
       "before": ["/"],
-      "after": ["<leader>", "<leader>", "/"]
+      "after": ["<leader>", "<leader>", "/"],
     },
     {
       "before": ["<leader>", "j"],
-      "after": ["<leader>", "<leader>", "j"]
+      "after": ["<leader>", "<leader>", "j"],
     },
     {
       "before": ["<leader>", "k"],
-      "after": ["<leader>", "<leader>", "k"]
+      "after": ["<leader>", "<leader>", "k"],
     },
     {
       "before": ["<C-h>"],
-      "after": [":", "%", "s", "/", "/", "/", "g", "<left>", "<left>", "<left>"]
+      "after": [
+        ":",
+        "%",
+        "s",
+        "/",
+        "/",
+        "/",
+        "g",
+        "<left>",
+        "<left>",
+        "<left>",
+      ],
     },
     {
       "before": ["g", "r"],
-      "commands": ["editor.action.referenceSearch.trigger"]
+      "commands": ["editor.action.referenceSearch.trigger"],
     },
     {
       "before": ["<leader>", "b"],
-      "commands": ["editor.action.formatDocument"]
+      "commands": ["editor.action.formatDocument"],
     },
     {
       "before": ["K"],
-      "commands": ["editor.action.showHover"]
+      "commands": ["editor.action.showHover"],
     },
     {
       "before": ["g", "p"],
-      "commands": ["editor.action.marker.prevInFiles"]
+      "commands": ["editor.action.marker.prevInFiles"],
     },
     {
       "before": ["g", "n"],
-      "commands": ["editor.action.marker.nextInFiles"]
+      "commands": ["editor.action.marker.nextInFiles"],
     },
     {
       "before": ["g", "i"],
-      "commands": ["editor.action.peekImplementation"]
+      "commands": ["editor.action.peekImplementation"],
     },
     {
       "before": ["g", "t"],
-      "commands": ["editor.action.peekTypeDefinition"]
-    }
+      "commands": ["editor.action.peekTypeDefinition"],
+    },
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": ["<leader>", "h", "u"],
-      "commands": ["git.revertSelectedRanges"]
+      "commands": ["git.revertSelectedRanges"],
     },
     {
       "before": ["<leader>", "h", "s"],
-      "commands": ["git.stageSelectedRanges"]
+      "commands": ["git.stageSelectedRanges"],
     },
     {
       "before": [">"],
-      "commands": ["editor.action.indentLines"]
+      "commands": ["editor.action.indentLines"],
     },
     {
       "before": ["<"],
-      "commands": ["editor.action.outdentLines"]
+      "commands": ["editor.action.outdentLines"],
     },
     {
       "before": ["<C-h>"],
-      "after": [":", "s", "/", "/", "/", "g", "<left>", "<left>", "<left>"]
-    }
+      "after": [":", "s", "/", "/", "/", "g", "<left>", "<left>", "<left>"],
+    },
   ],
   "editor.lineNumbers": "relative",
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "k"],
-      "after": ["<Esc>"]
-    }
+      "after": ["<Esc>"],
+    },
   ],
   "vim.leader": " ",
   "vim.handleKeys": {
@@ -236,14 +247,14 @@
     "<C-s>": false,
     "<C-f>": false,
     "<C-.>": false,
-    "<C-p>": false
+    "<C-p>": false,
   },
   "editor.acceptSuggestionOnEnter": "off",
   "emmet.includeLanguages": {
-    "javascript": "javascriptreact"
+    "javascript": "javascriptreact",
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "eslint.packageManager": "yarn",
   "workbench.iconTheme": "vscode-icons",
@@ -257,17 +268,17 @@
   "zenMode.hideStatusBar": false,
   "files.hotExit": "off",
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "explorer.confirmDragAndDrop": false,
   "workbench.editor.enablePreview": false,
   "editor.tabSize": 2,
   "vsicons.dontShowNewVersionMessage": true,
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "editor.minimap.enabled": false,
   "terminal.integrated.fontFamily": "UbuntuMono Nerd Font Mono",
@@ -277,7 +288,7 @@
   "[python]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 4,
-    "editor.formatOnType": true
+    "editor.formatOnType": true,
   },
   "python.jediEnabled": false,
   "python.formatting.provider": "black",
@@ -288,7 +299,7 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "python.languageServer": "Pylance",
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "debug.allowBreakpointsEverywhere": true,
   "update.mode": "none",
@@ -300,27 +311,27 @@
   "jest.autoRun": "off",
   "python.formatting.blackArgs": ["--target-version", "py310"],
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "rust.clippy_preference": "on",
   "search.exclude": {
-    ".venv/*": true
+    ".venv/*": true,
   },
   "python.analysis.typeCheckingMode": "strict",
   "workbench.startupEditor": "none",
   "explorer.openEditors.visible": 0,
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
+    "*.ipynb": "jupyter-notebook",
   },
   "workbench.colorCustomizations": {
     "statusBar.background": "#d4c528",
     "statusBar.noFolderBackground": "#d4c528",
     "statusBar.debuggingBackground": "#d4c528",
     "statusBar.foreground": "#303030",
-    "statusBar.debuggingForeground": "#303030"
+    "statusBar.debuggingForeground": "#303030",
   },
   "haskell.manageHLS": "GHCup",
   "stm32cube-ide-clangd.enableFormatting": true,
