@@ -116,6 +116,7 @@ section](https://github.com/thisisrandy/all-windows#testing) of the readme.
 I use this for a few custom shortcuts (prefixed by `Super+Shift`) and nothing
 else. Note that its visual effects (none of which I use) seem largely broken.
 - [Focus](https://extensions.gnome.org/extension/3924/focus/)
+- [Space Bar](https://extensions.gnome.org/extension/5090/space-bar/)
 
 For extensions with lots of configuration, we can dump it to file using
 `dconf`. For example, the Just Perfection config can be exported via `dconf
