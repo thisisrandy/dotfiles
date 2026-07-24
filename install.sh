@@ -541,3 +541,7 @@ wget "https://gitlab.arm.com/api/v4/projects/tooling%2Fgnu-toolchains-for-arm/pa
 tar xJf arm-gnu-toolchain-15.3.rel1-x86_64-arm-none-eabi.tar.xz
 rm arm-gnu-toolchain-15.3.rel1-x86_64-arm-none-eabi.tar.xz
 popd
+
+# install Todoist
+sudo snap install todoist
+sudo snap set core experimental.refresh-app-awareness=true
