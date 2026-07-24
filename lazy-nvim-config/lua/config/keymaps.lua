@@ -6,9 +6,18 @@
 vim.keymap.set({ "i", "c" }, "jk", "<esc>")
 
 -- Ergonomic paste
+--
 -- NOTE: This requires virtualedit=onemore, otherwise the EOL behavior is
--- different from anywhere else. See options.lua
-vim.keymap.set("i", "<C-v>", "<C-o>P", { desc = "Paste from the keyboard in insert mode", remap = true })
+-- different from anywhere else. See options.lua. The remap is needed because
+-- yanky remaps p/P.
+--
+-- NOTE: I thought I had this squared away, but the cursor ends up one
+-- character shy of the end of the pasted text in my current config. If I
+-- changed something to make it that way, I have no idea what is was. Fully
+-- escaping and managing cursor position will do the job for now
+--
+-- vim.keymap.set("i", "<C-v>", "<C-o>P", { desc = "Paste from the keyboard in insert mode", remap = true })
+vim.keymap.set("i", "<C-v>", "<esc>lPa", { desc = "Paste from the keyboard in insert mode", remap = true })
 
 -- Map context menu key to mouse right click
 vim.keymap.set("n", "", "<Cmd>popup PopUp<CR>", { silent = true })
