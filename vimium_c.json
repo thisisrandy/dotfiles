@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "7/17/2026, 7:06:36 PM",
-	"time": 1784340396372,
+	"@time": "7/31/2026, 11:28:46 PM",
+	"time": 1785565726891,
 	"environment": {
 		"extension": "2.12.2",
 		"platform": "linux",
@@ -29,12 +29,14 @@
 	"hideHud": true,
 	"keyLayout": 0,
 	"keyMappings": [
-		"#!no-check",
 		"map F LinkHints.activateOpenInNewForegroundTab",
 		"map X closeOtherTabs",
 		"map < moveTabLeft",
 		"map > moveTabRight",
 		"map R restoreTab",
+		"#if host www.google.com",
+		"  pass <space> <shift-space> <up> <down> <pageup> <pagedown>",
+		"#endif",
 		""
 	],
 	"vimSync": true
