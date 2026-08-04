@@ -282,10 +282,13 @@ Despite the fact that I set up a `default.pa` under my home directory,
 So the best I have right now is to set this up manually for every session. That
 means the following:
 
-1. Open `OBS` settings and set Monitoring Device to something other than `VirtualSpeaker`.
-2. Run the `pactl` commands to create `VirtualSpeaker` and `VirtualMic`.
-3. Reselect `VirtualSpeaker` in `OBS`.
-4. Hit "Start Virtual Camera" in `OBS`.
+1. Run the `pactl` commands to create `VirtualSpeaker` and `VirtualMic`.
+2. Select `VirtualSpeaker` in `OBS`.
+3. Hit "Start Virtual Camera" in `OBS`.
+4. Before shutting down, set Monitoring Device to something other than
+   `VirtualSpeaker`. This prevents `OBS` from remembering the speaker from the
+   last session, which seems to confuse things when we try to reconfigure the
+   speaker in a new session.
 
 ### Naive Instructions
 
