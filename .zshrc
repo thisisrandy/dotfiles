@@ -79,7 +79,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git virtualenv zsh-autosuggestions poetry rust safe-paste rg jump \
+plugins=(git virtualenv zsh-autosuggestions poetry rust safe-paste rg z \
   jsontools emoji aliases zsh-syntax-highlighting)
 export ZSH_THEME_VIRTUALENV_PREFIX="("
 export ZSH_THEME_VIRTUALENV_SUFFIX=")"
@@ -210,11 +210,6 @@ alias l='ls -lAh'
 alias la='ls -lah'
 alias l1='ls -A1'
 alias l1a='ls -a1'
-# shortcuts for the jump plugin
-alias j=jump
-alias m=mark
-alias um=unmark
-alias ms=marks
 # Shamelessly copied from https://superuser.com/a/1503113/1264067
 # SP  ' '  0x20 = · U+00B7 Middle Dot
 # TAB '\t' 0x09 = ￫ U+FFEB Halfwidth Rightwards Arrow
