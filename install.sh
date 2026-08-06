@@ -545,3 +545,9 @@ popd
 # install Todoist
 sudo snap install todoist
 sudo snap set core experimental.refresh-app-awareness=true
+
+# install clockify
+pushd $(mktemp -d)
+wget https://clockify.me/downloads/Clockify_Setup_x64.deb
+sudo dpkg -i Clockify_Setup_x64.deb
+popd
