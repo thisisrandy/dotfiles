@@ -167,6 +167,21 @@ export EDITOR=vim
 # resizing
 xset r rate 200 40
 
+# custom completion for delta courtesy of Gemini
+# Ensure compinit is loaded first
+autoload -Uz compinit && compinit
+
+# Custom wrapper for delta completion
+_custom_delta_completion() {
+    # Try running the official delta completion if it exists
+    if whence -f _delta >/dev/null; then
+        _delta "$@"
+    fi
+    # Force file completion for positional arguments
+    _files
+}
+
+compdef _custom_delta_completion delta
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
