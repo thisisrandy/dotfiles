@@ -1,11 +1,11 @@
 {
 	"name": "Vimium C",
-	"@time": "7/31/2026, 11:28:46 PM",
-	"time": 1785565726891,
+	"@time": "8/10/2026, 3:26:15 PM",
+	"time": 1786400775847,
 	"environment": {
 		"extension": "2.12.2",
 		"platform": "linux",
-		"chromium": 150
+		"chromium": 151
 	},
 	"exclusionRules": [
 		{
@@ -21,8 +21,16 @@
 			"pattern": ":https://colab.research.google.com/"
 		},
 		{
-			"passKeys": "r ",
+			"passKeys": "/ r ",
 			"pattern": ":https://github.com"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://outlook.office.com"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://youtube.com"
 		}
 	],
 	"grabBackFocus": true,
