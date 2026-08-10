@@ -51,3 +51,17 @@ vim.api.nvim_create_autocmd("BufRead", {
     vim.b.autoformat = false
   end,
 })
+
+-- Neorg rebinds
+local neorg_mappings = vim.api.nvim_create_augroup("NeorgMappings", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  group = neorg_mappings,
+  pattern = "norg",
+  callback = function()
+    -- These two throw errors, so let's not use the neorg-specific mappings
+    -- vim.keymap.set("n", "<", "<Plug>(neorg.promo.demote.range)")
+    -- vim.keymap.set("n", ">", "<Plug>(neorg.promo.promote.range)")
+    vim.keymap.set("n", "<C-Space>", "<Plug>(neorg.qol.todo-items.todo.task-cycle)")
+    vim.keymap.set("n", "gO", "<cmd>Neorg toc<CR>")
+  end,
+})
