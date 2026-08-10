@@ -3,4 +3,5 @@
 return {
   { "fladson/vim-kitty" },
   { "andymass/vim-matchup" },
+  { "benlubas/neorg-interim-ls" },
 }

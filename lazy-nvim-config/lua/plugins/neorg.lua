@@ -14,6 +14,9 @@ return {
         },
       },
       ["core.concealer"] = {},
+      -- core.completion doesn't currently support blink.cmp, so this is an
+      -- interim solution. See https://github.com/benlubas/neorg-interim-ls
+      ["external.interim-ls"] = {},
     },
   },
   -- These are implicit, but setting them explicitly seems to quiet a not found
