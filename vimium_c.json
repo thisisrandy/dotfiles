@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "8/10/2026, 3:26:15 PM",
-	"time": 1786400775847,
+	"@time": "8/10/2026, 3:55:03 PM",
+	"time": 1786402503627,
 	"environment": {
 		"extension": "2.12.2",
 		"platform": "linux",
@@ -31,6 +31,10 @@
 		{
 			"passKeys": "",
 			"pattern": ":https://youtube.com"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://outlook.cloud.microsoft"
 		}
 	],
 	"grabBackFocus": true,
