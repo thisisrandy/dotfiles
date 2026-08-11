@@ -58,8 +58,8 @@ vim.api.nvim_create_autocmd("FileType", {
   group = neorg_mappings,
   pattern = "norg",
   callback = function()
-    vim.keymap.set("v", "<", "<Plug>(neorg.promo.demote.range)", { buffer = true })
-    vim.keymap.set("v", ">", "<Plug>(neorg.promo.promote.range)", { buffer = true })
+    vim.keymap.set("v", "<", "<Plug>(neorg.promo.demote.range)gv", { buffer = true })
+    vim.keymap.set("v", ">", "<Plug>(neorg.promo.promote.range)gv", { buffer = true })
     vim.keymap.set("n", "<C-Space>", "<Plug>(neorg.qol.todo-items.todo.task-cycle)", { buffer = true })
     vim.keymap.set("n", "gO", "<cmd>Neorg toc<CR>", { buffer = true })
   end,
