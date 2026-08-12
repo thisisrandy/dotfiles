@@ -62,5 +62,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("v", ">", "<Plug>(neorg.promo.promote.range)gv", { buffer = true })
     vim.keymap.set("n", "<C-Space>", "<Plug>(neorg.qol.todo-items.todo.task-cycle)", { buffer = true })
     vim.keymap.set("n", "gO", "<cmd>Neorg toc<CR>", { buffer = true })
+    -- I see no good reason to not always wrap norg files
+    vim.opt_local.wrap = true
   end,
 })
