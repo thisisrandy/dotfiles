@@ -11,22 +11,47 @@ return {
       require("kitty-scrollback").setup()
     end,
   },
-  -- TODO: The following two have overlap. I think the first of them, maybe
-  -- both, can be configured to be the whole package if I want to take the time
-  {
-    "knubie/vim-kitty-navigator",
-    keys = {
-      { mode = "n", "<c-h>", ":KittyNavigateLeft<cr>", silent = true },
-      { mode = "n", "<c-j>", ":KittyNavigateDown<cr>", silent = true },
-      { mode = "n", "<c-k>", ":KittyNavigateUp<cr>", silent = true },
-      { mode = "n", "<c-l>", ":KittyNavigateRight<cr>", silent = true },
-    },
-  },
   {
     "MunsMan/kitty-navigator.nvim",
     build = {
       "cp navigate_kitty.py ~/.config/kitty",
       "cp pass_keys.py ~/.config/kitty",
+    },
+    -- Note the addition of "t" mode to the mappings. Embedded terminals won't
+    -- recognize the mappings otherwise
+    keys = {
+      {
+        "<C-h>",
+        function()
+          require("kitty-navigator").navigateLeft()
+        end,
+        desc = "Move left a Split",
+        mode = { "n", "t" },
+      },
+      {
+        "<C-j>",
+        function()
+          require("kitty-navigator").navigateDown()
+        end,
+        desc = "Move down a Split",
+        mode = { "n", "t" },
+      },
+      {
+        "<C-k>",
+        function()
+          require("kitty-navigator").navigateUp()
+        end,
+        desc = "Move up a Split",
+        mode = { "n", "t" },
+      },
+      {
+        "<C-l>",
+        function()
+          require("kitty-navigator").navigateRight()
+        end,
+        desc = "Move right a Split",
+        mode = { "n", "t" },
+      },
     },
   },
 }
