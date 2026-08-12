@@ -17,6 +17,12 @@ return {
       -- core.completion doesn't currently support blink.cmp, so this is an
       -- interim solution. See https://github.com/benlubas/neorg-interim-ls
       ["external.interim-ls"] = {},
+      ["core.qol.todo_items"] = {
+        config = {
+          -- Prevent neorg from turning sublists into their own todo items
+          create_todo_items = false,
+        },
+      },
     },
   },
   -- These are implicit, but setting them explicitly seems to quiet a not found
