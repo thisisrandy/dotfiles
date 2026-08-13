@@ -177,6 +177,8 @@ gsettings set org.gnome.shell.extensions.desktop-icons show-home false
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
 gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic true
 gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature 4700 # the least warm possible
+# The tiling feature where it alters the alt+tab stack is super-annoying. Disable it
+gsettings set org.gnome.shell.extensions.tiling-assistant disable-tile-groups true
 
 # install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
