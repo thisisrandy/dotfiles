@@ -124,3 +124,7 @@ vim.keymap.set(
 
 -- White space
 Snacks.toggle.option("list", { name = "Show White Space" }):map("<leader>uW")
+
+-- Hex editing
+vim.keymap.set("n", "<leader>ux", ":%!xxd<cr>", { desc = "Dump file to hex", silent = true })
+vim.keymap.set("n", "<leader>uX", ":%!xxd -r<cr>", { desc = "Revert file from hex", silent = true })
