@@ -6,7 +6,7 @@
 vim.keymap.set({ "i", "c" }, "jk", "<esc>")
 
 -- Ergonomic paste
-vim.keymap.set("i", "<C-v>", '<C-r>"', { desc = "Paste from the keyboard in insert mode", remap = true })
+vim.keymap.set("i", "<C-v>", "<C-r>+", { desc = "Paste from the keyboard in insert mode", remap = true })
 
 -- Map context menu key to mouse right click
 vim.keymap.set("n", "", "<Cmd>popup PopUp<CR>", { silent = true })
