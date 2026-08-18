@@ -235,6 +235,10 @@ alias find='find -regextype egrep'
 alias icat='kitten icat'
 alias help=run-help
 alias lock=xdg-screensaver
+# There's a lot of other useful stuff in mason's bin dir, but some if it is
+# duplicates of tools I already have installed elsewhere. I may decide to add
+# the whole dir to the path later
+alias clang-format=~/.local/share/nvim/mason/bin/clang-format
 
 # vi mode
 
