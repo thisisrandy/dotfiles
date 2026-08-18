@@ -15,6 +15,17 @@ local cursor_line_only_in_active_window = augroup("CursorLineOnlyInActiveWindow"
 vim.api.nvim_create_autocmd({ "VimEnter", "WinEnter", "BufWinEnter", "TermLeave" }, {
   group = cursor_line_only_in_active_window,
   callback = function(ev)
+    -- I complained about the help window being too narrow with line numbers on
+    -- in https://github.com/nvim-mini/mini.nvim/issues/2536. It turns out I
+    -- didn't even have consistent behavior when navigating around the tree, so
+    -- it makes more sense to explicitly turn line numbers off in all
+    -- mini.files windows
+    if string.find(vim.bo.filetype, "minifiles") then
+      vim.opt_local.number = false
+      vim.opt_local.relativenumber = false
+      return
+    end
+
     if ev.file ~= "" and not string.find(ev.file, "^term://") then
       vim.opt_local.cursorline = true
       vim.opt_local.relativenumber = true
