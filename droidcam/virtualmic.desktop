@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=My Sanity Test
+Exec=/home/randy/.config/autostart/set-up-virtual-mic-speaker.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true

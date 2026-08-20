@@ -275,6 +275,60 @@ handles this in a more complete way. Note that `prime-select` from the
 
 ### Persistence
 
+The easiest way to do this is to create an auto-start application to run the
+`pactl` commands. I've done this in
+[`virtualmic.desktop`](droidcam/virtualmic.desktop) and
+[`set-up-virtual-mic-speaker.sh`](droidcam/set-up-virtual-mic-speaker.sh).
+These should both be soft-linked under `~/.config/autostart/` (not currently
+part of `install.sh`). I'm sure there's some perfect pipewire config out there
+that I could use, but it just isn't worth any more effort poured into this.
+
+Here's the rest...
+
+FIXME: This still isn't right. I either need to figure it out myself from the
+pipewire docs or ask someone on SO.
+
+**UPDATE**: It seems my audio server is actually pipewire, not PulseAudio.
+Gemini says (I haven't verified) that pipewire intercepts `pactl` commands but
+ignores configuration from `default.pa`. What we really need to do is edit the
+pipewire config as follows:
+
+```
+mkdir -p ~/.config/pipewire
+cp /usr/share/pipewire/pipewire.conf ~/.config/pipewire/
+```
+
+Then, edit `pipewire.conf` by adding the following to the `context.modules` section:
+
+```
+    # 1. Create the VirtualSpeaker (Null Sink)
+    { name = libpipewire-module-loopback
+      args = {
+          node.name = "VirtualSpeaker"
+          node.description = "VirtualSpeaker"
+          media.class = "Audio/Sink"
+          audio.position = [ FL FR ]
+      }
+    }
+
+    # 2. Create the VirtualMic (Virtual Source linked to VirtualSpeaker's monitor)
+    { name = libpipewire-module-loopback
+      args = {
+          node.name = "VirtualMic"
+          node.description = "VirtualMic"
+          capture.props = {
+              node.target = "VirtualSpeaker"
+          }
+          playback.props = {
+              media.class = "Audio/Source"
+              audio.position = [ FL FR ]
+          }
+      }
+    }
+```
+
+#### Old persistence notes
+
 The naive instructions below don't persist, and in kind of an asymmetrical way.
 Despite the fact that I set up a `default.pa` under my home directory,
 `VirtualSpeaker` doesn't exist after rebooting. However, `OBS` remembers
