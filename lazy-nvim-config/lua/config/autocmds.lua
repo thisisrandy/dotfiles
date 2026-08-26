@@ -77,3 +77,10 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.wrap = true
   end,
 })
+-- and formatting
+local neorg_auto_format = vim.api.nvim_create_augroup("NeorgAutoFormat", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = neorg_auto_format,
+  pattern = { "*.norg" },
+  command = "silent! normal! gg=G``",
+})
