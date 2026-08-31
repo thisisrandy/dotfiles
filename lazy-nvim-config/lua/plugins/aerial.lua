@@ -10,5 +10,8 @@ return {
       opts.close_automatic_events = { "unsupported" }
       return opts
     end,
+    keys = {
+      { "<c-t>", "<Cmd>Telescope aerial<CR>", desc = "Goto Symbol (Aerial)" },
+    },
   },
 }
