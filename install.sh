@@ -177,8 +177,13 @@ gsettings set org.gnome.shell.extensions.desktop-icons show-home false
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
 gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic true
 gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature 4700 # the least warm possible
-# The tiling feature where it alters the alt+tab stack is super-annoying. Disable it
-gsettings set org.gnome.shell.extensions.tiling-assistant disable-tile-groups true
+# The tiling feature where it alters the alt+tab stack is super-annoying, to
+# disable it, we first ensure that the two menu items "Tiling Popup" and "Tile
+# Groups" are enabled and then file tune with a hidden setting that just
+# disables the drag whole group to front functionality
+gsettings set org.gnome.shell.extensions.tiling-assistant enable-tiling-popup true
+gsettings set org.gnome.shell.extensions.tiling-assistant disable-tile-groups false
+gsettings set org.gnome.shell.extensions.tiling-assistant enable-raise-tile-group false
 
 # install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
