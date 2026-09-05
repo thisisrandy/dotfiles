@@ -84,7 +84,8 @@ plugins=(git virtualenv zsh-autosuggestions poetry rust safe-paste rg z \
 export ZSH_THEME_VIRTUALENV_PREFIX="("
 export ZSH_THEME_VIRTUALENV_SUFFIX=")"
 
-zstyle ':omz:plugins:nvm' lazy true
+# silent-autoload means nvm loads when it finds a .nvmrc file in cwd
+zstyle ':omz:plugins:nvm' lazy yes silent-autoload yes
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
