@@ -84,3 +84,17 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = { "*.norg" },
   command = "silent! normal! gg=G``",
 })
+
+-- From https://www.reddit.com/r/neovim/comments/13wcqdr/disable_hintslsperrors_etc/.
+-- FIXME: This isn't an autocmd, but I don't see any better spot to put it in
+-- the LazyVim context. Maybe I can define my own custom config files somehow
+-- (naively adding one doesn't get picked up)?
+vim.api.nvim_create_user_command("DiagnosticToggle", function()
+  local config = vim.diagnostic.config
+  local vt = config().virtual_text
+  config({
+    virtual_text = not vt,
+    underline = not vt,
+    signs = not vt,
+  })
+end, { desc = "toggle diagnostic" })
