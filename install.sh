@@ -122,6 +122,11 @@ nvm install 24
 npm config set prefix ~/.local # prevents need to sudo for -g
 # per https://yarnpkg.com/getting-started/install, we should no longer install yarn directly
 npm install --global corepack
+# Since I use the oh-my-zsh nvm plugin to lazy-load and avoid costly shell
+# startup, I need to make a link to the real node location in a way that the
+# lsp understands. It's convenient to do it here in a bash context where
+# there's no ambiguity
+sudo ln -sf $(which node) /usr/local/bin/node
 
 # install clangd
 sudo apt-get -y install clangd
