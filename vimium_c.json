@@ -1,11 +1,11 @@
 {
 	"name": "Vimium C",
-	"@time": "8/10/2026, 3:55:03 PM",
-	"time": 1786402503627,
+	"@time": "9/28/2026, 2:38:01 PM",
+	"time": 1790631481841,
 	"environment": {
 		"extension": "2.12.2",
 		"platform": "linux",
-		"chromium": 151
+		"chromium": 153
 	},
 	"exclusionRules": [
 		{
@@ -49,6 +49,8 @@
 		"#if host www.google.com",
 		"  pass <space> <shift-space> <up> <down> <pageup> <pagedown>",
 		"#endif",
+		"unmap x",
+		"unmap t",
 		""
 	],
 	"vimSync": true
