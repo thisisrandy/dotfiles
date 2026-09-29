@@ -82,7 +82,47 @@ local neorg_auto_format = vim.api.nvim_create_augroup("NeorgAutoFormat", { clear
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = neorg_auto_format,
   pattern = { "*.norg" },
-  command = "silent! normal! gg=G``",
+  callback = function()
+    local bufnr = vim.api.nvim_get_current_buf()
+
+    local has_parser, parser = pcall(vim.treesitter.get_parser, bufnr, "norg")
+    if not has_parser or not parser then
+      vim.cmd("silent! normal! gg=G``")
+      return
+    end
+
+    local root = parser:parse(true)[1]:root()
+    local query = vim.treesitter.query.parse("norg", "(ranged_verbatim_tag_content) @code")
+
+    -- Lines (1-indexed) inside ranged tags such as @code, which must keep their formatting
+    local protected = {}
+    for _, node in query:iter_captures(root, bufnr, 0, -1) do
+      local start_row, _, end_row, end_col = node:range()
+      -- An end column of 0 means the end row itself isn't part of the node
+      local last = end_col == 0 and end_row - 1 or end_row
+      for row = start_row, last do
+        protected[row + 1] = true
+      end
+    end
+
+    -- Indent each run of unprotected lines with a single command, rather than one per line, to
+    -- keep the number of buffer changes (and LSP change notifications) small
+    local view = vim.fn.winsaveview()
+    local line_count = vim.api.nvim_buf_line_count(bufnr)
+    local lnum = 1
+    while lnum <= line_count do
+      if protected[lnum] then
+        lnum = lnum + 1
+      else
+        local first = lnum
+        while lnum <= line_count and not protected[lnum] do
+          lnum = lnum + 1
+        end
+        vim.cmd(("silent! keepjumps %dnormal! %d=="):format(first, lnum - first))
+      end
+    end
+    vim.fn.winrestview(view)
+  end,
 })
 
 -- From https://www.reddit.com/r/neovim/comments/13wcqdr/disable_hintslsperrors_etc/.
