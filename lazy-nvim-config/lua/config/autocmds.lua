@@ -87,7 +87,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
     local has_parser, parser = pcall(vim.treesitter.get_parser, bufnr, "norg")
     if not has_parser or not parser then
-      vim.cmd("silent! normal! gg=G``")
+      local view = vim.fn.winsaveview()
+      vim.cmd("silent! normal! gg=G")
+      vim.fn.winrestview(view)
       return
     end
 
