@@ -206,6 +206,7 @@ alias f="fzf --preview '[[ \$(file --mime {}) =~ binary ]] && \
 alias r=ranger
 alias v=vim
 alias vf='v "$(f)"'
+alias bf='bat "$(f)"'
 alias sv='sudoenv vim'
 alias lf='less "$(f)"'
 alias pip='python -m pip'
