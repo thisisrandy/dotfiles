@@ -237,6 +237,9 @@ alias lock=xdg-screensaver
 # duplicates of tools I already have installed elsewhere. I may decide to add
 # the whole dir to the path later
 alias clang-format=~/.local/share/nvim/mason/bin/clang-format
+# Scripts may need a non-alias way to access it, so let's also provide a
+# variable
+export CLANG_FORMAT=~/.local/share/nvim/mason/bin/clang-format
 
 # vi mode
 
