@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 # USAGE: ./install.sh
 # NOTES:
-# - The script will prompt for root priviledges once at the beginning and
-#   thenceforth operate unattended. DO NOT RUN AS ROOT
+# - The script will prompt for root priviledges once at the beginning. It is
+#   otherwise unattended, with one exception: partway through (after gh is
+#   installed), `gh auth login --web` runs if gh isn't already logged in, and
+#   needs you to complete the browser device flow before the private
+#   claude-config repo can be cloned. DO NOT RUN AS ROOT
 # - After installation, nvim will need to be restarted to run correctly with
 #   all plugins. use :checkhealth after restart to verify everything is happy
 # - If it's been a while since this file was updated, any explicitly-specified
@@ -399,6 +402,19 @@ sudo mkdir -p -m 755 /etc/apt/keyrings &&
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list >/dev/null &&
     sudo apt update &&
     sudo apt install gh -y
+
+# check out my private Claude Code global config and link it into ~/.claude.
+# The repo is private, so cloning needs credentials, and the git credential
+# manager's interactive prompt is flaky in an unattended script (see NOTES
+# above). gh was just installed, so use it instead: log in via the browser
+# device flow if we aren't already (the one interactive step), register gh as
+# git's credential helper for github.com, and clone with it
+gh auth status >/dev/null 2>&1 || gh auth login --hostname github.com --git-protocol https --web
+gh auth setup-git
+[ -d ~/git/claude-config ] || gh repo clone thisisrandy/claude-config ~/git/claude-config
+mkdir -p $HOME/.claude
+ln -sf ~/git/claude-config/CLAUDE.md $HOME/.claude/CLAUDE.md
+ln -sf ~/git/claude-config/settings.json $HOME/.claude/settings.json
 
 # install unclutter
 # NB: if the target system is using Wayland instead of X, the associated
