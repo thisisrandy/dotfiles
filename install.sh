@@ -579,3 +579,6 @@ pushd $(mktemp -d)
 wget https://clockify.me/downloads/Clockify_Setup_x64.deb
 sudo dpkg -i Clockify_Setup_x64.deb
 popd
+
+# install markdownlint-cli2
+npm install markdownlint-cli2 --global
