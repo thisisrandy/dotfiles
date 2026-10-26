@@ -346,4 +346,17 @@
   "chat.viewSessions.orientation": "stacked",
   "stm32cube-ide-build-cmake.ignoreCubeProjectDiscovery": false,
   "output.smartScroll.enabled": false,
+  "gitlens.views.scm.grouped.views": {
+    "commits": true,
+    "branches": true,
+    "remotes": true,
+    "stashes": true,
+    "tags": true,
+    "worktrees": true,
+    "contributors": true,
+    "fileHistory": false,
+    "repositories": true,
+    "searchAndCompare": false,
+    "launchpad": true,
+  },
 }
