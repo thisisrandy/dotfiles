@@ -151,8 +151,9 @@ export NVM_DIR="$HOME/.nvm"
 # export DRI_PRIME=1
 
 # crush 
+# Secrets (e.g. AIHUBMIX_API_KEY) live in an untracked file outside the repo.
 # WARN: NEVER COMMIT YOUR SECRET KEY
-export AIHUBMIX_API_KEY=
+[[ -f ~/.zsh_secrets ]] && source ~/.zsh_secrets
 
 # opencode
 export PATH=/home/randy/.opencode/bin:$PATH
