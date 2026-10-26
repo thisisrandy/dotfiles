@@ -46,6 +46,17 @@ return {
     },
     config = function(_, opts)
       require("telescope").setup(vim.tbl_deep_extend("force", opts, {
+        pickers = {
+          find_files = {
+            -- Telescope redraws the results buffer and highlights each row
+            -- every time an entry lands in the top N while scoring, which is
+            -- the dominant per-keystroke cost (scoring itself is ~10ms for 5k
+            -- files). The default N is 250; fzf only renders what fits on
+            -- screen. Only honored per-picker, not in defaults, and
+            -- unfortunately `temp__` implies it's not a stable option
+            temp__scrolling_limit = 30,
+          },
+        },
         defaults = {
           layout_strategy = "vertical",
           history = {
@@ -70,6 +81,11 @@ return {
             },
           },
           dynamic_preview_title = true,
+          preview = {
+            -- Regex syntax highlighting is much cheaper than treesitter and
+            -- plenty for a preview
+            treesitter = false,
+          },
         },
       }))
       os.execute("mkdir -p ~/.local/share/nvim/databases/")
