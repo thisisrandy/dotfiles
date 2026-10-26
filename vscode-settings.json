@@ -336,7 +336,7 @@
   "haskell.manageHLS": "GHCup",
   "stm32cube-ide-clangd.enableFormatting": true,
   "cmake.environment": {
-    "PATH": "/home/randy/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.46.0-linux-x64/resources/cube-cmake/linux/x86_64:/home/randy/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.4.0-linux-x64/resources/binaries/linux/x86_64:${env.PATH}",
+    "PATH": "/home/randy/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.47.0-linux-x64/resources/cube-cmake/linux/x86_64:/home/randy/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-1.5.0-linux-x64/resources/binaries/linux/x86_64:${env.PATH}",
   },
   "C_Cpp.intelliSenseEngine": "disabled",
   "stm32cube-ide-core.configuration.productSTM32CubeMX.executablePath": "/usr/local/STMicroelectronics/STM32Cube/STM32CubeMX/STM32CubeMX",
