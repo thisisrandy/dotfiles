@@ -137,6 +137,9 @@ sudo apt-get -y install clangd
 # v14, so v9 is pretty old). I'm leaving this here as a reminder that I might
 # have had a legitimate reason
 # sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-9 100
+# user-level clangd config (enables Doxygen parsing in hovers)
+mkdir -p $HOME/.config/clangd
+ln -sf $PATH_TO_DOT_FILES/clangd-config.yaml $HOME/.config/clangd/config.yaml
 
 # install powerline fonts that work with vscode. chosen from the selection at
 # https://www.nerdfonts.com/font-downloads
