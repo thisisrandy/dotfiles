@@ -141,6 +141,9 @@ sudo apt-get -y install clangd
 mkdir -p $HOME/.config/clangd
 ln -sf $PATH_TO_DOT_FILES/clangd-config.yaml $HOME/.config/clangd/config.yaml
 
+# install doxygen
+sudo apt-get -y install doxygen
+
 # install powerline fonts that work with vscode. chosen from the selection at
 # https://www.nerdfonts.com/font-downloads
 pushd $(mktemp -d)
@@ -428,8 +431,8 @@ sudo perl -pi -e 's/(EXTRA_OPTS=).*/$1"--timeout 2"/' /etc/default/unclutter
 
 # install delta
 pushd $(mktemp -d)
-wget https://github.com/dandavison/delta/releases/download/0.19.2/git-delta_0.19.2_amd64.deb
-sudo dpkg -i git-delta_0.19.2_amd64.deb
+wget https://github.com/dandavison/delta/releases/download/0.20.1/git-delta_0.20.1_amd64.deb
+sudo dpkg -i git-delta_0.20.1_amd64.deb
 popd
 
 # install navi
@@ -446,6 +449,9 @@ cd ..
 # I have all of these installed elsewhere, but noting here to make this section
 # stand-alone
 sudo apt install build-essential libreadline-dev unzip -y
+# lazy.nvim builds rocks (e.g. for treesitter/neorg) against Lua 5.1, which is
+# what Neovim embeds, so it needs lua5.1 in PATH alongside the lua installed above
+sudo apt install lua5.1 liblua5.1-0-dev -y
 curl -R -O http://luarocks.github.io/luarocks/releases/luarocks-3.13.0.tar.gz
 tar zxf luarocks-3.13.0.tar.gz
 cd luarocks-3.13.0
