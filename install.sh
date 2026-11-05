@@ -501,9 +501,12 @@ ln -sf $PATH_TO_DOT_FILES/zoom_toggle.py $HOME/.config/kitty/
 # And a tab picker script
 ln -sf $PATH_TO_DOT_FILES/kitty-tab-picker.sh $HOME/.config/kitty/
 # make kitty the default terminal
-# UPDATE: The following is outdated and doesn't work on resolute. Leaving it as
-# default is fine
-# gsettings set org.gnome.desktop.default-applications.terminal exec 'kitty'
+# The gsetting is what Ctrl+Alt+T uses on 24.04. It's outdated and doesn't work
+# on resolute (26.04), where ubuntu-xdg-terminals.list above does the job and
+# leaving the gsetting at its default is fine
+if [ "$(lsb_release -rs)" = "24.04" ]; then
+    gsettings set org.gnome.desktop.default-applications.terminal exec 'kitty'
+fi
 # install https://github.com/yurikhan/kitty_grab
 pushd ~/.config/kitty
 git clone https://github.com/yurikhan/kitty_grab.git
