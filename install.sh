@@ -770,6 +770,11 @@ step_antigravity() {
     curl -fsSL https://antigravity.google/cli/install.sh | bash
 }
 
+step claude core "Claude Code CLI"
+step_claude() {
+    curl -fsSL https://claude.ai/install.sh | bash
+}
+
 step copilot core "Copilot CLI"
 step_copilot() {
     curl -fsSL https://gh.io/copilot-install | bash
