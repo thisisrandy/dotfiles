@@ -250,6 +250,17 @@ step_dotfile_links() {
     link "$PATH_TO_DOT_FILES/ranger-scope.sh" "$HOME/.config/ranger/scope.sh"
 }
 
+step terminfo core "terminfo for kitty, so ssh from kitty draws correctly"
+step_terminfo() {
+    # when ssh'ing in from kitty, the remote end gets TERM=xterm-kitty. Ubuntu's
+    # terminfo database doesn't have it (kitty only provides it inside its own
+    # windows), and without it zsh misdraws the prompt and cursor, drops and
+    # duplicates characters, etc. This is needed on machines without kitty, so
+    # it can't come from the kitty install
+    curl -fsSL https://raw.githubusercontent.com/kovidgoyal/kitty/master/terminfo/kitty.terminfo -o kitty.terminfo
+    tic -x -o "$HOME/.terminfo" kitty.terminfo
+}
+
 step pyenv core "pyenv, python and python packages"
 step_pyenv() {
     [ -d "$PYENV_ROOT" ] || curl -fsSL https://pyenv.run | bash
