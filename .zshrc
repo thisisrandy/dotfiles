@@ -245,6 +245,7 @@ alias clang-format=~/.local/share/nvim/mason/bin/clang-format
 # Scripts may need a non-alias way to access it, so let's also provide a
 # variable
 export CLANG_FORMAT=~/.local/share/nvim/mason/bin/clang-format
+alias s="kitten ssh"
 
 # vi mode
 
