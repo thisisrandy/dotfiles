@@ -7,12 +7,18 @@ Various dotfiles, associated scripts and cheatsheets as well as installation scr
 0. Make sure we're using UEFI (system setup). This will affect how the
    installation of third-party stuff goes, so we need to do it first.
 
-1. Run [install.sh](install.sh) after updating any explicitly-specified
-   versions
+1. Run [install.sh](install.sh) after checking the pinned versions in its
+   `VERSIONS` block. It is a list of steps that can be resumed, repeated and
+   selected: `./install.sh --list` shows them, `--profile core` skips the
+   desktop/GUI ones (the default on a machine without a graphical session),
+   `--only a,b` runs particular steps and `--with haskell` enables the optional
+   ones. Failures don't stop the run; they are summarized at the end with the
+   command to retry them. See the header of the script for details, and
+   [install-notes.md](install-notes.md) for notes on removed pieces.
 
 Note that [zsh-install.sh](zsh-install.sh) &
 [vscode-install-extensions.sh](vscode-install-extensions.sh) are run
-automatically after Oh-My-Zsh & VS Code are installed, respectively.
+automatically by the `zsh_extras` and `vscode_extensions` steps.
 
 Note also that `vim-plug` installs `fzf`, so the latter won't be available
 until `nvim` is started for the first time.
@@ -134,8 +140,8 @@ is supposedly able to sync these, so this may no longer be a manual step.
 
 #### GPG
 
-Needed for [Github Credential Manager](https://github.com/git-ecosystem/git-credential-manager).
-The first `git` action will trigger login.
+`pass` is installed by the script, but needs a key before first use. (It used
+to back the Github Credential Manager, which `gh` has replaced.)
 
 1. `gpg --full-generate-key`
 2. `pass init <gpg-id>`

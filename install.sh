@@ -22,23 +22,22 @@
 #   never run by default. At the start of a run in a terminal you're asked
 #   about each one that hasn't completed yet; otherwise enable them with
 #   --with (or --only).
-# - The script will prompt for root priviledges once at the beginning. It is
+# - The script will prompt for root privileges once at the beginning. It is
 #   otherwise unattended, with one exception: the claude_config step runs
 #   `gh auth login --web` if gh isn't already logged in, and needs you to
 #   complete the browser device flow before the private claude-config repo can
 #   be cloned. Without a terminal (or GH_TOKEN) that step is deferred instead.
 #   DO NOT RUN AS ROOT
-# - After installation, nvim will need to be restarted to run correctly with
-#   all plugins. use :checkhealth after restart to verify everything is happy
-# - If it's been a while since this file was updated, any explicitly-specified
-#   program versions should be checked and updated as needed (python, node, rg,
-#   etc.)
-# - Handbrake is not available until after a system restart
+# - If it's been a while since this file was updated, the program versions
+#   pinned in the VERSIONS block below should be checked and updated as needed.
+# - A checklist of manual follow-ups is printed at the end of each run.
+# - Notes on things that used to be here and why they're gone:
+#   install-notes.md
 # TESTED ON: Ubuntu 24.04, 26.04
 
 if [ "$(id -u)" -eq 0 ]; then
     echo This script should not be run as root.
-    echo Please run it normally and priviledges will be escalated as needed
+    echo Please run it normally and privileges will be escalated as needed
     exit 1
 fi
 set -Eeuo pipefail
@@ -54,8 +53,39 @@ PATH_TO_DOT_FILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)
 STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/dotfiles-install"
 LOG_FILE="$STATE_DIR/install.log"
 
-# the python version will need to be updated in the future
-PYTHON_LATEST=3.14.6
+# VERSIONS: everything pinned by this script lives here. Check these when it's
+# been a while
+PYTHON_VERSION=3.14.6
+NODE_MAJOR=24
+NVM_VERSION=0.40.4
+LUA_VERSION=5.5.1
+LUAROCKS_VERSION=3.13.0
+BAT_VERSION=0.26.1
+DELTA_VERSION=0.20.1
+GO_VERSION=1.26.5
+NERD_FONTS_VERSION=3.2.1
+VERACRYPT_VERSION=1.26.29
+IRIUN_VERSION=2.9.1
+ARM_TOOLCHAIN_VERSION=15.3.rel1
+
+# architecture names differ per project: deb/go style (amd64), uname style
+# (x86_64) and the style a few projects use (x86_64/arm64)
+case "$(uname -m)" in
+x86_64)
+    ARCH_DEB=amd64
+    ARCH_UNAME=x86_64
+    ARCH_ALT=x86_64
+    ;;
+aarch64)
+    ARCH_DEB=arm64
+    ARCH_UNAME=aarch64
+    ARCH_ALT=arm64
+    ;;
+*)
+    echo "unsupported architecture: $(uname -m)" >&2
+    exit 1
+    ;;
+esac
 
 # ---------------------------------------------------------------------------
 # helpers
@@ -64,6 +94,9 @@ PYTHON_LATEST=3.14.6
 log() { printf '\n==> %s\n' "$*"; }
 warn() { printf 'WARN: %s\n' "$*" >&2; }
 have() { command -v "$1" >/dev/null 2>&1; }
+
+# the vendor only ships x86_64/amd64 builds
+need_amd64() { [ "$ARCH_DEB" = amd64 ] || defer "$1 is only available for amd64; skipping"; }
 
 # exit a step with the "deferred" status: not a failure, but not complete either
 defer() {
@@ -194,11 +227,6 @@ step_has_flag() { [[ "${STEP_FLAGS[$1]}" == *" $2 "* ]]; }
 # steps
 # ---------------------------------------------------------------------------
 
-# install/use display drivers (restart needed)
-# UPDATE: no longer needed as of resolute
-# sudo ubuntu-drivers autoinstall
-# sudo prime-select nvidia
-
 step apt_base core "system update and base apt packages"
 step_apt_base() {
     # make everything up-to-date and clean
@@ -265,9 +293,9 @@ step pyenv core "pyenv, python and python packages"
 step_pyenv() {
     [ -d "$PYENV_ROOT" ] || curl -fsSL https://pyenv.run | bash
     setup_env
-    pyenv install -s "$PYTHON_LATEST"
+    pyenv install -s "$PYTHON_VERSION"
     # and make it the global version
-    pyenv global "$PYTHON_LATEST"
+    pyenv global "$PYTHON_VERSION"
     # make sure that pip is up-to-date
     pip install --upgrade pip
     # then install some useful packages
@@ -283,12 +311,8 @@ step_ohmyzsh() {
     link "$PATH_TO_DOT_FILES/.zshrc" "$HOME/.zshrc"
     link "$PATH_TO_DOT_FILES/.zshenv" "$HOME/.zshenv"
     # change zsh to default. the install script can do this too, but only
-    # interactively.
-    # UPDATE: type may specify that an executable is hashed, which screws up the
-    # below (see https://askubuntu.com/a/446583/1014459 for what this means). which
-    # will do no such thing, so it's more reliable for this particular bit of
-    # automation
-    # type zsh | awk '{print $3}' | xargs -I{} sudo chsh -s {} $USER
+    # interactively. `which` rather than `type`, since type may report a hashed
+    # executable (see https://askubuntu.com/a/446583/1014459)
     which zsh | xargs -I{} sudo chsh -s {} "$USER"
 
     # install powerlevel10k config
@@ -297,10 +321,6 @@ step_ohmyzsh() {
     # install zsh-autosuggestions and rg
     clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
     clone https://github.com/pressdarling/rg-zsh-plugin "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/rg"
-
-    # install zplug. zplug is unacceptably slow to start on my machine. I may
-    # reenable this in the future after an upgrade
-    # curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 }
 
 step tmux core ".tmux config"
@@ -316,7 +336,7 @@ step_node() {
     # From https://nodejs.org/en/download:
     # Download and install nvm:
     [ -s "$HOME/.nvm/nvm.sh" ] ||
-        curl -fsSL -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+        curl -fsSL -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh" | bash
     export NVM_DIR="$HOME/.nvm"
     # nvm refuses to work when npm has a prefix configured, which we do below.
     # remove it for the duration so that this step can be repeated
@@ -325,7 +345,7 @@ step_node() {
     local rc=0
     trap - ERR
     set +eu
-    . "$NVM_DIR/nvm.sh" && nvm install 24
+    . "$NVM_DIR/nvm.sh" && nvm install "$NODE_MAJOR"
     rc=$?
     set -eu
     trap err_trap ERR
@@ -344,10 +364,6 @@ step_node() {
 step clangd_config core "clangd user config"
 step_clangd_config() {
     # clangd and doxygen themselves come from apt_base
-    # I previously had this installing clangd-9, but I'm not sure why (jammy is at
-    # v14, so v9 is pretty old). I'm leaving this here as a reminder that I might
-    # have had a legitimate reason
-    # sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-9 100
     # user-level clangd config (enables Doxygen parsing in hovers)
     link "$PATH_TO_DOT_FILES/clangd-config.yaml" "$HOME/.config/clangd/config.yaml"
 }
@@ -356,7 +372,7 @@ step fonts desktop "Nerd Font"
 step_fonts() {
     # install powerline fonts that work with vscode. chosen from the selection at
     # https://www.nerdfonts.com/font-downloads
-    wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/UbuntuMono.zip
+    wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v${NERD_FONTS_VERSION}/UbuntuMono.zip"
     unzip -o UbuntuMono.zip
     mkdir -p ~/.local/share/fonts
     mv -f UbuntuMonoNerdFont-Regular.ttf ~/.local/share/fonts/
@@ -429,15 +445,11 @@ step_rust() {
 
 step bat core "bat and bat-extras"
 step_bat() {
-    # install bat. per https://askubuntu.com/a/1300824/1014459, on 20.04 this needs
-    # some special magic
-    # sudo apt-get -y install -o Dpkg::Options::="--force-overwrite" bat
-    # the version of bat that apt uses for 20.04 throws an error when opening files
-    # inside a git repo. see
-    # https://github.com/sharkdp/bat/issues/2317#issuecomment-1248343739. we can
-    # just manually install the latest version instead
-    wget https://github.com/sharkdp/bat/releases/download/v0.26.1/bat_0.26.1_amd64.deb
-    sudo dpkg -i bat_0.26.1_amd64.deb
+    # install the release .deb rather than apt's older bat (which threw errors
+    # inside git repos on 20.04, see
+    # https://github.com/sharkdp/bat/issues/2317#issuecomment-1248343739)
+    wget "https://github.com/sharkdp/bat/releases/download/v${BAT_VERSION}/bat_${BAT_VERSION}_${ARCH_DEB}.deb"
+    sudo dpkg -i "bat_${BAT_VERSION}_${ARCH_DEB}.deb"
     # per https://github.com/sharkdp/bat#on-ubuntu-using-apt, bat might be installed
     # as batcat. set up a symlink so fzf can use it as bat
     have bat || ln -sf /usr/bin/batcat ~/.local/bin/bat
@@ -457,18 +469,12 @@ step_daml() {
 step nvim core "neovim (stable and nightly) and its config"
 step_nvim() {
     local bin="$HOME/.local/bin"
-    curl -fLo "$bin/nvim" https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
+    curl -fLo "$bin/nvim" "https://github.com/neovim/neovim/releases/latest/download/nvim-linux-${ARCH_ALT}.appimage"
     chmod u+x "$bin/nvim"
     ln -sf nvim "$bin/vim"
     # NOTE: nightly is needed for all treesitter features to work properly
-    curl -fLo "$bin/nvim.nightly" https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.appimage
+    curl -fLo "$bin/nvim.nightly" "https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-${ARCH_ALT}.appimage"
     chmod u+x "$bin/nvim.nightly"
-    # My old setup for reference
-    # mkdir -p $HOME/.config/nvim
-    # ln -sf $PATH_TO_DOT_FILES/init.vim $HOME/.config/nvim/init.vim
-    # ln -sf $PATH_TO_DOT_FILES/noplug.init.vim $HOME/.config/nvim/noplug.init.vim
-    # ln -sf $PATH_TO_DOT_FILES/ts.init.vim $HOME/.config/nvim/ts.init.vim
-    # ln -sf $PATH_TO_DOT_FILES/coc-settings.json $HOME/.config/nvim/coc-settings.json
     # LazyNvim setup
     link "$PATH_TO_DOT_FILES/lazy-nvim-config" "$HOME/.config/nvim"
 }
@@ -491,7 +497,7 @@ step_nvim_deps() {
     # create a virtual env specifically for nvim and install the relevant packages
     # in it. init.vim must specify g:python3_host_prog pointing to bin/python in
     # the vevn
-    pyenv virtualenvs --bare | grep -qx neovim || pyenv virtualenv "$PYTHON_LATEST" neovim
+    pyenv virtualenvs --bare | grep -qx neovim || pyenv virtualenv "$PYTHON_VERSION" neovim
     "$(pyenv prefix neovim)/bin/python" -m pip install wheel neovim
 }
 
@@ -514,24 +520,6 @@ step_vscode_settings() {
     link "$PATH_TO_DOT_FILES/vscode-settings.json" "$HOME/.config/Code/User/settings.json"
     link "$PATH_TO_DOT_FILES/vscode-keybindings.json" "$HOME/.config/Code/User/keybindings.json"
 }
-
-# install docker
-# FIXME: This is broken in resolute, if not earlier. Specifically, docker-ce and
-# friends don't exist anymore
-# sudo apt-get -y install \
-#     apt-transport-https \
-#     ca-certificates \
-#     curl \
-#     gnupg-agent \
-#     software-properties-common
-# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-# sudo add-apt-repository -y \
-#     "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-#    $(lsb_release -cs) \
-#    stable"
-# sudo apt-get -y install docker-ce docker-ce-cli containerd.io
-# give current user permission to run docker (requires restart)
-# sudo usermod -aG docker $USER
 
 step poetry core "poetry"
 step_poetry() {
@@ -557,16 +545,7 @@ step_inotify() {
 
 step btop core "btop config"
 step_btop() {
-    # btop itself comes from apt_base. It used to be built from source (which
-    # needed gcc-11, no longer available), and its desktop entry used to be
-    # created by hand. Neither is needed any more
-    # echo \[Desktop Entry\] > ~/.local/share/applications/Btop.desktop
-    # echo Name=Btop >> ~/.local/share/applications/Btop.desktop
-    # echo Exec=/usr/local/bin/btop >> ~/.local/share/applications/Btop.desktop
-    # echo StartupNotify=true >> ~/.local/share/applications/Btop.desktop
-    # echo Terminal=true >> ~/.local/share/applications/Btop.desktop
-    # echo Type=Application >> ~/.local/share/applications/Btop.desktop
-    # install the config file
+    # btop itself comes from apt_base. Install the config file
     link "$PATH_TO_DOT_FILES/btop.conf" "$HOME/.config/btop/btop.conf"
 }
 
@@ -579,21 +558,22 @@ step_grub() {
 
 step zotero desktop "zotero"
 step_zotero() {
-    [ ! -d ~/.local/standalone/Zotero_linux-x86_64 ] || {
+    local dir="Zotero_linux-${ARCH_ALT}"
+    [ ! -d ~/.local/standalone/"$dir" ] || {
         echo "zotero already installed"
         return 0
     }
-    wget 'https://www.zotero.org/download/client/dl?channel=release&platform=linux-x86_64' -O zotero.tar.xz
+    wget "https://www.zotero.org/download/client/dl?channel=release&platform=linux-${ARCH_ALT}" -O zotero.tar.xz
     tar xf zotero.tar.xz
     wget https://www.zotero.org/support/_media/logo/zotero_128x128x32.png
-    mv zotero_128x128x32.png Zotero_linux-x86_64/
-    sed -i 's@zotero\.ico@'"$HOME"'/.local/standalone/Zotero_linux-x86_64/zotero_128x128x32.png@' \
-        Zotero_linux-x86_64/zotero.desktop
+    mv zotero_128x128x32.png "$dir/"
+    sed -i "s@zotero\.ico@$HOME/.local/standalone/$dir/zotero_128x128x32.png@" \
+        "$dir/zotero.desktop"
     mkdir -p ~/.local/standalone
-    mv Zotero_linux-x86_64 ~/.local/standalone/
-    ln -sf ~/.local/standalone/Zotero_linux-x86_64/zotero ~/.local/bin/
+    mv "$dir" ~/.local/standalone/
+    ln -sf ~/.local/standalone/"$dir"/zotero ~/.local/bin/
     mkdir -p ~/.local/share/applications
-    ln -sf ~/.local/standalone/Zotero_linux-x86_64/zotero.desktop ~/.local/share/applications/
+    ln -sf ~/.local/standalone/"$dir"/zotero.desktop ~/.local/share/applications/
 }
 
 step snaps desktop "snap apps (spotify, gimp, vlc, ctags)"
@@ -612,8 +592,8 @@ step_veracrypt() {
     apt_get --fix-broken install
     # the release publishes a build per Ubuntu version
     local deb
-    deb="veracrypt-1.26.29-Ubuntu-$(ubuntu_version)-amd64.deb"
-    wget "https://launchpad.net/veracrypt/trunk/1.26.29/+download/$deb"
+    deb="veracrypt-${VERACRYPT_VERSION}-Ubuntu-$(ubuntu_version)-${ARCH_DEB}.deb"
+    wget "https://launchpad.net/veracrypt/trunk/${VERACRYPT_VERSION}/+download/$deb"
     sudo dpkg -i "$deb"
 }
 
@@ -622,8 +602,7 @@ step_haskell() {
     export BOOTSTRAP_HASKELL_NONINTERACTIVE=1
     export BOOTSTRAP_HASKELL_INSTALL_STACK=1
     export BOOTSTRAP_HASKELL_INSTALL_HLS=1
-    # .zshrc already contains the relevant line
-    # export BOOTSTRAP_HASKELL_ADJUST_BASHRC=1;
+    # .zshrc already contains the relevant line, so don't touch bashrc
     curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 }
 
@@ -682,8 +661,8 @@ step_unclutter() {
 
 step delta core "delta"
 step_delta() {
-    wget https://github.com/dandavison/delta/releases/download/0.20.1/git-delta_0.20.1_amd64.deb
-    sudo dpkg -i git-delta_0.20.1_amd64.deb
+    wget "https://github.com/dandavison/delta/releases/download/${DELTA_VERSION}/git-delta_${DELTA_VERSION}_${ARCH_DEB}.deb"
+    sudo dpkg -i "git-delta_${DELTA_VERSION}_${ARCH_DEB}.deb"
 }
 
 step navi core "navi"
@@ -693,32 +672,15 @@ step_navi() {
 
 step lua core "lua and luarocks"
 step_lua() {
-    curl -fL -R -O https://www.lua.org/ftp/lua-5.5.0.tar.gz
-    tar zxf lua-5.5.0.tar.gz
-    (cd lua-5.5.0 && make all test && sudo make install)
+    curl -fL -R -O "https://www.lua.org/ftp/lua-${LUA_VERSION}.tar.gz"
+    tar zxf "lua-${LUA_VERSION}.tar.gz"
+    (cd "lua-${LUA_VERSION}" && make all test && sudo make install)
     # lua5.1 (apt_base) must also be in PATH, see there. That makes it
     # luarocks' preferred interpreter, so point configure at the lua just built
-    curl -fR -O https://luarocks.github.io/luarocks/releases/luarocks-3.13.0.tar.gz
-    tar zxf luarocks-3.13.0.tar.gz
-    (cd luarocks-3.13.0 && ./configure --with-lua=/usr/local && make && sudo make install)
-    # This isn't available on lua 5.5. lua -i can be used as an alternative
-    # luarocks install croissant --local
+    curl -fR -O "https://luarocks.github.io/luarocks/releases/luarocks-${LUAROCKS_VERSION}.tar.gz"
+    tar zxf "luarocks-${LUAROCKS_VERSION}.tar.gz"
+    (cd "luarocks-${LUAROCKS_VERSION}" && ./configure --with-lua=/usr/local && make && sudo make install)
 }
-
-# install HoDoKu. Note that this relies on java being available (default-jre is
-# installed above)
-# FIXME: The jar reads as corrupt on resolute/jre(v?)
-# mkdir -p ~/.local/jars/
-# wget -o ~/.local/jars/hodoku.jar https://netactuate.dl.sourceforge.net/project/hodoku/hodoku/hodoku_2.2.0/hodoku.jar
-# echo \[Desktop Entry\] >~/.local/share/applications/Hodoku.desktop
-# echo Name=HoDoKu >>~/.local/share/applications/Hodoku.desktop
-# echo Exec=java -jar $HOME/.local/jars/hodoku.jar >>~/.local/share/applications/Hodoku.desktop
-# echo StartupNotify=true >>~/.local/share/applications/Hodoku.desktop
-# echo Terminal=true >>~/.local/share/applications/Hodoku.desktop
-# echo Type=Application >>~/.local/share/applications/Hodoku.desktop
-# This probably isn't necessary in an installation situation, but it's useful
-# when making changes as an admin
-# sudo update-desktop-database
 
 step kitty desktop "kitty, its config, kitty_grab and theme"
 step_kitty() {
@@ -761,8 +723,11 @@ step_kitty() {
 step lazygit core "lazygit"
 step_lazygit() {
     local version
-    version=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-    curl -fLo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${version}_Linux_x86_64.tar.gz"
+    # the redirect from /releases/latest names the newest tag; unlike the API,
+    # asking for it isn't rate limited
+    version=$(curl -fsSI -o /dev/null -w '%{redirect_url}' https://github.com/jesseduffield/lazygit/releases/latest)
+    version=${version##*/v}
+    curl -fLo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${version}_Linux_${ARCH_ALT}.tar.gz"
     tar xf lazygit.tar.gz lazygit
     sudo install lazygit /usr/local/bin
     link "$PATH_TO_DOT_FILES/lazygit-config.yml" "$HOME/.config/lazygit/config.yml"
@@ -775,8 +740,9 @@ step_fd() {
 
 step iriun desktop "iriun webcam"
 step_iriun() {
-    wget https://iriun.gitlab.io/iriunwebcam-2.9.1.deb
-    sudo dpkg -i iriunwebcam-2.9.1.deb
+    need_amd64 "iriun"
+    wget "https://iriun.gitlab.io/iriunwebcam-${IRIUN_VERSION}.deb"
+    sudo dpkg -i "iriunwebcam-${IRIUN_VERSION}.deb"
     apt_install libqt5widgets5 v4l2loopback-dkms
     apt_get --fix-broken install
 }
@@ -805,8 +771,9 @@ step_gdctl() {
 
 step go core "go"
 step_go() {
-    wget https://go.dev/dl/go1.26.5.linux-amd64.tar.gz
-    sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.26.5.linux-amd64.tar.gz
+    local f="go${GO_VERSION}.linux-${ARCH_DEB}.tar.gz"
+    wget "https://go.dev/dl/$f"
+    sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf "$f"
 }
 
 step crush core "crush and its config"
@@ -832,8 +799,8 @@ step arm_toolchain core "Arm GNU EABI toolchain"
 step_arm_toolchain() {
     # install Arm GNU EABI (Embedded Application Binary Interface) toolchain. See
     # https://gitlab.arm.com/tooling/gnu-toolchains-for-arm/-/tree/releases/15.3.rel1
-    local f=arm-gnu-toolchain-15.3.rel1-x86_64-arm-none-eabi.tar.xz
-    wget "https://gitlab.arm.com/api/v4/projects/tooling%2Fgnu-toolchains-for-arm/packages/generic/gnu-toolchain/15.3.rel1/$f"
+    local f="arm-gnu-toolchain-${ARM_TOOLCHAIN_VERSION}-${ARCH_UNAME}-arm-none-eabi.tar.xz"
+    wget "https://gitlab.arm.com/api/v4/projects/tooling%2Fgnu-toolchains-for-arm/packages/generic/gnu-toolchain/${ARM_TOOLCHAIN_VERSION}/$f"
     mkdir -p ~/.local/share
     tar xJf "$f" -C ~/.local/share
 }
@@ -846,6 +813,7 @@ step_todoist() {
 
 step clockify desktop "Clockify"
 step_clockify() {
+    need_amd64 "clockify"
     wget https://clockify.me/downloads/Clockify_Setup_x64.deb
     sudo dpkg -i Clockify_Setup_x64.deb
 }
@@ -964,6 +932,7 @@ run_steps() {
         printf 'optional, not run: %s (use --with)\n' "${not_selected[*]}"
     printf 'FAILED:           %s\n' "${failed[*]:-none}"
     printf 'log:              %s\n' "$LOG_FILE"
+    print_checklist
     if [ "${#failed[@]}" -gt 0 ]; then
         printf 'Retry with:       %s --only %s\n' "$0" "$(
             IFS=,
@@ -971,6 +940,21 @@ run_steps() {
         )"
         return 1
     fi
+}
+
+# manual follow-ups that apply to what this run did. done_steps and deferred
+# are the caller's (run_steps') locals
+print_checklist() {
+    local items=()
+    in_list claude_config "${deferred[@]}" &&
+        items+=("Finish the Claude config: run 'gh auth login', then $0 --only claude_config")
+    in_list ohmyzsh "${done_steps[@]}" && items+=("Log out and back in so zsh becomes your login shell")
+    in_list flatpak "${done_steps[@]}" && items+=("Reboot before using HandBrake (flatpak)")
+    in_list nvim "${done_steps[@]}" &&
+        items+=("Start nvim once and let lazy.nvim finish installing, then restart it and run :checkhealth")
+    [ "${#items[@]}" -gt 0 ] || return 0
+    printf '\nTo do next:\n'
+    printf '  - %s\n' "${items[@]}"
 }
 
 list_steps() {
