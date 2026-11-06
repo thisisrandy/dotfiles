@@ -38,9 +38,9 @@ that are worth remembering when touching it. The git history has the code.
   preferred interpreter, which is why luarocks is configured with
   `--with-lua=/usr/local`.
 - **navi cheatsheets:** `navi repo add` asks questions and then launches navi,
-  so the `navi` step clones the repo and copies the `.cheat` files into the
-  cheats path itself (the same layout `repo add` produces). Before this, adding
-  my sheets was a manual step in the README.
+  so the `navi` step clones the default repo and mine and copies the `.cheat`
+  files into the cheats path itself (the same layout `repo add` produces).
+  Before this, adding the sheets was a manual step in the README.
 - **ssh from kitty:** a remote machine needs kitty's terminfo or the prompt and
   cursor are drawn wrongly. That's the `terminfo` step.
 - **unclutter on Wayland:** the associated `unclutter-startup` is broken, see
