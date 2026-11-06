@@ -463,7 +463,12 @@ step_bat() {
 
 step daml core "daml"
 step_daml() {
-    curl -sSL https://get.daml.com/ | sh
+    # the installer unpacks the SDK (a large jar) under $TMPDIR, and /tmp can be
+    # a tmpfs with a per-user quota ("Disk quota exceeded"). Use disk instead
+    local tmp="$HOME/.cache/daml-tmp"
+    mkdir -p "$tmp"
+    TMPDIR="$tmp" curl -sSL https://get.daml.com/ | TMPDIR="$tmp" sh
+    rm -rf "$tmp"
 }
 
 step nvim core "neovim (stable and nightly) and its config"
