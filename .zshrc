@@ -173,8 +173,12 @@ setopt EXTENDED_GLOB
 # enable and customize vi-style key bindings in .tmux
 export EDITOR=vim
 # we also need to turn down the key repeat delay to enable interactive split
-# resizing
-xset r rate 200 40
+# resizing. Needs an X display, which e.g. ssh sessions don't have. The error
+# it would print is also console output during init, which garbles
+# powerlevel10k's instant prompt
+if [[ -n $DISPLAY ]] && (( $+commands[xset] )); then
+  xset r rate 200 40
+fi
 
 # Always use _files completion for delta, which otherwise doesn't autocomplete
 # a second file name. Since the only way I use delta directly is to compare two
