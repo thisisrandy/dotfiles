@@ -155,9 +155,11 @@ the answer and then use the `Disks` GUI to set up auto-unlock/mount.
 
 #### navi
 
-This first time running [navi](https://github.com/denisidoro/navi), it will
-need to load cheat sheet repos. After installing the default, make sure to also
-run `navi add thisisrandy/cheatsheets`.
+The `navi` step of `install.sh` installs
+[navi](https://github.com/denisidoro/navi) and my cheat sheets
+(`thisisrandy/cheatsheets`). The first time running navi, it will also offer
+the default cheat sheet repo, which is worth accepting. To add a repo by hand,
+use `navi repo add <user>/<repo>`.
 
 #### Audio sleep
 

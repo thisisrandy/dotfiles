@@ -665,9 +665,20 @@ step_delta() {
     sudo dpkg -i "git-delta_${DELTA_VERSION}_${ARCH_DEB}.deb"
 }
 
-step navi core "navi"
+step navi core "navi and my cheatsheets"
 step_navi() {
     cargo install --locked navi
+    # my cheatsheets. `navi repo add thisisrandy/cheatsheets` does the same
+    # thing (clone, then copy the .cheat files into <cheats path>/user__repo),
+    # but then it asks questions and launches navi, which doesn't suit an
+    # unattended install. The default sheets (denisidoro/cheats) aren't added;
+    # navi offers them on first run
+    local dest
+    dest="$(navi info cheats-path)/thisisrandy__cheatsheets"
+    git clone --depth=1 https://github.com/thisisrandy/cheatsheets cheatsheets
+    rm -rf "$dest"
+    mkdir -p "$dest"
+    (cd cheatsheets && find . -name '*.cheat' -exec cp --parents {} "$dest" \;)
 }
 
 step lua core "lua and luarocks"
