@@ -848,13 +848,10 @@ step_markdownlint() {
 
 step speedtest core "speedtest"
 step_speedtest() {
-    if only_on 26.04; then
-        # speedtest doesn't support resolute as of writing, so pretend we're on jammy
-        echo "deb [signed-by=/etc/apt/keyrings/ookla_speedtest-cli-archive-keyring.gpg] https://packagecloud.io/ookla/speedtest-cli/ubuntu jammy main" |
-            sudo tee /etc/apt/sources.list.d/ookla_speedtest-cli.list
-    else
-        curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
-    fi
+    # speedtest doesn't support resolute or noble as of writing, so pretend
+    # we're on jammy
+    echo "deb [signed-by=/etc/apt/keyrings/ookla_speedtest-cli-archive-keyring.gpg] https://packagecloud.io/ookla/speedtest-cli/ubuntu jammy main" |
+        sudo tee /etc/apt/sources.list.d/ookla_speedtest-cli.list
     sudo apt-get update
     sudo apt-get install -y speedtest
 }
