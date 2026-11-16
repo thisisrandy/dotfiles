@@ -161,6 +161,9 @@ export PATH=/home/randy/.opencode/bin:$PATH
 # Arm GNU EABI Toolchain
 export PATH=~/.local/share/arm-gnu-toolchain-15.3.rel1-x86_64-arm-none-eabi/bin:$PATH
 
+# STM32CubeProgrammer as installed via the VS Code extension
+export PATH=~/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/:$PATH
+
 # history
 export HISTSIZE=1000000
 setopt HIST_IGNORE_ALL_DUPS
