@@ -248,6 +248,7 @@ step_apt_base() {
         ssh shfmt translate-shell
         7zip bzip3 unzip xz-utils gpg "$fuse"
         clangd doxygen imagemagick pass fd-find btop
+        pandoc
         # pyenv build environment, per
         # https://github.com/pyenv/pyenv/wiki#suggested-build-environment
         build-essential libssl-dev zlib1g-dev
