@@ -5,10 +5,10 @@ Usage: clockify-report.py START END      (inclusive dates, YYYY-MM-DD)
 
 Requires CLOCKIFY_API_KEY in the environment. Output is tab-separated:
 
-    project <TAB> date <TAB> description <TAB> hours
+    Date <TAB> Client <TAB> Project <TAB> Description <TAB> Hours
 
 Rounding:
-  1. Each (project, description) task's daily total is rounded to the nearest 6 minutes.
+  1. Each (client, project, description) task's daily total is rounded to the nearest 6 minutes.
   2. The day's rounding error (raw - rounded, summed over tasks) is collected.
   3. That error is added to the day's last task, which is rounded again.
      Whatever error remains is shown in the day's "(rounding error)" row.
@@ -16,7 +16,7 @@ Rounding:
      of the last day, and rounded one final time.
   5. The leftover is shown in the final "(period rounding error)" row.
 
-A task is a (project, description) pair. Days are in the user's Clockify time zone, keyed by entry start time. Tasks
+A task is a (client, project, description) triple. Days are in the user's Clockify time zone, keyed by entry start time. Tasks
 within a day are ordered by first start time; the latest-starting one is
 "last". Running timers are skipped with a warning.
 """
@@ -80,7 +80,7 @@ def parse_utc(s):
 
 
 def aggregate(entries, tz):
-    """-> {date: OrderedDict((project, description) -> raw seconds)}, tasks ordered by first start."""
+    """-> {date: OrderedDict((client, project, description) -> raw seconds)}, tasks ordered by first start."""
     days = {}
     for e in sorted(entries, key=lambda e: e["timeInterval"]["start"]):
         iv = e["timeInterval"]
@@ -90,9 +90,11 @@ def aggregate(entries, tz):
         start = parse_utc(iv["start"])
         secs = int((parse_utc(iv["end"]) - start).total_seconds())
         # Keep fields one-line and tab-free.
-        project = " ".join(((e.get("project") or {}).get("name") or "(no project)").split())
+        proj = e.get("project") or {}
+        client = " ".join((proj.get("clientName") or "(no client)").split())
+        project = " ".join((proj.get("name") or "(no project)").split())
         desc = " ".join((e.get("description") or "(no description)").split())
-        name = (project, desc)
+        name = (client, project, desc)
         day = start.astimezone(tz).date()
         tasks = days.setdefault(day, OrderedDict())
         tasks[name] = tasks.get(name, 0) + secs
@@ -141,12 +143,12 @@ def main():
         day_err[last_day] -= rows[last_day][-1][1] - before
         period_err = period_err - (rows[last_day][-1][1] - before)
 
-    print("project\tdate\tdescription\thours")
+    print("Date\tClient\tProject\tDescription\tHours")
     for day in sorted(rows):
-        for (project, desc), secs in rows[day]:
-            print(f"{project}\t{day}\t{desc}\t{hours(secs)}")
-        print(f"\t{day}\t(rounding error)\t{err_hours(day_err[day])}")
-    print(f"\t{start}..{end}\t(period rounding error)\t{err_hours(period_err)}")
+        for (client, project, desc), secs in rows[day]:
+            print(f"{day}\t{client}\t{project}\t{desc}\t{hours(secs)}")
+        print(f"{day}\t\t\t(rounding error)\t{err_hours(day_err[day])}")
+    print(f"{start}..{end}\t\t\t(period rounding error)\t{err_hours(period_err)}")
 
 
 if __name__ == "__main__":
