@@ -654,6 +654,7 @@ step_claude_config() {
     [ -d ~/git/claude-config ] || gh repo clone thisisrandy/claude-config ~/git/claude-config
     link ~/git/claude-config/CLAUDE.md "$HOME/.claude/CLAUDE.md"
     link ~/git/claude-config/settings.json "$HOME/.claude/settings.json"
+    link ~/git/claude-config/keybindings.json "$HOME/.claude/keybindings.json"
 }
 
 step unclutter desktop "unclutter (hide idle mouse pointer)"
